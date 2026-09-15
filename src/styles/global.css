@@ -125,3 +125,5 @@ html{scroll-padding-top:9rem}body{transition:none}.site-header{position:sticky;t
 @media print{.print-identity{display:block;font:600 13pt/18pt var(--ui);margin-bottom:8pt}.home-section{margin-top:24pt}.metric-band dd{font-size:20pt;line-height:24pt}.metric-band{padding:12pt 0;gap:12pt}.metric-band dt,.eligibility{font-size:10pt;line-height:14pt}.section-heading{padding-bottom:10pt;margin-bottom:12pt}.featured-study h3{break-after:avoid}.boundary-callout p{font-size:11pt;line-height:16pt}.hero-copy h1{margin-bottom:12pt}}
 .site-header nav a{white-space:nowrap;flex:0 0 auto}
 @media(max-width:760px){.site-header nav{flex-wrap:wrap;justify-content:flex-start;gap:0 1rem;max-width:100%;overflow:visible}}
+html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-document>h2,h2{scroll-margin-top:0}.contents{top:var(--header-offset,8rem);max-height:calc(100vh - var(--header-offset,8rem) - 1rem)}
+@media print{html{scroll-padding-top:0}.contents{display:none}}

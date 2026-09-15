@@ -48,7 +48,7 @@ No new short card descriptions were authored. Existing card sentences fit the re
 - Heading rules and walkthrough edges: transform-based wipes over 600 ms.
 - Entrance easing: cubic-bezier(0.16, 1, 0.3, 1).
 - Keyboard-operable native filter buttons expose pressed state and announce result count.
-- Active section navigation and smooth anchors.
+- Active section navigation and smooth anchors. Anchor clearance follows the measured sticky-header height, including wrapped mobile navigation.
 - Video stays on its poster until desktop hover or native play controls on touch devices. Offscreen or hidden-tab video pauses; reduced-motion users retain explicit controls.
 - Reduced motion cancels entrances and wipes and removes transforms and transition durations. Metrics never count up.
 - Mobile navigation wraps; metric band becomes two columns; project cards become one column; walkthrough and Approach cards become one column on narrow screens. The featured image moves ahead of its detailed text.
@@ -57,10 +57,10 @@ No new short card descriptions were authored. Existing card sentences fit the re
 
 The remote update removing repetitive arrows from project links was retained before deployment.
 
-- Production build and route/link/media/state checks pass.
+- Production build and route/link/media/state checks pass. GitHub Actions independently recorded performance 97–100, accessibility 100, and best practices 100 across all eleven routes in both modes.
 - Lighthouse at 390 px: all eleven routes, both modes, performance 100, accessibility 100, best practices 100.
 - Lighthouse desktop: homepage and THOR-5F, both modes, performance 100, accessibility 100, best practices 100, using the official desktop preset.
-- Narrow 320 px checks: homepage and validation, both modes, performance/accessibility/best practices 100. Navigation wraps at word boundaries.
+- Narrow 320 px checks: homepage and validation, both modes, performance 98–100 and accessibility/best practices 100. Navigation wraps at word boundaries.
 - Font preloading eliminated the measured layout shift: CLS 0 in these runs.
 - Source Serif 4 and Source Sans 3, approved type sizes, weights, 70ch prose measure, spacing tokens, narrow H1 32/38, and OFL notices are retained.
 - Print render inspected for the homepage, validation, and capstone; readable black-on-white text, tables, expanded disclosures, figure captions, and video posters.
@@ -80,6 +80,8 @@ The remote update removing repetitive arrows from project links was retained bef
 | light | #24282b | #f0efeb | 12.91:1 |
 | light | #535b61 | #f0efeb | 6.01:1 |
 | light | #235b73 | #f0efeb | 6.48:1 |
+
+External GitHub and published-paper links resolve. LinkedIn returns HTTP 999 to automated checks and remains manually unverified.
 
 ## Files materially changed
 

@@ -60,6 +60,8 @@ const canonical = new URL(page.route, Astro.site);
     <footer><a href="mailto:ptemmanual@gmail.com">Email</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a><a href="#main">Back to top</a></footer>
     <script>
       const root = document.documentElement;
+      const header=document.querySelector<HTMLElement>('.site-header');
+      if(header){const measureHeader=()=>root.style.setProperty('--header-offset',`${header.offsetHeight+24}px`);measureHeader();new ResizeObserver(measureHeader).observe(header);}
       const button = document.querySelector<HTMLButtonElement>('.theme-toggle')!;
       const system = matchMedia('(prefers-color-scheme: dark)');
       const dark = () => root.dataset.theme ? root.dataset.theme==='dark' : system.matches;
@@ -71,7 +73,7 @@ const canonical = new URL(page.route, Astro.site);
       const adapt=()=>{if(detail)detail.open=!narrow.matches;};adapt();narrow.addEventListener('change',adapt);
       const links=[...document.querySelectorAll<HTMLAnchorElement>('.contents a, .homepage .site-header nav a')];
       const observed=[...document.querySelectorAll<HTMLHeadingElement>('article h2[id], .homepage .home-section[id]')];
-      const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){links.forEach(a=>{if(a.hash==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}},{rootMargin:'-5% 0px -75% 0px'});
+      const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){links.forEach(a=>{if(a.hash==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}},{rootMargin:'-5% 0px -50% 0px'});
       observed.forEach(h=>observer.observe(h));
       const reduced=matchMedia('(prefers-reduced-motion: reduce)');
       const entrance={duration:400,easing:'cubic-bezier(0.16, 1, 0.3, 1)'};

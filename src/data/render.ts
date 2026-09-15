@@ -16,13 +16,14 @@ export function render(text: string, label: string) {
   });
   let output = marked.parse(text, {gfm:true}) as string;
   output = output.replace(/<pre>/g, `<pre tabindex="0" aria-label="${escape(label)} code excerpt">`);
-  // Preserve the exact words while removing decorative prose emphasis.
-  // Lift complete metric-bearing paragraphs into their own callouts.
-  output = output.replace(/<p>([\s\S]*?)<\/p>/g, (whole, body) => {
-    const hasMetric = /<strong>[^<]*\d[^<]*<\/strong>/.test(body);
-    const cleaned = body.replace(/<strong>([\s\S]*?)<\/strong>/g, (_m:string, value:string) => /\d/.test(value) ? `<strong>${value}</strong>` : value);
-    return hasMetric && !/<a |<br/.test(body) ? `<div class="metric-statement"><p>${cleaned}</p></div>` : `<p>${cleaned}</p>`;
+  // Extract existing numeric emphasis without changing its surrounding sentence.
+  // Colon-led labels become separate metadata elements, with their words retained.
+  output = output.replace(/<(p|li)>([\s\S]*?)<\/\1>/g, (whole, tag, body) => {
+    const values=[...body.matchAll(/<strong>([^<]+)<\/strong>/g)].map(m=>m[1]).filter(value=>/^(?:[<>~≈]\s*)?\d/.test(value));
+    let cleaned=body.replace(/^<strong>([^<]+:)<\/strong>\s*/, '<span class="prose-label">$1</span>');
+    cleaned=cleaned.replace(/<strong>([\s\S]*?)<\/strong>/g,'$1');
+    const metrics=values.length?`<span class="prose-metrics">${[...new Set(values)].map(value=>`<span>${value}</span>`).join('')}</span>`:'';
+    return `<${tag}>${metrics}${cleaned}</${tag}>`;
   });
-  output = output.replace(/<li>([\s\S]*?)<\/li>/g, (whole, body) => `<li${/<strong>[^<]*\d[^<]*<\/strong>/.test(body) ? ' class="metric-statement"' : ''}>${body.replace(/<strong>([\s\S]*?)<\/strong>/g, (_m:string,value:string)=>/\d/.test(value)?`<strong>${value}</strong>`:value)}</li>`);
   return output;
 }

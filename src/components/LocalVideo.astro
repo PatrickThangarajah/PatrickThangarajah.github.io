@@ -19,26 +19,22 @@ const placeholder = isPlaceholder(webm);
 </figure>
 <script>
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const pointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   document.querySelectorAll<HTMLVideoElement>('.local-video video').forEach(video => {
-    let inView = false;
-    let userPaused = false;
-    let programmaticPause = false;
     video.muted = true;
-    const pause = () => { programmaticPause = true; video.pause(); };
-    const sync = () => {
-      if (!inView || document.hidden || motion.matches) { pause(); return; }
-      if (!userPaused) { programmaticPause = false; video.play().catch(() => {}); }
-    };
-    video.addEventListener('pause', () => {
-      if (!programmaticPause && inView && !document.hidden) userPaused = true;
-    });
-    video.addEventListener('play', () => { userPaused = false; programmaticPause = false; });
-    const observer = new IntersectionObserver(entries => {
-      inView = entries[0].isIntersecting;
-      sync();
-    }, { threshold: 0.25 });
+    let inView=false;
+    let hovering=false;
+    let userPaused=false;
+    let automaticPause=false;
+    const pause=()=>{automaticPause=true;video.pause();};
+    const sync=()=>{if(!inView||document.hidden||motion.matches||!hovering){pause();return;}if(pointer.matches&&!userPaused){automaticPause=false;video.play().catch(()=>{});}};
+    video.addEventListener('pointerenter',()=>{hovering=true;userPaused=false;sync();});
+    video.addEventListener('pointerleave',()=>{hovering=false;if(pointer.matches)pause();});
+    video.addEventListener('pause',()=>{if(!automaticPause)userPaused=true;});
+    video.addEventListener('play',()=>{automaticPause=false;userPaused=false;});
+    const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;if(!inView)pause();},{threshold:.25});
     observer.observe(video);
-    motion.addEventListener('change', sync);
-    document.addEventListener('visibilitychange', sync);
+    motion.addEventListener('change',()=>{if(motion.matches)pause();});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
   });
 </script>

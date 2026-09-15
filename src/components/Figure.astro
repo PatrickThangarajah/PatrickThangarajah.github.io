@@ -1,0 +1,12 @@
+---
+import {isPlaceholder} from '../data/media';
+const {asset, number} = Astro.props;
+const placeholder = isPlaceholder(asset.path);
+---
+<figure id={`figure-${number}`}>
+  <a class="figure-link" href={asset.path} aria-label={`Open Figure ${number} at full size`}>
+    <img src={asset.path} alt={placeholder ? `Placeholder for: ${asset.alt}` : asset.alt} width={asset.width} height={asset.height} loading="lazy" decoding="async" />
+  </a>
+  <figcaption><span class="figure-number">Figure {number}.</span> {asset.caption}</figcaption>
+  {placeholder && <p class="asset-status">Placeholder. Original figure pending.</p>}
+</figure>

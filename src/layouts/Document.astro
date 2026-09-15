@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import assets from '../data/assets.json';
+import Figure from '../components/Figure.astro';
+import LocalVideo from '../components/LocalVideo.astro';
+import Download from '../components/Download.astro';
+import {render} from '../data/render';
+const {page} = Astro.props;
+const headings = page.blocks.filter((b:any)=>b.type==='heading');
+const canonical = new URL(page.route, Astro.site);
+---
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content={page.title} />
+    <title>{page.title}{page.slug ? ' | Patrick Thangarajah' : ''}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="font" href="/fonts/source-serif-4-latin-400-normal.woff2" type="font/woff2" crossorigin />
+    <script is:inline>
+      try { const preference = localStorage.getItem('theme'); if(preference === 'light' || preference === 'dark') document.documentElement.dataset.theme = preference; } catch {}
+    </script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="site-header">
+      <a class="identity" href="/">Patrick Thangarajah</a>
+      <nav aria-label="Primary"><a href="/#selected-work">Projects</a><a href="/#resume">Resume</a><a href="/#contact">Contact</a></nav>
+      <button class="theme-toggle" type="button" aria-label="Use dark mode" aria-pressed="false">Dark mode</button>
+    </header>
+    <div class="document-grid">
+      <aside class="contents">
+        <details open>
+          <summary>On this page</summary>
+          <nav aria-label="On this page"><ol>{headings.map((h:any)=><li><a href={`#${h.id}`}>{h.title}</a></li>)}</ol></nav>
+        </details>
+      </aside>
+      <main id="main" tabindex="-1">
+        {page.slug && <a class="back-link" href="/#selected-work">All projects</a>}
+        <article>
+          <h1>{page.title}</h1>
+          {page.blocks.map((block:any) => {
+            if(block.type==='heading') return <h2 id={block.id}>{block.title}<a class="heading-anchor" href={`#${block.id}`} aria-label={`Link to ${block.title}`}>§</a></h2>;
+            if(block.type==='markdown') return <div class="prose-block" set:html={render(block.text,page.title)} />;
+            if(block.type==='download') return <Download id={block.id} />;
+            const a = (assets as any)[block.id];
+            return a.type==='video' ? <LocalVideo webm={a.path} mp4={a.mp4} poster={a.poster} caption={a.caption} description={a.description} alt={a.alt} number={block.number} width={a.width} height={a.height} /> : <Figure asset={a} number={block.number} />;
+          })}
+        </article>
+      </main>
+    </div>
+    <footer><a href="mailto:ptemmanual@gmail.com">Email</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a><a href="#main">Back to top</a></footer>
+    <script>
+      const root = document.documentElement;
+      const button = document.querySelector<HTMLButtonElement>('.theme-toggle')!;
+      const system = matchMedia('(prefers-color-scheme: dark)');
+      const dark = () => root.dataset.theme ? root.dataset.theme==='dark' : system.matches;
+      const update = () => { button.textContent = dark() ? 'Light mode' : 'Dark mode'; button.setAttribute('aria-label',dark()?'Use light mode':'Use dark mode'); button.setAttribute('aria-pressed',String(dark())); };
+      update(); system.addEventListener('change',update);
+      button.addEventListener('click',()=>{root.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('theme',root.dataset.theme);}catch{}update();});
+      const detail=document.querySelector<HTMLDetailsElement>('.contents details')!;
+      const narrow=matchMedia('(max-width: 1100px)');
+      const adapt=()=>{detail.open=!narrow.matches;};adapt();narrow.addEventListener('change',adapt);
+      const links=[...document.querySelectorAll<HTMLAnchorElement>('.contents a')];
+      const observed=[...document.querySelectorAll<HTMLHeadingElement>('article h2[id]')];
+      const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){links.forEach(a=>{if(a.hash==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}},{rootMargin:'-5% 0px -75% 0px'});
+      observed.forEach(h=>observer.observe(h));
+    </script>
+  </body>
+</html>

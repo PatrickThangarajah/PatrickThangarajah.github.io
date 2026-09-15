@@ -1,0 +1,7 @@
+---
+import Document from '../../layouts/Document.astro';
+import pages from '../../data/pages.json';
+export function getStaticPaths() { return pages.filter(p=>p.slug).map(page=>({params:{slug:page.slug},props:{page}})); }
+const {page} = Astro.props;
+---
+<Document page={page} />

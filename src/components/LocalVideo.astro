@@ -1,0 +1,44 @@
+---
+import { isPlaceholder } from '../data/media';
+interface Props { webm: string; mp4: string; poster: string; caption: string; description: string; alt: string; number: number; width: number; height: number; }
+const {webm, mp4, poster, caption, description, alt, number, width, height} = Astro.props;
+if (!poster || !webm || !mp4 || !description) throw new Error('LocalVideo requires both sources, a poster, and a description.');
+const id = `video-${number}`;
+const placeholder = isPlaceholder(webm);
+---
+<figure class="local-video" aria-labelledby={`${id}-caption`}>
+  <video id={id} width={width} height={height} poster={poster} muted loop playsinline preload="metadata" controls aria-label={caption} aria-describedby={`${id}-description`}>
+    <source src={webm} type="video/webm" />
+    <source src={mp4} type="video/mp4" />
+    <p>{description} <a href={mp4}>Download the MP4 video</a>.</p>
+  </video>
+  <img class="print-poster" src={poster} width={width} height={height} alt={placeholder ? `Placeholder poster: ${alt}` : alt} />
+  <figcaption id={`${id}-caption`}><span class="figure-number">Figure {number}.</span> {caption}</figcaption>
+  <p class="figure-description" id={`${id}-description`}>{description}</p>
+  {placeholder && <p class="asset-status">Placeholder animation. Original file pending.</p>}
+</figure>
+<script>
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll<HTMLVideoElement>('.local-video video').forEach(video => {
+    let inView = false;
+    let userPaused = false;
+    let programmaticPause = false;
+    video.muted = true;
+    const pause = () => { programmaticPause = true; video.pause(); };
+    const sync = () => {
+      if (!inView || document.hidden || motion.matches) { pause(); return; }
+      if (!userPaused) { programmaticPause = false; video.play().catch(() => {}); }
+    };
+    video.addEventListener('pause', () => {
+      if (!programmaticPause && inView && !document.hidden) userPaused = true;
+    });
+    video.addEventListener('play', () => { userPaused = false; programmaticPause = false; });
+    const observer = new IntersectionObserver(entries => {
+      inView = entries[0].isIntersecting;
+      sync();
+    }, { threshold: 0.25 });
+    observer.observe(video);
+    motion.addEventListener('change', sync);
+    document.addEventListener('visibilitychange', sync);
+  });
+</script>

@@ -1,0 +1,53 @@
+---
+import pages from '../data/pages.json';
+import assets from '../data/assets.json';
+import {isPlaceholder} from '../data/media';
+import {render} from '../data/render';
+import Download from './Download.astro';
+const hub=pages[0];
+const section=(id:string)=>{const start=hub.blocks.findIndex((b:any)=>b.id===id);let end=hub.blocks.findIndex((b:any,i:number)=>i>start&&b.type==='heading');if(end<0)end=hub.blocks.length;return hub.blocks.slice(start+1,end).filter((b:any)=>b.type==='markdown').map((b:any)=>b.text).join('\n\n');};
+const cards=[
+ {slug:'thor-5f',asset:'A01',title:'Rear seat occupant safety',tags:'LS-DYNA / Occupant biomechanics',copy:'How does seat belt anchor position change occupant response? Explore the validated THOR-5F bench models and anchor studies.',metrics:[['104','simulations'],['0.71','average ISO 18571 rating in each bench']]},
+ {slug:'bladder-test-platform',asset:'A18',title:'A distensible bladder test platform',tags:'Design / Controls / Physical testing',copy:'From silicone phantom to pressure measurement: my sensing, control, and data acquisition work within a four-person capstone.',metrics:[['24.3%','team pressure-volume curve error']]},
+ {slug:'cervical-fracture',asset:'A14',title:'Cervical fracture mechanics',tags:'Explicit dynamics / Injury biomechanics',copy:'Comparing Hybrid III injury criteria with GHBMC fracture predictions in head-first football impacts.',metrics:[['5','impact configurations']]},
+ {slug:'seat-foam',asset:'A25',title:'Seat foam and rear impact',tags:'FEA / Material response',copy:'Trace the response from foam material checks to rear impact injury measures.',metrics:[['27 and 57 km/h','simulation speeds']]},
+ {slug:'payload-and-rover',asset:'A31',title:'Payload systems and rover prototypes',tags:'CAD / Prototyping',copy:'Wheel, rover, and winch designs developed for a lightweight aerial payload system.',metrics:[]},
+ {slug:'kidney-tissue-classification',asset:'A28',title:'Kidney tissue classification',tags:'Biomedical research / Deep learning',copy:'My work on image preparation, model training, and evaluation in an AlexNet classification workflow.',metrics:[]}
+];
+const toolkit=section('technical-toolkit');
+const rows=[...toolkit.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].slice(1).map(r=>[...r[1].matchAll(/<td>([\s\S]*?)<\/td>/g)].map(c=>c[1].trim()));
+const history=(id:string)=>[...section(id).matchAll(/<tr>([\s\S]*?)<\/tr>/g)].slice(1).map(r=>[...r[1].matchAll(/<td>([\s\S]*?)<\/td>/g)].map(c=>c[1].trim()));
+const hero=assets.A01;
+---
+<section class="home-hero" aria-labelledby="intro-title">
+  <div class="hero-copy">
+    <p class="eyebrow">Mechanical / CAE Engineer</p>
+    <h1 id="intro-title">Patrick Thangarajah</h1>
+    <ul class="focus-areas"><li>Occupant Safety</li><li>Explicit Dynamics</li><li>FEA / Model Validation</li><li>Engineering Design</li></ul>
+    <div class="hero-actions"><a class="button-link" href="#selected-work">Explore the work <span aria-hidden="true">↗</span></a><a href="#resume">Resume & portfolio</a></div>
+  </div>
+  <figure class="hero-figure">
+    <div class="hero-media"><img src={hero.path} alt={isPlaceholder(hero.path)?'Placeholder for: '+hero.alt:hero.alt} width={hero.width} height={hero.height} fetchpriority="high" /></div>
+    <figcaption>THOR-5F rear seat occupant safety research</figcaption>
+    {isPlaceholder(hero.path)&&<p class="asset-status">Engineering figure pending</p>}
+  </figure>
+</section>
+<section id="selected-work" class="home-section" aria-labelledby="work-title">
+  <div class="section-heading"><div><p class="eyebrow">Project book</p><h2 id="work-title">Selected work</h2></div><p>Simulation, measurement, and engineering design.</p></div>
+  <div class="project-grid">{cards.map((c,i)=>{const a=(assets as any)[c.asset];return <article class:list={['project-card',{'featured-card':i===0}]}>
+    <a class="card-image" href={`/projects/${c.slug}/`} aria-label={`${isPlaceholder(a.path)?'Figure pending. ':''}Explore ${c.title}`}><img src={a.path} alt={isPlaceholder(a.path)?'Placeholder for: '+a.alt:a.alt} width={a.width} height={a.height} loading="lazy" decoding="async" />{isPlaceholder(a.path)&&<span class="media-label">Figure pending</span>}</a>
+    <div class="card-copy"><p class="eyebrow">{c.tags}</p><h3><a href={`/projects/${c.slug}/`}>{c.title}<span aria-hidden="true"> ↗</span></a></h3><p>{c.copy}</p>{c.metrics.length>0&&<dl class="card-metrics">{c.metrics.map(([value,label])=><div><dt>{label}</dt><dd>{value}</dd></div>)}</dl>}
+    {i===0&&<div class="bench-note"><p>Peak chest deflection in the identified configurations</p><dl class="card-metrics"><div><dt>below the Rigid Bench study average</dt><dd>17%</dd></div><div><dt>below the Semi-Rigid Bench study average</dt><dd>16%</dd></div></dl></div>}</div>
+  </article>;})}</div>
+  <div class="technical-links"><p class="eyebrow">Inside the research</p><a href="/projects/fe-validation/">Model validation <span aria-hidden="true">↗</span></a><a href="/projects/seat-belt-doe/">Anchor DOE & statistical analysis <span aria-hidden="true">↗</span></a><a href="/projects/ls-prepost-automation/">LS-PrePost automation <span aria-hidden="true">↗</span></a><a href="/projects/design-and-applied-research/">Design & applied research index <span aria-hidden="true">↗</span></a></div>
+</section>
+<section id="technical-toolkit" class="home-section" aria-labelledby="toolkit-title"><div class="section-heading"><div><p class="eyebrow">Tools & methods</p><h2 id="toolkit-title">Technical toolkit</h2></div></div><div class="toolkit-grid">{rows.map(([label,tools])=><div><h3>{label}</h3><p>{tools}</p></div>)}</div></section>
+<section id="about-me" class="home-section background-section" aria-labelledby="background-title"><div class="section-heading"><div><p class="eyebrow">Background</p><h2 id="background-title">Experience & education</h2></div><p>MASc, Mechanical and Mechatronics Engineering<br/>University of Waterloo</p></div>
+  <details id="experience" class="disclosure"><summary>Engineering experience</summary><div class="timeline">{history('experience').map(([period,role,org])=><div><p class="timeline-date">{period}</p><div><p class="organization">{org}</p><div set:html={render(role,'Experience')}/></div></div>)}</div></details>
+  <details id="education" class="disclosure"><summary>Education</summary><div class="timeline">{history('education').map(([period,degree,org])=><div><p class="timeline-date">{period}</p><div><h3>{org}</h3><p>{degree}</p></div></div>)}</div></details>
+  <details class="disclosure"><summary>About my work</summary><div class="reading-column" set:html={render((hub.blocks[0] as any).text,hub.title)}/><div class="reading-column" set:html={render(section('about-me'),hub.title)}/><div id="at-a-glance" class="reading-column" set:html={render(section('at-a-glance'),hub.title)}/><div id="engineering-approach" class="reading-column" set:html={render(section('engineering-approach'),hub.title)}/></details>
+  <details id="publications-presentations" class="disclosure"><summary>Publications & presentations</summary><div class="reading-column" set:html={render(section('publications-presentations'),hub.title)}/></details>
+  <details id="public-code-and-workflow-artifacts" class="disclosure"><summary>Public code & workflow artifacts</summary><div class="reading-column" set:html={render(section('public-code-and-workflow-artifacts'),hub.title)}/></details>
+</section>
+<section id="resume" class="home-section" aria-labelledby="downloads-title"><div class="section-heading"><div><p class="eyebrow">Documents</p><h2 id="downloads-title">Resume & portfolio</h2></div></div><div class="download-grid"><Download id="resume"/><div id="downloadable-portfolio"><Download id="portfolio"/></div></div><details class="disclosure"><summary>Document details & work eligibility</summary><div class="reading-column" set:html={render(section('resume')+'\n\n'+section('downloadable-portfolio'),hub.title)}/></details></section>
+<section id="contact" class="home-section contact-section" aria-labelledby="contact-title"><div><p class="eyebrow">Contact</p><h2 id="contact-title">Patrick Thangarajah</h2></div><div><a href="mailto:ptemmanual@gmail.com">ptemmanual@gmail.com</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a></div></section>

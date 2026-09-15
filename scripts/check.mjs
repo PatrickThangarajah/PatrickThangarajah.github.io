@@ -57,3 +57,20 @@ events.pause();observer([{isIntersecting:true}]);assert.equal(plays,2,'Respect u
 events.play();document.hidden=true;docEvents.visibilitychange();const n=plays;assert.equal(plays,n,'Hidden tab pauses');
 const css=read('src/styles/global.css');assert.match(css,/\.local-video video\{display:none!important\}/);assert.match(css,/\.local-video \.print-poster\{display:block!important\}/);
 console.log('PASS: 11 pages, local links and assets, accessible media markup, video state transitions, and print poster rules.');
+
+// Test shared interactions without a browser or animation timers.
+const layoutScript=stripTypeScriptTypes(read('src/layouts/Document.astro').match(/<script>([\s\S]*?)<\/script>/)[1]);
+const root={dataset:{}};const buttonHandlers={};const eventHandlers={};const observers=[];let animationCount=0,cancelCount=0;
+const button={textContent:'',setAttribute(){},addEventListener:(n,f)=>buttonHandlers[n]=f};
+const mediaQueries=new Map();
+const matchMedia=q=>{if(!mediaQueries.has(q))mediaQueries.set(q,{matches:false,addEventListener:(n,f)=>mediaQueries.get(q)[n]=f});return mediaQueries.get(q);};
+const disclosure={open:false};const animationTarget={animate(){animationCount++;}};
+const pageDocument={documentElement:root,querySelector:s=>s==='.theme-toggle'?button:null,querySelectorAll:s=>s==='details:not([open])'?[disclosure]:s==='.project-card,.section-heading'?[animationTarget]:[],getAnimations:()=>[{cancel(){cancelCount++;}}],getElementById:()=>null};
+vm.runInNewContext(layoutScript,{document:pageDocument,matchMedia,localStorage:{setItem(){}},location:{hash:''},addEventListener:(n,f)=>eventHandlers[n]=f,IntersectionObserver:class{constructor(fn){observers.push(fn)}observe(){}unobserve(){}}});
+buttonHandlers.click();assert.equal(root.dataset.theme,'dark');buttonHandlers.click();assert.equal(root.dataset.theme,'light');
+observers[1]([{isIntersecting:true,target:animationTarget}]);assert.equal(animationCount,1);
+mediaQueries.get('(prefers-reduced-motion: reduce)').matches=true;observers[1]([{isIntersecting:true,target:animationTarget}]);assert.equal(animationCount,1,'Reduced motion blocks reveals');
+mediaQueries.get('(prefers-reduced-motion: reduce)').change();assert.equal(cancelCount,1,'Preference change cancels animation');
+eventHandlers.beforeprint();assert(disclosure.open);eventHandlers.afterprint();assert(!disclosure.open);
+assert(!read('dist/index.html').includes('aria-label="On this page"'),'No homepage table of contents');
+console.log('PASS: homepage theme controls, reduced-motion reveals, and print disclosure expansion.');

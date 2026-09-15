@@ -16,5 +16,13 @@ export function render(text: string, label: string) {
   });
   let output = marked.parse(text, {gfm:true}) as string;
   output = output.replace(/<pre>/g, `<pre tabindex="0" aria-label="${escape(label)} code excerpt">`);
+  // Preserve the exact words while removing decorative prose emphasis.
+  // Lift complete metric-bearing paragraphs into their own callouts.
+  output = output.replace(/<p>([\s\S]*?)<\/p>/g, (whole, body) => {
+    const hasMetric = /<strong>[^<]*\d[^<]*<\/strong>/.test(body);
+    const cleaned = body.replace(/<strong>([\s\S]*?)<\/strong>/g, (_m:string, value:string) => /\d/.test(value) ? `<strong>${value}</strong>` : value);
+    return hasMetric && !/<a |<br/.test(body) ? `<div class="metric-statement"><p>${cleaned}</p></div>` : `<p>${cleaned}</p>`;
+  });
+  output = output.replace(/<li>([\s\S]*?)<\/li>/g, (whole, body) => `<li${/<strong>[^<]*\d[^<]*<\/strong>/.test(body) ? ' class="metric-statement"' : ''}>${body.replace(/<strong>([\s\S]*?)<\/strong>/g, (_m:string,value:string)=>/\d/.test(value)?`<strong>${value}</strong>`:value)}</li>`);
   return output;
 }

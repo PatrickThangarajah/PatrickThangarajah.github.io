@@ -18,7 +18,9 @@ const server=http.createServer((req,res)=>{
 });
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const base=`http://127.0.0.1:${server.address().port}`;
-const pages=JSON.parse(readFileSync('src/data/pages.json','utf8'));
+const pages=JSON.parse(readFileSync('src/data/pages.json','utf8')).filter(p=>!process.env.AUDIT_ROUTES||process.env.AUDIT_ROUTES.split(',').includes(p.route));
+const width=Number(process.env.AUDIT_WIDTH||390);
+const performance=process.env.AUDIT_PERFORMANCE==='1';
 const output=process.env.AUDIT_OUTPUT||'test-results';mkdirSync(output,{recursive:true});
 const results=[];
 try{
@@ -27,10 +29,10 @@ try{
     const chrome=await launch({chromePath:process.env.CHROME_PATH,chromeFlags:['--headless','--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader',...(mode==='dark'?['--force-dark-mode']:[])]});
     try{
       for(const page of pages){
-        const result=await lighthouse(base+page.route,{port:chrome.port,onlyCategories:['accessibility','best-practices'],logLevel:'error',output:'json',screenEmulation:{mobile:true,width:390,height:844,deviceScaleFactor:1,disabled:false}});
+        const result=await lighthouse(base+page.route,{port:chrome.port,onlyCategories:['accessibility','best-practices',...(performance?['performance']:[])],logLevel:'error',output:'json',formFactor:width>=1000?'desktop':'mobile',screenEmulation:{mobile:width<1000,width,height:844,deviceScaleFactor:1,disabled:false}});
         const {lhr}=result;
         const failed=Object.values(lhr.audits).filter(a=>a.score!==null&&a.score<1).map(a=>({id:a.id,title:a.title,score:a.score,details:a.details}));
-        const record={route:page.route,mode,accessibility:lhr.categories.accessibility.score*100,bestPractices:lhr.categories['best-practices'].score*100,contrast:lhr.audits['color-contrast']?.score,failed};
+        const record={route:page.route,mode,accessibility:lhr.categories.accessibility.score*100,bestPractices:lhr.categories['best-practices'].score*100,contrast:lhr.audits['color-contrast']?.score,layoutShift:lhr.audits['cumulative-layout-shift']?.numericValue,failed};
         results.push(record);console.log(JSON.stringify({...record,failed:failed.map(a=>a.id)}));
         writeFileSync(`${output}/${page.slug||'hub'}-${mode}.json`,JSON.stringify(lhr));
       }

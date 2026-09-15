@@ -5,7 +5,9 @@ import Figure from '../components/Figure.astro';
 import LocalVideo from '../components/LocalVideo.astro';
 import Download from '../components/Download.astro';
 import {render} from '../data/render';
+import Home from '../components/Home.astro';
 const {page} = Astro.props;
+const home=!page.slug;
 const headings = page.blocks.filter((b:any)=>b.type==='heading');
 const canonical = new URL(page.route, Astro.site);
 ---
@@ -24,23 +26,24 @@ const canonical = new URL(page.route, Astro.site);
       try { const preference = localStorage.getItem('theme'); if(preference === 'light' || preference === 'dark') document.documentElement.dataset.theme = preference; } catch {}
     </script>
   </head>
-  <body>
+  <body class:list={{homepage:home}}>
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/">Patrick Thangarajah</a>
       <nav aria-label="Primary"><a href="/#selected-work">Projects</a><a href="/#resume">Resume</a><a href="/#contact">Contact</a></nav>
       <button class="theme-toggle" type="button" aria-label="Use dark mode" aria-pressed="false">Dark mode</button>
     </header>
-    <div class="document-grid">
-      <aside class="contents">
+    <div class:list={["document-grid", {"home-grid":home}]}>
+      {!home && headings.length>3 && <aside class="contents">
         <details open>
           <summary>On this page</summary>
           <nav aria-label="On this page"><ol>{headings.map((h:any)=><li><a href={`#${h.id}`}>{h.title}</a></li>)}</ol></nav>
         </details>
-      </aside>
+      </aside>}
       <main id="main" tabindex="-1">
         {page.slug && <a class="back-link" href="/#selected-work">All projects</a>}
-        <article>
+        {home ? <Home/> : <article class="project-document">
+          <p class="eyebrow">Engineering project / Technical record</p>
           <h1>{page.title}</h1>
           {page.blocks.map((block:any) => {
             if(block.type==='heading') return <h2 id={block.id}>{block.title}<a class="heading-anchor" href={`#${block.id}`} aria-label={`Link to ${block.title}`}>§</a></h2>;
@@ -49,7 +52,7 @@ const canonical = new URL(page.route, Astro.site);
             const a = (assets as any)[block.id];
             return a.type==='video' ? <LocalVideo webm={a.path} mp4={a.mp4} poster={a.poster} caption={a.caption} description={a.description} alt={a.alt} number={block.number} width={a.width} height={a.height} /> : <Figure asset={a} number={block.number} />;
           })}
-        </article>
+        </article>}
       </main>
     </div>
     <footer><a href="mailto:ptemmanual@gmail.com">Email</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a><a href="#main">Back to top</a></footer>
@@ -63,11 +66,21 @@ const canonical = new URL(page.route, Astro.site);
       button.addEventListener('click',()=>{root.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('theme',root.dataset.theme);}catch{}update();});
       const detail=document.querySelector<HTMLDetailsElement>('.contents details')!;
       const narrow=matchMedia('(max-width: 1100px)');
-      const adapt=()=>{detail.open=!narrow.matches;};adapt();narrow.addEventListener('change',adapt);
+      const adapt=()=>{if(detail)detail.open=!narrow.matches;};adapt();narrow.addEventListener('change',adapt);
       const links=[...document.querySelectorAll<HTMLAnchorElement>('.contents a')];
       const observed=[...document.querySelectorAll<HTMLHeadingElement>('article h2[id]')];
       const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){links.forEach(a=>{if(a.hash==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}},{rootMargin:'-5% 0px -75% 0px'});
       observed.forEach(h=>observer.observe(h));
+      const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+      const reveals=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){if(!reduced.matches)entry.target.animate([{opacity:.6,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:240,easing:'ease-out'});reveals.unobserve(entry.target);}});},{threshold:.12});
+      document.querySelectorAll('.project-card,.section-heading').forEach(el=>reveals.observe(el));
+      reduced.addEventListener('change',()=>{if(reduced.matches)document.getAnimations().forEach(a=>a.cancel());});
+      // Anchor destinations inside disclosures remain reachable.
+      const openHash=()=>{if(!location.hash)return;const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(!target)return;let parent=target.parentElement;while(parent){if(parent instanceof HTMLDetailsElement)parent.open=true;parent=parent.parentElement;}};
+      addEventListener('hashchange',openHash);openHash();
+      let printOpen:HTMLDetailsElement[]=[];
+      addEventListener('beforeprint',()=>{printOpen=[...document.querySelectorAll<HTMLDetailsElement>('details:not([open])')];printOpen.forEach(d=>d.open=true);});
+      addEventListener('afterprint',()=>printOpen.forEach(d=>d.open=false));
     </script>
   </body>
 </html>

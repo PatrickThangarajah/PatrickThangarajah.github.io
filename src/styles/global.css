@@ -127,3 +127,4 @@ html{scroll-padding-top:9rem}body{transition:none}.site-header{position:sticky;t
 @media(max-width:760px){.site-header nav{flex-wrap:wrap;justify-content:flex-start;gap:0 1rem;max-width:100%;overflow:visible}}
 html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-document>h2,h2{scroll-margin-top:0}.contents{top:var(--header-offset,8rem);max-height:calc(100vh - var(--header-offset,8rem) - 1rem)}
 @media print{html{scroll-padding-top:0}.contents{display:none}}
+@media screen{.step-card,.approach-card p{font-size:1.125rem;line-height:1.875rem}}

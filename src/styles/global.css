@@ -128,3 +128,5 @@ html{scroll-padding-top:9rem}body{transition:none}.site-header{position:sticky;t
 html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-document>h2,h2{scroll-margin-top:0}.contents{top:var(--header-offset,8rem);max-height:calc(100vh - var(--header-offset,8rem) - 1rem)}
 @media print{html{scroll-padding-top:0}.contents{display:none}}
 @media screen{.step-card,.approach-card p{font-size:1.125rem;line-height:1.875rem}}
+.project-card{position:relative;transition:transform 180ms ease-out}.project-card::after{content:'';position:absolute;inset:-1px;border:1px solid var(--accent);opacity:0;pointer-events:none;transition:opacity 180ms ease-out}.project-card:hover{border-color:var(--rule)}.project-card:hover::after{opacity:1}
+@media print{.project-card::after{display:none}}

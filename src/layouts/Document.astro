@@ -37,7 +37,7 @@ const canonical = new URL(page.route, Astro.site);
     </header>
     <div class:list={["document-grid", {"home-grid":home}]}>
       {!home && headings.length>3 && <aside class="contents">
-        <details open>
+        <details>
           <summary>On this page</summary>
           <nav aria-label="On this page"><ol>{headings.map((h:any)=><li><a href={`#${h.id}`}>{h.title}</a></li>)}</ol></nav>
         </details>

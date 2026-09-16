@@ -3,6 +3,7 @@ import '../styles/global.css';
 import assets from '../data/assets.json';
 import Figure from '../components/Figure.astro';
 import LocalVideo from '../components/LocalVideo.astro';
+import AnchorComparison from '../components/AnchorComparison.astro';
 import Download from '../components/Download.astro';
 import {render} from '../data/render';
 import Home from '../components/Home.astro';
@@ -78,7 +79,8 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
             if(block.type==='markdown') return <div class="prose-block" set:html={render(block.text,page.title)} />;
             if(block.type==='download') return <Download id={block.id} />;
             const a = (assets as any)[block.id];
-            return a.type==='video' ? <LocalVideo webm={a.path} mp4={a.mp4} poster={a.poster} caption={a.caption} description={a.description} alt={a.alt} number={block.number} width={a.width} height={a.height} /> : <Figure asset={a} number={block.number} />;
+            const media = a.type==='video' ? <LocalVideo webm={a.path} mp4={a.mp4} poster={a.poster} caption={a.caption} description={a.description} alt={a.alt} number={block.number} width={a.width} height={a.height} /> : <Figure asset={a} number={block.number} />;
+            return <>{media}{page.slug==='seat-belt-doe' && block.id==='G03' && <AnchorComparison />}</>;
           })}
         </article>}
       </main>

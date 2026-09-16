@@ -4,6 +4,7 @@ import assets from '../data/assets.json';
 import {isPlaceholder} from '../data/media';
 import {render} from '../data/render';
 import Download from './Download.astro';
+import '../styles/refined.css';
 const hub=pages[0];
 const section=(id:string)=>{const start=hub.blocks.findIndex((b:any)=>b.id===id);let end=hub.blocks.findIndex((b:any,i:number)=>i>start&&b.type==='heading');if(end<0)end=hub.blocks.length;return hub.blocks.slice(start+1,end).filter((b:any)=>b.type==='markdown').map((b:any)=>b.text).join('\n\n');};
 const cards=[

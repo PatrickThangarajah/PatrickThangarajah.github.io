@@ -1,0 +1,132 @@
+/* Presentation-only refinement. Existing portfolio wording and content remain unchanged. */
+
+/* A quieter, more deliberate UI layer. */
+.homepage{font-family:var(--ui)}
+.homepage .home-grid{max-width:76rem;margin-top:2.5rem}
+.homepage .site-header,.homepage footer{max-width:76rem}
+.homepage .site-header{padding-block:1.125rem}
+.homepage .identity{font-size:1.0625rem}
+.homepage .role-line{display:block;margin-top:.125rem;font-size:.8125rem;line-height:1.125rem;font-weight:400;color:var(--secondary)}
+.homepage .site-header nav{gap:2rem}
+.homepage .theme-toggle{border:0;padding:.5rem;min-height:44px}
+
+/* Hero: one clear focal point, without adding marketing copy. */
+.home-hero{display:block;max-width:54rem;padding:4.5rem 0 4rem;border-bottom:1px solid var(--rule)}
+.hero-copy h1{max-width:15ch;font-size:3.5rem;line-height:1.05;letter-spacing:-.035em;margin-bottom:1.5rem}
+.hero-copy>.eyebrow{font-size:.875rem;line-height:1.25rem;letter-spacing:.09em;text-transform:uppercase;color:var(--secondary);margin-bottom:1.25rem}
+.focus-areas{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-bottom:1.5rem;font-size:1rem}
+.focus-areas li{position:relative}
+.focus-areas li+li:before{content:'·';position:absolute;left:-.9rem;color:var(--rule)}
+.hero-support{max-width:46rem;font:400 1.125rem/1.75rem var(--ui);color:var(--secondary)}
+.hero-actions{gap:.75rem;margin-top:2rem}
+.button-link{border-radius:.375rem;padding:.7rem 1.1rem;background:var(--ink);border-color:var(--ink);color:var(--paper);text-decoration:none}
+.button-link:hover{text-decoration:none;opacity:.88}
+.secondary-button{background:transparent;color:var(--ink);border-color:var(--rule)}
+.eligibility{margin:1.25rem 0 0;font:400 .9375rem/1.5rem var(--ui);color:var(--secondary)}
+
+/* Section hierarchy: remove ornamental rules and keep labels subordinate. */
+.home-section{margin-top:5.5rem}
+.section-heading{align-items:baseline;margin-bottom:2rem;border-bottom:1px solid var(--rule);padding-bottom:1rem}
+.section-heading h2{font-size:2rem;line-height:2.5rem;letter-spacing:-.02em}
+.section-heading .eyebrow{font-size:.8125rem;line-height:1.25rem;letter-spacing:.08em;text-transform:uppercase;margin:0;color:var(--secondary)}
+.fringe-rule{display:none!important}
+
+/* Featured work is editorial rather than card-like. */
+.featured-study{padding:0 0 4.5rem;margin-bottom:4.5rem;border-bottom:1px solid var(--rule)}
+.featured-intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:3.5rem;align-items:start}
+.featured-intro>div{padding-top:.25rem}
+.featured-intro h3{font-size:1.75rem;line-height:2.125rem;letter-spacing:-.015em;margin:.25rem 0 1rem}
+.featured-intro h3 a{color:var(--ink);text-decoration:none}
+.featured-intro h3 a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.featured-intro p{font:400 1.0625rem/1.65rem var(--ui)}
+.hero-media{display:block;padding:0;border:1px solid var(--rule);border-radius:.4rem;overflow:hidden;background:var(--surface)}
+.hero-media img{display:block;width:100%;height:100%;object-fit:contain}
+.hero-figure figcaption{font-size:.875rem;line-height:1.35rem;color:var(--secondary)}
+.card-metrics{gap:1rem 2.25rem}
+.card-metrics dd{letter-spacing:-.03em}
+
+/* Research walkthrough: simple numbered rows, no decorative edge animation. */
+.walkthrough{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:2.5rem 0 0;padding:0;border-block:1px solid var(--rule);list-style:none}
+.step-card{display:block;margin:0;padding:1.25rem 1.25rem 1.25rem 0;border-right:1px solid var(--rule)}
+.step-card+.step-card{padding-left:1.25rem}
+.step-card:last-child{border-right:0}
+.step-edge{display:none}
+.step-number{display:block;margin-bottom:.65rem;font:600 .8125rem/1.25rem var(--ui);color:var(--secondary)}
+.step-card p{margin:0;font:400 .9375rem/1.45rem var(--ui)}
+.technical-links{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem 1.5rem;margin-top:2rem}
+.technical-links .eyebrow{grid-column:1/-1;margin:0}
+.technical-links a{font:600 .9375rem/1.4rem var(--ui);color:var(--ink)}
+.boundary-callout{margin-top:2.5rem;padding:1.5rem 0;border-block:1px solid var(--rule);background:transparent}
+.boundary-callout h3{margin-top:0}
+
+/* Project browsing: fewer UI affordances, larger evidence. */
+.project-filters{display:none}
+.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:3.5rem 2rem}
+.project-card{border:0;padding:0;transition:none}
+.project-card:hover{transform:none}
+.card-image{border:1px solid var(--rule);border-radius:.35rem;background:var(--surface);aspect-ratio:1.6;overflow:hidden}
+.card-image img{transition:none}
+.card-image:hover img{transform:none}
+.card-copy{padding-top:1rem}
+.card-copy .eyebrow{font-size:.8125rem;line-height:1.25rem;margin-bottom:.4rem}
+.card-copy h3{font-size:1.35rem;line-height:1.7rem;margin-bottom:.6rem}
+.card-copy>p{font:400 1rem/1.55rem var(--ui);color:var(--secondary);margin-bottom:1rem}
+.media-label{font-size:.75rem;line-height:1rem}
+
+/* Toolkit and background use simple ruled rows instead of pill/card styling. */
+.toolkit-tags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 3rem;border-top:1px solid var(--rule)}
+.toolkit-tags>div{padding:1.25rem 0;border-bottom:1px solid var(--rule)}
+.toolkit-tags h3{font-size:1rem;line-height:1.5rem;margin:0 0 .35rem}
+.toolkit-tags p{font:400 .9375rem/1.5rem var(--ui);color:var(--secondary);margin:0}
+.background-section>.timeline{margin-bottom:3.5rem}
+.timeline>div{padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+.disclosure{border-bottom:1px solid var(--rule)}
+.disclosure summary{padding:1.25rem 0;font-family:var(--ui);font-weight:600}
+
+.contact-links{display:flex;flex-wrap:wrap;gap:.75rem 2rem;font-family:var(--ui)}
+.download-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+
+/* Keep project documents restrained and readable too. */
+.project-document h1{letter-spacing:-.025em}
+.project-document>h2{border-bottom:1px solid var(--rule);padding-bottom:.75rem}
+
+/* Motion is intentionally limited to fast state feedback. */
+.homepage .project-card,.homepage .card-image img{transition:none!important}
+
+@media(max-width:900px){
+  .homepage .site-header nav{gap:1.25rem}
+  .home-hero{padding:3.5rem 0 3rem}
+  .hero-copy h1{font-size:3rem}
+  .featured-intro{grid-template-columns:1fr;gap:1.75rem}
+  .featured-intro .hero-figure{order:-1}
+  .walkthrough{grid-template-columns:1fr 1fr}
+  .step-card:nth-child(2){border-right:0}
+  .step-card:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+  .technical-links{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:639px){
+  .homepage{padding-inline:1rem}
+  .homepage .site-header{display:grid;grid-template-columns:1fr auto;gap:.5rem 1rem}
+  .homepage .identity{min-width:0}
+  .homepage .site-header nav{grid-column:1/-1;order:3;width:100%;gap:0;justify-content:space-between;border-top:1px solid var(--rule);padding-top:.5rem}
+  .homepage .site-header nav a{font-size:.875rem}
+  .home-grid{margin-top:0}
+  .home-hero{padding:2.75rem 0 2.5rem}
+  .hero-copy h1{font-size:2.55rem;line-height:1.06;max-width:13ch}
+  .focus-areas{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1rem}
+  .focus-areas li+li:before{display:none}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .button-link{justify-content:center}
+  .home-section{margin-top:4rem}
+  .section-heading{display:block}
+  .section-heading .eyebrow{margin-bottom:.4rem}
+  .project-grid,.toolkit-tags,.download-grid{grid-template-columns:1fr}
+  .project-grid{gap:2.75rem}
+  .walkthrough{grid-template-columns:1fr}
+  .step-card,.step-card+.step-card{padding:1rem 0;border-right:0;border-bottom:1px solid var(--rule)}
+  .step-card:last-child{border-bottom:0}
+  .technical-links{grid-template-columns:1fr}
+  .featured-study{padding-bottom:3.5rem;margin-bottom:3.5rem}
+  .featured-intro h3{font-size:1.5rem;line-height:1.9rem}
+}

@@ -64,7 +64,7 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
       {!home && headings.length>3 && <aside class="contents">
         <details>
           <summary>On this page</summary>
-          <nav aria-label="On this page"><ol>{headings.filter((_:any,i:number)=>i!==contributionIndex).map((h:any)=><li><a href={`#${h.id}`}>{h.title}</a></li>)}</ol></nav>
+          <nav aria-label="On this page"><ol>{headings.filter((h:any)=>h.id!==contributionHeading?.id).map((h:any)=><li><a href={`#${h.id}`}>{h.title}</a></li>)}</ol></nav>
         </details>
       </aside>}
       <main id="main" tabindex="-1">

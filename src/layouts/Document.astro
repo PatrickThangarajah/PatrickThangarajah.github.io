@@ -10,6 +10,21 @@ const {page} = Astro.props;
 const home=!page.slug;
 const headings = page.blocks.filter((b:any)=>b.type==='heading');
 const canonical = new URL(page.route, Astro.site);
+const firstMarkdown=page.blocks.find((b:any)=>b.type==='markdown')?.text ?? page.title;
+const plain=(text:string)=>text
+  .replace(/<br\s*\/?\s*>/gi,' ')
+  .replace(/\[([^\]]+)\]\([^\)]+\)/g,'$1')
+  .replace(/[*_`#>|]/g,'')
+  .replace(/\s+/g,' ')
+  .trim();
+const description=plain(firstMarkdown).slice(0,180);
+const firstAssetBlock=page.blocks.find((b:any)=>b.type==='asset');
+const socialAsset:any=home ? (assets as any).A01 : firstAssetBlock ? (assets as any)[firstAssetBlock.id] : (assets as any).A01;
+const socialImage=socialAsset?.path ? new URL(socialAsset.path,Astro.site) : undefined;
+const groupProjectSlugs=['bladder-test-platform','payload-and-rover','kidney-tissue-classification'];
+const contributionIndex=groupProjectSlugs.includes(page.slug) ? page.blocks.findIndex((b:any)=>b.type==='heading'&&(b.title==='My Individual Contribution'||b.title==='My Contribution')) : -1;
+const contributionHeading=contributionIndex>=0 ? page.blocks[contributionIndex] : null;
+const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] : null;
 ---
 <!doctype html>
 <html lang="en-US" data-theme="dark">
@@ -17,7 +32,17 @@ const canonical = new URL(page.route, Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="description" content={page.title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={page.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialAsset?.alt && <meta property="og:image:alt" content={socialAsset.alt} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={page.title} />
+    <meta name="twitter:description" content={description} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
     <title>{page.title}{page.slug ? ' | Patrick Thangarajah' : ''}</title>
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -32,22 +57,23 @@ const canonical = new URL(page.route, Astro.site);
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/">Patrick Thangarajah<span class="role-line">Mechanical Engineering Graduate</span></a>
-      <nav aria-label="Primary"><a href="/#selected-work">Work</a><a href="/#engineering-approach">Approach</a><a href="/#experience">Experience</a><a href="/#contact">Contact</a><a href="/#resume">Resume</a></nav>
+      <nav aria-label="Primary"><a href="/#selected-work">Work</a><a href="/#experience">Experience</a><a href="/#contact">Contact</a><a href="/#resume">Resume</a></nav>
       <button class="theme-toggle" type="button" aria-label="Use dark mode" aria-pressed="false">Dark mode</button>
     </header>
     <div class:list={["document-grid", {"home-grid":home}]}>
       {!home && headings.length>3 && <aside class="contents">
         <details>
           <summary>On this page</summary>
-          <nav aria-label="On this page"><ol>{headings.map((h:any)=><li><a href={`#${h.id}`}>{h.title}</a></li>)}</ol></nav>
+          <nav aria-label="On this page"><ol>{headings.filter((_:any,i:number)=>i!==contributionIndex).map((h:any)=><li><a href={`#${h.id}`}>{h.title}</a></li>)}</ol></nav>
         </details>
       </aside>}
       <main id="main" tabindex="-1">
         {page.slug && <a class="back-link" href="/#selected-work">All projects</a>}
         {home ? <Home/> : <article class="project-document">
-          <p class="eyebrow">Engineering project / Technical record</p>
           <h1>{page.title}</h1>
-          {page.blocks.map((block:any) => {
+          {contributionHeading && contributionBlock?.type==='markdown' && <aside class="boundary-callout contribution-summary"><h3>{contributionHeading.title}</h3><div set:html={render(contributionBlock.text,page.title)} /></aside>}
+          {page.blocks.map((block:any,i:number) => {
+            if(i===contributionIndex||i===contributionIndex+1) return null;
             if(block.type==='heading') return <h2 id={block.id}>{block.title}<a class="heading-anchor" href={`#${block.id}`} aria-label={`Link to ${block.title}`}>§</a><span class="fringe-rule" aria-hidden="true"></span></h2>;
             if(block.type==='markdown') return <div class="prose-block" set:html={render(block.text,page.title)} />;
             if(block.type==='download') return <Download id={block.id} />;
@@ -86,7 +112,7 @@ const canonical = new URL(page.route, Astro.site);
         }
         reveals.unobserve(entry.target);
       }});},{threshold:.12});
-      document.querySelectorAll('.project-card,.section-heading,.walkthrough,.approach-card,.project-document>h2').forEach(el=>reveals.observe(el));
+      document.querySelectorAll('.project-card,.section-heading,.walkthrough,.project-document>h2').forEach(el=>reveals.observe(el));
       const filters=[...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
       const cards=[...document.querySelectorAll<HTMLElement>('[data-disciplines]')];
       filters.forEach(filter=>filter.addEventListener('click',()=>{
@@ -96,7 +122,6 @@ const canonical = new URL(page.route, Astro.site);
         const status=document.getElementById('filter-status');if(status)status.textContent=`${count} projects shown. ${filter.dataset.filter}.`;
       }));
       reduced.addEventListener('change',()=>{if(reduced.matches)document.getAnimations().forEach(a=>a.cancel());});
-      // Anchor destinations inside disclosures remain reachable.
       const openHash=()=>{if(!location.hash)return;const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(!target)return;let parent=target.parentElement;while(parent){if(parent instanceof HTMLDetailsElement)parent.open=true;parent=parent.parentElement;}};
       addEventListener('hashchange',openHash);openHash();
       let printOpen:HTMLDetailsElement[]=[];

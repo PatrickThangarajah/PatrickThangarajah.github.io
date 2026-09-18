@@ -58,7 +58,8 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/">Patrick Thangarajah<span class="role-line">Mechanical Engineering Graduate</span></a>
-      <nav aria-label="Primary"><a href="/#selected-work">Work</a><a href="/#experience">Experience</a><a href="/#contact">Contact</a><a href="/#resume">Resume</a></nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav id="primary-nav" aria-label="Primary"><a href="/#selected-work">Work</a><a href="/#experience">Experience</a><a href="/#contact">Contact</a><a href="/#resume">Resume</a></nav>
       <button class="theme-toggle" type="button" aria-label="Use dark mode" aria-pressed="false">Dark mode</button>
     </header>
     <div class:list={["document-grid", {"home-grid":home}]}>
@@ -96,6 +97,16 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
       const update = () => { button.textContent = dark() ? 'Light mode' : 'Dark mode'; button.setAttribute('aria-label',dark()?'Use light mode':'Use dark mode'); button.setAttribute('aria-pressed',String(dark())); };
       update(); system.addEventListener('change',update);
       button.addEventListener('click',()=>{root.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('theme',root.dataset.theme);}catch{}update();});
+      const menuToggle=document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const primaryNav=document.getElementById('primary-nav');
+      if(menuToggle&&primaryNav){
+        const closeMenu=()=>{menuToggle.setAttribute('aria-expanded','false');primaryNav.classList.remove('nav-open');menuToggle.textContent='Menu';};
+        const openMenu=()=>{menuToggle.setAttribute('aria-expanded','true');primaryNav.classList.add('nav-open');menuToggle.textContent='Close';};
+        menuToggle.addEventListener('click',()=>{menuToggle.getAttribute('aria-expanded')==='true'?closeMenu():openMenu();});
+        primaryNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+        document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menuToggle.getAttribute('aria-expanded')==='true'){closeMenu();menuToggle.focus();}});
+        matchMedia('(min-width: 640px)').addEventListener('change',e=>{if(e.matches)closeMenu();});
+      }
       const detail=document.querySelector<HTMLDetailsElement>('.contents details')!;
       const narrow=matchMedia('(max-width: 1100px)');
       const adapt=()=>{if(detail)detail.open=!narrow.matches;};adapt();narrow.addEventListener('change',adapt);
@@ -114,15 +125,7 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
         }
         reveals.unobserve(entry.target);
       }});},{threshold:.12});
-      document.querySelectorAll('.project-card,.section-heading,.walkthrough,.project-document>h2').forEach(el=>reveals.observe(el));
-      const filters=[...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
-      const cards=[...document.querySelectorAll<HTMLElement>('[data-disciplines]')];
-      filters.forEach(filter=>filter.addEventListener('click',()=>{
-        filters.forEach(button=>button.setAttribute('aria-pressed',String(button===filter)));
-        let count=0;
-        cards.forEach(card=>{card.hidden=filter.dataset.filter!=='All'&&!card.dataset.disciplines?.split('|').includes(filter.dataset.filter!);if(!card.hidden)count++;});
-        const status=document.getElementById('filter-status');if(status)status.textContent=`${count} projects shown. ${filter.dataset.filter}.`;
-      }));
+      document.querySelectorAll('.project-row,.section-heading,.project-document>h2').forEach(el=>reveals.observe(el));
       reduced.addEventListener('change',()=>{if(reduced.matches)document.getAnimations().forEach(a=>a.cancel());});
       const openHash=()=>{if(!location.hash)return;const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(!target)return;let parent=target.parentElement;while(parent){if(parent instanceof HTMLDetailsElement)parent.open=true;parent=parent.parentElement;}};
       addEventListener('hashchange',openHash);openHash();

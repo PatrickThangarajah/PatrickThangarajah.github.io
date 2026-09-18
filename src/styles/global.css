@@ -261,3 +261,19 @@ html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-documen
   .technical-disclosure>summary{display:none}
   .technical-disclosure::details-content{display:block!important;content-visibility:visible!important}
 }
+
+/* Mobile media containment + THOR DOE animation. */
+.thor-case-study img,.thor-case-study video{max-width:100%;height:auto}
+.workflow-animation{min-width:0;overflow:hidden}
+.workflow-animation video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#f0efeb;border:0}
+.animation-caption{margin:.75rem 0 0;color:var(--secondary);font:400 .9375rem/1.4 var(--ui)}
+@media(max-width:760px){
+  .thor-page{overflow-x:hidden}
+  .thor-case-study,.thor-section,.thor-workflow,.workflow-lanes,.workflow-lane,.workflow-doe,.result-feature,.result-visual{min-width:0;max-width:100%}
+  .workflow-lane img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+  .workflow-doe{overflow:hidden}
+  .workflow-animation{width:100%}
+  .workflow-animation video{width:100%;max-width:100%;aspect-ratio:16/9;object-fit:contain}
+  .thor-hero-media .figure-link,.result-visual .figure-link{overflow:hidden}
+  .thor-hero-media img,.result-visual img{width:100%;max-width:100%;height:auto;object-fit:contain}
+}

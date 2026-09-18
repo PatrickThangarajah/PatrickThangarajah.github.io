@@ -41,11 +41,15 @@ const technicalBlocks = technicalStart >= 0 ? page.blocks.slice(technicalStart) 
       <div class="workflow-lanes">
         <div class="workflow-lane">
           <p class="eyebrow">Rigid Bench</p>
-          <img src={asset('A06').path} alt={asset('A06').alt} loading="lazy" width={asset('A06').width} height={asset('A06').height} />
+          <video class="thor-motion" muted loop playsinline preload="metadata" aria-label="Rigid Bench THOR-5F simulation">
+            <source src="/videos/thorrigidbenchgeneralsim.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="workflow-lane">
           <p class="eyebrow">Semi-Rigid Bench</p>
-          <img src={asset('A07').path} alt={asset('A07').alt} loading="lazy" width={asset('A07').width} height={asset('A07').height} />
+          <video class="thor-motion" muted loop playsinline preload="metadata" aria-label="Semi-Rigid Bench THOR-5F simulation">
+            <source src="/videos/THORsemiRIGIDBENCHgeneralsim.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
       <div class="workflow-arrow" aria-hidden="true">↓</div>
@@ -58,8 +62,8 @@ const technicalBlocks = technicalStart >= 0 ? page.blocks.slice(technicalStart) 
       </div>
       <div class="workflow-doe">
         <div class="workflow-animation">
-          <video autoplay muted loop playsinline preload="auto" aria-label="THOR-5F anchor location animation">
-            <source src="/videos/thor-5f/anchor-location-animation.mp4" type="video/mp4" />
+          <video class="thor-motion" muted loop playsinline preload="metadata" aria-label="THOR-5F anchor location animation">
+            <source src="/videos/THOR_ANCHOR_DOE.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="workflow-doe-copy">
@@ -128,6 +132,46 @@ const technicalBlocks = technicalStart >= 0 ? page.blocks.slice(technicalStart) 
       <article><span>02</span><p>Inboard shoulder anchors improved contact with the shoulder and reduced loading on the chest, but extreme inboard routing introduced a belt-to-neck tradeoff.</p></article>
       <article><span>03</span><p>Lap anchor effects were more configuration-dependent. The rigid bench primarily produced forward motion; the semi-rigid footrest and rotating seat pan introduced coupled forward/downward motion and stronger interaction effects.</p></article>
     </div>
+
+    <div class="comparison-group">
+      <div class="comparison-heading">
+        <p class="eyebrow">Shoulder anchor fore/aft comparison</p>
+      </div>
+      <div class="comparison-video-grid">
+        <figure>
+          <video class="thor-motion" muted loop playsinline preload="metadata" aria-label="Rigid Bench shoulder anchor fore-aft comparison">
+            <source src="/videos/THOR_RIGID_BENCH_SHOULDER_FOREAFTCOMPARISON.mp4" type="video/mp4" />
+          </video>
+          <figcaption>Rigid Bench</figcaption>
+        </figure>
+        <figure>
+          <video class="thor-motion" muted loop playsinline preload="metadata" aria-label="Semi-Rigid Bench shoulder anchor fore-aft comparison">
+            <source src="/videos/THOR_SEMIRIGID_BENCH_SHOULDER_FOREAFTCOMPARISON.mp4" type="video/mp4" />
+          </video>
+          <figcaption>Semi-Rigid Bench</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="comparison-group">
+      <div class="comparison-heading">
+        <p class="eyebrow">Shoulder anchor inboard/outboard comparison</p>
+      </div>
+      <div class="comparison-video-grid">
+        <figure>
+          <video class="thor-motion" muted loop playsinline preload="metadata" aria-label="Rigid Bench shoulder anchor inboard-outboard comparison">
+            <source src="/videos/THOR_RIGID_BENCH_SHOULDER_INBOARDOUTBOARDCOMPARISON.mp4" type="video/mp4" />
+          </video>
+          <figcaption>Rigid Bench</figcaption>
+        </figure>
+        <figure>
+          <video class="thor-motion" muted loop playsinline preload="metadata" aria-label="Semi-Rigid Bench shoulder anchor inboard-outboard comparison">
+            <source src="/videos/THOR_SEMIRIGID_BENCH_SHOULDER_INBOARDOUTBOARDCOMPARISON.mp4" type="video/mp4" />
+          </video>
+          <figcaption>Semi-Rigid Bench</figcaption>
+        </figure>
+      </div>
+    </div>
     <aside class="boundary-callout thor-boundary">
       <h3>Interpretation boundary</h3>
       <p>The favorable shoulder anchor region remained within the evaluated FMVSS/CMVSS 210 fore/aft and vertical range, but the important lateral effect is not represented by that range. Regulatory placement alone therefore does not guarantee an effective belt fit for a small-stature occupant.</p>
@@ -149,10 +193,27 @@ const technicalBlocks = technicalStart >= 0 ? page.blocks.slice(technicalStart) 
           if(block.type==='markdown') return <div class="prose-block" set:html={render(block.text,page.title)} />;
           if(block.type==='download') return null;
           const a = asset(block.id);
-          if(block.id==='A04') return <div class="technical-animation"><video autoplay muted loop playsinline preload="metadata" aria-label="THOR-5F anchor location animation"><source src="/videos/thor-5f/anchor-location-animation.mp4" type="video/mp4" /></video></div>;
+          if(block.id==='A04') return <div class="technical-animation"><video class="thor-motion" muted loop playsinline preload="metadata" aria-label="THOR-5F anchor location animation"><source src="/videos/THOR_ANCHOR_DOE.mp4" type="video/mp4" /></video></div>;
           return a && a.type!=='video' ? <Figure asset={a} number={block.number} /> : null;
         })}
       </div>
     </details>
   </section>
 </article>
+
+<script>
+  const motionVideos = Array.from(document.querySelectorAll<HTMLVideoElement>('.thor-motion'));
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) {
+    motionVideos.forEach((video) => { video.controls = true; });
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      });
+    }, { threshold: 0.2 });
+    motionVideos.forEach((video) => observer.observe(video));
+  }
+</script>

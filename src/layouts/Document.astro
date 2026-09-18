@@ -7,9 +7,15 @@ import AnchorComparison from '../components/AnchorComparison.astro';
 import Download from '../components/Download.astro';
 import {render} from '../data/render';
 import Home from '../components/Home.astro';
+import ThorProject from '../components/ThorProject.astro';
 const {page} = Astro.props;
 const home=!page.slug;
-const headings = page.blocks.filter((b:any)=>b.type==='heading');
+const headings = page.slug==='thor-5f' ? [
+  {id:'research-workflow',title:'Research Workflow'},
+  {id:'key-results',title:'Key Results'},
+  {id:'engineering-interpretation',title:'Engineering Interpretation'},
+  {id:'technical-details',title:'Technical Details'}
+] : page.blocks.filter((b:any)=>b.type==='heading');
 const canonical = new URL(page.route, Astro.site);
 const firstMarkdown=page.blocks.find((b:any)=>b.type==='markdown')?.text ?? page.title;
 const plain=(text:string)=>text
@@ -54,7 +60,7 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
       try { const preference = localStorage.getItem('theme'); if(preference === 'light' || preference === 'dark') document.documentElement.dataset.theme = preference; } catch {}
     </script>
   </head>
-  <body class:list={{homepage:home}}>
+  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f'}}>
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/">Patrick Thangarajah<span class="role-line">Mechanical Engineering Graduate</span></a>
@@ -71,7 +77,7 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
       </aside>}
       <main id="main" tabindex="-1">
         {page.slug && <a class="back-link" href="/#selected-work">All projects</a>}
-        {home ? <Home/> : <article class="project-document">
+        {home ? <Home/> : page.slug==='thor-5f' ? <ThorProject page={page} /> : <article class="project-document">
           <h1>{page.title}</h1>
           {contributionHeading && contributionBlock?.type==='markdown' && <aside class="boundary-callout contribution-summary"><h3>{contributionHeading.title}</h3><div set:html={render(contributionBlock.text,page.title)} /></aside>}
           {page.blocks.map((block:any,i:number) => {

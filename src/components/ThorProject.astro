@@ -1,0 +1,153 @@
+---
+import assets from '../data/assets.json';
+import Figure from './Figure.astro';
+import {render} from '../data/render';
+
+const {page} = Astro.props;
+const asset = (id:string) => (assets as any)[id];
+const technicalStart = page.blocks.findIndex((b:any)=>b.type==='heading' && b.id==='engineering-problem');
+const technicalBlocks = technicalStart >= 0 ? page.blocks.slice(technicalStart) : [];
+---
+<article class="thor-case-study">
+  <header class="thor-hero">
+    <div class="thor-hero-copy">
+      <p class="eyebrow">Graduate Research</p>
+      <h1>{page.title}</h1>
+      <p class="thor-lede"><strong>Validated THOR-5F simulation → quantified restraint-geometry effects</strong></p>
+      <p>For my MASc research, I developed two LS-DYNA rear seat bench models, compared the THOR-5F response with physical sled test data, and completed 104 physically feasible DOE runs across four shoulder and lap belt anchor studies. I combined kinematic comparisons, ISO 18571, and least-squares effects models while carrying test and model limitations into the conclusions.</p>
+      <dl class="thor-metrics" aria-label="Study scope">
+        <div><dd>104</dd><dt>LS-DYNA simulations</dt></div>
+        <div><dd>4</dd><dt>full-factorial studies</dt></div>
+        <div><dd>2</dd><dt>rear seat bench configurations</dt></div>
+        <div><dd>0.71</dd><dt>average ISO 18571 rating</dt></div>
+      </dl>
+    </div>
+    <div class="thor-hero-media"><Figure asset={asset('A01')} number={1} /></div>
+  </header>
+
+  <section class="thor-section" id="research-workflow">
+    <div class="thor-section-heading">
+      <p class="eyebrow">Research workflow</p>
+      <h2>Physical evidence → FE validation → anchor-position DOE</h2>
+    </div>
+    <div class="thor-workflow" aria-label="Research workflow overview">
+      <div class="workflow-stage workflow-stage-wide">
+        <span class="workflow-number">01</span>
+        <div>
+          <h3>Validate the THOR-5F FE model</h3>
+          <p>Physical testing → FE simulation → response comparison</p>
+        </div>
+      </div>
+      <div class="workflow-lanes">
+        <div class="workflow-lane">
+          <p class="eyebrow">Rigid Bench</p>
+          <img src={asset('A06').path} alt={asset('A06').alt} loading="lazy" width={asset('A06').width} height={asset('A06').height} />
+        </div>
+        <div class="workflow-lane">
+          <p class="eyebrow">Semi-Rigid Bench</p>
+          <img src={asset('A07').path} alt={asset('A07').alt} loading="lazy" width={asset('A07').width} height={asset('A07').height} />
+        </div>
+      </div>
+      <div class="workflow-arrow" aria-hidden="true">↓</div>
+      <div class="workflow-stage workflow-stage-wide">
+        <span class="workflow-number">02</span>
+        <div>
+          <h3>Investigate seat belt anchor positioning</h3>
+          <p>FE simulation of anchor locations → metric comparison and effect calculations</p>
+        </div>
+      </div>
+      <div class="workflow-doe">
+        <img src={asset('A04').path} alt={asset('A04').alt} loading="lazy" width={asset('A04').width} height={asset('A04').height} />
+        <div class="workflow-doe-copy">
+          <strong>104</strong>
+          <span>physically feasible anchor position simulations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="thor-section" id="key-results">
+    <div class="thor-section-heading">
+      <p class="eyebrow">Key Results</p>
+      <h2>Results at a glance</h2>
+    </div>
+    <div class="result-feature">
+      <div class="result-copy">
+        <p class="eyebrow">What most affected chest response?</p>
+        <h3>Shoulder anchor fore/aft and lateral position had the largest chest deflection effects in both benches.</h3>
+        <div class="result-pair">
+          <div><strong>17%</strong><span>below the Rigid Bench study average</span></div>
+          <div><strong>16%</strong><span>below the Semi-Rigid Bench study average</span></div>
+        </div>
+        <details class="thor-detail"><summary>Values and comparison</summary><p>In the Rigid Bench, peak chest deflection ranged from 42 to 63 mm, with a study average of 51 mm and 50.6 mm at midpoint Position 14. Position 7 produced the lowest response, 17% below the study average, while Position 19 produced the highest response, 24% above the study average. In the Semi-Rigid Bench, peak chest deflection ranged from 35.0 to 49.6 mm, with a study average of 41.7 mm and 42.0 mm at midpoint Position 14. Position 8 produced the lowest response, 16% below the study average, while Position 22 produced the highest response, 19% above the study average.</p></details>
+      </div>
+      <div class="result-visual"><Figure asset={asset('A05')} number={5} /></div>
+    </div>
+
+    <div class="result-feature result-feature-reverse">
+      <div class="result-copy">
+        <p class="eyebrow">Was the model suitable for comparative study?</p>
+        <div class="validation-score"><strong>0.71</strong><span>Fair<br/>average ISO 18571 rating in each bench</span></div>
+        <p>Together with the signal-level and kinematic agreement during the primary loading phase, this supported using the models for a comparative sensitivity study rather than claiming full predictive validation.</p>
+        <a class="text-link" href="/projects/fe-validation/">Explore FE model validation →</a>
+      </div>
+      <div class="result-visual"><Figure asset={asset('A02')} number={2} /></div>
+    </div>
+
+    <div class="result-feature">
+      <div class="result-copy">
+        <p class="eyebrow">What most affected pelvic response?</p>
+        <h3>Lap anchor position affected pelvis acceleration more strongly than shoulder anchor position.</h3>
+        <details class="thor-detail"><summary>Bench-dependent effects</summary><p>In the Rigid Bench lap anchor study, peak pelvis resultant acceleration ranged from 30.8 to 54.8 g, with a study average of 43.6 g and a midpoint response of 42.3 g. Rearward, upward, and inboard locations were associated with lower responses after configurations showing submarining or near-submarining were excluded from the interpretation. In the Semi-Rigid Bench, the response was dominated by lateral position and by a coupled lateral-vertical interaction.</p></details>
+      </div>
+      <div class="result-visual result-visual-wide"><Figure asset={asset('A03')} number={3} /></div>
+    </div>
+
+    <div class="result-feature result-feature-reverse">
+      <div class="result-copy">
+        <p class="eyebrow">What improved the workflow?</p>
+        <h3>LS-PrePost scripting reduced repetitive manual setup and improved consistency across the simulation matrix.</h3>
+        <div class="workflow-reduction"><strong>7</strong><span>manual setup steps</span><b>→</b><strong>4</strong><span>remaining steps</span></div>
+        <a class="text-link" href="/projects/ls-prepost-automation/">Explore LS-PrePost automation →</a>
+      </div>
+      <div class="result-visual"><img src={asset('G04').path} alt={asset('G04').alt} loading="lazy" width={asset('G04').width} height={asset('G04').height} /></div>
+    </div>
+  </section>
+
+  <section class="thor-section" id="engineering-interpretation">
+    <div class="thor-section-heading">
+      <p class="eyebrow">Engineering Interpretation</p>
+      <h2>What the response changes mean</h2>
+    </div>
+    <div class="interpretation-grid">
+      <article><span>01</span><p>Rearward shoulder anchors engaged the torso earlier, reducing forward excursion and making load transfer more gradual.</p></article>
+      <article><span>02</span><p>Inboard shoulder anchors improved contact with the shoulder and reduced loading on the chest, but extreme inboard routing introduced a belt-to-neck tradeoff.</p></article>
+      <article><span>03</span><p>Lap anchor effects were more configuration-dependent. The rigid bench primarily produced forward motion; the semi-rigid footrest and rotating seat pan introduced coupled forward/downward motion and stronger interaction effects.</p></article>
+    </div>
+    <aside class="boundary-callout thor-boundary">
+      <h3>Interpretation boundary</h3>
+      <p>The favorable shoulder anchor region remained within the evaluated FMVSS/CMVSS 210 fore/aft and vertical range, but the important lateral effect is not represented by that range. Regulatory placement alone therefore does not guarantee an effective belt fit for a small-stature occupant.</p>
+      <p>These results identify simulated sensitivities within the evaluated design space. Some positions represented fleet extremes or produced non-characteristic restraint behavior. The findings are not, by themselves, a production restraint system recommendation, and the preliminary injury-risk estimates were intentionally omitted from this public summary.</p>
+    </aside>
+  </section>
+
+  <section class="thor-section technical-depth" id="technical-details">
+    <div class="thor-section-heading">
+      <p class="eyebrow">Technical depth</p>
+      <h2>Explore the technical details</h2>
+      <p>The detailed methods, model specifications, validation interpretation, DOE setup, deliverables, and public-sharing boundary remain available below.</p>
+    </div>
+    <details class="technical-disclosure">
+      <summary>Open full technical project record</summary>
+      <div class="technical-record project-document">
+        {technicalBlocks.map((block:any) => {
+          if(block.type==='heading') return <h3 id={`technical-${block.id}`}>{block.title}</h3>;
+          if(block.type==='markdown') return <div class="prose-block" set:html={render(block.text,page.title)} />;
+          if(block.type==='download') return null;
+          const a = asset(block.id);
+          return a && a.type!=='video' ? <Figure asset={a} number={block.number} /> : null;
+        })}
+      </div>
+    </details>
+  </section>
+</article>

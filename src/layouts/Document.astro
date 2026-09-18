@@ -125,7 +125,7 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
         }
         reveals.unobserve(entry.target);
       }});},{threshold:.12});
-      document.querySelectorAll('.project-row,.section-heading,.project-document>h2').forEach(el=>reveals.observe(el));
+      document.querySelectorAll('.gallery-item,.section-heading,.project-document>h2').forEach(el=>reveals.observe(el));
       reduced.addEventListener('change',()=>{if(reduced.matches)document.getAnimations().forEach(a=>a.cancel());});
       const openHash=()=>{if(!location.hash)return;const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(!target)return;let parent=target.parentElement;while(parent){if(parent instanceof HTMLDetailsElement)parent.open=true;parent=parent.parentElement;}};
       addEventListener('hashchange',openHash);openHash();

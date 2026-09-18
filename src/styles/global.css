@@ -277,3 +277,21 @@ html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-documen
   .thor-hero-media .figure-link,.result-visual .figure-link{overflow:hidden}
   .thor-hero-media img,.result-visual img{width:100%;max-width:100%;height:auto;object-fit:contain}
 }
+
+
+/* THOR simulation media */
+.workflow-lane video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#0b0d10}
+.comparison-group{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule)}
+.comparison-heading{margin-bottom:1rem}
+.comparison-heading .eyebrow{margin:0;color:var(--accent)}
+.comparison-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+.comparison-video-grid figure{min-width:0;margin:0;border:1px solid var(--rule);background:var(--surface);overflow:hidden}
+.comparison-video-grid video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#0b0d10}
+.comparison-video-grid figcaption{padding:.75rem 1rem;color:var(--secondary);font:500 .9375rem/1.4 var(--ui);border-top:1px solid var(--rule)}
+.technical-animation{max-width:100%;overflow:hidden;margin:2rem 0}
+.technical-animation video{width:100%;height:auto;max-height:42rem;object-fit:contain}
+@media(max-width:760px){
+  .workflow-lane video,.comparison-video-grid video{width:100%;max-width:100%;height:auto;object-fit:contain}
+  .comparison-video-grid{grid-template-columns:1fr}
+  .comparison-group{margin-top:2.5rem}
+}

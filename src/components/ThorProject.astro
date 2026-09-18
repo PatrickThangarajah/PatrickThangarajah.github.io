@@ -57,7 +57,12 @@ const technicalBlocks = technicalStart >= 0 ? page.blocks.slice(technicalStart) 
         </div>
       </div>
       <div class="workflow-doe">
-        <img src={asset('A04').path} alt={asset('A04').alt} loading="lazy" width={asset('A04').width} height={asset('A04').height} />
+        <div class="workflow-animation">
+          <video autoplay muted loop playsinline controls preload="metadata" poster={asset('A04').path} aria-label="THOR-5F seat belt anchor design-space animation">
+            <source src="/videos/thor-5f/thor5f-anchor-design-animation.mp4" type="video/mp4" />
+          </video>
+          <p class="animation-caption">THOR-5F seat belt anchor design space and evaluated anchor locations.</p>
+        </div>
         <div class="workflow-doe-copy">
           <strong>104</strong>
           <span>physically feasible anchor position simulations</span>

@@ -130,9 +130,10 @@ html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-documen
 @media screen{.step-card,.approach-card p{font-size:1.125rem;line-height:1.875rem}}
 .project-card{position:relative;transition:transform 180ms ease-out}.project-card::after{content:'';position:absolute;inset:-1px;border:1px solid var(--accent);opacity:0;pointer-events:none;transition:opacity 180ms ease-out}.project-card:hover{border-color:var(--rule)}.project-card:hover::after{opacity:1}
 @media print{.project-card::after{display:none}}
-/* Compact mobile navigation: hidden on desktop, shown as a disclosure toggle at narrow widths. */
+/* Compact navigation: hidden on desktop, shown as a disclosure toggle at 1100px and below.
+   Keep this breakpoint in sync with the matchMedia query in Document.astro and the homepage header block in refined.css. */
 .menu-toggle{display:none;font:600 .9375rem/1.5rem var(--ui);min-height:44px;min-width:44px}
-@media(max-width:639px){
+@media(max-width:1100px){
   .menu-toggle{display:inline-flex;align-items:center;justify-content:center}
   .site-header{flex-wrap:wrap}
   .site-header nav{display:none;order:10;flex-basis:100%;width:100%;flex-direction:column;gap:0;border-top:1px solid var(--rule);margin-top:.5rem}

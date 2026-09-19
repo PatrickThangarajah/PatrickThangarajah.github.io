@@ -15,7 +15,8 @@ for(const page of pages){
   assert.equal((html.match(/<h1\b/g)||[]).length,1,page.route+' h1');
   assert.match(html,/<html lang="en-US"/);
   assert(!/Mechanical \/ CAE Engineer|Mechanical Engineer(?:[ <\\])|a mechanical engineer specializing/.test(html),'Graduate identity');
-  assert(!/THOR-05F|\u2014|tel:|secure\.notion|amazonaws\.com|ASSET:|<unknown|<mention/.test(html),page.route+' forbidden artifact');
+  const forbidden=html.match(/THOR-05F|\u2014|tel:|secure\.notion|amazonaws\.com|ASSET:|<unknown|<mention/);
+  assert(!forbidden,page.route+' forbidden artifact: '+(forbidden?.[0]??''));
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(x=>x[1]);
   assert.equal(ids.length,new Set(ids).size,page.route+' duplicate IDs');
   for(const match of html.matchAll(/<(?:img|video|source)\b[^>]*\bsrc="([^"]+)"[^>]*>/g)){

@@ -1,0 +1,143 @@
+---
+import assets from '../data/assets.json';
+import Figure from './Figure.astro';
+import {render} from '../data/render';
+
+const {page} = Astro.props;
+const asset = (id:string) => (assets as any)[id];
+const block = (id:string) => page.blocks.find((b:any)=>b.type==='heading' && b.id===id);
+const after = (id:string) => {
+  const i = page.blocks.findIndex((b:any)=>b.type==='heading' && b.id===id);
+  return i >= 0 && page.blocks[i+1]?.type === 'markdown' ? page.blocks[i+1].text : '';
+};
+---
+<article class="doe-case-study">
+  <header class="doe-hero">
+    <div class="doe-hero-copy">
+      <p class="eyebrow">Design of Experiments</p>
+      <h1>{page.title}</h1>
+      <p class="doe-lede"><strong>Convert a large restraint-geometry design space into defensible, physically interpreted trends.</strong></p>
+      <dl class="doe-metrics" aria-label="DOE scope">
+        <div><dd>104</dd><dt>LS-DYNA simulations</dt></div>
+        <div><dd>4</dd><dt>full-factorial studies</dt></div>
+        <div><dd>3</dd><dt>anchor coordinates</dt></div>
+        <div><dd>2</dd><dt>bench configurations</dt></div>
+      </dl>
+    </div>
+    <div class="doe-hero-media"><Figure asset={asset('A10')} number={1} /></div>
+  </header>
+
+  <section class="doe-section" id="study-design">
+    <div class="doe-section-heading">
+      <p class="eyebrow">Study design</p>
+      <h2>Three coordinates, three levels, four studies</h2>
+    </div>
+    <div class="doe-process-grid">
+      <article><span>01</span><h3>Define</h3><p>Shoulder and lap anchor X, Y, and Z positions at minimum, midpoint, and maximum levels.</p></article>
+      <article><span>02</span><h3>Simulate</h3><p>27 shoulder-anchor cases and 25 physically feasible lap-anchor cases per bench.</p></article>
+      <article><span>03</span><h3>Interpret</h3><p>Least-squares effects models in JMP, checked against occupant kinematics and belt paths.</p></article>
+    </div>
+    <figure class="doe-animation">
+      <video autoplay muted loop playsinline preload="auto" aria-label="THOR-5F anchor location design of experiments animation">
+        <source src="/videos/THOR_ANCHOR_DOE.mp4" type="video/mp4" />
+      </video>
+      <figcaption><strong>Anchor-position DOE</strong> · minimum, midpoint, and maximum locations across the design space</figcaption>
+    </figure>
+  </section>
+
+  <section class="doe-section" id="key-findings">
+    <div class="doe-section-heading">
+      <p class="eyebrow">Key findings</p>
+      <h2>What moved the response</h2>
+    </div>
+    <div class="doe-result-grid">
+      <article><span class="eyebrow">Rigid Bench chest</span><strong>17%</strong><p>lowest shoulder-anchor configuration below the study average.</p></article>
+      <article><span class="eyebrow">Semi-Rigid chest</span><strong>16%</strong><p>lowest shoulder-anchor configuration below the study average.</p></article>
+      <article><span class="eyebrow">Rigid shoulder model</span><strong>R² 0.92</strong><p>for peak chest deflection.</p></article>
+      <article><span class="eyebrow">Pelvis response</span><strong>Lap anchors</strong><p>had the larger influence on pelvis acceleration.</p></article>
+    </div>
+    <div class="doe-effect-feature">
+      <div class="doe-effect-visual"><Figure asset={asset('A11')} number={2} /></div>
+      <div class="doe-effect-copy">
+        <p class="eyebrow">Rigid Bench shoulder anchor</p>
+        <h3>Main effects on peak chest deflection</h3>
+        <dl>
+          <div><dt>X min → max</dt><dd>+9.5 mm</dd></div>
+          <div><dt>Y min → max</dt><dd>-6.5 mm</dd></div>
+          <div><dt>Z min → max</dt><dd>-4.5 mm</dd></div>
+        </dl>
+        <p>The XZ interaction contributed an estimated -3.16 mm, so the vertical effect depended on fore/aft position.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="doe-section" id="engineering-interpretation">
+    <div class="doe-section-heading">
+      <p class="eyebrow">Engineering interpretation</p>
+      <h2>Statistics tied back to occupant motion</h2>
+    </div>
+    <div class="doe-interpretation-grid">
+      <article><span>01</span><h3>Rearward shoulder anchors</h3><p>Earlier torso engagement, reduced excursion, and more gradual restraint loading.</p></article>
+      <article><span>02</span><h3>Inboard shoulder anchors</h3><p>More load through the shoulder, with belt-to-neck contact at the extreme.</p></article>
+      <article><span>03</span><h3>Seat environment matters</h3><p>The Semi-Rigid Bench produced more complex lap-anchor interactions because of coupled forward and downward motion.</p></article>
+    </div>
+    <aside class="boundary-callout doe-boundary">
+      <h3>Design boundary</h3>
+      <p>These findings are comparative sensitivities within the simulated range, not a production restraint specification.</p>
+    </aside>
+  </section>
+
+  <section class="doe-section doe-technical" id="technical-details">
+    <div class="doe-section-heading">
+      <p class="eyebrow">Technical details</p>
+      <h2>Methods and numerical results</h2>
+    </div>
+    <details class="technical-disclosure">
+      <summary>Open full DOE methods and result tables</summary>
+      <div class="doe-technical-record">
+        <h3>{block('experimental-design')?.title}</h3>
+        <div set:html={render(after('experimental-design'),page.title)} />
+        <h3>{block('responses')?.title}</h3>
+        <div set:html={render(after('responses'),page.title)} />
+        <h3>{block('screening-and-statistical-analysis')?.title}</h3>
+        <div set:html={render(after('screening-and-statistical-analysis'),page.title)} />
+        <h3>{block('key-findings')?.title}</h3>
+        <div set:html={render(after('key-findings'),page.title)} />
+        <h3>{block('design-boundary')?.title}</h3>
+        <div set:html={render(after('design-boundary'),page.title)} />
+      </div>
+    </details>
+  </section>
+</article>
+
+<script is:inline>
+  (() => {
+    const videos = Array.from(document.querySelectorAll('.doe-case-study video'));
+    const prepare = (video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+    };
+    const play = (video) => {
+      prepare(video);
+      const attempt = video.play();
+      if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
+    };
+    videos.forEach((video) => {
+      prepare(video);
+      if (video.readyState >= 2) play(video);
+      else video.addEventListener('canplay', () => play(video), { once: true });
+    });
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) play(video); else video.pause();
+      }), { rootMargin: '200px 0px', threshold: 0.01 });
+      videos.forEach((video) => observer.observe(video));
+    }
+  })();
+</script>

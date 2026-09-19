@@ -13,8 +13,8 @@ const home=!page.slug;
 const headings = page.slug==='thor-5f' ? [
   {id:'research-workflow',title:'Research Workflow'},
   {id:'key-results',title:'Key Results'},
-  {id:'engineering-interpretation',title:'Engineering Interpretation'},
-  {id:'technical-details',title:'Technical Details'}
+  {id:'anchor-response',title:'Anchor Response'},
+  {id:'engineering-interpretation',title:'Engineering Interpretation'}
 ] : page.blocks.filter((b:any)=>b.type==='heading');
 const canonical = new URL(page.route, Astro.site);
 const firstMarkdown=page.blocks.find((b:any)=>b.type==='markdown')?.text ?? page.title;

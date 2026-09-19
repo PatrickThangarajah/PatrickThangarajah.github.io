@@ -150,3 +150,60 @@ const asset = (id:string) => (assets as any)[id];
     </aside>
   </section>
 </article>
+
+<script is:inline>
+  (() => {
+    const videos = Array.from(document.querySelectorAll('.thor-case-study video'));
+
+    const prepare = (video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+    };
+
+    const play = (video) => {
+      prepare(video);
+      const attempt = video.play();
+      if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
+    };
+
+    videos.forEach((video) => {
+      prepare(video);
+      if (video.readyState >= 2) play(video);
+      else {
+        video.addEventListener('loadeddata', () => play(video), { once: true });
+        video.addEventListener('canplay', () => play(video), { once: true });
+      }
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) play(video);
+          else video.pause();
+        });
+      }, { rootMargin: '200px 0px', threshold: 0.01 });
+
+      videos.forEach((video) => observer.observe(video));
+    }
+
+    const replayVisible = () => {
+      videos.forEach((video) => {
+        const rect = video.getBoundingClientRect();
+        if (rect.bottom >= -200 && rect.top <= window.innerHeight + 200) play(video);
+      });
+    };
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) replayVisible();
+    });
+    window.addEventListener('pageshow', replayVisible);
+    document.addEventListener('touchstart', replayVisible, { once: true, passive: true });
+    document.addEventListener('pointerdown', replayVisible, { once: true, passive: true });
+  })();
+</script>

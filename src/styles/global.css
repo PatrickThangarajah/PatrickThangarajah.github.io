@@ -332,3 +332,94 @@ html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-documen
   .thor-result-card{padding:1.25rem}
   .thor-anchor-video video{max-height:none}
 }
+
+
+/* THOR width correction: keep the visual case study aligned with the site chrome. */
+.thor-page .document-grid{grid-template-columns:minmax(0,70rem) 14rem;max-width:87rem;gap:3rem}
+.thor-page main{max-width:70rem;width:100%}
+.thor-page .site-header,.thor-page footer{max-width:87rem}
+.thor-page .thor-section-heading{grid-template-columns:minmax(9rem,.24fr) minmax(0,1fr)}
+.thor-page .thor-anchor-video{max-width:52rem}
+@media(max-width:1100px){
+  .thor-page .document-grid{max-width:70ch}
+  .thor-page main{max-width:70ch}
+  .thor-page .site-header,.thor-page footer{max-width:70ch}
+}
+
+/* Seat-belt DOE visual case study. */
+.doe-page .document-grid{grid-template-columns:minmax(0,70rem) 14rem;max-width:87rem;gap:3rem}
+.doe-page main{max-width:70rem;width:100%}
+.doe-page .site-header,.doe-page footer{max-width:87rem}
+.doe-case-study h1,.doe-case-study h2,.doe-case-study h3{font-family:var(--ui)}
+.doe-case-study figure{margin:0}
+.doe-case-study .figure-description,.doe-case-study .asset-status{display:none}
+.doe-hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(24rem,1.1fr);gap:3rem;align-items:center;padding:1.5rem 0 4.5rem;border-bottom:1px solid var(--rule)}
+.doe-hero-copy{max-width:38rem}
+.doe-hero h1{font-size:clamp(2.5rem,4vw,4.5rem);line-height:1.03;letter-spacing:-.035em;margin:0 0 1.5rem}
+.doe-lede{font:600 clamp(1.2rem,1.6vw,1.55rem)/1.35 var(--ui);max-width:34ch}
+.doe-hero-media figure{padding:0;background:transparent;border:0}
+.doe-hero-media .figure-link{display:block;background:#f0efeb;border:1px solid var(--rule)}
+.doe-hero-media img{display:block;width:100%;max-height:34rem;object-fit:contain}
+.doe-hero-media figcaption{color:var(--secondary);max-width:58ch}
+.doe-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:2.25rem 0 0;font-family:var(--ui)}
+.doe-metrics>div{border-top:1px solid var(--rule);padding-top:1rem}
+.doe-metrics dd{margin:0;font-size:clamp(1.75rem,2.5vw,2.4rem);line-height:1;font-weight:600;font-variant-numeric:tabular-nums}
+.doe-metrics dt{margin-top:.6rem;color:var(--secondary);font-size:.9rem;line-height:1.35}
+.doe-section{padding:5rem 0;border-bottom:1px solid var(--rule);scroll-margin-top:var(--header-offset,8rem)}
+.doe-section-heading{display:grid;grid-template-columns:minmax(9rem,.24fr) minmax(0,1fr);gap:2rem;align-items:start;margin-bottom:2.5rem}
+.doe-section-heading .eyebrow{margin:.35rem 0 0;color:var(--accent)}
+.doe-section-heading h2{margin:0;font-size:clamp(2rem,3vw,3rem);line-height:1.08;letter-spacing:-.025em}
+.doe-process-grid,.doe-interpretation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2rem}
+.doe-process-grid article,.doe-interpretation-grid article{background:var(--paper);padding:1.5rem;min-width:0}
+.doe-process-grid article>span,.doe-interpretation-grid article>span{font:600 .9rem/1 var(--ui);color:var(--accent)}
+.doe-process-grid h3,.doe-interpretation-grid h3{margin:.65rem 0 .5rem;font-size:1.15rem;line-height:1.35}
+.doe-process-grid p,.doe-interpretation-grid p{margin:0;color:var(--secondary);font:400 1rem/1.5 var(--ui)}
+.doe-animation{border:1px solid var(--rule);background:var(--surface);overflow:hidden}
+.doe-animation video{display:block;width:100%;height:auto;max-height:42rem;object-fit:contain;background:#0b0d10}
+.doe-animation figcaption{margin:0;padding:.75rem 1rem;border-top:1px solid var(--rule);color:var(--secondary)}
+.doe-result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem}
+.doe-result-grid article{background:var(--paper);padding:1.5rem;min-width:0}
+.doe-result-grid .eyebrow{display:block;margin-bottom:.75rem}
+.doe-result-grid strong{display:block;font:600 clamp(1.8rem,3vw,2.6rem)/1 var(--ui);color:var(--accent);margin-bottom:.75rem}
+.doe-result-grid p{margin:0;color:var(--secondary);font:400 1rem/1.45 var(--ui)}
+.doe-effect-feature{display:grid;grid-template-columns:minmax(20rem,.9fr) minmax(0,1.1fr);gap:3rem;align-items:center}
+.doe-effect-visual figure{padding:0;background:transparent}
+.doe-effect-visual .figure-link{display:block;border:1px solid var(--rule);background:#f0efeb}
+.doe-effect-visual img{display:block;width:100%;max-height:40rem;object-fit:contain}
+.doe-effect-visual figcaption{color:var(--secondary)}
+.doe-effect-copy h3{margin:.5rem 0 1.5rem;font-size:1.5rem;line-height:1.3}
+.doe-effect-copy dl{margin:0 0 1.5rem;font-family:var(--ui)}
+.doe-effect-copy dl>div{display:flex;justify-content:space-between;gap:1.5rem;padding:.8rem 0;border-top:1px solid var(--rule)}
+.doe-effect-copy dt{color:var(--secondary)}
+.doe-effect-copy dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
+.doe-effect-copy>p:last-child{margin:0;color:var(--secondary)}
+.doe-boundary{margin-top:2rem}
+.doe-boundary p{margin-bottom:0}
+.doe-technical{border-bottom:0}
+.doe-technical .technical-disclosure{border:1px solid var(--rule);padding:0 1.5rem;background:var(--surface)}
+.doe-technical .technical-disclosure>summary{padding:1.25rem 0}
+.doe-technical-record{padding:0 0 1.5rem}
+.doe-technical-record h3{margin:2.5rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+.doe-technical-record h3:first-child{margin-top:.5rem}
+.doe-technical-record p,.doe-technical-record li{font-size:1rem;line-height:1.65}
+.doe-technical-record table{font-size:.95rem;line-height:1.45}
+@media(max-width:1100px){
+  .doe-page .document-grid{max-width:70ch}
+  .doe-page main{max-width:70ch}
+  .doe-page .site-header,.doe-page footer{max-width:70ch}
+  .doe-hero{grid-template-columns:1fr}
+  .doe-hero-copy{max-width:none}
+  .doe-hero-media{max-width:42rem}
+  .doe-effect-feature{grid-template-columns:1fr}
+  .doe-effect-visual{max-width:36rem}
+}
+@media(max-width:760px){
+  .doe-hero{padding-top:0;gap:2rem}
+  .doe-metrics{grid-template-columns:1fr 1fr}
+  .doe-section{padding:4rem 0}
+  .doe-section-heading{grid-template-columns:1fr;gap:.5rem;margin-bottom:2rem}
+  .doe-process-grid,.doe-interpretation-grid,.doe-result-grid{grid-template-columns:1fr}
+  .doe-effect-feature{gap:2rem}
+  .doe-animation video{max-height:none}
+  .doe-technical .technical-disclosure{padding:0 1rem}
+}

@@ -5,9 +5,8 @@ const {id} = Astro.props;
 const item = downloads[id as 'resume' | 'portfolio'];
 const placeholder = isPlaceholder(item.path);
 ---
-<div class="download">
+{!placeholder && <div class="download">
   <a href={item.path} download>{item.label} <span class="format">PDF</span></a>
   <p>{item.audience}</p>
   {downloads.issueDate && <p>Issued <time datetime={downloads.issueDate}>{downloads.issueDate}</time></p>}
-  {placeholder && <p class="asset-status">Placeholder PDF. Updated document pending.</p>}
-</div>
+</div>}

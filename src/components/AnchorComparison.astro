@@ -9,7 +9,7 @@ const hasMp4=existsSync(publicPath(mp4));
 const hasPoster=existsSync(publicPath(poster));
 const hasVideo=hasWebm||hasMp4;
 ---
-<figure class="local-video anchor-comparison">
+{(hasVideo || hasPoster) && <figure class="local-video anchor-comparison">
   {hasVideo ? (
     <video width="596" height="317" poster={hasPoster ? poster : undefined} muted loop playsinline preload="metadata" controls aria-label="Minimum, midpoint, and maximum anchor locations">
       {hasWebm && <source src={webm} type="video/webm" />}
@@ -17,9 +17,7 @@ const hasVideo=hasWebm||hasMp4;
     </video>
   ) : hasPoster ? (
     <img src={poster} width="596" height="317" alt="Minimum, midpoint, and maximum anchor locations" loading="lazy" />
-  ) : (
-    <div class="placeholder-media" style="aspect-ratio:596/317" role="img" aria-label="Minimum, midpoint, and maximum anchor locations"></div>
-  )}
+  ) : null}
   <figcaption>Minimum, midpoint, and maximum anchor locations.</figcaption>
   {!hasVideo && <p class="asset-status">Video file pending.</p>}
-</figure>
+</figure>}

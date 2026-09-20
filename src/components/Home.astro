@@ -1,6 +1,7 @@
 ---
 import pages from '../data/pages.json';
 import assets from '../data/assets.json';
+import downloads from '../data/downloads.json';
 import {isPlaceholder} from '../data/media';
 import {render} from '../data/render';
 import Download from './Download.astro';
@@ -20,6 +21,7 @@ const history=(id:string)=>[...section(id).matchAll(/<tr>([\s\S]*?)<\/tr>/g)].sl
 const contribution=pages.find(p=>p.slug==='thor-5f')!.blocks.find((b:any)=>b.text?.includes('The physical Rigid Bench tests')) as any;
 const roleLine=contribution.text.split('. ')[0]+'.';
 const hero=assets.A01;
+const allDownloadsPlaceholder=Object.values(downloads).filter((item): item is typeof downloads.resume => typeof item === 'object' && 'path' in item).every(item=>isPlaceholder(item.path));
 const intro=(hub.blocks[0] as any).text.split('\n')[1];
 ---
 <section class="home-hero" aria-labelledby="intro-title">
@@ -35,7 +37,7 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
   <div class="section-heading"><p class="eyebrow">01 / Work</p><h2 id="work-title">Selected work</h2><span class="fringe-rule" aria-hidden="true"></span></div>
   <p class="work-meta">Six projects: CAE / FEA · Design / Test · Biomechanics</p>
   <article class="featured-study">
-    <div class="featured-intro"><div><p class="eyebrow">Graduate Research</p><h3><a href="/projects/thor-5f/">THOR-5F Rear Seat Occupant Safety Research</a></h3><p>How does seat belt anchor position change occupant response? Explore the validated THOR-5F bench models and anchor studies.</p><p>Peak chest deflection in the identified configurations</p><dl class="card-metrics"><div><dt>below the Rigid Bench study average</dt><dd>17%</dd></div><div><dt>below the Semi-Rigid Bench study average</dt><dd>16%</dd></div></dl><p class="role-line">{roleLine}</p><a class="case-link" href="/projects/thor-5f/">Full case study <span aria-hidden="true">→</span></a></div><figure class="hero-figure"><a class:list={["hero-media",{"placeholder-media":isPlaceholder(hero.path)}]} href="/projects/thor-5f/" style={`aspect-ratio:${hero.width}/${hero.height}`}><img src={hero.path} alt={isPlaceholder(hero.path)?'Placeholder for: '+hero.alt:hero.alt} width={hero.width} height={hero.height} loading="lazy" /></a><figcaption><span class="fig-tag">FIG. 01</span>THOR-5F rear seat occupant safety research</figcaption>{isPlaceholder(hero.path)&&<p class="asset-status">Engineering figure pending</p>}</figure></div>
+    <div class="featured-intro"><div><p class="eyebrow">Graduate Research</p><h3><a href="/projects/thor-5f/">THOR-5F Rear Seat Occupant Safety Research</a></h3><p>How does seat belt anchor position change occupant response? Explore the validated THOR-5F bench models and anchor studies.</p><p>Peak chest deflection in the identified configurations</p><dl class="card-metrics"><div><dt>below the Rigid Bench study average</dt><dd>17%</dd></div><div><dt>below the Semi-Rigid Bench study average</dt><dd>16%</dd></div></dl><p class="role-line">{roleLine}</p><a class="case-link" href="/projects/thor-5f/">Full case study <span aria-hidden="true">→</span></a></div>{!isPlaceholder(hero.path) && <figure class="hero-figure"><a class="hero-media" href="/projects/thor-5f/" style={`aspect-ratio:${hero.width}/${hero.height}`}><img src={hero.path} alt={hero.alt} width={hero.width} height={hero.height} loading="lazy" /></a><figcaption><span class="fig-tag">FIG. 01</span>THOR-5F rear seat occupant safety research</figcaption></figure>}</div>
   </article>
 
   <div class="gallery-grid">{secondary.map((c,i)=>{const a=(assets as any)[c.asset];const n=String(i+2).padStart(2,'0');return <a class:list={["gallery-item",{"placeholder-media":isPlaceholder(a.path)}]} href={`/projects/${c.slug}/`} aria-label={`${isPlaceholder(a.path)?'Figure pending. ':''}Explore ${c.title}`} style={`--stagger:${i%3*60}ms`}>
@@ -53,4 +55,4 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
   <details id="public-code-and-workflow-artifacts" class="disclosure"><summary>Public code & workflow artifacts</summary><div class="reading-column" set:html={render(section('public-code-and-workflow-artifacts'),hub.title)}/></details>
 </section>
 <section id="contact" class="home-section" aria-labelledby="contact-title"><div class="section-heading"><p class="eyebrow">03 / Contact</p><h2 id="contact-title">Patrick Thangarajah</h2><span class="fringe-rule" aria-hidden="true"></span></div><div class="contact-links"><a href="mailto:ptemmanual@gmail.com">ptemmanual@gmail.com</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a></div>
-<div id="resume"><h3>Resume & portfolio</h3><div class="download-grid"><Download id="resume"/><div id="downloadable-portfolio"><Download id="portfolio"/></div></div><details class="disclosure"><summary>Document details & work eligibility</summary><div class="reading-column" set:html={render(section('resume')+'\n\n'+section('downloadable-portfolio'),hub.title)}/></details></div></section>
+<div id="resume"><h3>Resume & portfolio</h3>{allDownloadsPlaceholder ? <p id="downloadable-portfolio">Resume available on request &mdash; <a href="mailto:ptemmanual@gmail.com">ptemmanual@gmail.com</a></p> : <div class="download-grid"><Download id="resume"/><div id="downloadable-portfolio"><Download id="portfolio"/></div></div>}<details class="disclosure"><summary>Document details & work eligibility</summary><div class="reading-column" set:html={render(section('resume')+'\n\n'+section('downloadable-portfolio'),hub.title)}/></details></div></section>

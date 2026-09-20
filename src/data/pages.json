@@ -339,18 +339,8 @@
       },
       {
         "type": "asset",
-        "id": "A06",
-        "number": 1
-      },
-      {
-        "type": "asset",
-        "id": "A07",
-        "number": 2
-      },
-      {
-        "type": "asset",
         "id": "G01",
-        "number": 3
+        "number": 1
       },
       {
         "type": "heading",
@@ -391,12 +381,12 @@
       {
         "type": "asset",
         "id": "V01",
-        "number": 4
+        "number": 2
       },
       {
         "type": "asset",
         "id": "V02",
-        "number": 5
+        "number": 3
       },
       {
         "type": "markdown",
@@ -793,13 +783,18 @@
       },
       {
         "type": "asset",
-        "id": "A18",
+        "id": "A34",
         "number": 1
       },
       {
         "type": "asset",
-        "id": "A19",
+        "id": "A18",
         "number": 2
+      },
+      {
+        "type": "asset",
+        "id": "A19",
+        "number": 3
       },
       {
         "type": "heading",
@@ -822,12 +817,12 @@
       {
         "type": "asset",
         "id": "A20",
-        "number": 3
+        "number": 4
       },
       {
         "type": "asset",
         "id": "A21",
-        "number": 4
+        "number": 5
       },
       {
         "type": "heading",
@@ -850,12 +845,12 @@
       {
         "type": "asset",
         "id": "A22",
-        "number": 5
+        "number": 6
       },
       {
         "type": "asset",
         "id": "A23",
-        "number": 6
+        "number": 7
       },
       {
         "type": "heading",

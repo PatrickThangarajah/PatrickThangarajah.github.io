@@ -3,19 +3,18 @@
     "id": "G01",
     "slug": "fe-validation",
     "section": "Physical Benchmarks",
-    "file": "thor5f-positioning-workflow.svg",
-    "width": 1946,
-    "height": 992,
-    "caption": "Positioning workflow.",
-    "alt": "Conceptual workflow showing how measured landmarks and published posture measurements were used to position the bench models.",
-    "relationship": "Supplements rigid and semi-rigid positioning figures A06 and A07.",
+    "file": "thor5f-positioning-workflow.png",
+    "width": 6421,
+    "height": 3801,
+    "caption": "Positioning both bench models: measured landmarks for the Rigid Bench, reported test values for the Semi-Rigid Bench.",
+    "alt": "Two-row workflow. The Rigid Bench row runs through four stages: a FaroArm wireframe of head, chin, shoulder, wrist, elbow, H-point, knee and heel landmarks; the THOR-5F finite element model matched to that wireframe; a settling pre-simulation; and a check comparing node distances against the wireframe and 3D scans. The Semi-Rigid Bench row aligns the model to reported tilt sensor, lap belt edge and H-point measurements as a single stage, then runs the settling pre-simulation, then compares positioned values with the reported values.",
     "type": "image",
-    "path": "/figures/fe-validation/thor5f-positioning-workflow.svg",
+    "path": "/figures/fe-validation/thor5f-positioning-workflow.png",
     "route": "/projects/fe-validation/",
     "sourcePage": "Quantitative FE Model Validation | ISO 18571",
     "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
-    "provisional": true,
-    "figureNumber": 3
+    "provisional": false,
+    "figureNumber": 1
   },
   "G02": {
     "id": "G02",
@@ -90,7 +89,7 @@
     "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
     "provisional": true,
     "relationship": "Replaces the role of the excluded rigid kinematic comparison; does not reuse its imagery.",
-    "figureNumber": 4
+    "figureNumber": 2
   },
   "V02": {
     "id": "V02",
@@ -111,7 +110,7 @@
     "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
     "provisional": true,
     "relationship": "Replaces the role of the excluded semirigid kinematic comparison; does not reuse its imagery.",
-    "figureNumber": 5
+    "figureNumber": 3
   },
   "A01": {
     "id": "A01",
@@ -202,42 +201,6 @@
     "provisional": false,
     "relationship": "Existing Notion figure.",
     "figureNumber": 5
-  },
-  "A06": {
-    "id": "A06",
-    "type": "image",
-    "slug": "fe-validation",
-    "file": "thor5f-rigid-positioning-workflow.png",
-    "path": "/figures/fe-validation/thor5f-rigid-positioning-workflow.png",
-    "caption": "Rigid bench positioning used measured landmarks and 3D comparisons before the dynamic simulation.",
-    "alt": "Rigid Bench positioning workflow using measured landmarks, three-dimensional comparisons and finite element model positioning.",
-    "width": 1946,
-    "height": 992,
-    "route": "/projects/fe-validation/",
-    "sourcePage": "Quantitative FE Model Validation | ISO 18571",
-    "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
-    "section": "Physical Benchmarks",
-    "provisional": false,
-    "relationship": "Existing Notion figure.",
-    "figureNumber": 1
-  },
-  "A07": {
-    "id": "A07",
-    "type": "image",
-    "slug": "fe-validation",
-    "file": "thor5f-semirigid-positioning-workflow.png",
-    "path": "/figures/fe-validation/thor5f-semirigid-positioning-workflow.png",
-    "caption": "Semi-rigid positioning matched the published head, thorax, pelvis, and belt measurements.",
-    "alt": "Semi-Rigid Bench positioning workflow showing the model posture and the positioning pre-simulation.",
-    "width": 1918,
-    "height": 990,
-    "route": "/projects/fe-validation/",
-    "sourcePage": "Quantitative FE Model Validation | ISO 18571",
-    "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
-    "section": "Physical Benchmarks",
-    "provisional": false,
-    "relationship": "Existing Notion figure.",
-    "figureNumber": 2
   },
   "A10": {
     "id": "A10",
@@ -387,19 +350,19 @@
     "id": "A18",
     "type": "image",
     "slug": "bladder-test-platform",
-    "file": "capstone-integrated-test-platform.jpg",
-    "path": "/figures/bladder-test-platform/capstone-integrated-test-platform.jpg",
-    "caption": "Integrated platform with the bladder phantom, pumps, pressure chamber, sensing, and control hardware.",
+    "file": "capstone-integrated-test-platform.png",
+    "path": "/figures/bladder-test-platform/capstone-integrated-test-platform.png",
+    "caption": "Team CAD assembly from the capstone poster, annotated with the chamber, ureter, urethra and stand specifications.",
     "alt": "CAD view of the bladder phantom supported inside the pressure chamber.",
-    "width": 1790,
-    "height": 1000,
+    "width": 1436,
+    "height": 658,
     "route": "/projects/bladder-test-platform/",
     "sourcePage": "Soft Distensible Bladder Test Platform - UBC Capstone",
     "sourceUrl": "https://app.notion.com/p/3d6604be85e88035863ae41498de2ce2",
-    "section": "My Individual Contribution",
+    "section": "Project Scope",
     "provisional": false,
     "relationship": "Existing Notion figure.",
-    "figureNumber": 1
+    "figureNumber": 2
   },
   "A19": {
     "id": "A19",
@@ -417,7 +380,7 @@
     "section": "My Individual Contribution",
     "provisional": false,
     "relationship": "Existing Notion figure.",
-    "figureNumber": 2
+    "figureNumber": 3
   },
   "A20": {
     "id": "A20",
@@ -435,7 +398,7 @@
     "section": "System Design",
     "provisional": false,
     "relationship": "Existing Notion figure.",
-    "figureNumber": 3
+    "figureNumber": 4
   },
   "A21": {
     "id": "A21",
@@ -453,7 +416,7 @@
     "section": "System Design",
     "provisional": false,
     "relationship": "Existing Notion figure.",
-    "figureNumber": 4
+    "figureNumber": 5
   },
   "A22": {
     "id": "A22",
@@ -471,7 +434,7 @@
     "section": "Verification Results",
     "provisional": false,
     "relationship": "Existing Notion figure.",
-    "figureNumber": 5
+    "figureNumber": 6
   },
   "A23": {
     "id": "A23",
@@ -489,7 +452,7 @@
     "section": "Verification Results",
     "provisional": false,
     "relationship": "Existing Notion figure.",
-    "figureNumber": 6
+    "figureNumber": 7
   },
   "A24": {
     "id": "A24",
@@ -670,5 +633,20 @@
     "provisional": false,
     "relationship": "Mechanical crop of A28 (HLI_methods_results.png), isolating the Neural Network Performance chart for homepage presentation. Used on the homepage only; the project detail page continues to use A28.",
     "figureNumber": null
+  },
+  "A34": {
+    "id": "A34",
+    "type": "image",
+    "slug": "bladder-test-platform",
+    "file": "capstone-pressure-chamber-built.jpg",
+    "path": "/figures/bladder-test-platform/capstone-pressure-chamber-built.jpg",
+    "caption": "The assembled pressure chamber on the bench: bolted plexiglass panels, caulked seams, neoprene lid, machined standoffs and the peristaltic feed.",
+    "alt": "Photograph of the completed pressure chamber, a transparent plexiglass box with bolted corner brackets and a black neoprene lid, holding the bladder phantom on four machined standoffs, with a peristaltic pump and tubing beside it on a workshop bench.",
+    "width": 3024,
+    "height": 4032,
+    "route": "/projects/bladder-test-platform/",
+    "section": "My Individual Contribution",
+    "provisional": false,
+    "figureNumber": 1
   }
 }

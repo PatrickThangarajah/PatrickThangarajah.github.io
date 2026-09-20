@@ -1,5 +1,4 @@
 {
-  "/figures/fe-validation/thor5f-positioning-workflow.svg": "e9611a2f41f711f0627c333fc189403c4410d788ac632327b9cdaea20630a159",
   "/figures/seat-belt-doe/thor5f-coordinate-system.svg": "aeca8cadbf0b07fe6f7bd37ec2cea5cbb3b9bacbded7e45d81d6e30b7dffd0c2",
   "/figures/seat-belt-doe/thor5f-doe-factor-structure.svg": "dcaa0be36c592be09c0e30553adaef8490b0cacc5e8ae271e1cbf1b656756748",
   "/figures/ls-prepost-automation/thor5f-automation-sequence.svg": "484ebb33ad8cdaee7bbad9e3cbcc0d497e4deaff3169e738899e507b16e5d7f6",
@@ -14,8 +13,6 @@
   "/figures/thor-5f/thor5f-semirigid-validation-overlays.png": "c3eca00f2977418ede98b9810ca9af3eb9d92c21ca6ebbe59e73d263c99cf3b3",
   "/figures/thor-5f/thor5f-shoulder-anchor-full-factorial-doe.png": "0189f089f1eea1a6d2452221ae3e1cbc19253c5635b57bab96e2d03df379c094",
   "/figures/thor-5f/thor5f-main-effect-pdf.png": "155885584da9538d69b122bb01eb163cb48681935336bc0d6db4d09cb1f9d562",
-  "/figures/fe-validation/thor5f-rigid-positioning-workflow.png": "e7e8db2b13d07ed94ec3487cc6c324bbc6f5058f75399cbc468cd4b01ec74d8a",
-  "/figures/fe-validation/thor5f-semirigid-positioning-workflow.png": "4b11909aae3c104a0680f60ef8faf2d109bfd95b494e143e786b2455f19724f8",
   "/figures/seat-belt-doe/thor5f-anchor-design-space.png": "f3cd7ddb5afbda354f1f0264b5e3981321c968d83b20b97d3b5cec7e8896c2ab",
   "/figures/seat-belt-doe/thor5f-main-effect-illustration.png": "ae0b84e576a94d4a0b87c985f6d1477d33671a5a684fccf24148fb8d1083efb4",
   "/figures/ls-prepost-automation/ls-prepost-anchor-model-matrix.png": "dd426e076849d3910e4d38b550000ccae0804df962e1088446a1d22cca273456",

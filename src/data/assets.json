@@ -3,19 +3,18 @@
     "id": "G01",
     "slug": "fe-validation",
     "section": "Physical Benchmarks",
-    "file": "thor5f-positioning-workflow.svg",
-    "width": 1946,
-    "height": 992,
-    "caption": "Positioning workflow.",
-    "alt": "Conceptual workflow showing how measured landmarks and published posture measurements were used to position the bench models.",
-    "relationship": "Supplements rigid and semi-rigid positioning figures A06 and A07.",
+    "file": "thor5f-positioning-workflow.png",
+    "width": 6421,
+    "height": 3801,
+    "caption": "Positioning both bench models: measured landmarks for the Rigid Bench, reported test values for the Semi-Rigid Bench.",
+    "alt": "Two-row workflow. The Rigid Bench row runs through four stages: a FaroArm wireframe of head, chin, shoulder, wrist, elbow, H-point, knee and heel landmarks; the THOR-5F finite element model matched to that wireframe; a settling pre-simulation; and a check comparing node distances against the wireframe and 3D scans. The Semi-Rigid Bench row aligns the model to reported tilt sensor, lap belt edge and H-point measurements as a single stage, then runs the settling pre-simulation, then compares positioned values with the reported values.",
     "type": "image",
-    "path": "/figures/fe-validation/thor5f-positioning-workflow.svg",
+    "path": "/figures/fe-validation/thor5f-positioning-workflow.png",
     "route": "/projects/fe-validation/",
     "sourcePage": "Quantitative FE Model Validation | ISO 18571",
     "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
-    "provisional": true,
-    "figureNumber": 3
+    "provisional": false,
+    "figureNumber": 1
   },
   "G02": {
     "id": "G02",
@@ -90,7 +89,7 @@
     "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
     "provisional": true,
     "relationship": "Replaces the role of the excluded rigid kinematic comparison; does not reuse its imagery.",
-    "figureNumber": 4
+    "figureNumber": 2
   },
   "V02": {
     "id": "V02",
@@ -111,7 +110,7 @@
     "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
     "provisional": true,
     "relationship": "Replaces the role of the excluded semirigid kinematic comparison; does not reuse its imagery.",
-    "figureNumber": 5
+    "figureNumber": 3
   },
   "A01": {
     "id": "A01",
@@ -202,42 +201,6 @@
     "provisional": false,
     "relationship": "Existing Notion figure.",
     "figureNumber": 5
-  },
-  "A06": {
-    "id": "A06",
-    "type": "image",
-    "slug": "fe-validation",
-    "file": "thor5f-rigid-positioning-workflow.png",
-    "path": "/figures/fe-validation/thor5f-rigid-positioning-workflow.png",
-    "caption": "Rigid bench positioning used measured landmarks and 3D comparisons before the dynamic simulation.",
-    "alt": "Rigid Bench positioning workflow using measured landmarks, three-dimensional comparisons and finite element model positioning.",
-    "width": 1946,
-    "height": 992,
-    "route": "/projects/fe-validation/",
-    "sourcePage": "Quantitative FE Model Validation | ISO 18571",
-    "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
-    "section": "Physical Benchmarks",
-    "provisional": false,
-    "relationship": "Existing Notion figure.",
-    "figureNumber": 1
-  },
-  "A07": {
-    "id": "A07",
-    "type": "image",
-    "slug": "fe-validation",
-    "file": "thor5f-semirigid-positioning-workflow.png",
-    "path": "/figures/fe-validation/thor5f-semirigid-positioning-workflow.png",
-    "caption": "Semi-rigid positioning matched the published head, thorax, pelvis, and belt measurements.",
-    "alt": "Semi-Rigid Bench positioning workflow showing the model posture and the positioning pre-simulation.",
-    "width": 1918,
-    "height": 990,
-    "route": "/projects/fe-validation/",
-    "sourcePage": "Quantitative FE Model Validation | ISO 18571",
-    "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
-    "section": "Physical Benchmarks",
-    "provisional": false,
-    "relationship": "Existing Notion figure.",
-    "figureNumber": 2
   },
   "A10": {
     "id": "A10",

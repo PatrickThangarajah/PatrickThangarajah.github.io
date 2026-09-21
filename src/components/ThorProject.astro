@@ -21,35 +21,6 @@ const asset = (id:string) => (assets as any)[id];
     <div class="thor-hero-media"><Figure asset={asset('A01')} number={1} /></div>
   </header>
 
-  <section class="thor-section" id="research-workflow">
-    <div class="thor-section-heading">
-      <p class="eyebrow">Research workflow</p>
-      <h2>Physical test → FE validation → anchor-position DOE</h2>
-    </div>
-
-    <div class="thor-video-grid thor-video-grid-two">
-      <figure class="thor-video-card">
-        <video autoplay muted loop playsinline preload="auto" aria-label="Rigid Bench THOR-5F simulation">
-          <source src="/videos/thorrigidbenchgeneralsim.mp4" type="video/mp4" />
-        </video>
-        <figcaption><strong>Rigid Bench</strong> · THOR-5F simulation</figcaption>
-      </figure>
-      <figure class="thor-video-card">
-        <video autoplay muted loop playsinline preload="auto" aria-label="Semi-Rigid Bench THOR-5F simulation">
-          <source src="/videos/THORsemiRIGIDBENCHgeneralsim.mp4" type="video/mp4" />
-        </video>
-        <figcaption><strong>Semi-Rigid Bench</strong> · THOR-5F simulation</figcaption>
-      </figure>
-    </div>
-
-    <figure class="thor-video-card thor-anchor-video">
-      <video autoplay muted loop playsinline preload="auto" aria-label="THOR-5F anchor location DOE animation">
-        <source src="/videos/THOR_ANCHOR_DOE.mp4" type="video/mp4" />
-      </video>
-      <figcaption><strong>Anchor-position DOE</strong> · 104 physically feasible simulations</figcaption>
-    </figure>
-  </section>
-
   <section class="thor-section" id="key-results">
     <div class="thor-section-heading">
       <p class="eyebrow">Key results</p>
@@ -88,6 +59,36 @@ const asset = (id:string) => (assets as any)[id];
       <a class="text-link" href="/projects/fe-validation/">FE model validation →</a>
       <a class="text-link" href="/projects/ls-prepost-automation/">LS-PrePost automation →</a>
     </div>
+  </section>
+
+
+  <section class="thor-section" id="research-workflow">
+    <div class="thor-section-heading">
+      <p class="eyebrow">Research workflow</p>
+      <h2>Physical test → FE validation → anchor-position DOE</h2>
+    </div>
+
+    <div class="thor-video-grid thor-video-grid-two">
+      <figure class="thor-video-card">
+        <video autoplay muted loop playsinline preload="auto" aria-label="Rigid Bench THOR-5F simulation">
+          <source src="/videos/thorrigidbenchgeneralsim.mp4" type="video/mp4" />
+        </video>
+        <figcaption><strong>Rigid Bench</strong> · THOR-5F simulation</figcaption>
+      </figure>
+      <figure class="thor-video-card">
+        <video autoplay muted loop playsinline preload="auto" aria-label="Semi-Rigid Bench THOR-5F simulation">
+          <source src="/videos/THORsemiRIGIDBENCHgeneralsim.mp4" type="video/mp4" />
+        </video>
+        <figcaption><strong>Semi-Rigid Bench</strong> · THOR-5F simulation</figcaption>
+      </figure>
+    </div>
+
+    <figure class="thor-video-card thor-anchor-video">
+      <video autoplay muted loop playsinline preload="auto" aria-label="THOR-5F anchor location DOE animation">
+        <source src="/videos/THOR_ANCHOR_DOE.mp4" type="video/mp4" />
+      </video>
+      <figcaption><strong>Anchor-position DOE</strong> · 104 physically feasible simulations</figcaption>
+    </figure>
   </section>
 
   <section class="thor-section" id="anchor-response">

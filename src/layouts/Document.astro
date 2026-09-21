@@ -13,6 +13,9 @@ import SeatBeltDoe from '../components/SeatBeltDoe.astro';
 import BladderProject from '../components/BladderProject.astro';
 import HliProject from '../components/HliProject.astro';
 import FeValidationProject from '../components/FeValidationProject.astro';
+import CervicalProject from '../components/CervicalProject.astro';
+import SeatFoamProject from '../components/SeatFoamProject.astro';
+import RoverProject from '../components/RoverProject.astro';
 const {page} = Astro.props;
 const home=!page.slug;
 const headings = page.slug==='thor-5f' ? [
@@ -33,6 +36,29 @@ const headings = page.slug==='thor-5f' ? [
   {id:'quantitative-result',title:'Quantitative result'},
   {id:'engineering-interpretation',title:'Engineering interpretation'},
   {id:'decision',title:'Decision'}
+] : page.slug==='cervical-fracture' ? [
+  {id:'engineering-question',title:'Engineering Question'},
+  {id:'my-individual-contribution',title:'My Individual Contribution'},
+  {id:'simulation-workflow',title:'Simulation Workflow'},
+  {id:'key-results',title:'Key Results'},
+  {id:'engineering-interpretation',title:'Engineering Interpretation'},
+  {id:'limitations',title:'Limitations'},
+  {id:'what-this-demonstrates',title:'What This Demonstrates'}
+] : page.slug==='seat-foam' ? [
+  {id:'engineering-question',title:'Engineering Question'},
+  {id:'study-setup',title:'Study Setup'},
+  {id:'simulation-and-validation-workflow',title:'Simulation and Validation Workflow'},
+  {id:'model-checks-and-outputs',title:'Model Checks and Outputs'},
+  {id:'key-results',title:'Key Results'},
+  {id:'engineering-interpretation',title:'Engineering Interpretation'},
+  {id:'limitations',title:'Limitations'},
+  {id:'what-this-demonstrates',title:'What This Demonstrates'}
+] : page.slug==='payload-and-rover' ? [
+  {id:'competition-design-problem',title:'Competition Design Problem'},
+  {id:'my-individual-contribution',title:'My Individual Contribution'},
+  {id:'cad-and-prototype-development',title:'CAD and Prototype Development'},
+  {id:'result',title:'Result'},
+  {id:'what-this-demonstrates',title:'What This Demonstrates'}
 ] : page.slug==='bladder-test-platform' ? [
   {id:'platform-functions',title:'What the platform reproduces'},
   {id:'system-design',title:'System design'},
@@ -62,7 +88,7 @@ const description=plain(firstMarkdown).slice(0,180);
 const firstAssetBlock=page.blocks.find((b:any)=>b.type==='asset');
 const socialAsset:any=home ? (assets as any).A01 : firstAssetBlock ? (assets as any)[firstAssetBlock.id] : (assets as any).A01;
 const socialImage=socialAsset?.path ? new URL(socialAsset.path,Astro.site) : undefined;
-const groupProjectSlugs=['payload-and-rover'];
+const groupProjectSlugs=[];
 const contributionIndex=groupProjectSlugs.includes(page.slug) ? page.blocks.findIndex((b:any)=>b.type==='heading'&&(b.title==='My Individual Contribution'||b.title==='My Contribution')) : -1;
 const contributionHeading=contributionIndex>=0 ? page.blocks[contributionIndex] : null;
 const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] : null;
@@ -95,7 +121,7 @@ const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue C
       try { const preference = localStorage.getItem('theme'); if(preference === 'light' || preference === 'dark') document.documentElement.dataset.theme = preference; } catch {}
     </script>
   </head>
-  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f',"doe-page":page.slug==='seat-belt-doe',"validation-page":page.slug==='fe-validation',"bladder-page":page.slug==='bladder-test-platform',"hli-page":page.slug==='kidney-tissue-classification'}}>
+  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f',"doe-page":page.slug==='seat-belt-doe',"validation-page":page.slug==='fe-validation',"cervical-page":page.slug==='cervical-fracture',"foam-page":page.slug==='seat-foam',"rover-page":page.slug==='payload-and-rover',"bladder-page":page.slug==='bladder-test-platform',"hli-page":page.slug==='kidney-tissue-classification'}}>
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/">Patrick Thangarajah<span class="role-line">Mechanical Engineering Graduate</span></a>
@@ -112,7 +138,7 @@ const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue C
       </aside>}
       <main id="main" tabindex="-1">
         {page.slug && <a class="back-link" href="/#selected-work">All projects</a>}
-        {home ? <Home/> : page.slug==='thor-5f' ? <ThorProject page={page} /> : page.slug==='seat-belt-doe' ? <SeatBeltDoe page={page} /> : page.slug==='fe-validation' ? <FeValidationProject page={page} /> : page.slug==='bladder-test-platform' ? <BladderProject /> : page.slug==='kidney-tissue-classification' ? <HliProject /> : <article class="project-document">
+        {home ? <Home/> : page.slug==='thor-5f' ? <ThorProject page={page} /> : page.slug==='seat-belt-doe' ? <SeatBeltDoe page={page} /> : page.slug==='fe-validation' ? <FeValidationProject page={page} /> : page.slug==='cervical-fracture' ? <CervicalProject page={page} /> : page.slug==='seat-foam' ? <SeatFoamProject page={page} /> : page.slug==='payload-and-rover' ? <RoverProject page={page} /> : page.slug==='bladder-test-platform' ? <BladderProject /> : page.slug==='kidney-tissue-classification' ? <HliProject /> : <article class="project-document">
           <h1>{displayTitle}</h1>
           {contributionHeading && contributionBlock?.type==='markdown' && <aside class="boundary-callout contribution-summary"><h3>{contributionHeading.title}</h3><div set:html={render(contributionBlock.text,page.title)} /></aside>}
           {page.blocks.map((block:any,i:number) => {

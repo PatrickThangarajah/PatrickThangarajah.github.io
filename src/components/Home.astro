@@ -17,28 +17,33 @@ const secondary=[
 const toolkit=section('technical-toolkit');
 const rows=[...toolkit.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].slice(1).map(r=>[...r[1].matchAll(/<td>([\s\S]*?)<\/td>/g)].map(c=>c[1].trim()));
 const history=(id:string)=>[...section(id).matchAll(/<tr>([\s\S]*?)<\/tr>/g)].slice(1).map(r=>[...r[1].matchAll(/<td>([\s\S]*?)<\/td>/g)].map(c=>c[1].trim()));
-const contribution=pages.find(p=>p.slug==='thor-5f')!.blocks.find((b:any)=>b.text?.includes('The physical Rigid Bench tests')) as any;
-const roleLine=contribution.text.split('. ')[0]+'.';
-const hero=assets.A01;
 const intro=(hub.blocks[0] as any).text.split('\n')[1];
 ---
 <section class="home-hero" aria-labelledby="intro-title">
-  <div class="hero-copy"><p class="print-identity">Patrick Thangarajah</p>
-    <p class="eyebrow hero-enter">Calgary, Alberta, Canada</p>
-    <h1 id="intro-title" class="hero-enter">Mechanical Engineering Graduate</h1>
-    <div class="hero-enter"><ul class="focus-areas"><li>Occupant Safety</li><li>Explicit Dynamics</li><li>FEA / Model Validation</li><li>Engineering Design</li></ul><p class="hero-support">{intro}</p></div>
-    <div class="hero-actions hero-enter"><a class="button-link" href="#selected-work">My work <span aria-hidden="true">↓</span></a><a class="button-link secondary-button" href="#resume">Resume & portfolio</a></div>
-    <p class="eligibility hero-enter">Canadian citizen eligible to work in the United States under TN status</p>
+  <div class="home-hero-grid">
+    <div class="hero-copy"><p class="print-identity">Patrick Thangarajah</p>
+      <p class="eyebrow hero-enter">Calgary, Alberta, Canada</p>
+      <h1 id="intro-title" class="hero-enter">Mechanical Engineering Graduate</h1>
+      <div class="hero-enter"><ul class="focus-areas"><li>Occupant Safety</li><li>Explicit Dynamics</li><li>FEA / Model Validation</li><li>Engineering Design</li></ul><p class="hero-support">{intro}</p></div>
+      <div class="hero-actions hero-enter"><a class="button-link" href="#selected-work">My work <span aria-hidden="true">↓</span></a><a class="button-link secondary-button" href="#resume">Resume & portfolio</a></div>
+      <p class="eligibility hero-enter">Canadian citizen eligible to work in the United States under TN status</p>
+    </div>
+    <aside class="hero-feature" aria-labelledby="flagship-title">
+      <p class="eyebrow">Graduate Research</p>
+      <h2 id="flagship-title"><a href="/projects/thor-5f/">THOR-5F Rear Seat Occupant Safety Research</a></h2>
+      <p>How does seat belt anchor position change occupant response? Explore the validated THOR-5F bench models and anchor studies.</p>
+      <div class="hero-feature-metrics">
+        <div><strong>104</strong><span>FE simulations</span></div>
+        <div><strong>2</strong><span>Physical test benchmark configurations</span></div>
+      </div>
+      <a class="case-link" href="/projects/thor-5f/">Full case study <span aria-hidden="true">→</span></a>
+    </aside>
   </div>
 </section>
 <section id="selected-work" class="home-section" aria-labelledby="work-title">
   <div class="section-heading"><p class="eyebrow">01 / Work</p><h2 id="work-title">Selected work</h2><span class="fringe-rule" aria-hidden="true"></span></div>
-  <p class="work-meta">Six projects: CAE / FEA · Design / Test · Biomechanics</p>
-  <article class="featured-study">
-    <div class="featured-intro"><div><p class="eyebrow">Graduate Research</p><h3><a href="/projects/thor-5f/">THOR-5F Rear Seat Occupant Safety Research</a></h3><p>How does seat belt anchor position change occupant response? Explore the validated THOR-5F bench models and anchor studies.</p><p>Peak chest deflection in the identified configurations</p><dl class="card-metrics"><div><dt>below the Rigid Bench study average</dt><dd>17%</dd></div><div><dt>below the Semi-Rigid Bench study average</dt><dd>16%</dd></div></dl><p class="role-line">{roleLine}</p><a class="case-link" href="/projects/thor-5f/">Full case study <span aria-hidden="true">→</span></a></div><figure class="hero-figure"><a class:list={["hero-media",{"placeholder-media":isPlaceholder(hero.path)}]} href="/projects/thor-5f/" style={`aspect-ratio:${hero.width}/${hero.height}`}><img src={hero.path} alt={isPlaceholder(hero.path)?'Placeholder for: '+hero.alt:hero.alt} width={hero.width} height={hero.height} loading="lazy" /></a><figcaption><span class="fig-tag">FIG. 01</span>THOR-5F rear seat occupant safety research</figcaption>{isPlaceholder(hero.path)&&<p class="asset-status">Engineering figure pending</p>}</figure></div>
-  </article>
-
-  <div class="gallery-grid">{secondary.map((c,i)=>{const a=(assets as any)[c.asset];const n=String(i+2).padStart(2,'0');return <a class:list={["gallery-item",{"placeholder-media":isPlaceholder(a.path)}]} href={`/projects/${c.slug}/`} aria-label={`${isPlaceholder(a.path)?'Figure pending. ':''}Explore ${c.title}`} style={`--stagger:${i%3*60}ms`}>
+  <p class="work-meta">CAE / FEA · Design / Test · Biomechanics</p>
+  <div class="gallery-grid">{secondary.map((c,i)=>{const a=(assets as any)[c.asset];const n=String(i+1).padStart(2,'0');return <a class:list={["gallery-item",{"placeholder-media":isPlaceholder(a.path)}]} href={`/projects/${c.slug}/`} aria-label={`${isPlaceholder(a.path)?'Figure pending. ':''}Explore ${c.title}`} style={`--stagger:${i%3*60}ms`}>
     <figure class="gallery-figure"><span class="gallery-frame"><img src={a.path} alt={isPlaceholder(a.path)?'Placeholder for: '+a.alt:a.alt} width={a.width} height={a.height} loading="lazy" decoding="async" />{isPlaceholder(a.path)&&<span class="media-label">Figure pending</span>}</span><figcaption class="fig-caption"><span class="fig-tag">FIG. {n}</span></figcaption></figure>
     <div class="gallery-copy"><p class="eyebrow">{c.tags}</p><h3>{c.title}</h3><p>{c.copy}</p>{c.metrics.length>0&&<p class="gallery-metric"><strong>{c.metrics[0][0]}</strong> {c.metrics[0][1]}</p>}</div>
   </a>;})}</div>

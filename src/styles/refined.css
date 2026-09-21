@@ -246,3 +246,28 @@
   .work-meta{margin-bottom:2rem}
   .role-line{font-size:1rem;line-height:1.55rem}
 }
+
+
+/* Final homepage review: compact flagship research beside the hero. */
+.home-hero{max-width:none;padding:4rem 0 3.5rem}
+.home-hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(20rem,.75fr);gap:4rem;align-items:start}
+.hero-feature{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:1.5rem 0;background:transparent}
+.hero-feature>.eyebrow{font-size:.8125rem;line-height:1.25rem;letter-spacing:.08em;text-transform:uppercase;color:var(--secondary);margin:0 0 .65rem}
+.hero-feature h2{font-size:1.55rem;line-height:1.85rem;letter-spacing:-.015em;margin:0 0 .8rem}
+.hero-feature h2 a{color:var(--ink);text-decoration:none}
+.hero-feature h2 a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.hero-feature>p{font:400 1rem/1.55rem var(--ui);color:var(--secondary);margin:0 0 1.25rem}
+.hero-feature-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.25rem 0}
+.hero-feature-metrics>div{border-top:1px solid var(--rule);padding-top:.85rem}
+.hero-feature-metrics strong{display:block;font:600 2rem/1 var(--ui);font-variant-numeric:tabular-nums}
+.hero-feature-metrics span{display:block;margin-top:.4rem;font:400 .9375rem/1.35rem var(--ui);color:var(--secondary)}
+.gallery-frame{background:transparent!important;padding:0!important;border:0!important;border-radius:0!important}
+@media(max-width:900px){
+  .home-hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-feature{max-width:38rem}
+}
+@media(max-width:639px){
+  .home-hero{padding:2.75rem 0 2.5rem}
+  .home-hero-grid{gap:2rem}
+  .hero-feature-metrics{grid-template-columns:1fr 1fr}
+}

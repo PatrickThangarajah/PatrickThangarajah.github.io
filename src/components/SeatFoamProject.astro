@@ -1,0 +1,138 @@
+---
+import assets from '../data/assets.json';
+import Figure from './Figure.astro';
+
+const {page} = Astro.props;
+const asset = (id:string) => (assets as any)[id];
+---
+
+<article class="case-study foam-case">
+  <header class="case-hero">
+    <p class="case-role">Rear impact LS-DYNA study - connecting seat foam material response to occupant head and neck injury metrics</p>
+    <h1>{page.title}</h1>
+    <p class="case-lede">For this individual ME 725 course project, I compared five polyurethane seat foam models in a Hybrid III rear impact sled model at 27 and 57 km/h. The JC80 foam produced the lowest HIC15 at both severities, while the foam ranking for Nij changed with impact severity.</p>
+    <div class="case-metrics foam-metrics" aria-label="Study scope">
+      <div><strong class="validation-metric-value">5</strong><span class="validation-metric-label">Foam models</span></div>
+      <div><strong class="validation-metric-value">2</strong><span class="validation-metric-label">Impact speeds</span><p>27 and 57 km/h</p></div>
+      <div><strong class="validation-metric-value">10</strong><span class="validation-metric-label">Sled simulations</span></div>
+    </div>
+  </header>
+
+  <section class="case-section" id="engineering-question">
+    <h2>Engineering Question</h2>
+    <p>Seatback and head restraint foams absorb energy and affect the timing of occupant loading in a rear impact. I investigated: <strong>How much do different seat foam material responses affect head and neck injury metrics, and are those effects consistent across crash severity?</strong></p>
+  </section>
+
+  <section class="case-section" id="study-setup">
+    <h2>Study Setup</h2>
+    <p class="section-intro">I completed this as an individual course project, building on an existing Hybrid III seat model and occupant-settling setup.</p>
+    <div class="workflow-card-grid">
+      <article>
+        <h3>Material verification</h3>
+        <p>Created single-element LS-DYNA compression models to check the material response against available stress-strain data.</p>
+      </article>
+      <article>
+        <h3>Model integration and simulation</h3>
+        <p>Implemented and compared five <code>*MAT_LOW_DENSITY_FOAM</code> definitions in the head restraint and seatback of a detailed 2018 Honda Odyssey rear seat model.</p>
+        <p>Ran five foam configurations at each of two rear impact pulses.</p>
+      </article>
+      <article>
+        <h3>Post-processing</h3>
+        <p>Extracted head-head-restraint contact force, head acceleration, and upper neck force and moment histories.</p>
+        <p>Calculated and compared <strong>HIC15 and Nij</strong> across the complete simulation matrix.</p>
+      </article>
+    </div>
+    <div class="figure-pair foam-model-pair">
+      <Figure asset={asset('A24')} number={1} />
+      <Figure asset={asset('A25')} number={2} />
+    </div>
+  </section>
+
+  <section class="case-section" id="simulation-and-validation-workflow">
+    <h2>Simulation and Validation Workflow</h2>
+    <ol class="validation-process">
+      <li><span>01</span><p><strong>Define the materials.</strong> Compared five polyurethane foam responses using the LS-DYNA low-density foam material model.</p></li>
+      <li><span>02</span><p><strong>Check the input response.</strong> Compressed a 1 x 1 x 1 mm solid element at 1 mm/s and compared the calculated stress-strain response with the available input curves.</p></li>
+      <li><span>03</span><p><strong>Integrate the foams.</strong> Updated the head restraint and seatback material definitions in the detailed seat model while keeping the remaining setup consistent.</p></li>
+      <li><span>04</span><p><strong>Settle and load the occupant.</strong> Used the existing positioning procedure, gravity settling, and NHTSA rear impact pulses at 27 and 57 km/h.</p></li>
+      <li><span>05</span><p><strong>Post-process the response.</strong> Compared contact forces, upper neck force and moment, HIC15, and maximum Nij.</p></li>
+    </ol>
+  </section>
+
+  <section class="case-section" id="model-checks-and-outputs">
+    <h2>Model Checks and Outputs</h2>
+    <p>The four non-default foam models reproduced their available input stress-strain behavior in the single-element checks. The default NHTSA foam could not be checked the same way because its original experimental curve was not provided.</p>
+    <div class="figure-pair foam-output-pair">
+      <Figure asset={asset('A26')} number={3} />
+      <Figure asset={asset('A27')} number={4} />
+    </div>
+  </section>
+
+  <section class="case-section" id="key-results">
+    <h2>Key Results</h2>
+    <div class="finding-card-grid foam-findings">
+      <article class="finding-card">
+        <h3>HIC15 threshold</h3>
+        <strong class="finding-value">Below 700</strong>
+        <p>All simulated HIC15 values remained below 700 at both impact severities.</p>
+      </article>
+      <article class="finding-card">
+        <h3>Lowest HIC15</h3>
+        <div class="dual-values">
+          <div><strong>18.3%</strong><span>lower at 57 km/h</span></div>
+          <div><strong>19.6%</strong><span>lower at 27 km/h</span></div>
+        </div>
+        <p class="finding-secondary">JC80 produced the lowest HIC15 in both cases relative to Campbell Foam 4, which produced the highest HIC15 in both cases.</p>
+      </article>
+      <article class="finding-card">
+        <h3>Nij at 57 km/h</h3>
+        <strong class="finding-value">1.63</strong>
+        <p>Every foam produced a maximum Nij above 1.0; Campbell Foam 2 produced the lowest value at 1.63.</p>
+      </article>
+      <article class="finding-card">
+        <h3>Nij at 27 km/h</h3>
+        <div class="dual-values">
+          <div><strong>1.05</strong><span>NHTSA default</span></div>
+          <div><strong>0.616</strong><span>JC80</span></div>
+        </div>
+        <p class="finding-secondary">Four foam alternatives remained below Nij = 1.0, while the default NHTSA foam reached 1.05. JC80 produced the lowest value at 0.616.</p>
+      </article>
+    </div>
+    <p class="result-interpretation">The force and moment histories were broadly similar between foams, and the Nij ranking changed with crash severity.</p>
+
+    <div class="table-wrap foam-table-wrap">
+      <table class="case-table responsive-result-table">
+        <thead><tr><th>Foam</th><th>HIC15 - 57 km/h</th><th>HIC15 - 27 km/h</th><th>Nij - 57 km/h</th><th>Nij - 27 km/h</th></tr></thead>
+        <tbody>
+          <tr><th>JC120</th><td data-label="HIC15 - 57 km/h">562.2</td><td data-label="HIC15 - 27 km/h">223.8</td><td data-label="Nij - 57 km/h">2.12</td><td data-label="Nij - 27 km/h">0.770</td></tr>
+          <tr><th>JC80</th><td data-label="HIC15 - 57 km/h">513.1</td><td data-label="HIC15 - 27 km/h">210.6</td><td data-label="Nij - 57 km/h">2.49</td><td data-label="Nij - 27 km/h">0.616</td></tr>
+          <tr><th>Campbell Foam 2</th><td data-label="HIC15 - 57 km/h">565.1</td><td data-label="HIC15 - 27 km/h">242.8</td><td data-label="Nij - 57 km/h">1.63</td><td data-label="Nij - 27 km/h">0.914</td></tr>
+          <tr><th>Campbell Foam 4</th><td data-label="HIC15 - 57 km/h">628.0</td><td data-label="HIC15 - 27 km/h">262.1</td><td data-label="Nij - 57 km/h">2.70</td><td data-label="Nij - 27 km/h">0.931</td></tr>
+          <tr><th>NHTSA default</th><td data-label="HIC15 - 57 km/h">574.6</td><td data-label="HIC15 - 27 km/h">231.9</td><td data-label="Nij - 57 km/h">2.81</td><td data-label="Nij - 27 km/h">1.05</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="case-section" id="engineering-interpretation">
+    <h2>Engineering Interpretation</h2>
+    <p>Within this model, the lower-modulus JC80 foam was associated with lower head injury response at both speeds. The neck response was less consistent: the foam producing the lowest Nij changed between the two pulses. This showed that material stiffness alone did not explain the full occupant response; the complete stress-strain curve, contact timing, seat geometry, and crash severity also mattered.</p>
+  </section>
+
+  <section class="case-section" id="limitations">
+    <h2>Limitations</h2>
+    <ul>
+      <li>Mass scaling and the relatively coarse foam mesh may have affected response accuracy.</li>
+      <li>The material curves were linearly extrapolated beyond approximately 0.6 strain for numerical stability.</li>
+      <li>The material inputs did not include strain-rate-dependent behavior.</li>
+      <li>The study used one seat geometry and a Hybrid III 50th-percentile male model.</li>
+      <li>Individual cases required approximately 24 hours to solve, limiting mesh-refinement and sensitivity studies.</li>
+    </ul>
+  </section>
+
+  <section class="case-section" id="what-this-demonstrates">
+    <h2>What This Demonstrates</h2>
+    <p><strong>LS-DYNA explicit dynamics | LS-PrePost | foam material modeling and verification | Hybrid III occupant modeling | contact analysis | HIC15 and Nij | simulation post-processing</strong></p>
+    <p class="sharing-boundary"><strong>Public-sharing boundary:</strong> Images and numerical results are taken from my academic course analysis. Source finite element model files are not distributed.</p>
+  </section>
+</article>

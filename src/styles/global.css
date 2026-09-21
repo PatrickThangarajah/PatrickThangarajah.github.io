@@ -766,3 +766,98 @@ html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-documen
   .bench-grid,.validation-result-grid,.kinematic-grid{display:block}
   .bench-grid>article,.validation-result-grid>article,.kinematic-grid>article{margin-bottom:12pt}
 }
+
+
+/* Final review pass: shared case-study layouts and transparent engineering media. */
+.cervical-page .document-grid,
+.foam-page .document-grid,
+.rover-page .document-grid{grid-template-columns:minmax(0,70rem) 14rem;max-width:87rem;gap:3rem}
+.cervical-page main,.foam-page main,.rover-page main{max-width:70rem;width:100%}
+.cervical-page .site-header,.cervical-page footer,
+.foam-page .site-header,.foam-page footer,
+.rover-page .site-header,.rover-page footer{max-width:87rem}
+
+.finding-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:1.5rem 0 3rem}
+.finding-card{border:1px solid var(--rule);background:transparent;padding:1.5rem;min-width:0}
+.finding-card-heading{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.finding-card-heading h3,.finding-card>h3{margin:0;font-size:1.0625rem;line-height:1.4;text-transform:uppercase;letter-spacing:.06em}
+.finding-icon{width:1.5rem;height:1.5rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.finding-value{display:block;font:600 2.35rem/1.05 var(--ui);margin:.4rem 0 .8rem}
+.finding-card p{margin:.65rem 0 0}
+.finding-secondary{padding-top:1rem;border-top:1px solid var(--rule);color:var(--secondary)}
+.dual-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:.4rem 0 1rem}
+.dual-values>div+div{border-left:1px solid var(--rule);padding-left:1rem}
+.dual-values strong{display:block;font:600 1.85rem/1.1 var(--ui)}
+.dual-values span{display:block;margin-top:.3rem;font:400 1.0625rem/1.4 var(--ui);color:var(--secondary)}
+.subsection-heading{font-size:1.45rem!important;margin:3.5rem 0 1.25rem!important}
+.fracture-progression,.rover-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;align-items:start}
+.fracture-progression img{max-height:23rem;object-fit:contain}
+.workflow-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin:2rem 0}
+.workflow-card-grid article{border-top:1px solid var(--rule);padding-top:1rem}
+.workflow-card-grid h3{margin:0 0 .65rem}
+.workflow-card-grid p{font-size:1.0625rem;line-height:1.65;margin:0 0 .7rem;color:var(--secondary)}
+.foam-metrics{grid-template-columns:repeat(3,minmax(0,1fr));max-width:52rem}
+.result-interpretation{margin:0 0 2.5rem!important;padding-left:1.5rem;border-left:2px solid var(--rule);max-width:72ch;color:var(--secondary)}
+.cervical-table-wrap,.foam-table-wrap{margin-top:2rem}
+.project-meta{display:flex;flex-wrap:wrap;gap:.5rem 0;margin:0 0 1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--rule);font:600 1.0625rem/1.5 var(--ui);color:var(--secondary)}
+.project-meta span{display:flex;align-items:center}
+.project-meta span:not(:last-child)::after{content:"";display:inline-block;width:1px;height:1.1rem;background:var(--rule);margin:0 1rem}
+.rover-hero .case-lede{margin-bottom:0!important}
+.rover-gallery{margin-bottom:2rem}
+.rover-gallery img{max-height:22rem;object-fit:contain}
+.single-result-card{max-width:38rem;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:1.5rem 0;margin-top:1.5rem}
+.single-result-card>strong{display:block;font:600 2.5rem/1 var(--ui)}
+.single-result-card h3{margin:.65rem 0 .75rem}
+.single-result-card p{margin:0;color:var(--secondary)}
+
+figure img{background:transparent!important}
+.figure-link,
+.project-document>figure,
+.hero-media,
+.gallery-frame,
+.card-image,
+.thor-hero-media .figure-link,
+.result-visual .figure-link,
+.doe-hero-media .figure-link,
+.doe-effect-visual .figure-link{background:transparent!important;box-shadow:none!important}
+.project-document>figure,
+.hero-media,
+.gallery-frame,
+.card-image,
+.thor-hero-media .figure-link,
+.result-visual .figure-link,
+.doe-hero-media .figure-link,
+.doe-effect-visual .figure-link{padding:0!important;border:0!important}
+.workflow-lane img,.workflow-doe img{background:transparent!important}
+
+@media(max-width:1100px){
+  .cervical-page .document-grid,.foam-page .document-grid,.rover-page .document-grid,
+  .cervical-page main,.foam-page main,.rover-page main,
+  .cervical-page .site-header,.cervical-page footer,
+  .foam-page .site-header,.foam-page footer,
+  .rover-page .site-header,.rover-page footer{max-width:70ch}
+}
+@media(max-width:760px){
+  .finding-card-grid,.workflow-card-grid,.fracture-progression,.rover-gallery{grid-template-columns:1fr}
+  .foam-metrics{grid-template-columns:1fr 1fr}
+  .project-meta{display:block}
+  .project-meta span{display:block;margin:.25rem 0}
+  .project-meta span:not(:last-child)::after{display:none}
+}
+@media(max-width:560px){
+  .foam-metrics{grid-template-columns:1fr}
+  .dual-values{grid-template-columns:1fr}
+  .dual-values>div+div{border-left:0;border-top:1px solid var(--rule);padding-left:0;padding-top:1rem}
+  .responsive-result-table thead{display:none}
+  .responsive-result-table,.responsive-result-table tbody,.responsive-result-table tr,.responsive-result-table th,.responsive-result-table td{display:block;width:100%}
+  .responsive-result-table tr{padding:1rem 0;border-bottom:1px solid var(--rule)}
+  .responsive-result-table th,.responsive-result-table td{border:0;padding:.2rem 0}
+  .responsive-result-table td{color:var(--secondary)}
+  .responsive-result-table td::before{content:attr(data-label) ": ";font-weight:600;color:var(--ink)}
+}
+@media print{
+  .cervical-page .document-grid,.foam-page .document-grid,.rover-page .document-grid,
+  .cervical-page main,.foam-page main,.rover-page main{max-width:none}
+  .finding-card-grid,.workflow-card-grid,.fracture-progression,.rover-gallery{display:block}
+  .finding-card,.workflow-card-grid article,.fracture-progression figure,.rover-gallery figure{margin-bottom:12pt}
+}

@@ -1,0 +1,133 @@
+---
+import assets from '../data/assets.json';
+import Figure from './Figure.astro';
+
+const {page} = Astro.props;
+const asset = (id:string) => (assets as any)[id];
+---
+
+<article class="case-study cervical-case">
+  <header class="case-hero">
+    <p class="case-eyebrow">Helmeted head-first impact simulation</p>
+    <h1>{page.title}</h1>
+    <p class="case-lede">Comparing standardized injury metrics with explicit vertebral failure.</p>
+    <p class="case-role">I independently investigated how impact velocity and neck orientation influenced cervical loading and predicted fracture during head-first football impacts. Using LS-DYNA, I simulated five configurations with Hybrid III and GHBMC models, compared predicted peak forces and injury locations with published cadaveric studies, and evaluated whether the Neck Injury Criterion captured the model-predicted fracture response.</p>
+  </header>
+
+  <section class="case-section" id="engineering-question">
+    <h2>Engineering Question</h2>
+    <p>Head-first football impacts can align the cervical spine with the impact load and create a high risk of axial-compression injury. I investigated two related questions: <strong>How do velocity and impact angle change the cervical response, and how does an ATD-based injury metric compare with explicit fracture predicted by a human body model?</strong></p>
+  </section>
+
+  <section class="case-section" id="my-individual-contribution">
+    <h2>My Individual Contribution</h2>
+    <p>I completed this project independently. I:</p>
+    <ul>
+      <li>Integrated a helmeted Hybrid III head-and-neck model with a full-body Hybrid III model and defined the tied interface.</li>
+      <li>Prepared the helmeted 50th-percentile male GHBMC model and its existing cortical- and cancellous-bone failure definitions.</li>
+      <li>Created the rigid impact plate, contacts, initial conditions, and five impact configurations in LS-DYNA.</li>
+      <li>Extracted neck section forces and moments, calculated maximum Nij, inspected predicted vertebral failure, and compared the results with published cadaveric studies.</li>
+    </ul>
+    <div class="figure-pair cervical-model-pair">
+      <Figure asset={asset('A13')} number={1} />
+      <Figure asset={asset('A14')} number={2} />
+    </div>
+  </section>
+
+  <section class="case-section" id="simulation-workflow">
+    <h2>Simulation Workflow</h2>
+    <ol class="validation-process">
+      <li><span>01</span><p><strong>Build the models.</strong> Prepared helmeted Hybrid III and GHBMC full-body models and a 5 mm-mesh rigid steel impact plate.</p></li>
+      <li><span>02</span><p><strong>Define the matrix.</strong> Simulated perpendicular impacts at 3.4, 4.1, and 7.0 m/s, plus -15 degree and +30 degree plate orientations at 3.4 m/s.</p></li>
+      <li><span>03</span><p><strong>Run and post-process.</strong> Solved the five configurations in LS-DYNA 7.1.2 and extracted neck section forces and moments.</p></li>
+      <li><span>04</span><p><strong>Interpret the response.</strong> Calculated Nij for both models, identified primary GHBMC fracture locations from element failure, and compared GHBMC neck forces with experimental literature.</p></li>
+    </ol>
+  </section>
+
+  <section class="case-section" id="key-results">
+    <h2>Key Results</h2>
+
+    <div class="finding-card-grid cervical-findings">
+      <article class="finding-card">
+        <div class="finding-card-heading">
+          <svg class="finding-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 21v-6"/><path d="M12 21V9"/><path d="M19 21V3"/></svg>
+          <h3>Fracture prediction</h3>
+        </div>
+        <strong class="finding-value">5 of 5</strong>
+        <p>The GHBMC predicted cervical fracture in all five configurations.</p>
+        <p class="finding-secondary">GHBMC Nij exceeded 1 only in the <strong>7.0 m/s</strong> case.</p>
+      </article>
+
+      <article class="finding-card">
+        <div class="finding-card-heading">
+          <svg class="finding-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+          <h3>Peak neck force</h3>
+        </div>
+        <div class="dual-values">
+          <div><strong>2.26 kN</strong><span>at 3.4 m/s</span></div>
+          <div><strong>2.34 kN</strong><span>at 4.1 m/s</span></div>
+        </div>
+        <p class="finding-secondary">GHBMC peak neck forces fell within the ranges reported by two cadaveric studies.</p>
+      </article>
+
+      <article class="finding-card">
+        <div class="finding-card-heading">
+          <svg class="finding-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+          <h3>Impact severity</h3>
+        </div>
+        <p>Increasing perpendicular impact speed increased fracture extent.</p>
+        <p class="finding-secondary">The <strong>+30 degree</strong> case produced the least visible damage.</p>
+      </article>
+
+      <article class="finding-card">
+        <div class="finding-card-heading">
+          <svg class="finding-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Fracture location</h3>
+        </div>
+        <p>The simulations predicted primarily upper-cervical damage at <strong>C1-C3</strong>.</p>
+        <p class="finding-secondary">One comparison study reported lower-cervical <strong>C5-C6</strong> fractures.</p>
+      </article>
+    </div>
+
+    <div class="table-wrap cervical-table-wrap">
+      <table class="case-table responsive-result-table">
+        <thead><tr><th>Configuration</th><th>Hybrid III max Nij</th><th>GHBMC max Nij</th><th>Primary GHBMC fracture</th></tr></thead>
+        <tbody>
+          <tr><th>3.4 m/s, 0 degrees</th><td data-label="Hybrid III max Nij">2.01</td><td data-label="GHBMC max Nij">0.86</td><td data-label="Primary GHBMC fracture">C2</td></tr>
+          <tr><th>4.1 m/s, 0 degrees</th><td data-label="Hybrid III max Nij">2.34</td><td data-label="GHBMC max Nij">0.87</td><td data-label="Primary GHBMC fracture">C1-C3</td></tr>
+          <tr><th>7.0 m/s, 0 degrees</th><td data-label="Hybrid III max Nij">3.71</td><td data-label="GHBMC max Nij">3.47</td><td data-label="Primary GHBMC fracture">C1-C3</td></tr>
+          <tr><th>3.4 m/s, +30 degrees</th><td data-label="Hybrid III max Nij">1.57</td><td data-label="GHBMC max Nij">0.72</td><td data-label="Primary GHBMC fracture">C1</td></tr>
+          <tr><th>3.4 m/s, -15 degrees</th><td data-label="Hybrid III max Nij">1.85</td><td data-label="GHBMC max Nij">0.64</td><td data-label="Primary GHBMC fracture">C2-C3</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-heading">Predicted Fracture Progression</h3>
+    <div class="fracture-progression">
+      <Figure asset={asset('A15')} number={3} />
+      <Figure asset={asset('A16')} number={4} />
+      <Figure asset={asset('A17')} number={5} />
+    </div>
+  </section>
+
+  <section class="case-section" id="engineering-interpretation">
+    <h2>Engineering Interpretation</h2>
+    <p>Hybrid III and GHBMC answered different questions. The Hybrid III provided the force and moment outputs used for standardized Nij assessment, while the GHBMC represented anatomical structure and predicted local bone failure. The mismatch between sub-threshold GHBMC Nij values and predicted fracture in four cases showed why an ATD-derived scalar metric should not be treated as a direct fracture predictor in a human body model.</p>
+  </section>
+
+  <section class="case-section" id="limitations">
+    <h2>Limitations</h2>
+    <ul>
+      <li>The impact-plate angle was varied instead of repositioning and preloading the cervical spine.</li>
+      <li>The rigid plate and helmet simplified the compliant player-to-player impact environment.</li>
+      <li>Both models represented a 50th-percentile male rather than NFL player anthropometry; active muscle response was not included.</li>
+      <li>The upper-cervical fracture locations differed from one experimental dataset, limiting direct validation of injury location.</li>
+    </ul>
+  </section>
+
+  <section class="case-section" id="what-this-demonstrates">
+    <h2>What This Demonstrates</h2>
+    <p><strong>LS-DYNA explicit dynamics | Hybrid III and GHBMC modeling | injury-criterion interpretation | cervical fracture mechanics | simulation post-processing | literature comparison</strong></p>
+    <p class="sharing-boundary"><strong>Public-sharing boundary:</strong> Images are taken from my academic course analysis. Licensed finite element model files are not distributed.</p>
+  </section>
+</article>

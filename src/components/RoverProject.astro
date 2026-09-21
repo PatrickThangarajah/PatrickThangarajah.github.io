@@ -1,0 +1,60 @@
+---
+import assets from '../data/assets.json';
+import Figure from './Figure.astro';
+
+const {page} = Astro.props;
+const asset = (id:string) => (assets as any)[id];
+---
+
+<article class="case-study rover-case">
+  <header class="case-hero rover-hero">
+    <h1>{page.title}</h1>
+    <div class="project-meta" aria-label="Project details">
+      <span>Payload Team Member</span>
+      <span>UBC Unmanned Aircraft Systems</span>
+      <span>Sep 2019-May 2021</span>
+    </div>
+    <p class="case-lede">I designed rover and payload system components in SolidWorks and Onshape, then prepared the CAD for 3D-printed proof-of-concept builds used in prototype testing.</p>
+  </header>
+
+  <section class="case-section" id="competition-design-problem">
+    <h2>Competition Design Problem</h2>
+    <p>For the AUVSI competition, the payload system had to release a rover from at least <strong>30 m</strong>. After landing, the rover needed to drive through obstacles and complete the ground course. The payload team had to balance the release mechanism, component packaging, rover function, and aircraft weight.</p>
+  </section>
+
+  <section class="case-section" id="my-individual-contribution">
+    <h2>My Individual Contribution</h2>
+    <p>As a member of the payload sub-team, I focused on the rover and drop mechanism. I:</p>
+    <ul>
+      <li>Created the rover wheel, rover assembly, and a motor envelope model used to check component dimensions and spacing.</li>
+      <li>Modeled components for a revised payload winch mechanism within the existing payload architecture.</li>
+      <li>Prepared CAD models for 3D printing so the team could compare fit and function and select a suitable rover concept.</li>
+    </ul>
+  </section>
+
+  <section class="case-section" id="cad-and-prototype-development">
+    <h2>CAD and Prototype Development</h2>
+    <div class="rover-gallery">
+      <Figure asset={asset('A30')} number={1} />
+      <Figure asset={asset('A31')} number={2} />
+      <Figure asset={asset('A32')} number={3} />
+    </div>
+    <p>The team incorporated the CAD into 3D-printed proof-of-concept builds for prototype testing and rover design selection.</p>
+  </section>
+
+  <section class="case-section" id="result">
+    <h2>Result</h2>
+    <p>The design process produced a rover concept that could be evaluated within the payload system.</p>
+    <article class="single-result-card">
+      <strong>50%</strong>
+      <h3>Payload system weight reduction</h3>
+      <p>I contributed to material and design changes, including repurposing components from earlier concepts, that reduced payload system weight by 50%.</p>
+    </article>
+  </section>
+
+  <section class="case-section" id="what-this-demonstrates">
+    <h2>What This Demonstrates</h2>
+    <p><strong>SolidWorks and Onshape, component design, packaging, 3D-print preparation, prototype testing, design iteration, and multidisciplinary teamwork</strong></p>
+    <p class="sharing-boundary"><strong>Public-sharing boundary:</strong> The images show student-team CAD. I describe only the components and concept work I personally completed or contributed to.</p>
+  </section>
+</article>

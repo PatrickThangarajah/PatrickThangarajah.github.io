@@ -12,6 +12,7 @@ import ThorProject from '../components/ThorProject.astro';
 import SeatBeltDoe from '../components/SeatBeltDoe.astro';
 import BladderProject from '../components/BladderProject.astro';
 import HliProject from '../components/HliProject.astro';
+import FeValidationProject from '../components/FeValidationProject.astro';
 const {page} = Astro.props;
 const home=!page.slug;
 const headings = page.slug==='thor-5f' ? [
@@ -24,6 +25,14 @@ const headings = page.slug==='thor-5f' ? [
   {id:'key-findings',title:'Key Findings'},
   {id:'engineering-interpretation',title:'Engineering Interpretation'},
   {id:'technical-details',title:'Technical Details'}
+] : page.slug==='fe-validation' ? [
+  {id:'validation-question',title:'Validation question'},
+  {id:'physical-benchmarks',title:'Physical benchmarks'},
+  {id:'quantitative-signals',title:'Ten quantitative signals'},
+  {id:'method',title:'Method'},
+  {id:'quantitative-result',title:'Quantitative result'},
+  {id:'engineering-interpretation',title:'Engineering interpretation'},
+  {id:'decision',title:'Decision'}
 ] : page.slug==='bladder-test-platform' ? [
   {id:'platform-functions',title:'What the platform reproduces'},
   {id:'system-design',title:'System design'},
@@ -86,7 +95,7 @@ const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue C
       try { const preference = localStorage.getItem('theme'); if(preference === 'light' || preference === 'dark') document.documentElement.dataset.theme = preference; } catch {}
     </script>
   </head>
-  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f',"doe-page":page.slug==='seat-belt-doe',"bladder-page":page.slug==='bladder-test-platform',"hli-page":page.slug==='kidney-tissue-classification'}}>
+  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f',"doe-page":page.slug==='seat-belt-doe',"validation-page":page.slug==='fe-validation',"bladder-page":page.slug==='bladder-test-platform',"hli-page":page.slug==='kidney-tissue-classification'}}>
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/">Patrick Thangarajah<span class="role-line">Mechanical Engineering Graduate</span></a>
@@ -103,7 +112,7 @@ const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue C
       </aside>}
       <main id="main" tabindex="-1">
         {page.slug && <a class="back-link" href="/#selected-work">All projects</a>}
-        {home ? <Home/> : page.slug==='thor-5f' ? <ThorProject page={page} /> : page.slug==='seat-belt-doe' ? <SeatBeltDoe page={page} /> : page.slug==='bladder-test-platform' ? <BladderProject /> : page.slug==='kidney-tissue-classification' ? <HliProject /> : <article class="project-document">
+        {home ? <Home/> : page.slug==='thor-5f' ? <ThorProject page={page} /> : page.slug==='seat-belt-doe' ? <SeatBeltDoe page={page} /> : page.slug==='fe-validation' ? <FeValidationProject page={page} /> : page.slug==='bladder-test-platform' ? <BladderProject /> : page.slug==='kidney-tissue-classification' ? <HliProject /> : <article class="project-document">
           <h1>{displayTitle}</h1>
           {contributionHeading && contributionBlock?.type==='markdown' && <aside class="boundary-callout contribution-summary"><h3>{contributionHeading.title}</h3><div set:html={render(contributionBlock.text,page.title)} /></aside>}
           {page.blocks.map((block:any,i:number) => {

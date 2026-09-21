@@ -688,3 +688,81 @@ html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-documen
   .case-metrics>div,.function-grid article,.contribution-grid article{margin-bottom:10pt}
   .case-study figure{break-inside:avoid}
 }
+
+
+/* FE validation case study */
+.validation-page .document-grid{grid-template-columns:minmax(0,70rem) 14rem;max-width:87rem;gap:3rem}
+.validation-page main{max-width:70rem;width:100%}
+.validation-page .site-header,
+.validation-page footer{max-width:87rem}
+.validation-case>section>p{max-width:70ch}
+.validation-metrics{grid-template-columns:repeat(3,minmax(0,1fr));max-width:52rem}
+.validation-metric-value{display:block;font:600 2.35rem/1 var(--ui);font-variant-numeric:tabular-nums}
+.validation-metric-label{display:block;margin-top:.65rem;font:600 1.0625rem/1.4 var(--ui)}
+.bench-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;margin-top:2rem}
+.bench-grid>article{border-top:1px solid var(--rule);padding-top:1.25rem}
+.bench-grid h3{margin-bottom:1rem}
+.bench-details{margin:0}
+.bench-details>div{padding:1rem 0;border-top:1px solid var(--rule)}
+.bench-details>div:last-child{border-bottom:1px solid var(--rule)}
+.bench-details dt{font-size:1rem;font-weight:600}
+.bench-details dd{margin:.3rem 0 0;color:var(--secondary);font-size:1.0625rem;line-height:1.55}
+.benchmark-note{margin:2rem 0 0!important;max-width:72ch}
+.positioning-block{margin-top:3.5rem}
+.positioning-block>h3{margin-bottom:1.25rem}
+.positioning-block figure img{width:100%;height:auto}
+.signal-list{columns:2;column-gap:3rem;margin:1.5rem 0 2rem;padding-left:1.25rem}
+.signal-list li{break-inside:avoid;margin:0 0 .85rem;padding-left:.35rem}
+.validation-process{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.validation-process li{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:1.25rem;padding:1.2rem 0;border-bottom:1px solid var(--rule)}
+.validation-process span{font:600 1rem/1.75 var(--ui);color:var(--accent)}
+.validation-process p{margin:0}
+.validation-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+.validation-result-grid>article{border-top:1px solid var(--rule);padding-top:1.25rem}
+.validation-result-grid>article>strong{display:block;font:600 2.35rem/1 var(--ui);margin:.4rem 0 1.25rem}
+.validation-result-grid>article>strong span{font-size:1rem;color:var(--secondary);font-weight:400}
+.validation-result-grid dl{margin:0}
+.validation-result-grid dl>div{padding:1rem 0;border-top:1px solid var(--rule)}
+.validation-result-grid dl>div:last-child{border-bottom:1px solid var(--rule)}
+.validation-result-grid dt{font-size:1rem;font-weight:600}
+.validation-result-grid dd{margin:.3rem 0 0;color:var(--secondary);font-size:1.0625rem;line-height:1.55}
+.validation-summary-figure{margin-top:3rem;max-width:56rem}
+.validation-summary-figure img{width:100%;height:auto}
+.absolute-differences{margin-top:4rem}
+.absolute-differences>h3{font-size:1.45rem;margin-bottom:.75rem}
+.difference-list{border-top:1px solid var(--rule);margin-top:1.5rem}
+.difference-list article{display:grid;grid-template-columns:minmax(13rem,.36fr) minmax(0,1fr);gap:2rem;padding:1.25rem 0;border-bottom:1px solid var(--rule)}
+.difference-list h4,
+.kinematic-grid h4{margin:0;font:600 1.0625rem/1.5 var(--ui)}
+.difference-list p{margin:0}
+.validation-interpretation{margin-top:.5rem}
+.kinematic-evidence{margin-top:4rem}
+.kinematic-evidence>h3{font-size:1.45rem;margin-bottom:.75rem}
+.kinematic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;margin-top:1.5rem}
+.kinematic-grid article{border-top:1px solid var(--rule);padding-top:1.1rem}
+.kinematic-grid p{margin:.6rem 0 0}
+.validation-decision>p:first-of-type{font-size:1.3rem;line-height:1.7;max-width:66ch}
+
+@media(max-width:1100px){
+  .validation-page .document-grid,
+  .validation-page main,
+  .validation-page .site-header,
+  .validation-page footer{max-width:70ch}
+}
+@media(max-width:760px){
+  .validation-metrics{grid-template-columns:1fr 1fr}
+  .bench-grid,
+  .validation-result-grid,
+  .kinematic-grid{grid-template-columns:1fr}
+  .signal-list{columns:1}
+  .difference-list article{grid-template-columns:1fr;gap:.45rem}
+  .validation-decision>p:first-of-type{font-size:1.18rem}
+}
+@media(max-width:560px){
+  .validation-metrics{grid-template-columns:1fr}
+}
+@media print{
+  .validation-page .document-grid,.validation-page main{max-width:none}
+  .bench-grid,.validation-result-grid,.kinematic-grid{display:block}
+  .bench-grid>article,.validation-result-grid>article,.kinematic-grid>article{margin-bottom:12pt}
+}

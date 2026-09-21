@@ -34,10 +34,11 @@ const description=plain(firstMarkdown).slice(0,180);
 const firstAssetBlock=page.blocks.find((b:any)=>b.type==='asset');
 const socialAsset:any=home ? (assets as any).A01 : firstAssetBlock ? (assets as any)[firstAssetBlock.id] : (assets as any).A01;
 const socialImage=socialAsset?.path ? new URL(socialAsset.path,Astro.site) : undefined;
-const groupProjectSlugs=['bladder-test-platform','payload-and-rover','kidney-tissue-classification'];
+const groupProjectSlugs=['bladder-test-platform','payload-and-rover'];
 const contributionIndex=groupProjectSlugs.includes(page.slug) ? page.blocks.findIndex((b:any)=>b.type==='heading'&&(b.title==='My Individual Contribution'||b.title==='My Contribution')) : -1;
 const contributionHeading=contributionIndex>=0 ? page.blocks[contributionIndex] : null;
 const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] : null;
+const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue Classification Using Deep Learning' : page.title;
 ---
 <!doctype html>
 <html lang="en-US" data-theme="dark">
@@ -66,7 +67,7 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
       try { const preference = localStorage.getItem('theme'); if(preference === 'light' || preference === 'dark') document.documentElement.dataset.theme = preference; } catch {}
     </script>
   </head>
-  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f',"doe-page":page.slug==='seat-belt-doe'}}>
+  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f',"doe-page":page.slug==='seat-belt-doe',"hli-page":page.slug==='kidney-tissue-classification'}}>
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/">Patrick Thangarajah<span class="role-line">Mechanical Engineering Graduate</span></a>
@@ -84,7 +85,7 @@ const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] 
       <main id="main" tabindex="-1">
         {page.slug && <a class="back-link" href="/#selected-work">All projects</a>}
         {home ? <Home/> : page.slug==='thor-5f' ? <ThorProject page={page} /> : page.slug==='seat-belt-doe' ? <SeatBeltDoe page={page} /> : <article class="project-document">
-          <h1>{page.title}</h1>
+          <h1>{displayTitle}</h1>
           {contributionHeading && contributionBlock?.type==='markdown' && <aside class="boundary-callout contribution-summary"><h3>{contributionHeading.title}</h3><div set:html={render(contributionBlock.text,page.title)} /></aside>}
           {page.blocks.map((block:any,i:number) => {
             if(i===contributionIndex||i===contributionIndex+1) return null;

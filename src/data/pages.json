@@ -1014,6 +1014,11 @@
         "text": "I used Jupyter on UBC’s Sockeye computing cluster to run a PyTorch workflow using a pretrained AlexNet model. I preprocessed the images by converting and resizing them, generated **256 × 256 pixel patches**, split the image data into training, validation, and test datasets, trained the model, and evaluated how well it distinguished DKD from healthy tissue.\n\nI also collaborated with two other students to present the overall project through a research poster and slide presentation."
       },
       {
+        "type": "asset",
+        "id": "A35",
+        "number": 1
+      },
+      {
         "type": "heading",
         "title": "Dataset and Evaluation",
         "id": "dataset-and-evaluation"
@@ -1023,11 +1028,6 @@
         "text": "The project used **231 pre-selected regions of interest from seven patients: three healthy and four with DKD**. Model performance was evaluated using accuracy, true-positive rate, false-positive rate, and ROC AUC."
       },
       {
-        "type": "asset",
-        "id": "A28",
-        "number": 1
-      },
-      {
         "type": "heading",
         "title": "Results and Limitations",
         "id": "results-and-limitations"
@@ -1035,6 +1035,11 @@
       {
         "type": "markdown",
         "text": "The binary classification workflow was applied to both GeoMx and H&E kidney tissue images. The comparison considered accuracy, true-positive rate, false-positive rate, and ROC AUC, with similar overall classification accuracy between the two image types. Performance varied across the dataset splits, and with only seven patients, the results were preliminary and not suitable for diagnostic use. A larger patient dataset and comparison of additional CNN architectures would be needed before considering clinical applications."
+      },
+      {
+        "type": "asset",
+        "id": "A36",
+        "number": 2
       },
       {
         "type": "heading",
@@ -1048,7 +1053,7 @@
       {
         "type": "asset",
         "id": "A29",
-        "number": 2
+        "number": 3
       },
       {
         "type": "heading",

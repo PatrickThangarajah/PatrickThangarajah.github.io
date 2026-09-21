@@ -1,0 +1,78 @@
+---
+import Figure from './Figure.astro';
+import assets from '../data/assets.json';
+---
+
+<article class="case-study hli-case">
+  <header class="case-hero hli-hero">
+    <h1>Kidney tissue classification using deep learning</h1>
+    <div class="hli-meta" aria-label="Project details">
+      <span>Summer Research Student</span>
+      <span>Centre for Heart Lung Innovation, UBC</span>
+      <span>Summer 2022</span>
+    </div>
+    <p class="case-lede hli-intro">In summer 2022, I worked with a research team at UBC’s Centre for Heart Lung Innovation to investigate whether kidney tissue images could be used to distinguish diabetic kidney disease (DKD) from healthy tissue. My work focused on the binary classification portion of the project.</p>
+  </header>
+
+  <section class="case-section" id="research-problem">
+    <h2>Research problem</h2>
+    <p>The GeoMx Digital Spatial Profiler measures gene expression in selected regions of tissue, but a user still has to identify the regions of interest and the platform does not classify the disease itself. Our team investigated whether convolutional neural networks could use kidney tissue images to distinguish DKD from healthy tissue and predict spatial gene expression.</p>
+  </section>
+
+  <section class="case-section split-section" id="my-contribution">
+    <div class="split-copy">
+      <h2>My contribution</h2>
+      <p>I used Jupyter on UBC’s Sockeye computing cluster to run a PyTorch workflow using a pretrained AlexNet model. I preprocessed the images by converting and resizing them, generated <strong>256 × 256 pixel patches</strong>, split the image data into training, validation, and test datasets, trained the model, and evaluated how well it distinguished DKD from healthy tissue.</p>
+      <p>I also collaborated with two other students to present the overall project through a research poster and slide presentation.</p>
+    </div>
+    <div class="hli-small-figure hli-workflow-figure">
+      <Figure asset={(assets as any).A35} number={1} />
+    </div>
+  </section>
+
+  <section class="case-section" id="dataset-and-evaluation">
+    <h2>Dataset and evaluation</h2>
+    <dl class="dataset-strip">
+      <div><dd>7</dd><dt>patients</dt></div>
+      <div><dd>3</dd><dt>healthy</dt></div>
+      <div><dd>4</dd><dt>DKD</dt></div>
+      <div><dd>231</dd><dt>pre-selected regions of interest</dt></div>
+    </dl>
+    <p>Model performance was evaluated using accuracy, true-positive rate, false-positive rate, and ROC AUC.</p>
+  </section>
+
+  <section class="case-section split-section results-section" id="results-and-limitations">
+    <div class="split-copy">
+      <h2>Results and limitations</h2>
+      <p>The binary classification workflow was applied to both GeoMx and H&amp;E kidney tissue images. The comparison considered accuracy, true-positive rate, false-positive rate, and ROC AUC, with similar overall classification accuracy between the two image types.</p>
+      <p class="limitation-note">Performance varied across the dataset splits, and with only seven patients, the results were preliminary and not suitable for diagnostic use. A larger patient dataset and comparison of additional CNN architectures would be needed before considering clinical applications.</p>
+    </div>
+    <div class="hli-small-figure hli-performance-figure">
+      <Figure asset={(assets as any).A33} number={2} />
+      <p class="figure-caption-override">GeoMx and H&amp;E binary-classification performance compared using AUC, true-positive rate, false-positive rate, and accuracy.</p>
+    </div>
+  </section>
+
+  <section class="case-section" id="research-poster">
+    <h2>Research poster</h2>
+    <p>I worked with two other students to present the project through a poster and slide presentation. My part covered the binary classification work, including the comparison between GeoMx and H&amp;E images. The spatial gene-expression work was completed by the other team members.</p>
+    <div class="poster-figure"><Figure asset={(assets as any).A29} number={3} /></div>
+  </section>
+
+  <section class="case-section" id="tools-and-skills">
+    <h2>Tools and skills</h2>
+    <dl class="skills-rows">
+      <div><dt>Tools</dt><dd>Python, PyTorch, Jupyter, AlexNet, UBC Sockeye HPC</dd></div>
+      <div><dt>Methods</dt><dd>Transfer learning, image preprocessing, patch generation, binary classification, model training, model evaluation</dd></div>
+    </dl>
+  </section>
+
+  <section class="case-section project-links-section" id="project-links">
+    <h2>Project links</h2>
+    <div class="project-links">
+      <a href="https://github.com/CompBio-Lab/geomx2rna/tree/main/dkd_prediction_using_images">Binary classification source and documentation</a>
+      <a href="https://github.com/CompBio-Lab/geomx2rna">geomx2rna repository</a>
+    </div>
+    <p class="sharing-boundary">This page uses material from the public project repository and team presentation. Patient-identifying data and non-public research material are not included.</p>
+  </section>
+</article>

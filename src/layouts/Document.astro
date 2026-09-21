@@ -14,8 +14,8 @@ import HliProject from '../components/HliProject.astro';
 const {page} = Astro.props;
 const home=!page.slug;
 const headings = page.slug==='thor-5f' ? [
-  {id:'research-workflow',title:'Research Workflow'},
   {id:'key-results',title:'Key Results'},
+  {id:'research-workflow',title:'Research Workflow'},
   {id:'anchor-response',title:'Anchor Response'},
   {id:'engineering-interpretation',title:'Engineering Interpretation'}
 ] : page.slug==='seat-belt-doe' ? [

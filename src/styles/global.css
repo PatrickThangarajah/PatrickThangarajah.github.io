@@ -484,3 +484,207 @@ html{scroll-padding-top:var(--header-offset,9rem)}.home-section,.project-documen
     font-size:1.5rem;
   }
 }
+
+
+/* Approved visual case studies: bladder test platform + HLI kidney classification. */
+.bladder-page .document-grid,
+.hli-page .document-grid{grid-template-columns:minmax(0,70rem) 14rem;max-width:87rem;gap:3rem}
+.bladder-page main,
+.hli-page main{max-width:70rem;width:100%}
+.bladder-page .site-header,
+.bladder-page footer,
+.hli-page .site-header,
+.hli-page footer{max-width:87rem}
+
+.case-study{font-family:var(--body);font-size:1.1875rem;line-height:1.8}
+.case-study h1,
+.case-study h2,
+.case-study h3,
+.case-study dt,
+.case-study dd,
+.case-study figcaption,
+.case-study .case-eyebrow,
+.case-study .case-role,
+.case-study .figure-kicker,
+.case-study .sharing-boundary,
+.case-study .procedure-list,
+.case-study .project-links{font-family:var(--ui)}
+.case-study h1{font-size:2.75rem;line-height:1.08;letter-spacing:-.03em;margin:0 0 1.5rem;max-width:22ch}
+.case-study h2{font-size:2rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 1.5rem}
+.case-study h3{font-size:1.2rem;line-height:1.35;margin:0 0 .6rem}
+.case-study p{margin:0 0 1.4rem}
+.case-study strong{font-weight:600}
+.case-hero{padding:1.25rem 0 4.5rem;border-bottom:1px solid var(--rule)}
+.case-eyebrow{margin:0 0 1rem!important;color:var(--secondary);font-size:1.0625rem;line-height:1.5}
+.case-lede{max-width:62ch;font-size:1.35rem;line-height:1.65;margin-bottom:1.25rem!important}
+.case-role{max-width:72ch;color:var(--secondary);font-size:1.0625rem;line-height:1.65}
+.case-role strong{color:var(--ink)}
+.case-section{padding:4.75rem 0;border-bottom:1px solid var(--rule);scroll-margin-top:var(--header-offset,8rem)}
+.case-section:last-child{border-bottom:0}
+.section-intro{max-width:68ch;color:var(--secondary)}
+
+.case-study figure{margin:0;background:transparent!important;padding:0!important;border:0!important}
+.case-study figure .figure-link{display:block;background:transparent!important;border:0!important}
+.case-study figure img{display:block;max-width:100%;height:auto;border:0!important}
+.case-study figcaption{font-size:1.0625rem;line-height:1.55;color:var(--secondary);margin-top:.75rem}
+.case-study .figure-description,
+.case-study .asset-status{display:none}
+.case-hero-figure{margin-top:2.5rem;max-width:48rem}
+.case-hero-figure img{max-height:38rem;object-fit:contain;object-position:left center}
+
+.case-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;margin:2.75rem 0 0}
+.case-metrics>div{border-top:1px solid var(--rule);padding-top:1rem;min-width:0}
+.case-metrics dd{margin:0;font-size:2.35rem;line-height:1;font-weight:600;font-variant-numeric:tabular-nums}
+.case-metrics dt{margin-top:.65rem;font-size:1.0625rem;line-height:1.4;font-weight:600}
+.case-metrics p{margin:.45rem 0 0;color:var(--secondary);font:400 1rem/1.45 var(--ui)}
+
+.function-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}
+.function-grid article{border-top:1px solid var(--rule);padding-top:1rem}
+.function-grid article>span{display:block;color:var(--accent);font:600 1rem/1 var(--ui);margin-bottom:1rem}
+.function-grid article p{margin:0;color:var(--secondary);font:400 1.0625rem/1.55 var(--ui)}
+
+.system-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(18rem,.65fr);gap:3rem;align-items:start}
+.system-figure{min-width:0}
+.system-figure img{width:100%;object-fit:contain}
+.spec-list{margin:0}
+.spec-list>div{border-top:1px solid var(--rule);padding:1rem 0}
+.spec-list>div:last-child{border-bottom:1px solid var(--rule)}
+.spec-list dt{font-size:1.0625rem;font-weight:600}
+.spec-list dd{margin:.3rem 0 0;color:var(--secondary);font-size:1.0625rem;line-height:1.5}
+
+.contribution-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.contribution-grid article{background:var(--paper);padding:1.5rem}
+.contribution-grid p{margin:0;color:var(--secondary);font-size:1.0625rem;line-height:1.65}
+.figure-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;margin-top:3rem;align-items:start}
+.figure-pair>figure,
+.figure-pair>div{min-width:0}
+.contribution-figures img{max-height:32rem;object-fit:contain;margin-inline:auto}
+
+.table-wrap{width:100%;overflow-x:auto}
+.case-table{width:100%;font-size:1.0625rem;line-height:1.55;background:transparent}
+.case-table th,.case-table td{padding:1rem 1rem;border-bottom:1px solid var(--rule);min-width:0}
+.case-table thead th{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-weight:600}
+.case-table tbody th{font-weight:600}
+.verification-figures{margin-top:3rem}
+.figure-kicker{margin:0 0 1rem!important;color:var(--secondary);font-size:1.0625rem;line-height:1.45}
+.verification-figures img{width:100%;object-fit:contain}
+
+.decision-list{border-top:1px solid var(--rule)}
+.decision-list article{display:grid;grid-template-columns:minmax(11rem,.32fr) minmax(0,1fr);gap:2rem;padding:1.35rem 0;border-bottom:1px solid var(--rule)}
+.decision-list h3{margin:0}
+.decision-list p{margin:0;max-width:66ch}
+
+.handoff-table th,.handoff-table td{width:50%}
+
+.continuation-grid{display:grid;grid-template-columns:minmax(17rem,340px) minmax(0,1fr);gap:3rem;align-items:start}
+.pcb-figure{max-width:340px}
+.pcb-figure img{width:100%;height:auto}
+.continuation-copy{padding-top:.1rem}
+.procedure-stat{border-top:1px solid var(--rule);padding-top:1rem;margin:1.75rem 0 1rem;font-family:var(--ui)}
+.procedure-stat strong{display:block;font-size:2rem;line-height:1.1}
+.procedure-stat span{display:block;margin-top:.45rem;color:var(--secondary);font-size:1.0625rem}
+.procedure-list{color:var(--secondary);font-size:1rem;line-height:1.5}
+.sharing-boundary{margin:2.5rem 0 0!important;padding-top:1.25rem;border-top:1px solid var(--rule);color:var(--secondary);font-size:1rem;line-height:1.55}
+
+/* HLI page */
+.hli-hero{padding-top:1.25rem}
+.hli-hero h1{max-width:24ch}
+.hli-meta{display:flex;flex-wrap:wrap;gap:.5rem 0;margin:0 0 1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--rule);font:600 1.0625rem/1.5 var(--ui);color:var(--secondary)}
+.hli-meta span{display:flex;align-items:center}
+.hli-meta span:not(:last-child)::after{content:"";display:inline-block;width:1px;height:1.1rem;background:var(--rule);margin:0 1rem}
+.hli-intro{margin:0!important;max-width:66ch}
+.hli-case>.case-section>p{max-width:70ch}
+.split-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,.46fr);gap:4rem;align-items:start}
+.split-section h2{grid-column:auto}
+.split-copy{min-width:0}
+.hli-small-figure{justify-self:end;align-self:center;min-width:0}
+.hli-small-figure figure{display:flex;flex-direction:column;align-items:flex-start}
+.hli-workflow-figure img{width:258px;max-width:100%;height:auto;image-rendering:auto}
+.hli-performance-figure img{width:272px;max-width:100%;height:auto}
+.hli-performance-figure figure figcaption{display:none}
+.figure-caption-override{font:400 1.0625rem/1.55 var(--ui);color:var(--secondary);max-width:28rem;margin:.75rem 0 0!important}
+.dataset-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;margin:0 0 2rem}
+.dataset-strip>div{border-top:1px solid var(--rule);padding-top:1rem}
+.dataset-strip dd{margin:0;font-size:2.4rem;line-height:1;font-weight:600;font-variant-numeric:tabular-nums}
+.dataset-strip dt{margin-top:.6rem;font-size:1.0625rem;line-height:1.4;color:var(--secondary)}
+.limitation-note{margin-top:1.75rem!important;padding-left:1.5rem;border-left:2px solid var(--rule);color:var(--secondary)}
+.poster-figure{margin-top:2rem}
+.poster-figure img{width:100%;height:auto}
+.skills-rows{margin:0}
+.skills-rows>div{display:grid;grid-template-columns:10rem 1fr;gap:2rem;padding:1.1rem 0;border-top:1px solid var(--rule)}
+.skills-rows>div:last-child{border-bottom:1px solid var(--rule)}
+.skills-rows dt{font-weight:600;font-size:1.0625rem}
+.skills-rows dd{margin:0;color:var(--secondary);font-size:1.0625rem;line-height:1.55}
+.project-links{display:flex;flex-wrap:wrap;gap:1rem 2rem;font-size:1.0625rem;line-height:1.5}
+.project-links a{padding:.35rem 0}
+
+@media(max-width:1100px){
+  .bladder-page .document-grid,
+  .hli-page .document-grid{max-width:70ch}
+  .bladder-page main,
+  .hli-page main{max-width:70ch}
+  .bladder-page .site-header,
+  .bladder-page footer,
+  .hli-page .site-header,
+  .hli-page footer{max-width:70ch}
+  .system-layout{grid-template-columns:1fr}
+  .spec-list{display:grid;grid-template-columns:1fr 1fr;gap:0 2rem}
+  .split-section{grid-template-columns:minmax(0,1fr) minmax(16rem,.42fr);gap:2rem}
+}
+@media(max-width:760px){
+  .case-study{font-size:1.125rem;line-height:1.78}
+  .case-study h1{font-size:2.0625rem;line-height:1.1;max-width:none}
+  .case-study h2{font-size:1.7rem;line-height:1.22}
+  .case-study h3{font-size:1.15rem}
+  .case-hero{padding-top:.25rem;padding-bottom:3.5rem}
+  .case-lede{font-size:1.18rem;line-height:1.7}
+  .case-section{padding:3.5rem 0}
+  .case-metrics{grid-template-columns:1fr 1fr;gap:1.5rem 1rem}
+  .case-metrics dd{font-size:2rem}
+  .function-grid{grid-template-columns:1fr 1fr;gap:1.5rem 1rem}
+  .spec-list{grid-template-columns:1fr}
+  .contribution-grid{grid-template-columns:1fr}
+  .figure-pair{grid-template-columns:1fr;gap:2.5rem}
+  .decision-list article{grid-template-columns:1fr;gap:.5rem}
+  .continuation-grid{grid-template-columns:1fr;gap:1.5rem}
+  .continuation-copy{order:1}
+  .pcb-figure{order:2;max-width:280px}
+  .split-section{display:flex;flex-direction:column;gap:1.75rem}
+  .split-copy{order:1}
+  .hli-small-figure{order:2;justify-self:auto;align-self:auto}
+  .dataset-strip{grid-template-columns:1fr 1fr;gap:1.5rem 1rem}
+  .dataset-strip dd{font-size:2rem}
+  .hli-meta{display:block}
+  .hli-meta span{display:block;margin:.25rem 0}
+  .hli-meta span:not(:last-child)::after{display:none}
+  .skills-rows>div{grid-template-columns:1fr;gap:.35rem}
+}
+@media(max-width:560px){
+  .function-grid{grid-template-columns:1fr}
+  .case-metrics{grid-template-columns:1fr 1fr}
+  .verification-table thead{display:none}
+  .verification-table,
+  .verification-table tbody,
+  .verification-table tr,
+  .verification-table th,
+  .verification-table td{display:block;width:100%}
+  .verification-table tr{padding:1rem 0;border-bottom:1px solid var(--rule)}
+  .verification-table th,
+  .verification-table td{border:0;padding:.25rem 0}
+  .verification-table th{font-size:1.0625rem}
+  .verification-table td{color:var(--secondary)}
+  .verification-table td::before{content:attr(data-label) ": ";font-weight:600;color:var(--ink)}
+  .handoff-table{font-size:1rem}
+  .handoff-table th,.handoff-table td{padding:.8rem .65rem}
+}
+@media print{
+  .bladder-page .document-grid,.bladder-page main,
+  .hli-page .document-grid,.hli-page main{max-width:none}
+  .case-study{font-size:11pt;line-height:16pt}
+  .case-study h1{font-size:22pt;line-height:26pt}
+  .case-study h2{font-size:16pt;line-height:20pt}
+  .case-section{padding:18pt 0}
+  .case-metrics,.function-grid,.contribution-grid,.figure-pair,.system-layout,.split-section,.continuation-grid{display:block}
+  .case-metrics>div,.function-grid article,.contribution-grid article{margin-bottom:10pt}
+  .case-study figure{break-inside:avoid}
+}

@@ -1,0 +1,139 @@
+---
+import Figure from './Figure.astro';
+import assets from '../data/assets.json';
+
+const pcbPath = '/figures/bladder-test-platform/echoscope-simba-pcb-v4-1.png';
+---
+
+<article class="case-study bladder-case">
+  <header class="case-hero">
+    <p class="case-eyebrow">MECH 45X capstone · September 2022 to April 2023</p>
+    <h1>Soft distensible bladder test platform</h1>
+    <p class="case-lede">We designed and built a benchtop platform that reproduced bladder filling, ureteric jetting, external pressurisation, and voiding so the client could test an ultrasound-based bladder-monitoring device.</p>
+    <p class="case-role">Four-person UBC Mechanical Engineering capstone for Echoscope. <strong>My main responsibility was sensing, control, and data acquisition.</strong></p>
+
+    <dl class="case-metrics bladder-metrics">
+      <div><dd>4 of 4</dd><dt>Requirements met</dt><p>Flow rate, curve error, voiding pressure, chamber size</p></div>
+      <div><dd>19 mL/s</dd><dt>Maximum flow rate</dt><p>Minimum requirement: 12 mL/s</p></div>
+      <div><dd>24.3%</dd><dt>Pressure-volume curve error</dt><p>Maximum allowed: 60%</p></div>
+      <div><dd>5 / 5</dd><dt>Overall function</dt><p>Client rating</p></div>
+    </dl>
+
+    <div class="case-hero-figure"><Figure asset={(assets as any).A34} number={1} /></div>
+  </header>
+
+  <section class="case-section" id="platform-functions">
+    <h2>What the platform reproduces</h2>
+    <div class="function-grid">
+      <article><span>1</span><h3>Filling</h3><p>Controlled peristaltic-pump flow</p></article>
+      <article><span>2</span><h3>Ureteric jetting</h3><p>Adjustable flow, duration, and interval</p></article>
+      <article><span>3</span><h3>External pressurisation</h3><p>Pressure chamber applied during voiding</p></article>
+      <article><span>4</span><h3>Voiding</h3><p>Manual outlet control with pressure measurement</p></article>
+    </div>
+  </section>
+
+  <section class="case-section" id="system-design">
+    <h2>System design</h2>
+    <div class="system-layout">
+      <div class="system-figure"><Figure asset={(assets as any).A18} number={2} /></div>
+      <dl class="spec-list">
+        <div><dt>Bladder phantom</dt><dd>Ecoflex 00-10, two moulded halves</dd></div>
+        <div><dt>Fluid system</dt><dd>Peristaltic pump, 19 mL/s maximum</dd></div>
+        <div><dt>Pressure chamber</dt><dd>30 × 30 × 30 cm, 27,000 cm³</dd></div>
+        <div><dt>Pressure sensing</dt><dd>Omega PX26 with a three-op-amp amplifier</dd></div>
+        <div><dt>Control and DAQ</dt><dd>Arduino and MATLAB, pressure-volume and pressure-time recording</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="case-section" id="my-contribution">
+    <h2>My contribution</h2>
+    <p class="section-intro">Team project: integrated platform, bladder phantom, pressure chamber, and client validation.</p>
+    <div class="contribution-grid">
+      <article>
+        <h3>Pressure sensing</h3>
+        <p>Integrated the Omega PX26 sensor, built the three-op-amp instrumentation amplifier, calibrated it against a reference device, and connected pressure acquisition through Arduino.</p>
+      </article>
+      <article>
+        <h3>Control and data acquisition</h3>
+        <p>Characterised the pump, selected the 24 V motor driver, implemented Arduino PWM control, and developed the MATLAB interface for control, plotting, and data recording.</p>
+      </article>
+      <article>
+        <h3>Prototyping and chamber</h3>
+        <p>Cast silicone prototypes in 3D-printed moulds, compared pressure-volume response, and contributed to machining, sealing, leak testing, and integrating the pressure chamber.</p>
+      </article>
+    </div>
+    <div class="figure-pair contribution-figures">
+      <Figure asset={(assets as any).A20} number={3} />
+      <Figure asset={(assets as any).A21} number={4} />
+    </div>
+  </section>
+
+  <section class="case-section" id="verification-results">
+    <h2>Verification results</h2>
+    <div class="table-wrap">
+      <table class="case-table verification-table">
+        <thead><tr><th>Criterion</th><th>Requirement</th><th>Achieved</th></tr></thead>
+        <tbody>
+          <tr><th>Filling flow rate</th><td data-label="Requirement">Minimum 12 mL/s</td><td data-label="Achieved">Maximum 19 mL/s</td></tr>
+          <tr><th>Pressure-volume curve error</th><td data-label="Requirement">Maximum 60%</td><td data-label="Achieved">24.3%</td></tr>
+          <tr><th>Bladder pressure during voiding</th><td data-label="Requirement">4.4 to 4.9 kPa</td><td data-label="Achieved">4.75 kPa maximum</td></tr>
+          <tr><th>Pressure chamber volume</th><td data-label="Requirement">Maximum 54,000 cm³</td><td data-label="Achieved">27,000 cm³</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="figure-pair verification-figures">
+      <div>
+        <p class="figure-kicker">Material and wall-thickness screening</p>
+        <Figure asset={(assets as any).A22} number={5} />
+      </div>
+      <div>
+        <p class="figure-kicker">Chamber test: 2.2 kPa maintained, 13.8 s ramp-up</p>
+        <Figure asset={(assets as any).A23} number={6} />
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section" id="engineering-decisions">
+    <h2>Engineering decisions</h2>
+    <div class="decision-list">
+      <article><h3>Sensor integration</h3><p>The earlier sensing setup conflicted with pump control. I replaced it with the Omega PX26 and a calibrated three-op-amp amplifier integrated through Arduino.</p></article>
+      <article><h3>Chamber sealing</h3><p>Air leakage limited achievable pressure. Improved seam sealing, the gasket, fastening, and the airtight zipper allowed the chamber to maintain approximately 2.2 kPa.</p></article>
+      <article><h3>Phantom development</h3><p>Pressure-volume testing guided material and wall-thickness selection. Mould iterations addressed trapped air, leakage, and demoulding.</p></article>
+    </div>
+  </section>
+
+  <section class="case-section" id="limitations-and-handoff">
+    <h2>Limitations and handoff</h2>
+    <div class="table-wrap">
+      <table class="case-table handoff-table">
+        <thead><tr><th>Current limitation</th><th>Recommended next step</th></tr></thead>
+        <tbody>
+          <tr><td>Manual outlet control</td><td>Automated outlet valve</td></tr>
+          <tr><td>No direct voiding-volume measurement</td><td>Water-flow sensor</td></tr>
+          <tr><td>Open-loop pump control</td><td>PID control</td></tr>
+          <tr><td>Exposed pumps and circuits</td><td>Dedicated electrical housing</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="case-section continuation-section" id="client-continuation">
+    <h2>Client continuation</h2>
+    <div class="continuation-grid">
+      <figure class="pcb-figure">
+        <a class="figure-link" href={pcbPath} aria-label="Open PCB assembly documentation image at full size">
+          <img src={pcbPath} alt="Green SIMBA PCB Version 4.1 board used as a component-placement reference in the manufacturing procedure." loading="lazy" decoding="async" />
+        </a>
+        <figcaption>PCB assembly documentation. Component-placement reference used in the manufacturing procedure.</figcaption>
+      </figure>
+      <div class="continuation-copy">
+        <p>Continued part-time with Echoscope as an R&amp;D Engineer from May to September 2023, supporting PCB and electronics iteration and developing manufacturing and verification documentation.</p>
+        <div class="procedure-stat"><strong>5 procedures</strong><span>Manufacturing and verification</span></div>
+        <p class="procedure-list">PCB assembly, wiring, software setup, perfboard software, PCB functionality testing</p>
+      </div>
+    </div>
+    <p class="sharing-boundary">Only non-confidential project material is shown. Detailed design files, source code, and client-confidential information are omitted.</p>
+  </section>
+</article>

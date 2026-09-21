@@ -349,7 +349,7 @@
       },
       {
         "type": "markdown",
-        "text": "The same ten response types were evaluated in each bench:\n- Head resultant acceleration\n- Four IR-TRACC chest deflections: left/right and upper/lower\n- Pelvis resultant acceleration\n- Left and right iliac forces\n- Shoulder belt load\n- Lap belt load\nOccupant posture, forward excursion, torso rotation, pitch, and belt migration were evaluated separately through synchronized images; torso rotation was not one of the ten ISO-scored signals."
+        "text": "The same ten response types were evaluated in each bench:\n- Head resultant acceleration\n- Four IR-TRACC chest deflections: left/right and upper/lower\n- Pelvis resultant acceleration\n- Left and right iliac forces\n- Shoulder belt load\n- Lap belt load\n\nOccupant posture, forward excursion, torso rotation, pitch, and belt migration were evaluated separately through synchronized images; torso rotation was not one of the ten ISO-scored signals."
       },
       {
         "type": "heading",
@@ -367,7 +367,7 @@
       },
       {
         "type": "markdown",
-        "text": "### Selected Absolute Differences\nThe ISO 18571 ratings were interpreted alongside the magnitude and timing differences in the response histories:\n- Rigid Bench, final validated model: Iliac load cell peaks were approximately 1 kN lower than the physical test responses.\n- Semi-Rigid Bench, initial assessment with immediate retractor locking, before compliance calibration: Belt loads peaked approximately 10 ms earlier than the physical tests and were approximately 0.5 kN (15%) lower in the model.\n- Semi-Rigid Bench, initial assessment with immediate retractor locking, before compliance calibration: Resultant pelvis acceleration peaked 10 ms (13%) earlier and underpredicted the peak magnitude by more than 5 g (24%).\nThese differences were retained as validation limitations rather than being obscured by the overall 0.71 average rating.\n<table fit-page-width=\"true\" header-row=\"true\">\n<tr>\n<td>Bench</td>\n<td>Average ISO 18571 rating</td>\n<td>Strongest agreement</td>\n<td>Important limitation</td>\n</tr>\n<tr>\n<td>Rigid</td>\n<td>0.71 (Fair)</td>\n<td>Pelvis acceleration and shoulder and lap belt loads (Good)</td>\n<td>Left-lower chest response; reduced torso Z-rotation and different belt migration</td>\n</tr>\n<tr>\n<td>Semi-Rigid</td>\n<td>0.71 (Fair)</td>\n<td>Head and pelvis acceleration and shoulder and lap belt loads (Good)</td>\n<td>Iliac force signals; simplified restraint system compliance</td>\n</tr>\n</table>"
+        "text": "### Selected Absolute Differences\nThe ISO 18571 ratings were interpreted alongside the magnitude and timing differences in the response histories:\n- Rigid Bench, final validated model: Iliac load cell peaks were approximately 1 kN lower than the physical test responses.\n- Semi-Rigid Bench, initial assessment with immediate retractor locking, before compliance calibration: Belt loads peaked approximately 10 ms earlier than the physical tests and were approximately 0.5 kN (15%) lower in the model.\n- Semi-Rigid Bench, initial assessment with immediate retractor locking, before compliance calibration: Resultant pelvis acceleration peaked 10 ms (13%) earlier and underpredicted the peak magnitude by more than 5 g (24%).\n\nThese differences were retained as validation limitations rather than being obscured by the overall 0.71 average rating.\n<table fit-page-width=\"true\" header-row=\"true\">\n<tr>\n<td>Bench</td>\n<td>Average ISO 18571 rating</td>\n<td>Strongest agreement</td>\n<td>Important limitation</td>\n</tr>\n<tr>\n<td>Rigid</td>\n<td>0.71 (Fair)</td>\n<td>Pelvis acceleration and shoulder and lap belt loads (Good)</td>\n<td>Left-lower chest response; reduced torso Z-rotation and different belt migration</td>\n</tr>\n<tr>\n<td>Semi-Rigid</td>\n<td>0.71 (Fair)</td>\n<td>Head and pelvis acceleration and shoulder and lap belt loads (Good)</td>\n<td>Iliac force signals; simplified restraint system compliance</td>\n</tr>\n</table>"
       },
       {
         "type": "heading",
@@ -399,7 +399,7 @@
       },
       {
         "type": "markdown",
-        "text": "The models were sufficiently representative for a **comparative anchor position sensitivity study**, particularly for chest deflection, pelvis acceleration, belt loading, and overall occupant motion. The 0.71 averages were not treated as blanket validation of every local signal.\n**Public-sharing boundary:** This summary uses methods and results disclosed in the thesis. Raw test files, proprietary model inputs, and restricted partner material are excluded."
+        "text": "The models were sufficiently representative for a **comparative anchor position sensitivity study**, particularly for chest deflection, pelvis acceleration, belt loading, and overall occupant motion. The 0.71 averages were not treated as blanket validation of every local signal.\n\n**Public-sharing boundary:** This summary uses methods and results disclosed in the thesis. Raw test files, proprietary model inputs, and restricted partner material are excluded."
       }
     ]
   },
@@ -592,7 +592,7 @@
       },
       {
         "type": "markdown",
-        "text": "**LS-PrePost 4.10 • LS-DYNA model preparation • restraint system modeling • LS-PrePost command-file scripting • model QA**\n**Scope note:** The automation supported the research workflow; the thesis's primary scientific contribution remained model validation and the anchor position sensitivity analysis."
+        "text": "**LS-PrePost 4.10 • LS-DYNA model preparation • restraint system modeling • LS-PrePost command-file scripting • model QA**\n\n**Scope note:** The automation supported the research workflow; the thesis's primary scientific contribution remained model validation and the anchor position sensitivity analysis."
       }
     ]
   },
@@ -701,7 +701,7 @@
       },
       {
         "type": "markdown",
-        "text": "**LS-DYNA explicit dynamics \\| Hybrid III and GHBMC modeling \\| injury-criterion interpretation \\| cervical fracture mechanics \\| simulation post-processing \\| literature comparison**\n**Public-sharing boundary:** Images are taken from my academic course analysis. Licensed finite element model files are not distributed."
+        "text": "**LS-DYNA explicit dynamics \\| Hybrid III and GHBMC modeling \\| injury-criterion interpretation \\| cervical fracture mechanics \\| simulation post-processing \\| literature comparison**\n\n**Public-sharing boundary:** Images are taken from my academic course analysis. Licensed finite element model files are not distributed."
       }
     ]
   },
@@ -713,7 +713,7 @@
     "blocks": [
       {
         "type": "markdown",
-        "text": "**Hands-on design, sensing, physical testing, and applied computational research.**\nThese projects show the broader engineering work behind my CAE background: building and testing hardware, integrating sensors and controls, documenting manufacturing workflows, and using computation to answer biomedical research questions."
+        "text": "**Hands-on design, sensing, physical testing, and applied computational research.**\n\nThese projects show the broader engineering work behind my CAE background: building and testing hardware, integrating sensors and controls, documenting manufacturing workflows, and using computation to answer biomedical research questions."
       },
       {
         "type": "heading",
@@ -731,7 +731,7 @@
       },
       {
         "type": "markdown",
-        "text": "**Mechanical design • CAD • 3D printing • sensors and controls • MATLAB and Arduino • experimental testing • technical troubleshooting • multidisciplinary teamwork**\nThis work supports my CAE background by giving me practical experience with the physical systems, measurements, and design decisions that simulations are intended to represent."
+        "text": "**Mechanical design • CAD • 3D printing • sensors and controls • MATLAB and Arduino • experimental testing • technical troubleshooting • multidisciplinary teamwork**\n\nThis work supports my CAE background by giving me practical experience with the physical systems, measurements, and design decisions that simulations are intended to represent."
       }
     ]
   },
@@ -981,7 +981,7 @@
       },
       {
         "type": "markdown",
-        "text": "**LS-DYNA explicit dynamics \\| LS-PrePost \\| foam material modeling and verification \\| Hybrid III occupant modeling \\| contact analysis \\| HIC15 and Nij \\| simulation post-processing**\n**Public-sharing boundary:** Images and numerical results are taken from my academic course analysis. Source finite element model files are not distributed."
+        "text": "**LS-DYNA explicit dynamics \\| LS-PrePost \\| foam material modeling and verification \\| Hybrid III occupant modeling \\| contact analysis \\| HIC15 and Nij \\| simulation post-processing**\n\n**Public-sharing boundary:** Images and numerical results are taken from my academic course analysis. Source finite element model files are not distributed."
       }
     ]
   },
@@ -1083,7 +1083,7 @@
     "blocks": [
       {
         "type": "markdown",
-        "text": "**Payload Team Member \\| UBC Unmanned Aircraft Systems \\| Sep 2019-May 2021**\nI designed rover and payload system components in SolidWorks and Onshape, then prepared the CAD for 3D-printed proof-of-concept builds used in prototype testing."
+        "text": "**Payload Team Member \\| UBC Unmanned Aircraft Systems \\| Sep 2019-May 2021**\n\nI designed rover and payload system components in SolidWorks and Onshape, then prepared the CAD for 3D-printed proof-of-concept builds used in prototype testing."
       },
       {
         "type": "heading",
@@ -1143,7 +1143,7 @@
       },
       {
         "type": "markdown",
-        "text": "**SolidWorks and Onshape, component design, packaging, 3D-print preparation, prototype testing, design iteration, and multidisciplinary teamwork**\n**Public-sharing boundary:** The images show student-team CAD. I describe only the components and concept work I personally completed or contributed to."
+        "text": "**SolidWorks and Onshape, component design, packaging, 3D-print preparation, prototype testing, design iteration, and multidisciplinary teamwork**\n\n**Public-sharing boundary:** The images show student-team CAD. I describe only the components and concept work I personally completed or contributed to."
       }
     ]
   }

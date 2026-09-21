@@ -6,6 +6,7 @@ import LocalVideo from '../components/LocalVideo.astro';
 import AnchorComparison from '../components/AnchorComparison.astro';
 import Download from '../components/Download.astro';
 import {render} from '../data/render';
+import {isPlaceholder} from '../data/media';
 import Home from '../components/Home.astro';
 import ThorProject from '../components/ThorProject.astro';
 import SeatBeltDoe from '../components/SeatBeltDoe.astro';
@@ -106,11 +107,12 @@ const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue C
           <h1>{displayTitle}</h1>
           {contributionHeading && contributionBlock?.type==='markdown' && <aside class="boundary-callout contribution-summary"><h3>{contributionHeading.title}</h3><div set:html={render(contributionBlock.text,page.title)} /></aside>}
           {page.blocks.map((block:any,i:number) => {
-            if(i===contributionIndex||i===contributionIndex+1) return null;
+            if(contributionIndex>=0 && (i===contributionIndex||i===contributionIndex+1)) return null;
             if(block.type==='heading') return <h2 id={block.id}>{block.title}<a class="heading-anchor" href={`#${block.id}`} aria-label={`Link to ${block.title}`}>§</a><span class="fringe-rule" aria-hidden="true"></span></h2>;
             if(block.type==='markdown') return <div class="prose-block" set:html={render(block.text,page.title)} />;
             if(block.type==='download') return <Download id={block.id} />;
             const a = (assets as any)[block.id];
+            if(a?.path && isPlaceholder(a.path)) return null;
             const media = a.type==='video' ? <LocalVideo webm={a.path} mp4={a.mp4} poster={a.poster} caption={a.caption} description={a.description} alt={a.alt} number={block.number} width={a.width} height={a.height} /> : <Figure asset={a} number={block.number} />;
             return <>{media}{page.slug==='seat-belt-doe' && block.id==='G03' && <AnchorComparison />}</>;
           })}

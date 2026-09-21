@@ -16,14 +16,11 @@ export function render(text: string, label: string) {
   });
   let output = marked.parse(text, {gfm:true}) as string;
   output = output.replace(/<pre>/g, `<pre tabindex="0" aria-label="${escape(label)} code excerpt">`);
-  // Extract existing numeric emphasis without changing its surrounding sentence.
-  // Colon-led labels become separate metadata elements, with their words retained.
+  // Keep authored emphasis in place. Colon-led labels may be styled as metadata,
+  // but numeric values are never promoted into standalone metric chips automatically.
   output = output.replace(/<(p|li)>([\s\S]*?)<\/\1>/g, (whole, tag, body) => {
-    const values=[...body.matchAll(/<strong>([^<]+)<\/strong>/g)].map(m=>m[1]).filter(value=>/^(?:[<>~≈]\s*)?\d/.test(value));
-    let cleaned=body.replace(/^<strong>([^<]+:)<\/strong>\s*/, '<span class="prose-label">$1</span>');
-    cleaned=cleaned.replace(/<strong>([\s\S]*?)<\/strong>/g,'$1');
-    const metrics=values.length?`<span class="prose-metrics">${[...new Set(values)].map(value=>`<span>${value}</span>`).join('')}</span>`:'';
-    return `<${tag}>${metrics}${cleaned}</${tag}>`;
+    const cleaned=body.replace(/^<strong>([^<]+:)<\/strong>\s*/, '<span class="prose-label">$1</span> ');
+    return `<${tag}>${cleaned}</${tag}>`;
   });
   return output;
 }

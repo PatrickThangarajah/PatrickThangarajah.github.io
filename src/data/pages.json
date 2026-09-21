@@ -993,7 +993,7 @@
     "blocks": [
       {
         "type": "markdown",
-        "text": "**Summer Research Student \\| Centre for Heart Lung Innovation, UBC \\| Summer 2022**\nIn summer 2022, I worked with a research team at UBC’s Centre for Heart Lung Innovation to investigate whether kidney tissue images could be used to distinguish diabetic kidney disease (DKD) from healthy tissue. My work focused on the binary classification portion of the project."
+        "text": "**Summer Research Student \\| Centre for Heart Lung Innovation, UBC \\| Summer 2022**\n\nIn summer 2022, I worked with a research team at UBC’s Centre for Heart Lung Innovation to investigate whether kidney tissue images could be used to distinguish diabetic kidney disease (DKD) from healthy tissue. My work focused on the binary classification portion of the project."
       },
       {
         "type": "heading",
@@ -1011,7 +1011,7 @@
       },
       {
         "type": "markdown",
-        "text": "I used Jupyter on UBC’s Sockeye computing cluster to run a PyTorch transfer-learning workflow using a pretrained AlexNet model. I prepared and resized the images, generated **256 × 256 pixel patches**, organized the data into training, validation, and test sets, trained the model, and evaluated how well it distinguished DKD from healthy tissue.\nI also collaborated with two other students to present the overall project through a research poster and slide presentation."
+        "text": "I used Jupyter on UBC’s Sockeye computing cluster to run a PyTorch workflow using a pretrained AlexNet model. I preprocessed the images by converting and resizing them, generated **256 × 256 pixel patches**, split the image data into training, validation, and test datasets, trained the model, and evaluated how well it distinguished DKD from healthy tissue.\n\nI also collaborated with two other students to present the overall project through a research poster and slide presentation."
       },
       {
         "type": "heading",

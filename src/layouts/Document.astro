@@ -9,6 +9,8 @@ import {render} from '../data/render';
 import Home from '../components/Home.astro';
 import ThorProject from '../components/ThorProject.astro';
 import SeatBeltDoe from '../components/SeatBeltDoe.astro';
+import BladderProject from '../components/BladderProject.astro';
+import HliProject from '../components/HliProject.astro';
 const {page} = Astro.props;
 const home=!page.slug;
 const headings = page.slug==='thor-5f' ? [
@@ -21,6 +23,22 @@ const headings = page.slug==='thor-5f' ? [
   {id:'key-findings',title:'Key Findings'},
   {id:'engineering-interpretation',title:'Engineering Interpretation'},
   {id:'technical-details',title:'Technical Details'}
+] : page.slug==='bladder-test-platform' ? [
+  {id:'platform-functions',title:'What the platform reproduces'},
+  {id:'system-design',title:'System design'},
+  {id:'my-contribution',title:'My contribution'},
+  {id:'verification-results',title:'Verification results'},
+  {id:'engineering-decisions',title:'Engineering decisions'},
+  {id:'limitations-and-handoff',title:'Limitations and handoff'},
+  {id:'client-continuation',title:'Client continuation'}
+] : page.slug==='kidney-tissue-classification' ? [
+  {id:'research-problem',title:'Research problem'},
+  {id:'my-contribution',title:'My contribution'},
+  {id:'dataset-and-evaluation',title:'Dataset and evaluation'},
+  {id:'results-and-limitations',title:'Results and limitations'},
+  {id:'research-poster',title:'Research poster'},
+  {id:'tools-and-skills',title:'Tools and skills'},
+  {id:'project-links',title:'Project links'}
 ] : page.blocks.filter((b:any)=>b.type==='heading');
 const canonical = new URL(page.route, Astro.site);
 const firstMarkdown=page.blocks.find((b:any)=>b.type==='markdown')?.text ?? page.title;
@@ -34,7 +52,7 @@ const description=plain(firstMarkdown).slice(0,180);
 const firstAssetBlock=page.blocks.find((b:any)=>b.type==='asset');
 const socialAsset:any=home ? (assets as any).A01 : firstAssetBlock ? (assets as any)[firstAssetBlock.id] : (assets as any).A01;
 const socialImage=socialAsset?.path ? new URL(socialAsset.path,Astro.site) : undefined;
-const groupProjectSlugs=['bladder-test-platform','payload-and-rover'];
+const groupProjectSlugs=['payload-and-rover'];
 const contributionIndex=groupProjectSlugs.includes(page.slug) ? page.blocks.findIndex((b:any)=>b.type==='heading'&&(b.title==='My Individual Contribution'||b.title==='My Contribution')) : -1;
 const contributionHeading=contributionIndex>=0 ? page.blocks[contributionIndex] : null;
 const contributionBlock=contributionIndex>=0 ? page.blocks[contributionIndex+1] : null;
@@ -67,7 +85,7 @@ const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue C
       try { const preference = localStorage.getItem('theme'); if(preference === 'light' || preference === 'dark') document.documentElement.dataset.theme = preference; } catch {}
     </script>
   </head>
-  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f',"doe-page":page.slug==='seat-belt-doe',"hli-page":page.slug==='kidney-tissue-classification'}}>
+  <body class:list={{homepage:home,"thor-page":page.slug==='thor-5f',"doe-page":page.slug==='seat-belt-doe',"bladder-page":page.slug==='bladder-test-platform',"hli-page":page.slug==='kidney-tissue-classification'}}>
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <a class="identity" href="/">Patrick Thangarajah<span class="role-line">Mechanical Engineering Graduate</span></a>
@@ -84,7 +102,7 @@ const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue C
       </aside>}
       <main id="main" tabindex="-1">
         {page.slug && <a class="back-link" href="/#selected-work">All projects</a>}
-        {home ? <Home/> : page.slug==='thor-5f' ? <ThorProject page={page} /> : page.slug==='seat-belt-doe' ? <SeatBeltDoe page={page} /> : <article class="project-document">
+        {home ? <Home/> : page.slug==='thor-5f' ? <ThorProject page={page} /> : page.slug==='seat-belt-doe' ? <SeatBeltDoe page={page} /> : page.slug==='bladder-test-platform' ? <BladderProject /> : page.slug==='kidney-tissue-classification' ? <HliProject /> : <article class="project-document">
           <h1>{displayTitle}</h1>
           {contributionHeading && contributionBlock?.type==='markdown' && <aside class="boundary-callout contribution-summary"><h3>{contributionHeading.title}</h3><div set:html={render(contributionBlock.text,page.title)} /></aside>}
           {page.blocks.map((block:any,i:number) => {

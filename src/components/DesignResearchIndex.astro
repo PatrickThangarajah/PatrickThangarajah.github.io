@@ -1,0 +1,62 @@
+---
+import assets from '../data/assets.json';
+
+const rows = [
+  {
+    href:'/projects/bladder-test-platform/',
+    asset:(assets as any).A18,
+    meta:'UBC capstone · Design / Controls / Physical testing',
+    title:'Soft distensible bladder test platform',
+    copy:'Cast and tested silicone bladder prototypes, helped build the pressure chamber, and owned the sensing, Arduino control, and MATLAB data-acquisition work. I later continued with Echoscope as a part-time R&D Engineer and authored five manufacturing and verification procedures delivered to the client.'
+  },
+  {
+    href:'/projects/payload-and-rover/',
+    asset:(assets as any).A31,
+    meta:'UBC UAS · CAD / Prototyping',
+    title:'Payload system and rover prototyping',
+    copy:'Created rover wheel, rover assembly, motor-envelope, and payload-winch components in SolidWorks and Onshape for a system required to release a rover from at least 30 m. Team material and design changes reduced payload-system weight by 50%.'
+  },
+  {
+    href:'/projects/kidney-tissue-classification/',
+    asset:(assets as any).A29,
+    meta:'HLI summer research · Biomedical research / Deep learning',
+    title:'Kidney tissue classification using deep learning',
+    copy:'Ran the AlexNet binary-classification workflow in Jupyter on UBC Sockeye, including image preprocessing, 256 × 256 patch generation, dataset splitting, model training, and performance analysis. My poster contribution compared GeoMx and H&E image classification.'
+  }
+];
+---
+
+<article class="case-study design-index">
+  <header class="case-hero">
+    <p class="case-eyebrow">Design and applied research</p>
+    <h1>Design, prototyping, and applied research</h1>
+    <p class="case-lede">Hands-on design, sensing, physical testing, and applied computational research alongside my CAE work.</p>
+  </header>
+
+  <section class="case-section" id="selected-work">
+    <h2>Selected work</h2>
+    <div class="design-index-list">
+      {rows.map(row => <a class="design-index-row" href={row.href}>
+        <figure>
+          <img src={row.asset.path} alt={row.asset.alt} width={row.asset.width} height={row.asset.height} loading="lazy" decoding="async" />
+        </figure>
+        <div>
+          <p class="case-eyebrow">{row.meta}</p>
+          <h3>{row.title}</h3>
+          <p>{row.copy}</p>
+          <span class="text-link">View project →</span>
+        </div>
+      </a>)}
+    </div>
+  </section>
+
+  <section class="case-section" id="capabilities">
+    <h2>Capabilities demonstrated</h2>
+    <dl class="design-capabilities">
+      <div><dt>Design</dt><dd>Mechanical design · CAD · 3D printing · iterative prototyping</dd></div>
+      <div><dt>Sensing and control</dt><dd>Sensors · Arduino · control circuits · MATLAB data acquisition</dd></div>
+      <div><dt>Testing</dt><dd>Experimental setup · calibration · troubleshooting · verification</dd></div>
+      <div><dt>Collaboration</dt><dd>Multidisciplinary teamwork · technical documentation · client handoff</dd></div>
+    </dl>
+  </section>
+</article>

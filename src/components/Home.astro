@@ -60,21 +60,27 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
 <section id="experience" class="home-section background-section" aria-labelledby="background-title"><div class="section-heading"><p class="eyebrow">02 / Experience</p><h2 id="background-title">Experience & education</h2><span class="fringe-rule" aria-hidden="true"></span></div>
   <div id="education"><h3>Education</h3><div class="timeline">{history('education').map(([period,degree,org])=><div><p class="timeline-date">{period}</p><div><h3>{org}</h3><p>{degree}</p></div></div>)}</div></div>
   <h3>Engineering experience</h3><div class="timeline">{history('experience').map(([period,role,org])=><div><p class="timeline-date">{period}</p><div><h3>{role.split('<br>')[0].replaceAll('**','')}</h3><p class="organization">{org}</p><div set:html={render(role.split('<br>').slice(1).join('<br>'),'Experience')}/></div></div>)}</div>
-  <details id="about-me" class="disclosure"><summary>About my work</summary><p>Simulation, measurement, and engineering design.</p><div class="reading-column" set:html={render(section('about-me'),hub.title)}/><div id="at-a-glance" class="reading-column" set:html={render(section('at-a-glance'),hub.title)}/></details>
   <details id="publications-presentations" class="disclosure"><summary>Publications & presentations</summary><div class="reading-column" set:html={render(section('publications-presentations'),hub.title)}/></details>
   <details id="public-code-and-workflow-artifacts" class="disclosure"><summary>Public code & workflow artifacts</summary><div class="reading-column" set:html={render(section('public-code-and-workflow-artifacts'),hub.title)}/></details>
 </section>
-<section id="beyond-engineering" class="home-section beyond-engineering" aria-labelledby="beyond-title">
+<section id="about-me" class="home-section about-me" aria-labelledby="about-title">
   <img src="/figures/IMG_1191.jpeg" alt="Portrait of Patrick Thangarajah" width="1834" height="1888" loading="lazy" decoding="async" />
-  <div><h2 id="beyond-title">Beyond engineering</h2><p>Outside of work, I enjoy playing basketball, archery, lifting, and reading.</p></div>
+  <div class="about-copy">
+    <h2 id="about-title">About Me</h2>
+    <div class="reading-column" set:html={render(section('about-me'),hub.title)}/>
+    <p>Outside of work, I enjoy playing basketball, archery, lifting, and reading.</p>
+    <details id="at-a-glance" class="disclosure"><summary>Background at a glance</summary><div class="reading-column" set:html={render(section('at-a-glance'),hub.title)}/></details>
+  </div>
 </section>
 <section id="contact" class="home-section" aria-labelledby="contact-title"><div class="section-heading"><p class="eyebrow">03 / Contact</p><h2 id="contact-title">Get in touch</h2><span class="fringe-rule" aria-hidden="true"></span></div><div class="contact-links"><a href="mailto:ptemmanual@gmail.com">ptemmanual@gmail.com</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a></div>
 <div id="resume"><h3>Resume</h3><div class="download-grid resume-download-grid"><Download id="resume"/></div><details class="disclosure"><summary>Document details & work eligibility</summary><div class="reading-column" set:html={render(section('resume'),hub.title)}/></details></div></section>
 
 <style>
-  .beyond-engineering{display:grid;grid-template-columns:13rem minmax(0,38rem);gap:2rem;align-items:center}
-  .beyond-engineering img{display:block;width:100%;max-width:13rem;height:auto}
-  .beyond-engineering h2{margin:0 0 1rem}
-  .beyond-engineering p{margin:0}
-  @media(max-width:639px){.beyond-engineering{grid-template-columns:minmax(0,1fr);gap:1.5rem}.beyond-engineering img{max-width:11rem}}
+  .about-me{display:grid;grid-template-columns:13rem minmax(0,38rem);gap:2rem;align-items:start}
+  .about-me img{display:block;width:100%;max-width:13rem;height:auto}
+  .about-me h2{margin:0 0 1rem}
+  .about-copy{min-width:0}
+  .about-copy > p{margin:1rem 0 0}
+  .about-copy :global(.reading-column > p:first-child){margin-top:0}
+  @media(max-width:639px){.about-me{grid-template-columns:minmax(0,1fr);gap:1.5rem}.about-me img{max-width:11rem}}
 </style>

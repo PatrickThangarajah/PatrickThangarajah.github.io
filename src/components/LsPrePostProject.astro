@@ -1,0 +1,85 @@
+---
+import assets from '../data/assets.json';
+import Figure from './Figure.astro';
+
+const {page} = Astro.props;
+const asset = (id:string) => (assets as any)[id];
+---
+
+<article class="case-study ls-case">
+  <header class="case-hero ls-hero">
+    <p class="case-eyebrow">LS-PrePost workflow automation</p>
+    <h1>{page.title}</h1>
+    <p class="case-lede">Standardized a repeated belt-fitting workflow with editable LS-PrePost command files while retaining manual engineering checks.</p>
+
+    <dl class="case-metrics ls-metrics" aria-label="Automation result">
+      <div><dd>7 → 4</dd><dt>manual setup steps</dt><p>about 43% fewer repeated manual steps</p></div>
+      <div><dd>104</dd><dt>DOE simulations supported</dt></div>
+    </dl>
+    <p class="measurement-note">Elapsed setup time was not measured.</p>
+  </header>
+
+  <section class="case-section ls-problem-approach" id="problem-and-approach">
+    <div>
+      <h2>Problem</h2>
+      <p>The anchor-position study required repeated belt routing, fitting, cleanup, and QA across 104 physically feasible simulations. Repeating the same preprocessing sequence entirely by hand increased setup effort and the opportunity for inconsistent model preparation.</p>
+    </div>
+    <div>
+      <h2>Approach</h2>
+      <p>I used editable LS-PrePost command files (<code>.cfile</code>) for the repeatable operations, while keeping anchor changes, belt-fit generation, geometry review, and contact-quality checks under manual engineering control.</p>
+    </div>
+  </section>
+
+  <section class="case-section ls-workflow" id="belt-fitting-workflow">
+    <h2>Belt-fitting workflow</h2>
+    <p class="section-intro">The shoulder- and lap-belt fitting sequences converge on the fitted belt geometry that is then processed by the reusable script.</p>
+    <div class="technical-plate ls-key-figure">
+      <Figure asset={asset('G05')} number={1} />
+    </div>
+  </section>
+
+  <section class="case-section" id="manual-and-scripted">
+    <h2>Manual and scripted work</h2>
+    <div class="ls-split-list">
+      <div>
+        <h3>What stayed manual</h3>
+        <ol>
+          <li>Open the model file.</li>
+          <li>Generate the shoulder belt fit.</li>
+          <li>Generate the lap belt fit.</li>
+          <li>Run the command file.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>What the script handled</h3>
+        <ul>
+          <li>Rename and save the generated belt parts.</li>
+          <li>Delete the fitting jacket elements.</li>
+          <li>Save the completed belt file.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section" id="engineering-value">
+    <h2>Engineering value</h2>
+    <div class="ls-value-list">
+      <p><strong>Consistency.</strong> The same repeatable preprocessing sequence was used across the DOE.</p>
+      <p><strong>Less repetition.</strong> Repeated manual setup fell from seven steps to four.</p>
+      <p><strong>Engineering control.</strong> Geometry, routing, interference, and contact quality still required review rather than being blindly automated.</p>
+    </div>
+  </section>
+
+  <section class="case-section ls-technical" id="technical-details">
+    <h2>Technical details</h2>
+    <details class="technical-disclosure">
+      <summary>Sanitized command structure</summary>
+      <pre><code>$# Sanitized LS-PrePost command-file structure
+beltfit fitbelt ... &lt;configuration-specific node identifiers&gt; ...
+beltfit accept &lt;belt part identifiers&gt; quad</code></pre>
+      <p>This shows the command mechanism without exposing project node or part identifiers. Anchor coordinates were applied before the file was run, and configuration-specific identifiers were updated for each case.</p>
+    </details>
+    <p class="tool-line"><strong>Tools:</strong> LS-PrePost 4.10 · LS-DYNA model preparation · restraint-system modeling · command-file scripting · model QA</p>
+    <p class="sharing-boundary"><strong>Scope:</strong> The automation supported the research workflow; the thesis's primary scientific contribution remained model validation and the anchor-position sensitivity analysis.</p>
+  </section>
+</article>

@@ -11,20 +11,20 @@ const asset = (id:string) => (assets as any)[id];
     <p class="case-eyebrow">Helmeted head-first impact simulation</p>
     <h1>{page.title}</h1>
     <p class="case-lede">Comparing standardized injury metrics with explicit vertebral failure.</p>
-    <p class="case-role">I independently investigated how impact velocity and neck orientation influenced cervical loading and predicted fracture during head-first football impacts. Using LS-DYNA, I simulated five configurations with Hybrid III and GHBMC models, compared predicted peak forces and injury locations with published cadaveric studies, and evaluated whether the Neck Injury Criterion captured the model-predicted fracture response.</p>
+    <p class="case-role">I independently investigated how impact velocity and neck orientation influenced cervical loading and predicted fracture during head-first football impacts. Using LS-DYNA, I simulated five configurations with existing Hybrid III and GHBMC models, compared predicted peak forces and injury locations with published cadaveric studies, and evaluated whether the Neck Injury Criterion captured the model-predicted fracture response.</p>
   </header>
 
   <section class="case-section" id="engineering-question">
     <h2>Engineering Question</h2>
-    <p>Head-first football impacts can align the cervical spine with the impact load and create a high risk of axial-compression injury. I investigated two related questions: <strong>How do velocity and impact angle change the cervical response, and how does an ATD-based injury metric compare with explicit fracture predicted by a human body model?</strong></p>
+    <p>Head-first football impacts can align the cervical spine with the impact load and create a high risk of axial-compression injury. I investigated two related questions: How do velocity and impact angle change the cervical response, and how does an ATD-based injury metric compare with explicit fracture predicted by a human body model?</p>
   </section>
 
   <section class="case-section" id="my-individual-contribution">
     <h2>My Individual Contribution</h2>
     <p>I completed this project independently. I:</p>
     <ul>
-      <li>Integrated a helmeted Hybrid III head-and-neck model with a full-body Hybrid III model and defined the tied interface.</li>
-      <li>Prepared the helmeted 50th-percentile male GHBMC model and its existing cortical- and cancellous-bone failure definitions.</li>
+      <li>Integrated an existing helmeted Hybrid III head-and-neck model with an existing full-body Hybrid III model and defined the tied interface.</li>
+      <li>Set up and positioned the existing helmeted 50th-percentile male GHBMC model, using its existing cortical- and cancellous-bone failure definitions.</li>
       <li>Created the rigid impact plate, contacts, initial conditions, and five impact configurations in LS-DYNA.</li>
       <li>Extracted neck section forces and moments, calculated maximum Nij, inspected predicted vertebral failure, and compared the results with published cadaveric studies.</li>
     </ul>
@@ -37,10 +37,10 @@ const asset = (id:string) => (assets as any)[id];
   <section class="case-section" id="simulation-workflow">
     <h2>Simulation Workflow</h2>
     <ol class="validation-process">
-      <li><span>01</span><p><strong>Build the models.</strong> Prepared helmeted Hybrid III and GHBMC full-body models and a 5 mm-mesh rigid steel impact plate.</p></li>
-      <li><span>02</span><p><strong>Define the matrix.</strong> Simulated perpendicular impacts at 3.4, 4.1, and 7.0 m/s, plus -15 degree and +30 degree plate orientations at 3.4 m/s.</p></li>
-      <li><span>03</span><p><strong>Run and post-process.</strong> Solved the five configurations in LS-DYNA 7.1.2 and extracted neck section forces and moments.</p></li>
-      <li><span>04</span><p><strong>Interpret the response.</strong> Calculated Nij for both models, identified primary GHBMC fracture locations from element failure, and compared GHBMC neck forces with experimental literature.</p></li>
+      <li><span>01</span><p>Set up the models. Set up and positioned existing helmeted Hybrid III and GHBMC models and created the 5 mm-mesh rigid steel impact plate.</p></li>
+      <li><span>02</span><p>Define the matrix. Simulated perpendicular impacts at 3.4, 4.1, and 7.0 m/s, plus -15 degree and +30 degree plate orientations at 3.4 m/s.</p></li>
+      <li><span>03</span><p>Run and post-process. Solved the five configurations in LS-DYNA 7.1.2 and extracted neck section forces and moments.</p></li>
+      <li><span>04</span><p>Interpret the response. Calculated Nij for both models, identified primary GHBMC fracture locations from element failure, and compared GHBMC neck forces with experimental literature.</p></li>
     </ol>
   </section>
 
@@ -49,20 +49,14 @@ const asset = (id:string) => (assets as any)[id];
 
     <div class="finding-card-grid cervical-findings">
       <article class="finding-card">
-        <div class="finding-card-heading">
-          <svg class="finding-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 21v-6"/><path d="M12 21V9"/><path d="M19 21V3"/></svg>
-          <h3>Fracture prediction</h3>
-        </div>
+        <h3>Fracture prediction</h3>
         <strong class="finding-value">5 of 5</strong>
         <p>The GHBMC predicted cervical fracture in all five configurations.</p>
-        <p class="finding-secondary">GHBMC Nij exceeded 1 only in the <strong>7.0 m/s</strong> case.</p>
+        <p class="finding-secondary">GHBMC Nij exceeded 1 only in the 7.0 m/s case.</p>
       </article>
 
       <article class="finding-card">
-        <div class="finding-card-heading">
-          <svg class="finding-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
-          <h3>Peak neck force</h3>
-        </div>
+        <h3>Peak neck force</h3>
         <div class="dual-values">
           <div><strong>2.26 kN</strong><span>at 3.4 m/s</span></div>
           <div><strong>2.34 kN</strong><span>at 4.1 m/s</span></div>
@@ -71,21 +65,15 @@ const asset = (id:string) => (assets as any)[id];
       </article>
 
       <article class="finding-card">
-        <div class="finding-card-heading">
-          <svg class="finding-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
-          <h3>Impact severity</h3>
-        </div>
+        <h3>Impact severity</h3>
         <p>Increasing perpendicular impact speed increased fracture extent.</p>
-        <p class="finding-secondary">The <strong>+30 degree</strong> case produced the least visible damage.</p>
+        <p class="finding-secondary">The +30 degree case produced the least visible damage.</p>
       </article>
 
       <article class="finding-card">
-        <div class="finding-card-heading">
-          <svg class="finding-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-          <h3>Fracture location</h3>
-        </div>
-        <p>The simulations predicted primarily upper-cervical damage at <strong>C1-C3</strong>.</p>
-        <p class="finding-secondary">One comparison study reported lower-cervical <strong>C5-C6</strong> fractures.</p>
+        <h3>Fracture location</h3>
+        <p>The simulations predicted primarily upper-cervical damage at C1-C3.</p>
+        <p class="finding-secondary">One comparison study reported lower-cervical C5-C6 fractures.</p>
       </article>
     </div>
 
@@ -127,7 +115,7 @@ const asset = (id:string) => (assets as any)[id];
 
   <section class="case-section" id="what-this-demonstrates">
     <h2>What This Demonstrates</h2>
-    <p><strong>LS-DYNA explicit dynamics | Hybrid III and GHBMC modeling | injury-criterion interpretation | cervical fracture mechanics | simulation post-processing | literature comparison</strong></p>
+    <p>LS-DYNA explicit dynamics | Hybrid III and GHBMC model setup | injury-criterion interpretation | cervical fracture mechanics | simulation post-processing | literature comparison</p>
     <p class="sharing-boundary"><strong>Public-sharing boundary:</strong> Images are taken from my academic course analysis. Licensed finite element model files are not distributed.</p>
   </section>
 </article>

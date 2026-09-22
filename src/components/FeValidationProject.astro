@@ -2,143 +2,130 @@
 import assets from '../data/assets.json';
 import Figure from './Figure.astro';
 
-const {page} = Astro.props;
 const asset = (id:string) => (assets as any)[id];
 ---
 
 <article class="case-study validation-case">
   <header class="case-hero validation-hero">
-    <p class="case-eyebrow">ISO 18571</p>
+    <p class="case-eyebrow">ISO 18571 model validation</p>
     <h1>Quantitative FE model validation</h1>
     <p class="case-lede">Establish model credibility before using simulation to compare restraint designs.</p>
-    <p class="case-role">I built and calibrated both LS-DYNA benchmark environments, matched the occupant posture and restraint setup, processed the comparison channels, calculated ISO 18571 ratings, and used the quantitative and kinematic evidence to decide which responses could support the anchor position study. Transport Canada and PMG Technologies conducted the rigid bench tests; the semi-rigid data came from published sled tests.</p>
+    <p class="case-role">I built and calibrated both LS-DYNA benchmark environments, matched occupant posture and restraint setup, processed the comparison channels, calculated ISO 18571 ratings, and used the quantitative and kinematic evidence to decide which responses could support the anchor-position study.</p>
 
     <div class="case-metrics validation-metrics" aria-label="Validation scope">
-      <div><strong class="validation-metric-value">0.71</strong><span class="validation-metric-label">Average ISO 18571</span><p>in each bench</p></div>
+      <div><strong class="validation-metric-value">0.71</strong><span class="validation-metric-label">Average ISO 18571</span><p>in each benchmark</p></div>
       <div><strong class="validation-metric-value">2</strong><span class="validation-metric-label">Physical benchmark configurations</span></div>
-      <div><strong class="validation-metric-value">10</strong><span class="validation-metric-label">Quantitative signals</span><p>evaluated per bench</p></div>
+      <div><strong class="validation-metric-value">10</strong><span class="validation-metric-label">Quantitative signals</span><p>evaluated per benchmark</p></div>
     </div>
+    <p class="validation-question-note">Validation combined waveform agreement with occupant kinematics; a plausible animation alone was not treated as sufficient evidence.</p>
   </header>
-
-  <section class="case-section" id="validation-question">
-    <h2>Validation question</h2>
-    <p>A crash animation can look plausible while still missing important timing, load path, or local response behavior. I therefore treated validation as a combination of quantitative signal correlation and qualitative kinematic assessment.</p>
-  </section>
 
   <section class="case-section" id="physical-benchmarks">
     <h2>Physical benchmarks</h2>
-    <div class="bench-grid">
+    <div class="bench-grid compact-bench-grid">
       <article>
-        <p class="case-eyebrow">Rigid Bench</p>
-        <h3>Controlled sled benchmark</h3>
+        <h3>Rigid Bench</h3>
         <dl class="bench-details">
-          <div><dt>Benchmark</dt><dd>Three matched TC/PMG sled tests with a 23 g frontal pulse and 3-point belt</dd></div>
-          <div><dt>Purpose</dt><dd>Validate the model in a controlled, repeatable environment</dd></div>
+          <div><dt>Pulse</dt><dd>23 g frontal</dd></div>
+          <div><dt>Tests</dt><dd>3 matched TC/PMG sled tests</dd></div>
+          <div><dt>Restraint</dt><dd>3-point belt</dd></div>
         </dl>
       </article>
       <article>
-        <p class="case-eyebrow">Semi-Rigid Bench</p>
-        <h3>Published sled benchmark</h3>
+        <h3>Semi-Rigid Bench</h3>
         <dl class="bench-details">
-          <div><dt>Benchmark</dt><dd>Two published 9 g tests using a pivoting seat and 4-point, 2-belt system</dd></div>
-          <div><dt>Purpose</dt><dd>Assess response with seat pan rotation and footrest interaction</dd></div>
+          <div><dt>Pulse</dt><dd>9 g</dd></div>
+          <div><dt>Tests</dt><dd>2 published sled tests</dd></div>
+          <div><dt>Restraint</dt><dd>4-point, 2-belt benchmark system</dd></div>
         </dl>
       </article>
     </div>
-    <p class="benchmark-note">The validated semi-rigid model was subsequently converted to a representative 3-point belt configuration for comparison with the Rigid Bench in the anchor position study.</p>
 
-    <div class="positioning-block">
-      <h3>Reconstructing the initial position</h3>
+    <div class="positioning-block featured-technical-figure">
+      <h3>Positioning the bench models</h3>
       <Figure asset={asset('G01')} number={1} />
     </div>
   </section>
 
   <section class="case-section" id="quantitative-signals">
-    <h2>Ten quantitative signals</h2>
-    <p>The same ten response types were evaluated in each bench:</p>
-    <ul class="signal-list">
-      <li>Head resultant acceleration</li>
-      <li>Four IR-TRACC chest deflections: left/right and upper/lower</li>
-      <li>Pelvis resultant acceleration</li>
-      <li>Left and right iliac forces</li>
-      <li>Shoulder belt load</li>
-      <li>Lap belt load</li>
-    </ul>
-    <p class="limitation-note">Occupant posture, forward excursion, torso rotation, pitch, and belt migration were evaluated separately through synchronized images; torso rotation was not one of the ten ISO-scored signals.</p>
+    <h2>Signals evaluated</h2>
+    <div class="signal-list signal-list-compact">
+      <span>Head resultant acceleration</span>
+      <span>Four IR-TRACC chest deflections</span>
+      <span>Pelvis resultant acceleration</span>
+      <span>Left and right iliac forces</span>
+      <span>Shoulder belt load</span>
+      <span>Lap belt load</span>
+    </div>
+    <p class="limitation-note">Posture, forward excursion, torso rotation, pitch, and belt migration were reviewed separately through synchronized kinematic images; torso rotation was not one of the ten ISO-scored signals.</p>
   </section>
 
   <section class="case-section" id="method">
     <h2>Method</h2>
-    <ol class="validation-process">
-      <li><span>01</span><p>Reproduced the relevant bench geometry, loading, restraints, and initial THOR-5F position.</p></li>
-      <li><span>02</span><p>Routed and checked the belts and matched the available initial belt position and tension measurements.</p></li>
-      <li><span>03</span><p>Applied SAE J211 filtering to corresponding model and test responses.</p></li>
-      <li><span>04</span><p>Compared signal timing, magnitude, shape, and local discrepancies.</p></li>
-      <li><span>05</span><p>Calculated ISO 18571 ratings for each signal and averaged across the physical test repeats.</p></li>
-      <li><span>06</span><p>Used kinematic images to explain differences that a waveform score alone could not identify.</p></li>
-    </ol>
+    <div class="validation-phase-grid">
+      <article>
+        <span>01</span>
+        <h3>Build and position</h3>
+        <p>Reproduce bench geometry, pulse, restraints, initial posture, belt routing, and available initial measurements.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>Compare and score</h3>
+        <p>Apply SAE J211 filtering, compare timing, magnitude and shape, and calculate ISO 18571 for corresponding signals.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>Interpret</h3>
+        <p>Use kinematics and load paths to explain local discrepancies rather than relying on a single average score.</p>
+      </article>
+    </div>
   </section>
 
   <section class="case-section" id="quantitative-result">
-    <h2>Quantitative result</h2>
-    <div class="validation-result-grid">
+    <h2>Quantitative results</h2>
+    <div class="validation-result-grid validation-result-compact">
       <article>
         <p class="case-eyebrow">Rigid Bench</p>
-        <strong>0.71 <span>(Fair)</span></strong>
-        <dl>
-          <div><dt>Strongest agreement</dt><dd>Pelvis acceleration and shoulder and lap belt loads (Good)</dd></div>
-          <div><dt>Important limitation</dt><dd>Left-lower chest response; reduced torso Z-rotation and different belt migration</dd></div>
-        </dl>
+        <strong>0.71 <span>average ISO 18571</span></strong>
+        <p><b>Strongest agreement:</b> pelvis acceleration and shoulder/lap belt loads.</p>
+        <p><b>Main limitation:</b> left-lower chest response, torso rotation, and belt migration.</p>
       </article>
       <article>
         <p class="case-eyebrow">Semi-Rigid Bench</p>
-        <strong>0.71 <span>(Fair)</span></strong>
-        <dl>
-          <div><dt>Strongest agreement</dt><dd>Head and pelvis acceleration and shoulder and lap belt loads (Good)</dd></div>
-          <div><dt>Important limitation</dt><dd>Iliac force signals; simplified restraint system compliance</dd></div>
-        </dl>
+        <strong>0.71 <span>average ISO 18571</span></strong>
+        <p><b>Strongest agreement:</b> head and pelvis acceleration and shoulder/lap belt loads.</p>
+        <p><b>Main limitation:</b> iliac-force response and simplified restraint-system compliance.</p>
       </article>
     </div>
 
-    <div class="validation-summary-figure">
+    <div class="validation-summary-figure technical-plate">
       <Figure asset={asset('A02')} number={2} />
     </div>
 
     <div class="absolute-differences">
-      <h3>Selected absolute differences</h3>
-      <p>The ISO 18571 ratings were interpreted alongside the magnitude and timing differences in the response histories:</p>
-      <div class="difference-list">
-        <article><h4>Rigid Bench · final validated model</h4><p>Iliac load cell peaks were approximately 1 kN lower than the physical test responses.</p></article>
-        <article><h4>Semi-Rigid Bench · initial assessment</h4><p>With immediate retractor locking, before compliance calibration, belt loads peaked approximately 10 ms earlier than the physical tests and were approximately 0.5 kN (15%) lower in the model.</p></article>
-        <article><h4>Semi-Rigid Bench · initial assessment</h4><p>With immediate retractor locking, before compliance calibration, resultant pelvis acceleration peaked 10 ms (13%) earlier and underpredicted the peak magnitude by more than 5 g (24%).</p></article>
+      <h3>Where the model differed</h3>
+      <div class="difference-list compact-difference-list">
+        <article><h4>Rigid Bench iliac force</h4><p>Peak response approximately 1 kN lower than the physical tests.</p></article>
+        <article><h4>Semi-Rigid belt load</h4><p>Before compliance calibration: approximately 10 ms earlier and 0.5 kN (15%) lower.</p></article>
+        <article><h4>Semi-Rigid pelvis acceleration</h4><p>Before compliance calibration: 10 ms (13%) earlier and more than 5 g (24%) lower.</p></article>
       </div>
-      <p class="limitation-note">These differences were retained as validation limitations rather than being obscured by the overall 0.71 average rating.</p>
+      <p class="limitation-note">These differences were retained as validation limitations rather than hidden by the overall 0.71 averages.</p>
     </div>
   </section>
 
   <section class="case-section" id="engineering-interpretation">
     <h2>Engineering interpretation</h2>
     <div class="decision-list validation-interpretation">
-      <article><h3>Rigid Bench</h3><p>In the Rigid Bench, the model matched early forward motion and peak restraint timing, but the physical ATD rotated farther, and the belt migrated toward the shoulder edge. The model's reduced rotation contributed to the head and left-lower chest differences.</p></article>
-      <article><h3>Semi-Rigid Bench</h3><p>In the Semi-Rigid Bench, the primary loading phase and forward motion compared well after belt system compliance was calibrated. Minor late differences in pitch and arm extension occurred after maximum excursion.</p></article>
-      <article><h3>Chest instrumentation</h3><p>The physical right-lower chest sensor bottomed out in both benchmark datasets, producing a plateau that the FE model did not reproduce.</p></article>
-      <article><h3>Iliac force</h3><p>Iliac force disagreement was treated as a sensor/load path limitation even when lap belt load and pelvis acceleration matched well.</p></article>
-    </div>
-
-    <div class="kinematic-evidence">
-      <h3>Kinematic evidence</h3>
-      <p>I compared the FE time sequences with the physical benchmarks alongside the response histories.</p>
-      <div class="kinematic-grid">
-        <article><h4>Rigid Bench</h4><p>In the TC/PMG Rigid Bench tests, the physical ATD developed greater torso rotation, and the shoulder belt migrated farther toward the shoulder edge than in the model.</p></article>
-        <article><h4>Semi-Rigid Bench</h4><p>In the Semi-Rigid Bench comparison, the model reproduced the primary forward motion and restraint-loading phase, with smaller late differences in pitch and arm extension relative to the physical test response reported by Richard et al. (2022).</p></article>
-      </div>
-      <p class="sharing-boundary">The physical imagery is not reproduced here.</p>
+      <article><h3>Rigid Bench</h3><p>The model matched early forward motion and restraint timing, but the physical ATD developed greater torso rotation and more shoulder-belt migration.</p></article>
+      <article><h3>Semi-Rigid Bench</h3><p>The primary loading phase and forward motion compared well after belt-system compliance was calibrated; smaller late differences remained in pitch and arm extension.</p></article>
+      <article><h3>Chest instrumentation</h3><p>The physical right-lower chest sensor bottomed out in both benchmark datasets, producing a plateau the FE model did not reproduce.</p></article>
+      <article><h3>Iliac force</h3><p>Local iliac-force disagreement remained a sensor/load-path limitation even where lap-belt load and pelvis acceleration agreed well.</p></article>
     </div>
   </section>
 
   <section class="case-section validation-decision" id="decision">
     <h2>Decision</h2>
-    <p>The models were sufficiently representative for a <strong>comparative anchor position sensitivity study</strong>, particularly for chest deflection, pelvis acceleration, belt loading, and overall occupant motion. The 0.71 averages were not treated as blanket validation of every local signal.</p>
+    <p>The models were sufficiently representative for a comparative anchor-position sensitivity study, particularly for chest deflection, pelvis acceleration, belt loading, and overall occupant motion. The 0.71 averages were not treated as blanket validation of every local signal.</p>
     <p class="sharing-boundary"><strong>Public-sharing boundary:</strong> This summary uses methods and results disclosed in the thesis. Raw test files, proprietary model inputs, and restricted partner material are excluded.</p>
   </section>
 </article>

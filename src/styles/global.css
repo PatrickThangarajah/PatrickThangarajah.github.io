@@ -861,3 +861,143 @@ figure img{background:transparent!important}
   .finding-card-grid,.workflow-card-grid,.fracture-progression,.rover-gallery{display:block}
   .finding-card,.workflow-card-grid article,.fracture-progression figure,.rover-gallery figure{margin-bottom:12pt}
 }
+
+
+/* Final portfolio cleanup: simpler case-study hierarchy and evidence-led layouts. */
+.thor-section-heading,.doe-section-heading{display:block!important;margin-bottom:2rem!important}
+.thor-section-heading .eyebrow,.doe-section-heading .eyebrow{display:none!important}
+.thor-section-heading h2,.doe-section-heading h2{font-size:clamp(1.75rem,2.4vw,2.35rem)!important;line-height:1.15!important;margin:0!important}
+.thor-section-heading>p,.doe-section-heading>p{margin:.55rem 0 0;color:var(--secondary);font:400 1.0625rem/1.6 var(--ui)}
+
+.thor-result-card,.doe-result-grid>article,.doe-interpretation-grid>article,.finding-card{
+  border:0!important;border-top:1px solid var(--rule)!important;background:transparent!important;
+  box-shadow:none!important;border-radius:0!important;padding:1.2rem 0 0!important
+}
+.thor-result-card p,.doe-result-grid p,.doe-interpretation-grid p,.finding-card p,.finding-secondary{
+  color:var(--secondary)!important
+}
+.thor-result-card p,.doe-result-grid p{font-size:1.0625rem!important;line-height:1.55!important}
+.thor-metrics dt,.doe-metrics dt{font-size:1.0625rem!important;line-height:1.4!important}
+.thor-case-study figcaption,.doe-case-study figcaption{font-size:1.0625rem!important;line-height:1.5!important;color:var(--secondary)}
+.thor-hero-media .figure-link,.doe-hero-media .figure-link,.doe-effect-visual .figure-link{border:0!important;background:transparent!important}
+.thor-result-visuals-single{grid-template-columns:minmax(0,42rem)!important;justify-content:start}
+.thor-link-row .text-link{font-size:1.0625rem!important;line-height:1.45!important}
+.doe-technical .technical-disclosure{border:0!important;border-top:1px solid var(--rule)!important;border-bottom:1px solid var(--rule)!important;background:transparent!important}
+.doe-technical-record p,.doe-technical-record li{font-size:1.0625rem!important}
+.doe-technical-record table{font-size:1rem!important}
+.doe-effect-copy>p:last-child,.doe-process-grid p{font-size:1.0625rem!important;line-height:1.55!important}
+
+/* White-background diagrams are intentionally treated as technical plates. */
+.technical-plate figure,.featured-technical-figure figure,.hli-workflow-figure figure,.hli-performance-figure figure{margin:0}
+.technical-plate .figure-link,.featured-technical-figure .figure-link,.hli-workflow-figure .figure-link,.hli-performance-figure .figure-link{
+  background:#fff!important;border:1px solid #d5d9de!important;padding:.75rem!important;border-radius:.2rem
+}
+.technical-plate .figure-link img,.featured-technical-figure .figure-link img,.hli-workflow-figure .figure-link img,.hli-performance-figure .figure-link img{
+  border:0!important;background:#fff!important
+}
+
+/* FE validation: fewer components, larger evidence, short ruled summaries. */
+.validation-question-note{max-width:66ch;margin:1.5rem 0 0;color:var(--secondary)}
+.compact-bench-grid>article{border:0!important;border-top:1px solid var(--rule)!important;padding:1.25rem 0 0!important;background:transparent!important}
+.compact-bench-grid h3{margin:0 0 .75rem}
+.featured-technical-figure{margin-top:3rem}
+.featured-technical-figure>h3{font-size:1.35rem;margin-bottom:1rem}
+.signal-list-compact{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2.5rem;list-style:none!important;padding:0!important;border-top:1px solid var(--rule)}
+.signal-list-compact span{padding:1rem 0;border-bottom:1px solid var(--rule);font:500 1.0625rem/1.5 var(--ui)}
+.validation-phase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+.validation-phase-grid article{border-top:1px solid var(--rule);padding-top:1.2rem}
+.validation-phase-grid span{display:block;color:var(--accent);font:600 .9rem/1.3 var(--ui);margin-bottom:.6rem}
+.validation-phase-grid h3{margin:0 0 .6rem;font-size:1.15rem}
+.validation-phase-grid p{margin:0;color:var(--secondary)}
+.validation-result-compact>article{border:0!important;border-top:1px solid var(--rule)!important;padding:1.25rem 0 0!important}
+.validation-result-compact>article>strong span{display:block;margin-top:.45rem;font-size:1rem}
+.validation-result-compact>article>p{color:var(--secondary);margin:.8rem 0 0}
+.compact-difference-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+.compact-difference-list article{border-top:1px solid var(--rule);padding-top:1rem}
+.compact-difference-list h4{margin:0 0 .5rem}
+.compact-difference-list p{margin:0;color:var(--secondary)}
+.validation-interpretation article{border-top:1px solid var(--rule)!important;padding-top:1rem!important}
+
+/* LS-PrePost: plain hierarchy with one dominant workflow figure. */
+.ls-page .document-grid{grid-template-columns:minmax(0,72rem) 14rem;max-width:89rem;gap:3rem}
+.ls-page main{max-width:72rem;width:100%}
+.ls-page .site-header,.ls-page footer{max-width:89rem}
+.ls-metrics{grid-template-columns:repeat(2,minmax(0,15rem));max-width:34rem}
+.measurement-note{font:400 .95rem/1.5 var(--ui);color:var(--secondary);margin-top:1rem}
+.ls-problem-approach{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.ls-problem-approach>div{border-top:1px solid var(--rule);padding-top:1.1rem}
+.ls-problem-approach h2{margin-top:0}
+.ls-problem-approach p{color:var(--secondary)}
+.ls-workflow .section-intro{max-width:68ch;color:var(--secondary)}
+.ls-key-figure{margin-top:1.5rem}
+.ls-split-list{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.ls-split-list>div{border-top:1px solid var(--rule);padding-top:1rem}
+.ls-split-list h3{margin:0 0 .8rem}
+.ls-split-list ol,.ls-split-list ul{margin:0;padding-left:1.35rem}
+.ls-split-list li{margin:.45rem 0;color:var(--secondary)}
+.ls-value-list{border-top:1px solid var(--rule)}
+.ls-value-list p{margin:0;padding:1rem 0;border-bottom:1px solid var(--rule);color:var(--secondary)}
+.ls-value-list strong{color:var(--ink)}
+.ls-technical .technical-disclosure{border-block:1px solid var(--rule);padding:0;background:transparent}
+.ls-technical .technical-disclosure summary{padding:1rem 0}
+.ls-technical pre{overflow:auto;padding:1rem;background:var(--surface);border:1px solid var(--rule);font-size:.9rem}
+.tool-line{font:400 1rem/1.55 var(--ui);color:var(--secondary)}
+
+/* Design / applied research index: editorial rows, no card chrome. */
+.design-index-page .document-grid{grid-template-columns:minmax(0,76rem);max-width:76rem}
+.design-index-page main{max-width:76rem;width:100%}
+.design-index-page .site-header,.design-index-page footer{max-width:76rem}
+.design-index-list{border-top:1px solid var(--rule)}
+.design-index-row{display:grid;grid-template-columns:minmax(15rem,.8fr) minmax(0,1.2fr);gap:2.5rem;padding:2rem 0;border-bottom:1px solid var(--rule);color:inherit;text-decoration:none;align-items:center}
+.design-index-row figure{margin:0;background:transparent}
+.design-index-row img{display:block;width:100%;height:13rem;object-fit:contain}
+.design-index-row h3{margin:.3rem 0 .75rem;font-size:1.45rem}
+.design-index-row p:not(.case-eyebrow){margin:0 0 1rem;color:var(--secondary)}
+.design-index-row:hover h3{color:var(--accent)}
+.design-capabilities{margin:0;border-top:1px solid var(--rule)}
+.design-capabilities>div{display:grid;grid-template-columns:12rem 1fr;gap:2rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.design-capabilities dt{font-weight:600}
+.design-capabilities dd{margin:0;color:var(--secondary)}
+
+/* Bladder continuation media reserves space and integrates into the page. */
+.pcb-figure .figure-link{background:#fff!important;border:1px solid #d5d9de!important;padding:.5rem!important}
+.pcb-figure img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#fff}
+
+/* Shared result hierarchy. */
+.finding-card-heading{display:contents}
+.finding-icon{display:none!important}
+.finding-card>h3{margin:0 0 1rem}
+.finding-card p{font-family:var(--body);font-size:1.0625rem;line-height:1.55}
+.finding-secondary{font-size:1rem!important}
+.text-link{font-size:1.0625rem;line-height:1.45}
+
+/* Keep videos visually stable before their lazy source is attached. */
+.viewport-video{display:block;width:100%;background:var(--surface);aspect-ratio:16/9;object-fit:contain}
+
+@media(max-width:900px){
+  .validation-phase-grid,.compact-difference-list{grid-template-columns:1fr}
+  .ls-page .document-grid,.ls-page main,.ls-page .site-header,.ls-page footer,
+  .design-index-page .document-grid,.design-index-page main,.design-index-page .site-header,.design-index-page footer{max-width:70ch}
+  .design-index-row{grid-template-columns:1fr}
+  .design-index-row img{height:auto;max-height:20rem}
+}
+@media(max-width:639px){
+  .signal-list-compact,.ls-problem-approach,.ls-split-list{grid-template-columns:1fr}
+  .validation-metrics,.ls-metrics{grid-template-columns:1fr 1fr!important}
+  .design-capabilities>div{grid-template-columns:1fr;gap:.35rem}
+  .technical-plate .figure-link,.featured-technical-figure .figure-link,.hli-workflow-figure .figure-link,.hli-performance-figure .figure-link{padding:.35rem!important}
+}
+
+
+/* Remove the remaining grid-as-background treatment: findings read as ruled rows, not cards. */
+.thor-result-grid,.doe-result-grid,.doe-process-grid,.doe-interpretation-grid,.interpretation-grid{
+  background:transparent!important;
+  border:0!important;
+  gap:1.5rem!important;
+}
+.doe-process-grid>article,.doe-interpretation-grid>article,.interpretation-grid>article{
+  background:transparent!important;
+  border:0!important;
+  border-top:1px solid var(--rule)!important;
+  padding:1.2rem 0 0!important;
+}

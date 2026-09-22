@@ -20,7 +20,7 @@ const asset = (id:string) => (assets as any)[id];
 
   <section class="case-section" id="engineering-question">
     <h2>Engineering Question</h2>
-    <p>Seatback and head restraint foams absorb energy and affect the timing of occupant loading in a rear impact. I investigated: <strong>How much do different seat foam material responses affect head and neck injury metrics, and are those effects consistent across crash severity?</strong></p>
+    <p>Seatback and head restraint foams absorb energy and affect the timing of occupant loading in a rear impact. I investigated: How much do different seat foam material responses affect head and neck injury metrics, and are those effects consistent across crash severity?</p>
   </section>
 
   <section class="case-section" id="study-setup">
@@ -39,7 +39,7 @@ const asset = (id:string) => (assets as any)[id];
       <article>
         <h3>Post-processing</h3>
         <p>Extracted head-head-restraint contact force, head acceleration, and upper neck force and moment histories.</p>
-        <p>Calculated and compared <strong>HIC15 and Nij</strong> across the complete simulation matrix.</p>
+        <p>Calculated and compared HIC15 and Nij across the complete simulation matrix.</p>
       </article>
     </div>
     <div class="figure-pair foam-model-pair">
@@ -51,11 +51,11 @@ const asset = (id:string) => (assets as any)[id];
   <section class="case-section" id="simulation-and-validation-workflow">
     <h2>Simulation and Validation Workflow</h2>
     <ol class="validation-process">
-      <li><span>01</span><p><strong>Define the materials.</strong> Compared five polyurethane foam responses using the LS-DYNA low-density foam material model.</p></li>
-      <li><span>02</span><p><strong>Check the input response.</strong> Compressed a 1 x 1 x 1 mm solid element at 1 mm/s and compared the calculated stress-strain response with the available input curves.</p></li>
-      <li><span>03</span><p><strong>Integrate the foams.</strong> Updated the head restraint and seatback material definitions in the detailed seat model while keeping the remaining setup consistent.</p></li>
-      <li><span>04</span><p><strong>Settle and load the occupant.</strong> Used the existing positioning procedure, gravity settling, and NHTSA rear impact pulses at 27 and 57 km/h.</p></li>
-      <li><span>05</span><p><strong>Post-process the response.</strong> Compared contact forces, upper neck force and moment, HIC15, and maximum Nij.</p></li>
+      <li><span>01</span><p>Define the materials. Compared five polyurethane foam responses using the LS-DYNA low-density foam material model.</p></li>
+      <li><span>02</span><p>Check the input response. Compressed a 1 x 1 x 1 mm solid element at 1 mm/s and compared the calculated stress-strain response with the available input curves.</p></li>
+      <li><span>03</span><p>Integrate the foams. Updated the head restraint and seatback material definitions in the detailed seat model while keeping the remaining setup consistent.</p></li>
+      <li><span>04</span><p>Settle and load the occupant. Used the existing positioning procedure, gravity settling, and NHTSA rear impact pulses at 27 and 57 km/h.</p></li>
+      <li><span>05</span><p>Post-process the response. Compared contact forces, upper neck force and moment, HIC15, and maximum Nij.</p></li>
     </ol>
   </section>
 
@@ -132,7 +132,7 @@ const asset = (id:string) => (assets as any)[id];
 
   <section class="case-section" id="what-this-demonstrates">
     <h2>What This Demonstrates</h2>
-    <p><strong>LS-DYNA explicit dynamics | LS-PrePost | foam material modeling and verification | Hybrid III occupant modeling | contact analysis | HIC15 and Nij | simulation post-processing</strong></p>
+    <p>LS-DYNA explicit dynamics | LS-PrePost | foam material modeling and verification | Hybrid III occupant modeling | contact analysis | HIC15 and Nij | simulation post-processing</p>
     <p class="sharing-boundary"><strong>Public-sharing boundary:</strong> Images and numerical results are taken from my academic course analysis. Source finite element model files are not distributed.</p>
   </section>
 </article>

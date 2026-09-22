@@ -4,17 +4,18 @@
     "slug": "fe-validation",
     "section": "Physical Benchmarks",
     "file": "thor5f-positioning-workflow.png",
-    "width": 6421,
-    "height": 3801,
+    "width": 2400,
+    "height": 1420,
     "caption": "Positioning both bench models: measured landmarks for the Rigid Bench, reported test values for the Semi-Rigid Bench.",
     "alt": "Two-row workflow. The Rigid Bench row runs through four stages: a FaroArm wireframe of head, chin, shoulder, wrist, elbow, H-point, knee and heel landmarks; the THOR-5F finite element model matched to that wireframe; a settling pre-simulation; and a check comparing node distances against the wireframe and 3D scans. The Semi-Rigid Bench row aligns the model to reported tilt sensor, lap belt edge and H-point measurements as a single stage, then runs the settling pre-simulation, then compares positioned values with the reported values.",
     "type": "image",
-    "path": "/figures/fe-validation/thor5f-positioning-workflow.png",
+    "path": "/figures/fe-validation/thor5f-positioning-workflow-web.png",
     "route": "/projects/fe-validation/",
     "sourcePage": "Quantitative FE Model Validation | ISO 18571",
     "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
     "provisional": false,
-    "figureNumber": 1
+    "figureNumber": 1,
+    "fullPath": "/figures/fe-validation/thor5f-positioning-workflow.png"
   },
   "G02": {
     "id": "G02",
@@ -51,24 +52,6 @@
     "sourceUrl": "https://app.notion.com/p/3d0604be85e881b396c3e271ce330d58",
     "provisional": true,
     "figureNumber": 3
-  },
-  "G04": {
-    "id": "G04",
-    "slug": "ls-prepost-automation",
-    "section": "Result",
-    "file": "thor5f-automation-sequence.svg",
-    "width": 1139,
-    "height": 722,
-    "caption": "Belt setup sequence before and after automation.",
-    "alt": "Workflow comparing seven manual belt setup steps with the four remaining steps after automation.",
-    "relationship": "Supplements A12.",
-    "type": "image",
-    "path": "/figures/ls-prepost-automation/thor5f-automation-sequence.svg",
-    "route": "/projects/ls-prepost-automation/",
-    "sourcePage": "LS-PrePost Automation for Simulation Setup",
-    "sourceUrl": "https://app.notion.com/p/3d0604be85e881fc8f21c1b44a530bcd",
-    "provisional": true,
-    "figureNumber": 2
   },
   "V01": {
     "id": "V01",
@@ -616,24 +599,6 @@
     "relationship": "Existing Notion figure.",
     "figureNumber": 3
   },
-  "A33": {
-    "id": "A33",
-    "type": "image",
-    "slug": "kidney-tissue-classification",
-    "file": "HLI_neural_network_performance_crop.png",
-    "path": "/figures/kidney-tissue-classification/HLI_neural_network_performance_crop.png",
-    "caption": "Neural network performance: GeoMx and H&E comparison, cropped from the team project's methods and results figure.",
-    "alt": "Bar chart comparing neural network performance (AUC, TPR, FPR, and accuracy) between GeoMx and H&E data, cropped from the team poster results.",
-    "width": 272,
-    "height": 207,
-    "route": "/projects/kidney-tissue-classification/",
-    "sourcePage": "Kidney Tissue Classification Using Deep Learning - HLI Summer Research",
-    "sourceUrl": "https://app.notion.com/p/3d8604be85e881a29df8db3493c528d9",
-    "section": "Homepage index figure",
-    "provisional": false,
-    "relationship": "Mechanical crop of A28 (HLI_methods_results.png), isolating the Neural Network Performance chart for homepage presentation. Used on the homepage only; the project detail page continues to use A28.",
-    "figureNumber": null
-  },
   "A34": {
     "id": "A34",
     "type": "image",
@@ -680,5 +645,22 @@
     "provisional": false,
     "relationship": "Figure extracted from the summer research poster.",
     "figureNumber": 2
+  },
+  "G05": {
+    "id": "G05",
+    "slug": "ls-prepost-automation",
+    "section": "Belt-fitting workflow",
+    "file": "seatbelt-fitting-process.png",
+    "width": 1664,
+    "height": 896,
+    "caption": "Shoulder- and lap-belt fitting workflow, with the scripted output highlighted.",
+    "alt": "Two-row LS-PrePost belt-fitting workflow showing shoulder-belt and lap-belt fitting stages converging on the isolated fitted belt geometry handled by the script.",
+    "relationship": "Primary workflow figure supplied for the LS-PrePost automation case study.",
+    "type": "image",
+    "path": "/figures/ls-prepost-automation/seatbelt-fitting-process.png",
+    "route": "/projects/ls-prepost-automation/",
+    "sourcePage": "LS-PrePost Automation for Simulation Setup",
+    "provisional": false,
+    "figureNumber": 1
   }
 }

@@ -16,7 +16,7 @@ const after = (id:string) => {
     <div class="doe-hero-copy">
       <p class="eyebrow">Design of Experiments</p>
       <h1>{page.title}</h1>
-      <p class="doe-lede"><strong>Convert a large restraint-geometry design space into defensible, physically interpreted trends.</strong></p>
+      <p class="doe-lede">Convert a large restraint-geometry design space into defensible, physically interpreted trends.</p>
       <dl class="doe-metrics" aria-label="DOE scope">
         <div><dd>104</dd><dt>LS-DYNA simulations</dt></div>
         <div><dd>4</dd><dt>full-factorial studies</dt></div>
@@ -29,8 +29,8 @@ const after = (id:string) => {
 
   <section class="doe-section" id="study-design">
     <div class="doe-section-heading">
-      <p class="eyebrow">Study design</p>
-      <h2>Three coordinates, three levels, four studies</h2>
+      <h2>Study design</h2>
+      <p>Three coordinates · three levels · four studies</p>
     </div>
     <div class="doe-process-grid">
       <article><span>01</span><h3>Define</h3><p>Shoulder and lap anchor X, Y, and Z positions at minimum, midpoint, and maximum levels.</p></article>
@@ -38,17 +38,14 @@ const after = (id:string) => {
       <article><span>03</span><h3>Interpret</h3><p>Least-squares effects models in JMP, checked against occupant kinematics and belt paths.</p></article>
     </div>
     <figure class="doe-animation">
-      <video autoplay muted loop playsinline preload="auto" aria-label="THOR-5F anchor location design of experiments animation">
-        <source src="/videos/THOR_ANCHOR_DOE.mp4" type="video/mp4" />
-      </video>
+      <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THOR_ANCHOR_DOE.mp4" aria-label="THOR-5F anchor location design of experiments animation"></video>
       <figcaption><strong>Anchor-position DOE</strong> · minimum, midpoint, and maximum locations across the design space</figcaption>
     </figure>
   </section>
 
   <section class="doe-section" id="key-findings">
     <div class="doe-section-heading">
-      <p class="eyebrow">Key findings</p>
-      <h2>What moved the response</h2>
+      <h2>Key findings</h2>
     </div>
     <div class="doe-result-grid">
       <article><span class="eyebrow">Rigid Bench chest</span><strong>17%</strong><p>lowest shoulder-anchor configuration below the study average.</p></article>
@@ -73,8 +70,7 @@ const after = (id:string) => {
 
   <section class="doe-section" id="engineering-interpretation">
     <div class="doe-section-heading">
-      <p class="eyebrow">Engineering interpretation</p>
-      <h2>Statistics tied back to occupant motion</h2>
+      <h2>Engineering interpretation</h2>
     </div>
     <div class="doe-interpretation-grid">
       <article><span>01</span><h3>Rearward shoulder anchors</h3><p>Earlier torso engagement, reduced excursion, and more gradual restraint loading.</p></article>
@@ -89,8 +85,7 @@ const after = (id:string) => {
 
   <section class="doe-section doe-technical" id="technical-details">
     <div class="doe-section-heading">
-      <p class="eyebrow">Technical details</p>
-      <h2>Methods and numerical results</h2>
+      <h2>Technical details</h2>
     </div>
     <details class="technical-disclosure">
       <summary>Open full DOE methods and result tables</summary>
@@ -112,32 +107,28 @@ const after = (id:string) => {
 
 <script is:inline>
   (() => {
-    const videos = Array.from(document.querySelectorAll('.doe-case-study video'));
-    const prepare = (video) => {
+    const videos = Array.from(document.querySelectorAll('.doe-case-study .viewport-video'));
+    const loadAndPlay = (video) => {
+      if (!video.querySelector('source')) {
+        const source = document.createElement('source');
+        source.src = video.dataset.src;
+        source.type = 'video/mp4';
+        video.appendChild(source);
+        video.load();
+      }
       video.muted = true;
       video.defaultMuted = true;
       video.loop = true;
       video.playsInline = true;
-      video.setAttribute('muted', '');
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
-    };
-    const play = (video) => {
-      prepare(video);
       const attempt = video.play();
       if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
     };
-    videos.forEach((video) => {
-      prepare(video);
-      if (video.readyState >= 2) play(video);
-      else video.addEventListener('canplay', () => play(video), { once: true });
-    });
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
         const video = entry.target;
-        if (entry.isIntersecting) play(video); else video.pause();
-      }), { rootMargin: '200px 0px', threshold: 0.01 });
+        if (entry.isIntersecting) loadAndPlay(video); else video.pause();
+      }), {rootMargin:'300px 0px',threshold:0.01});
       videos.forEach((video) => observer.observe(video));
-    }
+    } else videos.forEach(loadAndPlay);
   })();
 </script>

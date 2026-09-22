@@ -16,7 +16,7 @@
       },
       {
         "type": "markdown",
-        "text": "I am a recent mechanical engineering graduate specializing in **nonlinear FEA, explicit dynamics, model validation, and injury biomechanics**. During my MASc at the University of Waterloo, I used LS-DYNA, physical sled test data, and statistical analysis to study frontal impact occupant safety.\nI enjoy work that connects **simulation, physical behavior, quantitative validation, and practical design decisions**. My experience also includes mechanical design, electromechanical prototyping, biomedical projects, and engineering documentation."
+        "text": "I am a recent mechanical engineering graduate specializing in nonlinear FEA, explicit dynamics, model validation, and injury biomechanics. During my MASc at the University of Waterloo, I used LS-DYNA, physical sled test data, and statistical analysis to study frontal impact occupant safety.\nI enjoy work that connects simulation, physical behavior, quantitative validation, and practical design decisions. My experience also includes mechanical design, electromechanical prototyping, biomedical projects, and engineering documentation."
       },
       {
         "type": "heading",
@@ -34,7 +34,7 @@
       },
       {
         "type": "markdown",
-        "text": "### Graduate Research\n[**THOR-5F Rear Seat Occupant Safety Research**](/projects/thor-5f/)\n- Validated two LS-DYNA rear seat bench models against physical test data.\n- Ran **104 simulations** to evaluate how shoulder and lap belt anchor positions affected occupant response.\n- **Validation basis:** Each bench achieved an average ISO 18571 rating of **0.71** across ten signals, corresponding to a **Fair** grade. Signal-level and kinematic agreement supported comparative sensitivity analysis, while local limitations were carried into the interpretation.\n- Shoulder anchor peak chest deflection ranged from **42 to 63 mm** in the Rigid Bench and **35.0 to 49.6 mm** in the Semi-Rigid Bench. In the SAE coordinate system used for the study, rearward is XMIN and inboard is YMAX. The lowest rearward/inboard configurations produced **42 mm** and **35.0 mm**, respectively, which were **17% and 16% below** their bench study averages.\n- Supporting technical pages: [FE model validation](/projects/fe-validation/) · [DOE and statistical analysis](/projects/seat-belt-doe/) · [LS-PrePost automation](/projects/ls-prepost-automation/)\n### Graduate Course Projects\n[**Cervical Fracture Mechanics in Football Impact**](/projects/cervical-fracture/)\n- Compared Hybrid III Nij response with GHBMC-predicted cervical fracture across five head-first impact configurations.\n- The GHBMC predicted cervical fracture in all five configurations. GHBMC Nij exceeded 1 only in the 7.0 m/s case, while Hybrid III Nij exceeded 1 in all five configurations.\n[**Seat Foam Effects on Rear Impact Injury Response**](/projects/seat-foam/)\n- Verified polyurethane foam inputs.\n- Compared five foam models in rear impact simulations at 27 and 57 km/h.\n- JC80 produced the lowest HIC15 values, **210.6 at 27 km/h** and **513.1 at 57 km/h**, compared with **262.1** and **628.0** for Campbell Foam 4.\n### Design and Biomedical Work\n[**Soft Distensible Bladder Test Platform - UBC Capstone**](/projects/bladder-test-platform/)\n- Cast and tested silicone bladder prototypes and helped fabricate the pressure chamber.\n- Owned pressure sensing, Arduino-based motor control, and the MATLAB data acquisition interface.\n- Continued with Echoscope as a part-time remote R&D Engineer from 10 May to 8 September 2023; authored five manufacturing and verification procedures that were delivered to the client.\n[**Kidney Tissue Classification Using Deep Learning - HLI Summer Research**](/projects/kidney-tissue-classification/)\n- Contributed to an AlexNet transfer-learning workflow for binary classification of kidney tissue images.\n- Used UBC Sockeye for image preprocessing, 256 × 256 patch generation, model training, and performance analysis.\n[**Payload System and Rover Prototyping - UBC UAS**](/projects/payload-and-rover/)\n- Created rover wheel, rover assembly, motor envelope, and payload winch components in SolidWorks and Onshape.\n- Prepared CAD for 3D-printed builds used for prototype testing and rover selection.\n- Contributed to material and design changes that reduced payload system weight by **50%**.\n---"
+        "text": "### Graduate Research\n[**THOR-5F Rear Seat Occupant Safety Research**](/projects/thor-5f/)\n- Validated two LS-DYNA rear seat bench models against physical test data.\n- Ran 104 simulations to evaluate how shoulder and lap belt anchor positions affected occupant response.\n- **Validation basis:** Each bench achieved an average ISO 18571 rating of 0.71 across ten signals, corresponding to a Fair grade. Signal-level and kinematic agreement supported comparative sensitivity analysis, while local limitations were carried into the interpretation.\n- Shoulder anchor peak chest deflection ranged from 42 to 63 mm in the Rigid Bench and 35.0 to 49.6 mm in the Semi-Rigid Bench. In the SAE coordinate system used for the study, rearward is XMIN and inboard is YMAX. The lowest rearward/inboard configurations produced 42 mm and 35.0 mm, respectively, which were 17% and 16% below their bench study averages.\n- Supporting technical pages: [FE model validation](/projects/fe-validation/) · [DOE and statistical analysis](/projects/seat-belt-doe/) · [LS-PrePost automation](/projects/ls-prepost-automation/)\n### Graduate Course Projects\n[**Cervical Fracture Mechanics in Football Impact**](/projects/cervical-fracture/)\n- Compared Hybrid III Nij response with GHBMC-predicted cervical fracture across five head-first impact configurations.\n- The GHBMC predicted cervical fracture in all five configurations. GHBMC Nij exceeded 1 only in the 7.0 m/s case, while Hybrid III Nij exceeded 1 in all five configurations.\n[**Seat Foam Effects on Rear Impact Injury Response**](/projects/seat-foam/)\n- Verified polyurethane foam inputs.\n- Compared five foam models in rear impact simulations at 27 and 57 km/h.\n- JC80 produced the lowest HIC15 values, 210.6 at 27 km/h and 513.1 at 57 km/h, compared with 262.1 and 628.0 for Campbell Foam 4.\n### Design and Biomedical Work\n[**Soft Distensible Bladder Test Platform - UBC Capstone**](/projects/bladder-test-platform/)\n- Cast and tested silicone bladder prototypes and helped fabricate the pressure chamber.\n- Owned pressure sensing, Arduino-based motor control, and the MATLAB data acquisition interface.\n- Continued with Echoscope as a part-time remote R&D Engineer from 10 May to 8 September 2023; authored five manufacturing and verification procedures that were delivered to the client.\n[**Kidney Tissue Classification Using Deep Learning - HLI Summer Research**](/projects/kidney-tissue-classification/)\n- Contributed to an AlexNet transfer-learning workflow for binary classification of kidney tissue images.\n- Used UBC Sockeye for image preprocessing, 256 × 256 patch generation, model training, and performance analysis.\n[**Payload System and Rover Prototyping - UBC UAS**](/projects/payload-and-rover/)\n- Created rover wheel, rover assembly, motor envelope, and payload winch components in SolidWorks and Onshape.\n- Prepared CAD for 3D-printed builds used for prototype testing and rover selection.\n- Contributed to material and design changes that reduced payload system weight by 50%.\n---"
       },
       {
         "type": "markdown",
@@ -56,7 +56,7 @@
       },
       {
         "type": "markdown",
-        "text": "- [GitHub profile](https://github.com/PatrickThangarajah)\n- [HLI binary classification source and documentation](https://github.com/CompBio-Lab/geomx2rna/tree/main/dkd_prediction_using_images)\n- [LS-PrePost Automation for Simulation Setup](/projects/ls-prepost-automation/) includes a sanitized LS-PrePost `.cfile` command structure.\n- [Soft Distensible Bladder Test Platform - UBC Capstone](/projects/bladder-test-platform/) includes a sanitized MATLAB control and data acquisition excerpt.\n---"
+        "text": "- [GitHub profile](https://github.com/PatrickThangarajah)\n- [HLI binary classification source and documentation](https://github.com/CompBio-Lab/geomx2rna/tree/main/dkd_prediction_using_images)\n- [LS-PrePost Automation for Simulation Setup](/projects/ls-prepost-automation/) includes a sanitized LS-PrePost `.cfile` command structure.\n---"
       },
       {
         "type": "heading",
@@ -66,23 +66,6 @@
       {
         "type": "markdown",
         "text": "### 1. Understand the physics\nStart with load paths, boundary conditions, material response, contacts, and the expected physical behavior.\n\n### 2. Validate quantitatively\nUse physical data and objective correlation metrics rather than relying only on visual agreement.\n\n### 3. Turn results into decisions\nUse DOE, scripting, and clear post-processing to convert simulation output into actionable engineering insight.\n\n---"
-      },
-      {
-        "type": "heading",
-        "title": "Downloadable Portfolio",
-        "id": "downloadable-portfolio"
-      },
-      {
-        "type": "markdown",
-        "text": "This eight-page PDF is the concise master version of the portfolio, covering CAE, validation, biomechanics, design, and prototyping. For applications, I use shorter role-focused versions matched to the position."
-      },
-      {
-        "type": "download",
-        "id": "portfolio"
-      },
-      {
-        "type": "markdown",
-        "text": "---"
       },
       {
         "type": "heading",
@@ -109,7 +92,7 @@
       },
       {
         "type": "markdown",
-        "text": "My primary resume is tailored toward **CAE, crash simulation, occupant safety, FEA, and model validation roles**. It summarizes my graduate research, engineering experience, course projects, education, and technical skills.\n- **Location:** Calgary, Alberta, Canada\n- **U.S. work eligibility:** Canadian citizen eligible to work in the United States under TN status\n- **Target areas:** CAE, occupant safety, injury biomechanics, simulation validation, and mechanical product development"
+        "text": "My current resume summarizes my simulation, validation, design, testing, and engineering experience.\n- **Location:** Calgary, Alberta, Canada\n- **U.S. work eligibility:** Canadian citizen eligible to work in the United States under TN status"
       },
       {
         "type": "download",
@@ -126,7 +109,7 @@
       },
       {
         "type": "markdown",
-        "text": "- MASc thesis: **Assessment of Seat Belt Anchor Position on Rear Seat Occupant Kinematics in Frontal Impact Using a Validated THOR-5F Finite Element Model**\n- Presented research at the **20th Injury Biomechanics Symposium** at The Ohio State University\n- Produced thesis, conference, and sponsor-facing technical deliverables\n---\n**Public-sharing note:** Only externally shareable material is included. Proprietary sponsor information, NDA-covered work, recruiting assessments, and restricted technical material are omitted."
+        "text": "- MASc thesis: Assessment of Seat Belt Anchor Position on Rear Seat Occupant Kinematics in Frontal Impact Using a Validated THOR-5F Finite Element Model\n- Presented research at the 20th Injury Biomechanics Symposium at The Ohio State University\n- Produced thesis, conference, and sponsor-facing technical deliverables\n---\n**Public-sharing note:** Only externally shareable material is included. Proprietary sponsor information, NDA-covered work, recruiting assessments, and restricted technical material are omitted."
       },
       {
         "type": "heading",
@@ -161,7 +144,7 @@
       },
       {
         "type": "markdown",
-        "text": "### Scope\n- **104** physically feasible anchor position simulations\n- **4** three-factor, three-level full-factorial studies\n- **2** rear seat bench configurations with physical benchmarks\n- **10** quantitative signals in each validation assessment\n- **0.71** average ISO 18571 rating in each bench (**Fair**)\n- Shoulder anchor peak chest deflection ranged from **42 to 63 mm** in the Rigid Bench and **35.0 to 49.6 mm** in the Semi-Rigid Bench; the lowest rearward/inboard configurations were **17% and 16% below** their respective bench study averages\n- Repeated belt fitting workflow reduced from **seven manual setup steps to four** using editable LS-PrePost command files\n- **Tools:** LS-DYNA, LS-PrePost, MATLAB, JMP, Excel"
+        "text": "### Scope\n- 104 physically feasible anchor position simulations\n- 4 three-factor, three-level full-factorial studies\n- 2 rear seat bench configurations with physical benchmarks\n- 10 quantitative signals in each validation assessment\n- 0.71 average ISO 18571 rating in each bench (Fair)\n- Shoulder anchor peak chest deflection ranged from 42 to 63 mm in the Rigid Bench and 35.0 to 49.6 mm in the Semi-Rigid Bench; the lowest rearward/inboard configurations were 17% and 16% below their respective bench study averages\n- Repeated belt fitting workflow reduced from seven manual setup steps to four using editable LS-PrePost command files\n- **Tools:** LS-DYNA, LS-PrePost, MATLAB, JMP, Excel"
       },
       {
         "type": "heading",
@@ -170,7 +153,7 @@
       },
       {
         "type": "markdown",
-        "text": "Rear seat occupant safety remains a concern in frontal impacts, particularly for small-stature female occupants and regarding thoracic injury. The THOR-5F was developed with updated anthropometry and four chest deflection sensors, creating a stronger tool for studying how restraint geometry affects localized chest loading.\nThe seat belt anchor position changes the load path between the restraint and the occupant. It can alter when the belt engages, where load is transferred, how the torso and pelvis move, and how much the chest deforms.\nBefore comparing anchor locations, I first needed to answer a more fundamental question: **Did the FE model reproduce the relevant physical response well enough to support a comparative design study?**"
+        "text": "Rear seat occupant safety remains a concern in frontal impacts, particularly for small-stature female occupants and regarding thoracic injury. The THOR-5F was developed with updated anthropometry and four chest deflection sensors, creating a stronger tool for studying how restraint geometry affects localized chest loading.\nThe seat belt anchor position changes the load path between the restraint and the occupant. It can alter when the belt engages, where load is transferred, how the torso and pelvis move, and how much the chest deforms.\nBefore comparing anchor locations, I first needed to answer a more fundamental question: Did the FE model reproduce the relevant physical response well enough to support a comparative design study?"
       },
       {
         "type": "heading",
@@ -179,7 +162,7 @@
       },
       {
         "type": "markdown",
-        "text": "This project was the focus of my MASc research. The contribution statement for the associated conference paper lists my roles as **manuscript writing, methodology, simulations, data analysis, and visualization**. My technical work included:\n- Developing the rigid and simplified semi-rigid LS-DYNA bench models from project-provided and published geometry, loading, and material inputs.\n- Positioning the THOR-5F FE model to measured or published test postures using landmark data, 3D comparisons, and marionette positioning pre-simulations.\n- Implementing and calibrating the restraint models, including the semi-rigid 4-point, 2-belt benchmark and the 3-point configuration used for the comparative DOE.\n- Developing reusable LS-PrePost scripting and QA steps for repetitive belt fitting and model preparation.\n- Running and troubleshooting the simulations, then extracting, filtering, and comparing equivalent model and test signals.\n- Quantifying model-to-test agreement with ISO 18571 and supplementing the ratings with frame-by-frame kinematic assessment.\n- Designing and analyzing the four anchor position studies using least-squares regression, interaction terms, and ANOVA in JMP.\n- Interpreting and communicating the work through my thesis, conference paper, and presentation, and sponsor-facing technical updates.\nThe physical Rigid Bench tests were conducted by Transport Canada/PMG Technologies; the Semi-Rigid Bench test data were sourced from published literature, and the base THOR-5F FE model was commercially supplied. My contribution was developing the CAE environments and applying, validating, and using the occupant model to answer the questions about restraint geometry."
+        "text": "This project was the focus of my MASc research. The contribution statement for the associated conference paper lists my roles as manuscript writing, methodology, simulations, data analysis, and visualization. My technical work included:\n- Developing the rigid and simplified semi-rigid LS-DYNA bench models from project-provided and published geometry, loading, and material inputs.\n- Positioning the THOR-5F FE model to measured or published test postures using landmark data, 3D comparisons, and marionette positioning pre-simulations.\n- Implementing and calibrating the restraint models, including the semi-rigid 4-point, 2-belt benchmark and the 3-point configuration used for the comparative DOE.\n- Developing reusable LS-PrePost scripting and QA steps for repetitive belt fitting and model preparation.\n- Running and troubleshooting the simulations, then extracting, filtering, and comparing equivalent model and test signals.\n- Quantifying model-to-test agreement with ISO 18571 and supplementing the ratings with frame-by-frame kinematic assessment.\n- Designing and analyzing the four anchor position studies using least-squares regression, interaction terms, and ANOVA in JMP.\n- Interpreting and communicating the work through my thesis, conference paper, and presentation, and sponsor-facing technical updates.\nThe physical Rigid Bench tests were conducted by Transport Canada/PMG Technologies; the Semi-Rigid Bench test data were sourced from published literature, and the base THOR-5F FE model was commercially supplied. My contribution was developing the CAE environments and applying, validating, and using the occupant model to answer the questions about restraint geometry."
       },
       {
         "type": "heading",
@@ -197,7 +180,7 @@
       },
       {
         "type": "markdown",
-        "text": "1. **Build the benchmark environments.** Modeled a 23 g Rigid Bench and compared it with three matched TC/PMG sled tests. Built a simplified Semi-Rigid Bench and assessed the THOR-5F with a 4-point, 2-belt system against two published 9 g tests.\n2. **Match initial conditions.** Reproduced occupant posture, belt position, bench geometry, crash pulse, contacts, constraints, and output requests before solving.\n3. **Implement and calibrate the restraints.** Routed the belts in LS-PrePost, removed measured slack, represented retractor behavior, and calibrated otherwise unmodeled compliance in the semi-rigid benchmark.\n4. **Standardize repeated work.** Used editable LS-PrePost command files and repeatable QA checks to improve consistency during belt fitting and model preparation.\n5. **Compare equivalent evidence.** Processed ten quantitative signals: head resultant acceleration, four chest deflections, pelvis resultant acceleration, left and right iliac forces, and shoulder and lap belt loads. Kinematic snapshots were assessed separately for occupant motion and belt interaction.\n6. **Validate quantitatively.** Compared waveform timing, magnitude, and shape and calculated ISO 18571 ratings rather than relying only on visual agreement.\n7. **Prepare the comparative study.** Converted the semi-rigid model to a representative 3-point belt configuration and used the validated models to investigate anchor position sensitivity."
+        "text": "1. Build the benchmark environments. Modeled a 23 g Rigid Bench and compared it with three matched TC/PMG sled tests. Built a simplified Semi-Rigid Bench and assessed the THOR-5F with a 4-point, 2-belt system against two published 9 g tests.\n2. Match initial conditions. Reproduced occupant posture, belt position, bench geometry, crash pulse, contacts, constraints, and output requests before solving.\n3. Implement and calibrate the restraints. Routed the belts in LS-PrePost, removed measured slack, represented retractor behavior, and calibrated otherwise unmodeled compliance in the semi-rigid benchmark.\n4. Standardize repeated work. Used editable LS-PrePost command files and repeatable QA checks to improve consistency during belt fitting and model preparation.\n5. Compare equivalent evidence. Processed ten quantitative signals: head resultant acceleration, four chest deflections, pelvis resultant acceleration, left and right iliac forces, and shoulder and lap belt loads. Kinematic snapshots were assessed separately for occupant motion and belt interaction.\n6. Validate quantitatively. Compared waveform timing, magnitude, and shape and calculated ISO 18571 ratings rather than relying only on visual agreement.\n7. Prepare the comparative study. Converted the semi-rigid model to a representative 3-point belt configuration and used the validated models to investigate anchor position sensitivity."
       },
       {
         "type": "heading",
@@ -206,7 +189,7 @@
       },
       {
         "type": "markdown",
-        "text": "For each bench, the average ISO 18571 rating across the ten quantitative signals was **0.71**, corresponding to a **Fair** grade. Together with the signal-level and kinematic agreement during the primary loading phase, this supported using the models for a comparative sensitivity study rather than claiming full predictive validation. Belt loads and pelvis acceleration received Good ratings in both benches; the weakest agreement occurred in the rigid bench left-lower chest response and the semi-rigid iliac force signals."
+        "text": "For each bench, the average ISO 18571 rating across the ten quantitative signals was 0.71, corresponding to a Fair grade. Together with the signal-level and kinematic agreement during the primary loading phase, this supported using the models for a comparative sensitivity study rather than claiming full predictive validation. Belt loads and pelvis acceleration received Good ratings in both benches; the weakest agreement occurred in the Rigid Bench left-lower chest response and the semi-rigid iliac force signals."
       },
       {
         "type": "asset",
@@ -215,7 +198,7 @@
       },
       {
         "type": "markdown",
-        "text": "Additionally,  I reviewed the signal-level ratings, time histories, belt motion, and occupant kinematics before deciding which responses could support the anchor study. This process made validation an engineering decision process rather than a single-number claim.\n### Validation Interpretation\n- In the Rigid Bench, belt loads and pelvis acceleration matched well, but the FE model developed less torso Z-rotation and did not reproduce the physical belt migration toward the shoulder edge. This contributed to differences in head acceleration and left lower-chest flexion.\n- In the Semi-Rigid Bench, forward motion and the primary restraint-loading phase were reproduced well after accounting for unmodeled belt system compliance; iliac force signals remained a limitation.\n- The physical right-lower chest sensor bottomed out in both benchmark datasets, creating a plateau that was not found in the FE model.\n- The FE model did not reproduce these differences, which were carried into the DOE interpretation rather than being hidden by the overall 0.71 ratings."
+        "text": "Additionally, I reviewed the signal-level ratings, time histories, belt motion, and occupant kinematics before deciding which responses could support the anchor study. This process made validation an engineering decision process rather than a single-number claim.\n### Validation Interpretation\n- In the Rigid Bench, belt loads and pelvis acceleration matched well, but the FE model developed less torso Z-rotation and did not reproduce the physical belt migration toward the shoulder edge. This contributed to differences in head acceleration and left lower-chest flexion.\n- In the Semi-Rigid Bench, forward motion and the primary restraint-loading phase were reproduced well after accounting for unmodeled belt system compliance; iliac force signals remained a limitation.\n- The physical right-lower chest sensor bottomed out in both benchmark datasets, creating a plateau that was not found in the FE model.\n- The FE model did not reproduce these differences, which were carried into the DOE interpretation rather than being hidden by the overall 0.71 ratings."
       },
       {
         "type": "asset",
@@ -233,7 +216,7 @@
       },
       {
         "type": "markdown",
-        "text": "**Coordinate convention:** Anchor locations use the SAE coordinate system. +X is forward, +Y is toward the right side of the bench, and +Z is downward. The origin is at the mid-width of the raised platform's rear edge, and the Rearward locations are XMIN, and the inboard locations are YMAX.\nAfter validation, I created four three-factor, three-level full-factorial studies: separate investigations of shoulder and lap belt anchors in the Rigid and Semi-Rigid Benches. The minimum midpoint and maximum X/Y/Z levels were derived from a published survey of 24 vehicle rear seat geometries."
+        "text": "**Coordinate convention:** Anchor locations use the SAE coordinate system. +X is forward, +Y is toward the right side of the bench, and +Z is downward. The origin is at the mid-width of the raised platform's rear edge, and rearward locations are XMIN and inboard locations are YMAX.\nAfter validation, I created four three-factor, three-level full-factorial studies: separate investigations of shoulder and lap belt anchors in the Rigid and Semi-Rigid Benches. The minimum, midpoint, and maximum X/Y/Z levels were derived from a published survey of 24 vehicle rear seat geometries."
       },
       {
         "type": "asset",
@@ -242,7 +225,7 @@
       },
       {
         "type": "markdown",
-        "text": "- Ran **27 shoulder anchor cases per bench** and **25 physically feasible lap anchor cases per bench**, for **104 LS-DYNA simulations** in total.\n- Measured the peak at each of the four chest sensors, the overall peak chest deflection, and the peak pelvis resultant acceleration.\n- Screened configurations with non-characteristic belt migration or submarining from the effects analysis; two lap anchor locations per bench could not be simulated because the anchors intersected the pelvis.\n- Used a first-order **least-squares regression model with main and interaction terms**, followed by ANOVA in JMP, to analyze the resulting unbalanced datasets.\n- Compared the same design space across both benches to distinguish geometry effects from bench-dependent kinematics.\nThis approach identified not only **which** response changed, but also **which variables, interactions, and kinematic modes were driving it**."
+        "text": "- Ran 27 shoulder anchor cases per bench and 25 physically feasible lap anchor cases per bench, for 104 LS-DYNA simulations in total.\n- Measured the peak at each of the four chest sensors, the overall peak chest deflection, and the peak pelvis resultant acceleration.\n- Screened configurations with non-characteristic belt migration or submarining from the effects analysis; two lap anchor locations per bench could not be simulated because the anchors intersected the pelvis.\n- Used a first-order least-squares regression model with main and interaction terms, followed by ANOVA in JMP, to analyze the resulting unbalanced datasets.\n- Compared the same design space across both benches to distinguish geometry effects from bench-dependent kinematics.\nThis approach identified not only which response changed, but also which variables, interactions, and kinematic modes were driving it."
       },
       {
         "type": "asset",
@@ -269,7 +252,7 @@
       },
       {
         "type": "markdown",
-        "text": "- **Rearward shoulder anchors** engaged the torso earlier, reducing forward excursion and making load transfer more gradual.\n- **Inboard shoulder anchors** improved contact with the shoulder and reduced loading on the chest, but extreme inboard routing introduced a belt-to-neck tradeoff.\n- **Lap anchor effects were more configuration-dependent.** The rigid bench primarily produced forward motion; the semi-rigid footrest and rotating seat pan introduced coupled forward/downward motion and stronger interaction effects.\n- The favorable shoulder anchor region remained within the evaluated FMVSS/CMVSS 210 fore/aft and vertical range, but the important lateral effect is not represented by that range. Regulatory placement alone therefore does not guarantee an effective belt fit for a small-stature occupant.\n**Interpretation boundary:** These results identify simulated sensitivities within the evaluated design space. Some positions represented fleet extremes or produced non-characteristic restraint behavior. The findings are not, by themselves, a production restraint system recommendation, and the preliminary injury-risk estimates were intentionally omitted from this public summary."
+        "text": "- Rearward shoulder anchors engaged the torso earlier, reducing forward excursion and making load transfer more gradual.\n- Inboard shoulder anchors improved contact with the shoulder and reduced loading on the chest, but extreme inboard routing introduced a belt-to-neck tradeoff.\n- Lap anchor effects were more configuration-dependent. The rigid bench primarily produced forward motion; the Semi-Rigid Bench footrest and rotating seat pan introduced coupled forward/downward motion and stronger interaction effects.\n- The favorable shoulder anchor region remained within the evaluated FMVSS/CMVSS 210 fore/aft and vertical range, but the important lateral effect is not represented by that range. Regulatory placement alone therefore does not guarantee an effective belt fit for a small-stature occupant.\n**Interpretation boundary:** These results identify simulated sensitivities within the evaluated design space. Some positions represented fleet extremes or produced non-characteristic restraint behavior. The findings are not, by themselves, a production restraint system recommendation, and the preliminary injury-risk estimates were intentionally omitted from this public summary."
       },
       {
         "type": "heading",
@@ -278,7 +261,7 @@
       },
       {
         "type": "markdown",
-        "text": "- MASc thesis: *Assessment of Seat Belt Anchor Position on Rear Seat Occupant Kinematics in Frontal Impact Using a Validated THOR-5F Finite Element Model*\n- [Conference paper](https://ibrc.osu.edu/wp-content/uploads/2025/05/Thangarajah-20th-IBS-Paper.pdf) and presentation at the **20th Injury Biomechanics Symposium, The Ohio State University**\n- Contributions to six sponsor-facing technical presentations and written research deliverables"
+        "text": "- MASc thesis: *Assessment of Seat Belt Anchor Position on Rear Seat Occupant Kinematics in Frontal Impact Using a Validated THOR-5F Finite Element Model*\n- [Conference paper](https://ibrc.osu.edu/wp-content/uploads/2025/05/Thangarajah-20th-IBS-Paper.pdf) and presentation at the 20th Injury Biomechanics Symposium, The Ohio State University\n- Contributions to six sponsor-facing technical presentations and written research deliverables"
       },
       {
         "type": "heading",
@@ -317,7 +300,7 @@
       },
       {
         "type": "markdown",
-        "text": "I built and calibrated both LS-DYNA benchmark environments, matched the occupant posture and restraint setup, processed the comparison channels, calculated ISO 18571 ratings, and used the quantitative and kinematic evidence to decide which responses could support the anchor position study. Transport Canada and PMG Technologies conducted the rigid bench tests; the semi-rigid data came from published sled tests."
+        "text": "I built and calibrated both LS-DYNA benchmark environments, matched the occupant posture and restraint setup, processed the comparison channels, calculated ISO 18571 ratings, and used the quantitative and kinematic evidence to decide which responses could support the anchor position study. Transport Canada and PMG Technologies conducted the Rigid Bench tests; the semi-rigid data came from published sled tests."
       },
       {
         "type": "heading",
@@ -399,7 +382,7 @@
       },
       {
         "type": "markdown",
-        "text": "The models were sufficiently representative for a **comparative anchor position sensitivity study**, particularly for chest deflection, pelvis acceleration, belt loading, and overall occupant motion. The 0.71 averages were not treated as blanket validation of every local signal.\n\n**Public-sharing boundary:** This summary uses methods and results disclosed in the thesis. Raw test files, proprietary model inputs, and restricted partner material are excluded."
+        "text": "The models were sufficiently representative for a comparative anchor position sensitivity study, particularly for chest deflection, pelvis acceleration, belt loading, and overall occupant motion. The 0.71 averages were not treated as blanket validation of every local signal.\n\n**Public-sharing boundary:** This summary uses methods and results disclosed in the thesis. Raw test files, proprietary model inputs, and restricted partner material are excluded."
       }
     ]
   },
@@ -471,7 +454,7 @@
       },
       {
         "type": "markdown",
-        "text": "Two lap anchor locations per bench could not be simulated because the nominal anchor points intersected the THOR-5F pelvis. Additional results were screened from the effects analysis when the restraint response was non-characteristic, including shoulder belt migration from the torso or submarining at high lap belt positions.\nThe remaining data formed unbalanced datasets. I fitted a first-order least-squares model containing **X, Y, Z, XY, XZ, YZ, and XYZ** terms, then used ANOVA in JMP to evaluate effects at the 0.05 significance level. The model estimated the underlying trends at screened configurations while avoiding a higher-order fit that would overfit the reduced samples.\nA main effect was defined as the estimated difference between the average response at a factor's maximum and minimum levels. Interaction terms captured cases where the effect of one direction depended on another anchor coordinate."
+        "text": "Two lap anchor locations per bench could not be simulated because the nominal anchor points intersected the THOR-5F pelvis. Additional results were screened from the effects analysis when the restraint response was non-characteristic, including shoulder belt migration from the torso or submarining at high lap belt positions.\nThe remaining data formed unbalanced datasets. I fitted a first-order least-squares model containing X, Y, Z, XY, XZ, YZ, and XYZ terms, then used ANOVA in JMP to evaluate effects at the 0.05 significance level. The model estimated the underlying trends at screened configurations while avoiding a higher-order fit that would overfit the reduced samples.\nA main effect was defined as the estimated difference between the average response at a factor's maximum and minimum levels. Interaction terms captured cases where the effect of one direction depended on another anchor coordinate."
       },
       {
         "type": "asset",
@@ -489,7 +472,7 @@
       },
       {
         "type": "markdown",
-        "text": "### Absolute Response Summary\n<table header-row=\"true\">\n<tr>\n<td>Anchor study</td>\n<td>Peak chest deflection</td>\n<td>Peak pelvis resultant acceleration</td>\n<td>Additional result</td>\n</tr>\n<tr>\n<td>Shoulder anchor, Rigid Bench</td>\n<td>42 to 63 mm; 51 mm average; Position 14 midpoint at 50.6 mm; Position 7 was 17% below average; Position 19 was 24% above average</td>\n<td>36.4 to 49.0 g; 42.6 g average</td>\n<td>Chest deflection regression R² = 0.92</td>\n</tr>\n<tr>\n<td>Lap anchor, Rigid Bench</td>\n<td>44.3 to 53.1 mm; 49.2 mm average; Position 5 was 10% below average</td>\n<td>30.8 to 54.8 g; 43.6 g average; 42.3 g midpoint</td>\n<td>The average pelvis response was 1.3 g higher than the midpoint</td>\n</tr>\n<tr>\n<td>Shoulder anchor, Semi-Rigid Bench</td>\n<td>35.0 to 49.6 mm; 41.7 mm average; Position 14 midpoint at 42.0 mm; Position 8 was 16% below average; Position 22 was 19% above average</td>\n<td>34.8 to 45.6 g; 39.8 g average; 37.6 g midpoint</td>\n<td>The midpoint chest response was close to the study average</td>\n</tr>\n<tr>\n<td>Lap anchor, Semi-Rigid Bench</td>\n<td>40.3 to 44.6 mm; 42.4 mm average; 42.0 mm midpoint; Position 2 was 5% above average</td>\n<td>Not included</td>\n<td>Chest response varied over a comparatively narrow range</td>\n</tr>\n</table>\nFor rigid bench shoulder anchor chest deflection, the fitted regression produced R² = 0.92. Moving X from minimum to maximum increased the estimated response by 9.5 mm. Moving Y from minimum to maximum reduced it by 6.5 mm, while moving Z from minimum to maximum reduced it by 4.5 mm. The XZ interaction contributed an estimated effect of -3.16 mm, showing that the vertical effect depended on the fore/aft position.\n<table fit-page-width=\"true\" header-row=\"true\">\n\n<tr>\n<td>Question</td>\n<td>Result</td>\n</tr>\n<tr>\n<td>What controlled peak chest deflection?</td>\n<td>Shoulder anchor X and Y position were the dominant effects in both benches. Peak chest deflection ranged from 42 to 63 mm in the Rigid Bench and 35.0 to 49.6 mm in the Semi-Rigid Bench. The lowest rearward/inboard configurations produced 42 mm and 35.0 mm, respectively, which were 17% and 16% below their bench study averages. The study average was retained because the main-effect method compares average responses across factor levels; the midpoint was close to that average in both benches (50.6 mm versus 51.0 mm for the Rigid Bench, and 42.0 mm versus 41.7 mm for the Semi-Rigid Bench).</td>\n</tr>\n<tr>\n<td>How did vertical shoulder position contribute?</td>\n<td>Moving the shoulder anchor downward, from ZMIN to ZMAX in the SAE coordinate system, produced a smaller estimated reduction in chest deflection. However, the lowest observed rigid bench configuration was at ZMIN because the XZ interaction weakened the vertical effect at XMIN. The best observed configuration was therefore not obtained by simply combining the individually favorable main-effect levels.</td>\n</tr>\n<tr>\n<td>How important were lap anchors to chest response?</td>\n<td>They had a smaller overall effect than shoulder anchors and produced more bench-dependent interactions.</td>\n</tr>\n<tr>\n<td>What controlled pelvis acceleration?</td>\n<td>Lap anchor position had the larger influence because the lap belt directly loaded the pelvis.</td>\n</tr>\n<tr>\n<td>What occurred in the Rigid Bench?</td>\n<td>Rearward, upward, and inboard lap anchor trends reduced pelvis acceleration after excluding submarining or near-submarining interpretations.</td>\n</tr>\n<tr>\n<td>What occurred in the Semi-Rigid Bench?</td>\n<td>Lateral position and the lateral/vertical interaction were significant; the interaction was approximately twice the lateral main effect, showing strong coupling with seat pan motion.</td>\n</tr>\n</table>"
+        "text": "### Absolute Response Summary\n<table header-row=\"true\">\n<tr>\n<td>Anchor study</td>\n<td>Peak chest deflection</td>\n<td>Peak pelvis resultant acceleration</td>\n<td>Additional result</td>\n</tr>\n<tr>\n<td>Shoulder anchor, Rigid Bench</td>\n<td>42 to 63 mm; 51 mm average; Position 14 midpoint at 50.6 mm; Position 7 was 17% below average; Position 19 was 24% above average</td>\n<td>36.4 to 49.0 g; 42.6 g average</td>\n<td>Chest deflection regression R² = 0.92</td>\n</tr>\n<tr>\n<td>Lap anchor, Rigid Bench</td>\n<td>44.3 to 53.1 mm; 49.2 mm average; Position 5 was 10% below average</td>\n<td>30.8 to 54.8 g; 43.6 g average; 42.3 g midpoint</td>\n<td>The average pelvis response was 1.3 g higher than the midpoint</td>\n</tr>\n<tr>\n<td>Shoulder anchor, Semi-Rigid Bench</td>\n<td>35.0 to 49.6 mm; 41.7 mm average; Position 14 midpoint at 42.0 mm; Position 8 was 16% below average; Position 22 was 19% above average</td>\n<td>34.8 to 45.6 g; 39.8 g average; 37.6 g midpoint</td>\n<td>The midpoint chest response was close to the study average</td>\n</tr>\n<tr>\n<td>Lap anchor, Semi-Rigid Bench</td>\n<td>40.3 to 44.6 mm; 42.4 mm average; 42.0 mm midpoint; Position 2 was 5% above average</td>\n<td>Not included</td>\n<td>Chest response varied over a comparatively narrow range</td>\n</tr>\n</table>\nFor Rigid Bench shoulder anchor chest deflection, the fitted regression produced R² = 0.92. Moving X from minimum to maximum increased the estimated response by 9.5 mm. Moving Y from minimum to maximum reduced it by 6.5 mm, while moving Z from minimum to maximum reduced it by 4.5 mm. The XZ interaction contributed an estimated effect of -3.16 mm, showing that the vertical effect depended on the fore/aft position.\n<table fit-page-width=\"true\" header-row=\"true\">\n\n<tr>\n<td>Question</td>\n<td>Result</td>\n</tr>\n<tr>\n<td>What controlled peak chest deflection?</td>\n<td>Shoulder anchor X and Y position were the dominant effects in both benches. Peak chest deflection ranged from 42 to 63 mm in the Rigid Bench and 35.0 to 49.6 mm in the Semi-Rigid Bench. The lowest rearward/inboard configurations produced 42 mm and 35.0 mm, respectively, which were 17% and 16% below their bench study averages. The study average was retained because the main-effect method compares average responses across factor levels; the midpoint was close to that average in both benches (50.6 mm versus 51.0 mm for the Rigid Bench, and 42.0 mm versus 41.7 mm for the Semi-Rigid Bench).</td>\n</tr>\n<tr>\n<td>How did vertical shoulder position contribute?</td>\n<td>Moving the shoulder anchor downward, from ZMIN to ZMAX in the SAE coordinate system, produced a smaller estimated reduction in chest deflection. However, the lowest observed Rigid Bench configuration was at ZMIN because the XZ interaction weakened the vertical effect at XMIN. The best observed configuration was therefore not obtained by simply combining the individually favorable main-effect levels.</td>\n</tr>\n<tr>\n<td>How important were lap anchors to chest response?</td>\n<td>They had a smaller overall effect than shoulder anchors and produced more bench-dependent interactions.</td>\n</tr>\n<tr>\n<td>What controlled pelvis acceleration?</td>\n<td>Lap anchor position had the larger influence because the lap belt directly loaded the pelvis.</td>\n</tr>\n<tr>\n<td>What occurred in the Rigid Bench?</td>\n<td>Rearward, upward, and inboard lap anchor trends reduced pelvis acceleration after excluding submarining or near-submarining interpretations.</td>\n</tr>\n<tr>\n<td>What occurred in the Semi-Rigid Bench?</td>\n<td>Lateral position and the lateral/vertical interaction were significant; the interaction was approximately twice the lateral main effect, showing strong coupling with seat pan motion.</td>\n</tr>\n</table>"
       },
       {
         "type": "heading",
@@ -604,7 +587,7 @@
     "blocks": [
       {
         "type": "markdown",
-        "text": "**Helmeted head-first impact simulation - comparing standardized injury metrics with explicit vertebral failure**<br>I independently investigated how impact velocity and neck orientation influenced cervical loading and predicted fracture during head-first football impacts. Using LS-DYNA, I simulated five configurations with Hybrid III and GHBMC models, compared predicted peak forces and injury locations with published cadaveric studies, and evaluated whether the Neck Injury Criterion captured the model-predicted fracture response."
+        "text": "**Helmeted head-first impact simulation - comparing standardized injury metrics with explicit vertebral failure**<br>I independently investigated how impact velocity and neck orientation influenced cervical loading and predicted fracture during head-first football impacts. Using LS-DYNA, I simulated five configurations with existing Hybrid III and GHBMC models, compared predicted peak forces and injury locations with published cadaveric studies, and evaluated whether the Neck Injury Criterion captured the model-predicted fracture response."
       },
       {
         "type": "heading",
@@ -613,7 +596,7 @@
       },
       {
         "type": "markdown",
-        "text": "Head-first football impacts can align the cervical spine with the impact load and create a high risk of axial-compression injury. I investigated two related questions: **How do velocity and impact angle change the cervical response, and how does an ATD-based injury metric compare with explicit fracture predicted by a human body model?**"
+        "text": "Head-first football impacts can align the cervical spine with the impact load and create a high risk of axial-compression injury. I investigated two related questions: How do velocity and impact angle change the cervical response, and how does an ATD-based injury metric compare with explicit fracture predicted by a human body model?"
       },
       {
         "type": "heading",
@@ -622,7 +605,7 @@
       },
       {
         "type": "markdown",
-        "text": "I completed this project independently. I:\n- Integrated a helmeted Hybrid III head-and-neck model with a full-body Hybrid III model and defined the tied interface.\n- Prepared the helmeted 50th-percentile male GHBMC model and its existing cortical- and cancellous-bone failure definitions.\n- Created the rigid impact plate, contacts, initial conditions, and five impact configurations in LS-DYNA.\n- Extracted neck section forces and moments, calculated maximum Nij, inspected predicted vertebral failure, and compared the results with published cadaveric studies."
+        "text": "I completed this project independently. I:\n- Integrated an existing helmeted Hybrid III head-and-neck model with an existing full-body Hybrid III model and defined the tied interface.\n- Set up and positioned the existing helmeted 50th-percentile male GHBMC model, using its existing cortical- and cancellous-bone failure definitions.\n- Created the rigid impact plate, contacts, initial conditions, and five impact configurations in LS-DYNA.\n- Extracted neck section forces and moments, calculated maximum Nij, inspected predicted vertebral failure, and compared the results with published cadaveric studies."
       },
       {
         "type": "asset",
@@ -641,7 +624,7 @@
       },
       {
         "type": "markdown",
-        "text": "1. **Build the models.** Prepared helmeted Hybrid III and GHBMC full-body models and a 5 mm-mesh rigid steel impact plate.\n2. **Define the matrix.** Simulated perpendicular impacts at 3.4, 4.1, and 7.0 m/s, plus -15 degree and +30 degree plate orientations at 3.4 m/s.\n3. **Run and post-process.** Solved the five configurations in LS-DYNA 7.1.2 and extracted neck section forces and moments.\n4. **Interpret the response.** Calculated Nij for both models, identified primary GHBMC fracture locations from element failure, and compared GHBMC neck forces with experimental literature."
+        "text": "1. Set up the models. Set up and positioned existing helmeted Hybrid III and GHBMC models and created the 5 mm-mesh rigid steel impact plate.\n2. Define the matrix. Simulated perpendicular impacts at 3.4, 4.1, and 7.0 m/s, plus -15 degree and +30 degree plate orientations at 3.4 m/s.\n3. Run and post-process. Solved the five configurations in LS-DYNA 7.1.2 and extracted neck section forces and moments.\n4. Interpret the response. Calculated Nij for both models, identified primary GHBMC fracture locations from element failure, and compared GHBMC neck forces with experimental literature."
       },
       {
         "type": "heading",
@@ -650,7 +633,7 @@
       },
       {
         "type": "markdown",
-        "text": "<table fit-page-width=\"true\" header-row=\"true\">\n<tr>\n<td>Configuration</td>\n<td>Hybrid III max Nij</td>\n<td>GHBMC max Nij</td>\n<td>Primary GHBMC fracture</td>\n</tr>\n<tr>\n<td>3.4 m/s, 0 degrees</td>\n<td>2.01</td>\n<td>0.86</td>\n<td>C2</td>\n</tr>\n<tr>\n<td>4.1 m/s, 0 degrees</td>\n<td>2.34</td>\n<td>0.87</td>\n<td>C1-C3</td>\n</tr>\n<tr>\n<td>7.0 m/s, 0 degrees</td>\n<td>3.71</td>\n<td>3.47</td>\n<td>C1-C3</td>\n</tr>\n<tr>\n<td>3.4 m/s, +30 degrees</td>\n<td>1.57</td>\n<td>0.72</td>\n<td>C1</td>\n</tr>\n<tr>\n<td>3.4 m/s, -15 degrees</td>\n<td>1.85</td>\n<td>0.64</td>\n<td>C2-C3</td>\n</tr>\n</table>\n- The GHBMC predicted cervical fracture in **all five configurations**, while its Nij exceeded 1 only in the 7.0 m/s case.\n- GHBMC peak neck forces of **2.26 kN at 3.4 m/s** and **2.34 kN at 4.1 m/s** fell within the ranges reported by two cadaveric studies.\n- Increasing perpendicular impact speed increased fracture extent. The +30 degree case produced the least visible damage.\n- The simulations predicted primarily upper-cervical damage at C1-C3, whereas one comparison study reported lower-cervical C5-C6 fractures.\n### Predicted Fracture Progression"
+        "text": "<table fit-page-width=\"true\" header-row=\"true\">\n<tr>\n<td>Configuration</td>\n<td>Hybrid III max Nij</td>\n<td>GHBMC max Nij</td>\n<td>Primary GHBMC fracture</td>\n</tr>\n<tr>\n<td>3.4 m/s, 0 degrees</td>\n<td>2.01</td>\n<td>0.86</td>\n<td>C2</td>\n</tr>\n<tr>\n<td>4.1 m/s, 0 degrees</td>\n<td>2.34</td>\n<td>0.87</td>\n<td>C1-C3</td>\n</tr>\n<tr>\n<td>7.0 m/s, 0 degrees</td>\n<td>3.71</td>\n<td>3.47</td>\n<td>C1-C3</td>\n</tr>\n<tr>\n<td>3.4 m/s, +30 degrees</td>\n<td>1.57</td>\n<td>0.72</td>\n<td>C1</td>\n</tr>\n<tr>\n<td>3.4 m/s, -15 degrees</td>\n<td>1.85</td>\n<td>0.64</td>\n<td>C2-C3</td>\n</tr>\n</table>\n- The GHBMC predicted cervical fracture in all five configurations, while its Nij exceeded 1 only in the 7.0 m/s case.\n- GHBMC peak neck forces of 2.26 kN at 3.4 m/s and 2.34 kN at 4.1 m/s fell within the ranges reported by two cadaveric studies.\n- Increasing perpendicular impact speed increased fracture extent. The +30 degree case produced the least visible damage.\n- The simulations predicted primarily upper-cervical damage at C1-C3, whereas one comparison study reported lower-cervical C5-C6 fractures.\n### Predicted Fracture Progression"
       },
       {
         "type": "asset",
@@ -701,7 +684,7 @@
       },
       {
         "type": "markdown",
-        "text": "**LS-DYNA explicit dynamics \\| Hybrid III and GHBMC modeling \\| injury-criterion interpretation \\| cervical fracture mechanics \\| simulation post-processing \\| literature comparison**\n\n**Public-sharing boundary:** Images are taken from my academic course analysis. Licensed finite element model files are not distributed."
+        "text": "**LS-DYNA explicit dynamics \\| Hybrid III and GHBMC model setup \\| injury-criterion interpretation \\| cervical fracture mechanics \\| simulation post-processing \\| literature comparison**\n\n**Public-sharing boundary:** Images are taken from my academic course analysis. Licensed finite element model files are not distributed."
       }
     ]
   },
@@ -803,7 +786,7 @@
       },
       {
         "type": "markdown",
-        "text": "1. **Define requirements and acceptance criteria.** Converted the client's needs into measurable targets for flow, pressure-volume accuracy, voiding pressure, chamber size, and usability.\n2. **Develop the test specimen.** Tested elastomers and wall thicknesses, refined the silicone molding process, and selected Ecoflex 00-10.\n3. **Build the controlled test method.** Integrated the phantom with a peristaltic filling pump, pressure chamber, pressure sensor, and manually controlled outlet.\n4. **Automate control and data acquisition.** Connected the pump and sensor through Arduino hardware and a MATLAB interface that controlled the test inputs, displayed live response curves, and recorded results.\n5. **Verify against the criteria.** Compared the pressure-volume response with the target curve, checked chamber pressurization, and completed a client usability assessment."
+        "text": "1. Define requirements and acceptance criteria. Converted the client's needs into measurable targets for flow, pressure-volume accuracy, voiding pressure, chamber size, and usability.\n2. Develop the test specimen. Tested elastomers and wall thicknesses, refined the silicone molding process, and selected Ecoflex 00-10.\n3. Build the controlled test method. Integrated the phantom with a peristaltic filling pump, pressure chamber, pressure sensor, and manually controlled outlet.\n4. Automate control and data acquisition. Connected the pump and sensor through Arduino hardware and a MATLAB interface that controlled the test inputs, displayed live response curves, and recorded results.\n5. Verify against the criteria. Compared the pressure-volume response with the target curve, checked chamber pressurization, and completed a client usability assessment."
       },
       {
         "type": "heading",
@@ -840,7 +823,7 @@
       },
       {
         "type": "markdown",
-        "text": "<table fit-page-width=\"true\" header-row=\"true\">\n<tr>\n<td>Requirement</td>\n<td>Target</td>\n<td>Achieved</td>\n<td>Result</td>\n</tr>\n<tr>\n<td>Filling flow rate</td>\n<td>At least 12 mL/s</td>\n<td>Up to 19 mL/s</td>\n<td>Met</td>\n</tr>\n<tr>\n<td>Pressure-volume curve error</td>\n<td>No more than 60%</td>\n<td>24.3%</td>\n<td>Met</td>\n</tr>\n<tr>\n<td>Internal pressure during voiding</td>\n<td>4.4 to 4.9 kPa</td>\n<td>4.75 kPa maximum</td>\n<td>Met</td>\n</tr>\n<tr>\n<td>Pressure chamber volume</td>\n<td>No more than 54,000 cm³</td>\n<td>27,000 cm³</td>\n<td>Met</td>\n</tr>\n</table>\n- The pressure chamber produced and maintained approximately **2.2 kPa**, with a **13.8 second** pressure ramp.\n- The client rated the system **5/5 for timing**, **5/5 for overall function**, **4.5/5 for ease of use**, and **3/5 for aesthetics**."
+        "text": "<table fit-page-width=\"true\" header-row=\"true\">\n<tr>\n<td>Requirement</td>\n<td>Target</td>\n<td>Achieved</td>\n<td>Result</td>\n</tr>\n<tr>\n<td>Filling flow rate</td>\n<td>At least 12 mL/s</td>\n<td>Up to 19 mL/s</td>\n<td>Met</td>\n</tr>\n<tr>\n<td>Pressure-volume curve error</td>\n<td>No more than 60%</td>\n<td>24.3%</td>\n<td>Met</td>\n</tr>\n<tr>\n<td>Internal pressure during voiding</td>\n<td>4.4 to 4.9 kPa</td>\n<td>4.75 kPa maximum</td>\n<td>Met</td>\n</tr>\n<tr>\n<td>Pressure chamber volume</td>\n<td>No more than 54,000 cm³</td>\n<td>27,000 cm³</td>\n<td>Met</td>\n</tr>\n</table>\n- The pressure chamber produced and maintained approximately 2.2 kPa, with a 13.8 second pressure ramp.\n- The client rated the system 5/5 for timing, 5/5 for overall function, 4.5/5 for ease of use, and 3/5 for aesthetics."
       },
       {
         "type": "asset",
@@ -898,7 +881,7 @@
       },
       {
         "type": "markdown",
-        "text": "Seatback and head restraint foams absorb energy and affect the timing of occupant loading in a rear impact. I investigated: **How much do different seat foam material responses affect head and neck injury metrics, and are those effects consistent across crash severity?**"
+        "text": "Seatback and head restraint foams absorb energy and affect the timing of occupant loading in a rear impact. I investigated: How much do different seat foam material responses affect head and neck injury metrics, and are those effects consistent across crash severity?"
       },
       {
         "type": "heading",
@@ -907,7 +890,7 @@
       },
       {
         "type": "markdown",
-        "text": "I completed this as an individual course project, building on an existing Hybrid III seat model and occupant-settling setup. I:\n- Created single-element LS-DYNA compression models to check the material response against available stress-strain data.\n- Implemented and compared five `*MAT_LOW_DENSITY_FOAM` definitions in the head restraint and seatback of a detailed 2018 Honda Odyssey rear seat model.\n- Ran five foam configurations at each of two rear impact pulses, giving **10 sled simulations**.\n- Extracted head-head-restraint contact force, head acceleration, and upper neck force and moment histories.\n- Calculated and compared **HIC15 and Nij** across the complete simulation matrix."
+        "text": "I completed this as an individual course project, building on an existing Hybrid III seat model and occupant-settling setup. I:\n- Created single-element LS-DYNA compression models to check the material response against available stress-strain data.\n- Implemented and compared five `*MAT_LOW_DENSITY_FOAM` definitions in the head restraint and seatback of a detailed 2018 Honda Odyssey rear seat model.\n- Ran five foam configurations at each of two rear impact pulses, giving 10 sled simulations.\n- Extracted head-head-restraint contact force, head acceleration, and upper neck force and moment histories.\n- Calculated and compared HIC15 and Nij across the complete simulation matrix."
       },
       {
         "type": "asset",
@@ -926,7 +909,7 @@
       },
       {
         "type": "markdown",
-        "text": "1. **Define the materials.** Compared five polyurethane foam responses using the LS-DYNA low-density foam material model.\n2. **Check the input response.** Compressed a 1 x 1 x 1 mm solid element at 1 mm/s and compared the calculated stress-strain response with the available input curves.\n3. **Integrate the foams.** Updated the head restraint and seatback material definitions in the detailed seat model while keeping the remaining setup consistent.\n4. **Settle and load the occupant.** Used the existing positioning procedure, gravity settling, and NHTSA rear impact pulses at 27 and 57 km/h.\n5. **Post-process the response.** Compared contact forces, upper neck force and moment, HIC15, and maximum Nij."
+        "text": "1. Define the materials. Compared five polyurethane foam responses using the LS-DYNA low-density foam material model.\n2. Check the input response. Compressed a 1 x 1 x 1 mm solid element at 1 mm/s and compared the calculated stress-strain response with the available input curves.\n3. Integrate the foams. Updated the head restraint and seatback material definitions in the detailed seat model while keeping the remaining setup consistent.\n4. Settle and load the occupant. Used the existing positioning procedure, gravity settling, and NHTSA rear impact pulses at 27 and 57 km/h.\n5. Post-process the response. Compared contact forces, upper neck force and moment, HIC15, and maximum Nij."
       },
       {
         "type": "heading",
@@ -954,7 +937,7 @@
       },
       {
         "type": "markdown",
-        "text": "<table fit-page-width=\"true\" header-row=\"true\">\n<tr>\n<td>Foam</td>\n<td>HIC15 - 57 km/h</td>\n<td>HIC15 - 27 km/h</td>\n<td>Nij - 57 km/h</td>\n<td>Nij - 27 km/h</td>\n</tr>\n<tr>\n<td>JC120</td>\n<td>562.2</td>\n<td>223.8</td>\n<td>2.12</td>\n<td>0.770</td>\n</tr>\n<tr>\n<td>JC80</td>\n<td>513.1</td>\n<td>210.6</td>\n<td>2.49</td>\n<td>0.616</td>\n</tr>\n<tr>\n<td>Campbell Foam 2</td>\n<td>565.1</td>\n<td>242.8</td>\n<td>1.63</td>\n<td>0.914</td>\n</tr>\n<tr>\n<td>Campbell Foam 4</td>\n<td>628.0</td>\n<td>262.1</td>\n<td>2.70</td>\n<td>0.931</td>\n</tr>\n<tr>\n<td>NHTSA default</td>\n<td>574.6</td>\n<td>231.9</td>\n<td>2.81</td>\n<td>1.05</td>\n</tr>\n</table>\n- All simulated HIC15 values remained below **700** at both impact severities.\n- JC80 produced the lowest HIC15 in both cases. Its value was **18.3% lower at 57 km/h** and **19.6% lower at 27 km/h** than Campbell Foam 4, which produced the highest HIC15 in both cases.\n- At 57 km/h, every foam produced a maximum Nij above **1.0**; Campbell Foam 2 produced the lowest value at **1.63**.\n- At 27 km/h, four foam alternatives remained below Nij = 1.0, while the default NHTSA foam reached **1.05**. JC80 produced the lowest value at **0.616**.\n- The force and moment histories were broadly similar between foams, and the Nij ranking changed with crash severity."
+        "text": "<table fit-page-width=\"true\" header-row=\"true\">\n<tr>\n<td>Foam</td>\n<td>HIC15 - 57 km/h</td>\n<td>HIC15 - 27 km/h</td>\n<td>Nij - 57 km/h</td>\n<td>Nij - 27 km/h</td>\n</tr>\n<tr>\n<td>JC120</td>\n<td>562.2</td>\n<td>223.8</td>\n<td>2.12</td>\n<td>0.770</td>\n</tr>\n<tr>\n<td>JC80</td>\n<td>513.1</td>\n<td>210.6</td>\n<td>2.49</td>\n<td>0.616</td>\n</tr>\n<tr>\n<td>Campbell Foam 2</td>\n<td>565.1</td>\n<td>242.8</td>\n<td>1.63</td>\n<td>0.914</td>\n</tr>\n<tr>\n<td>Campbell Foam 4</td>\n<td>628.0</td>\n<td>262.1</td>\n<td>2.70</td>\n<td>0.931</td>\n</tr>\n<tr>\n<td>NHTSA default</td>\n<td>574.6</td>\n<td>231.9</td>\n<td>2.81</td>\n<td>1.05</td>\n</tr>\n</table>\n- All simulated HIC15 values remained below 700 at both impact severities.\n- JC80 produced the lowest HIC15 in both cases. Its value was 18.3% lower at 57 km/h and 19.6% lower at 27 km/h than Campbell Foam 4, which produced the highest HIC15 in both cases.\n- At 57 km/h, every foam produced a maximum Nij above 1.0; Campbell Foam 2 produced the lowest value at 1.63.\n- At 27 km/h, four foam alternatives remained below Nij = 1.0, while the default NHTSA foam reached 1.05. JC80 produced the lowest value at 0.616.\n- The force and moment histories were broadly similar between foams, and the Nij ranking changed with crash severity."
       },
       {
         "type": "heading",
@@ -1011,7 +994,7 @@
       },
       {
         "type": "markdown",
-        "text": "I used Jupyter on UBC’s Sockeye computing cluster to run a PyTorch workflow using a pretrained AlexNet model. I preprocessed the images by converting and resizing them, generated **256 × 256 pixel patches**, split the image data into training, validation, and test datasets, trained the model, and evaluated how well it distinguished DKD from healthy tissue.\n\nI also collaborated with two other students to present the overall project through a research poster and slide presentation."
+        "text": "I used Jupyter on UBC’s Sockeye computing cluster to run a PyTorch workflow using a pretrained AlexNet model. I preprocessed the images by converting and resizing them, generated 256 × 256 pixel patches, split the image data into training, validation, and test datasets, trained the model, and evaluated how well it distinguished DKD from healthy tissue.\n\nI also collaborated with two other students to present the overall project through a research poster and slide presentation."
       },
       {
         "type": "asset",
@@ -1025,7 +1008,7 @@
       },
       {
         "type": "markdown",
-        "text": "The project used **231 pre-selected regions of interest from seven patients: three healthy and four with DKD**. Model performance was evaluated using accuracy, true-positive rate, false-positive rate, and ROC AUC."
+        "text": "The project used 231 pre-selected regions of interest from seven patients: three healthy and four with DKD. Model performance was evaluated using accuracy, true-positive rate, false-positive rate, and ROC AUC."
       },
       {
         "type": "heading",
@@ -1092,7 +1075,7 @@
       },
       {
         "type": "markdown",
-        "text": "For the AUVSI competition, the payload system had to release a rover from at least **30 m**. After landing, the rover needed to drive through obstacles and complete the ground course. The payload team had to balance the release mechanism, component packaging, rover function, and aircraft weight."
+        "text": "For the AUVSI competition, the payload system had to release a rover from at least 30 m. After landing, the rover needed to drive through obstacles and complete the ground course. The payload team had to balance the release mechanism, component packaging, rover function, and aircraft weight."
       },
       {
         "type": "heading",
@@ -1101,7 +1084,7 @@
       },
       {
         "type": "markdown",
-        "text": "As a member of the payload sub-team, I focused on the rover and drop mechanism. I:\n- Created the rover wheel, rover assembly, and a motor envelope model used to check component dimensions and spacing.\n- Modeled components for a revised payload winch mechanism within the existing payload architecture.\n- Prepared CAD models for 3D printing so the team could compare fit and function and select a suitable rover concept.\n- Contributed to material and design changes, including repurposing components from earlier concepts, that reduced payload system weight by **50%**."
+        "text": "As a member of the payload sub-team, I focused on the rover and drop mechanism. I:\n- Created the rover wheel, rover assembly, and a motor envelope model used to check component dimensions and spacing.\n- Modeled components for a revised payload winch mechanism within the existing payload architecture.\n- Prepared CAD models for 3D printing so the team could compare fit and function and select a suitable rover concept.\n- Contributed to material and design changes, including repurposing components from earlier concepts, that reduced payload system weight by 50%."
       },
       {
         "type": "heading",
@@ -1134,7 +1117,7 @@
       },
       {
         "type": "markdown",
-        "text": "The design process produced a rover concept that could be evaluated within the payload system. Material and design changes reduced the payload system weight by **50%**, helping the team manage the aircraft's payload constraints."
+        "text": "The design process produced a rover concept that could be evaluated within the payload system. Material and design changes reduced the payload system weight by 50%, helping the team manage the aircraft's payload constraints."
       },
       {
         "type": "heading",

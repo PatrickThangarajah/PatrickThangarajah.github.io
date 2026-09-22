@@ -680,5 +680,22 @@
     "provisional": false,
     "relationship": "Figure extracted from the summer research poster.",
     "figureNumber": 2
+  },
+  "G05": {
+    "id": "G05",
+    "slug": "ls-prepost-automation",
+    "section": "Belt-fitting workflow",
+    "file": "seatbelt-fitting-process.png",
+    "width": 1664,
+    "height": 896,
+    "caption": "Shoulder- and lap-belt fitting workflow, with the scripted output highlighted.",
+    "alt": "Two-row LS-PrePost belt-fitting workflow showing shoulder-belt and lap-belt fitting stages converging on the isolated fitted belt geometry handled by the script.",
+    "relationship": "Primary workflow figure supplied for the LS-PrePost automation case study.",
+    "type": "image",
+    "path": "/figures/ls-prepost-automation/seatbelt-fitting-process.png",
+    "route": "/projects/ls-prepost-automation/",
+    "sourcePage": "LS-PrePost Automation for Simulation Setup",
+    "provisional": false,
+    "figureNumber": 1
   }
 }

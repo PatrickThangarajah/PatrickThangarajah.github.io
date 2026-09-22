@@ -64,9 +64,9 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
   <details id="public-code-and-workflow-artifacts" class="disclosure"><summary>Public code & workflow artifacts</summary><div class="reading-column" set:html={render(section('public-code-and-workflow-artifacts'),hub.title)}/></details>
 </section>
 <section id="about-me" class="home-section about-me" aria-labelledby="about-title">
+  <h2 id="about-title">About Me</h2>
   <img src="/figures/IMG_1191.jpeg" alt="Portrait of Patrick Thangarajah" width="1834" height="1888" loading="lazy" decoding="async" />
   <div class="about-copy">
-    <h2 id="about-title">About Me</h2>
     <div class="reading-column" set:html={render(section('about-me'),hub.title)}/>
     <p>Outside of work, I enjoy playing basketball, archery, lifting, and reading.</p>
     <details id="at-a-glance" class="disclosure"><summary>Background at a glance</summary><div class="reading-column" set:html={render(section('at-a-glance'),hub.title)}/></details>
@@ -78,7 +78,7 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
 <style>
   .about-me{display:grid;grid-template-columns:13rem minmax(0,38rem);gap:2rem;align-items:start}
   .about-me img{display:block;width:100%;max-width:13rem;height:auto}
-  .about-me h2{margin:0 0 1rem}
+  .about-me h2{grid-column:1 / -1;margin:0}
   .about-copy{min-width:0}
   .about-copy > p{margin:1rem 0 0}
   .about-copy :global(.reading-column > p:first-child){margin-top:0}

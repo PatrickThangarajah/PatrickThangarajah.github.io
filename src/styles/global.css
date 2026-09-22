@@ -987,3 +987,17 @@ figure img{background:transparent!important}
   .design-capabilities>div{grid-template-columns:1fr;gap:.35rem}
   .technical-plate .figure-link,.featured-technical-figure .figure-link,.hli-workflow-figure .figure-link,.hli-performance-figure .figure-link{padding:.35rem!important}
 }
+
+
+/* Remove the remaining grid-as-background treatment: findings read as ruled rows, not cards. */
+.thor-result-grid,.doe-result-grid,.doe-process-grid,.doe-interpretation-grid,.interpretation-grid{
+  background:transparent!important;
+  border:0!important;
+  gap:1.5rem!important;
+}
+.doe-process-grid>article,.doe-interpretation-grid>article,.interpretation-grid>article{
+  background:transparent!important;
+  border:0!important;
+  border-top:1px solid var(--rule)!important;
+  padding:1.2rem 0 0!important;
+}

@@ -2,7 +2,7 @@
 import downloads from '../data/downloads.json';
 import { isPlaceholder } from '../data/media';
 const {id} = Astro.props;
-const item = downloads[id as 'resume' | 'portfolio'];
+const item = downloads[id as 'resume'];
 const placeholder = isPlaceholder(item.path);
 ---
 {!placeholder && <div class="download">

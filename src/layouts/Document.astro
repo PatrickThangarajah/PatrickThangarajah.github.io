@@ -91,10 +91,19 @@ const firstMarkdown=page.blocks.find((b:any)=>b.type==='markdown')?.text ?? page
 const plain=(text:string)=>text
   .replace(/<br\s*\/?\s*>/gi,' ')
   .replace(/\[([^\]]+)\]\([^\)]+\)/g,'$1')
-  .replace(/[*_`#>|]/g,'')
+  .replace(/[*_\`#>|]/g,'')
+  .replace(/\\/g,' ')
   .replace(/\s+/g,' ')
   .trim();
-const description=home ? 'MASc graduate in Mechanical and Mechatronics Engineering with experience in LS-DYNA, FE model validation, and occupant safety.' : plain(firstMarkdown).slice(0,180);
+const excerpt=(text:string,max=180)=>{
+  const cleaned=plain(text);
+  if(cleaned.length<=max) return cleaned;
+  const candidate=cleaned.slice(0,max-1);
+  const boundary=candidate.lastIndexOf(' ');
+  const end=boundary>Math.floor(max*.7) ? boundary : max-1;
+  return candidate.slice(0,end).trimEnd()+'…';
+};
+const description=home ? 'MASc graduate in Mechanical and Mechatronics Engineering with experience in LS-DYNA, FE model validation, and occupant safety.' : excerpt(firstMarkdown);
 const firstAssetBlock=page.blocks.find((b:any)=>b.type==='asset');
 const socialAsset:any=home ? (assets as any).A01 : firstAssetBlock ? (assets as any)[firstAssetBlock.id] : (assets as any).A01;
 const socialImage=socialAsset?.path ? new URL(socialAsset.path,Astro.site) : undefined;

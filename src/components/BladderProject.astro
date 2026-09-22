@@ -2,7 +2,8 @@
 import Figure from './Figure.astro';
 import assets from '../data/assets.json';
 
-const pcbPath = '/figures/bladder-test-platform/echoscope-simba-pcb-v4-1.png';
+const pcbPath = '/figures/bladder-test-platform/echoscope-simba-pcb-v4-1-web.png';
+const pcbFullPath = '/figures/bladder-test-platform/echoscope-simba-pcb-v4-1.png';
 ---
 
 <article class="case-study bladder-case">
@@ -123,8 +124,8 @@ const pcbPath = '/figures/bladder-test-platform/echoscope-simba-pcb-v4-1.png';
     <h2>Client continuation</h2>
     <div class="continuation-grid">
       <figure class="pcb-figure">
-        <a class="figure-link" href={pcbPath} aria-label="Open PCB assembly documentation image at full size">
-          <img src={pcbPath} alt="Green SIMBA PCB Version 4.1 board used as a component-placement reference in the manufacturing procedure." loading="lazy" decoding="async" />
+        <a class="figure-link" href={pcbFullPath} aria-label="Open PCB assembly documentation image at full size">
+          <img src={pcbPath} alt="Green SIMBA PCB Version 4.1 board used as a component-placement reference in the manufacturing procedure." width="800" height="450" loading="lazy" decoding="async" />
         </a>
         <figcaption>PCB assembly documentation. Component-placement reference used in the manufacturing procedure.</figcaption>
       </figure>

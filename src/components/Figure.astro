@@ -4,7 +4,7 @@ const {asset, number} = Astro.props;
 const placeholder = isPlaceholder(asset.path);
 ---
 <figure class:list={{"placeholder-media":placeholder}} id={`figure-${number}`}>
-  <a class="figure-link" href={asset.path} aria-label={`Open Figure ${number} at full size`}>
+  <a class="figure-link" href={asset.fullPath ?? asset.path} aria-label={`Open Figure ${number} at full size`}>
     <img src={asset.path} alt={placeholder ? `Placeholder for: ${asset.alt}` : asset.alt} width={asset.width} height={asset.height} loading="lazy" decoding="async" />
   </a>
   <figcaption><span class="figure-number">Figure {number}.</span> {asset.caption}</figcaption>

@@ -53,24 +53,6 @@
     "provisional": true,
     "figureNumber": 3
   },
-  "G04": {
-    "id": "G04",
-    "slug": "ls-prepost-automation",
-    "section": "Result",
-    "file": "thor5f-automation-sequence.svg",
-    "width": 1139,
-    "height": 722,
-    "caption": "Belt setup sequence before and after automation.",
-    "alt": "Workflow comparing seven manual belt setup steps with the four remaining steps after automation.",
-    "relationship": "Supplements A12.",
-    "type": "image",
-    "path": "/figures/ls-prepost-automation/thor5f-automation-sequence.svg",
-    "route": "/projects/ls-prepost-automation/",
-    "sourcePage": "LS-PrePost Automation for Simulation Setup",
-    "sourceUrl": "https://app.notion.com/p/3d0604be85e881fc8f21c1b44a530bcd",
-    "provisional": true,
-    "figureNumber": 2
-  },
   "V01": {
     "id": "V01",
     "type": "video",

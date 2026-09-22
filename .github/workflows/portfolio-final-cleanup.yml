@@ -62,6 +62,20 @@ jobs:
         env:
           CHROME_PATH: /usr/bin/google-chrome
           AUDIT_PERFORMANCE: '0'
+      - name: Print audit diagnostics
+        if: always()
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import {readdirSync,readFileSync} from 'node:fs';
+          for (const file of readdirSync('test-results').filter(f=>f.endsWith('.json') && f!=='summary.json')) {
+            const j=JSON.parse(readFileSync('test-results/'+file,'utf8'));
+            for (const id of ['color-contrast','label-content-name-mismatch','definition-list']) {
+              const a=j.audits?.[id];
+              if (a && a.score!==null && a.score<1) console.log('DIAGNOSTIC',file,id,JSON.stringify(a.details?.items||[]));
+            }
+          }
+          NODE
       - name: Commit generated media
         if: success()
         shell: bash

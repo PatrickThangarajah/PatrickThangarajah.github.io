@@ -12,7 +12,7 @@ const secondary=[
  {slug:'cervical-fracture',asset:'A14',title:'Cervical fracture mechanics',tags:'Explicit dynamics / Injury biomechanics',copy:'Comparing Hybrid III injury criteria with GHBMC fracture predictions in head-first football impacts.',metrics:[['5','impact configurations']]},
  {slug:'seat-foam',asset:'A25',title:'Seat foam and rear impact',tags:'FEA / Material response',copy:'Trace the response from foam material checks to rear impact injury measures.',metrics:[['27 and 57 km/h','simulation speeds']]},
  {slug:'payload-and-rover',asset:'A31',title:'Payload systems and rover prototypes',tags:'CAD / Prototyping',copy:'Wheel, rover, and winch designs developed for a lightweight aerial payload system.',metrics:[]},
- {slug:'kidney-tissue-classification',asset:'A33',title:'Kidney tissue classification',tags:'Biomedical research / Deep learning',copy:'My work on image preparation, model training, and evaluation in an AlexNet classification workflow.',metrics:[]}
+ {slug:'kidney-tissue-classification',asset:'A29',title:'Kidney tissue classification',tags:'Biomedical research / Deep learning',copy:'My work on image preparation, model training, and evaluation in an AlexNet classification workflow.',metrics:[]}
 ];
 const toolkit=section('technical-toolkit');
 const rows=[...toolkit.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].slice(1).map(r=>[...r[1].matchAll(/<td>([\s\S]*?)<\/td>/g)].map(c=>c[1].trim()));
@@ -25,18 +25,25 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
       <p class="eyebrow hero-enter">Calgary, Alberta, Canada</p>
       <h1 id="intro-title" class="hero-enter">Mechanical Engineering Graduate</h1>
       <div class="hero-enter"><ul class="focus-areas"><li>Occupant Safety</li><li>Explicit Dynamics</li><li>FEA / Model Validation</li><li>Engineering Design</li></ul><p class="hero-support">{intro}</p></div>
-      <div class="hero-actions hero-enter"><a class="button-link" href="#selected-work">My work <span aria-hidden="true">↓</span></a><a class="button-link secondary-button" href="#resume">Resume & portfolio</a></div>
+      <div class="hero-actions hero-enter"><a class="button-link" href="#selected-work">My work <span aria-hidden="true">↓</span></a><a class="button-link secondary-button" href="#resume">Resume</a></div>
       <p class="eligibility hero-enter">Canadian citizen eligible to work in the United States under TN status</p>
     </div>
     <aside class="hero-feature" aria-labelledby="flagship-title">
-      <p class="eyebrow">Graduate Research</p>
-      <h2 id="flagship-title"><a href="/projects/thor-5f/">THOR-5F Rear Seat Occupant Safety Research</a></h2>
-      <p>How does seat belt anchor position change occupant response? Explore the validated THOR-5F bench models and anchor studies.</p>
-      <div class="hero-feature-metrics">
-        <div><strong>104</strong><span>FE simulations</span></div>
-        <div><strong>2</strong><span>Physical test benchmark configurations</span></div>
+      <div class="hero-feature-media">
+        <a href="/projects/thor-5f/" aria-label="Open THOR-5F rear-seat occupant safety case study">
+          <img src={(assets as any).A01.path} alt={(assets as any).A01.alt} width={(assets as any).A01.width} height={(assets as any).A01.height} decoding="async" />
+        </a>
       </div>
-      <a class="case-link" href="/projects/thor-5f/">Full case study <span aria-hidden="true">→</span></a>
+      <div class="hero-feature-copy">
+        <p class="eyebrow">Graduate Research</p>
+        <h2 id="flagship-title"><a href="/projects/thor-5f/">THOR-5F Rear Seat Occupant Safety Research</a></h2>
+        <p>How does seat belt anchor position change occupant response? Explore the validated THOR-5F bench models and anchor studies.</p>
+        <div class="hero-feature-metrics">
+          <div><strong>104</strong><span>FE simulations</span></div>
+          <div><strong>2</strong><span>Physical test benchmark configurations</span></div>
+        </div>
+        <a class="case-link" href="/projects/thor-5f/">Full case study <span aria-hidden="true">→</span></a>
+      </div>
     </aside>
   </div>
 </section>
@@ -58,4 +65,4 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
   <details id="public-code-and-workflow-artifacts" class="disclosure"><summary>Public code & workflow artifacts</summary><div class="reading-column" set:html={render(section('public-code-and-workflow-artifacts'),hub.title)}/></details>
 </section>
 <section id="contact" class="home-section" aria-labelledby="contact-title"><div class="section-heading"><p class="eyebrow">03 / Contact</p><h2 id="contact-title">Patrick Thangarajah</h2><span class="fringe-rule" aria-hidden="true"></span></div><div class="contact-links"><a href="mailto:ptemmanual@gmail.com">ptemmanual@gmail.com</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a></div>
-<div id="resume"><h3>Resume & portfolio</h3><div class="download-grid"><Download id="resume"/><div id="downloadable-portfolio"><Download id="portfolio"/></div></div><details class="disclosure"><summary>Document details & work eligibility</summary><div class="reading-column" set:html={render(section('resume')+'\n\n'+section('downloadable-portfolio'),hub.title)}/></details></div></section>
+<div id="resume"><h3>Resume</h3><div class="download-grid resume-download-grid"><Download id="resume"/></div><details class="disclosure"><summary>Document details & work eligibility</summary><div class="reading-column" set:html={render(section('resume'),hub.title)}/></details></div></section>

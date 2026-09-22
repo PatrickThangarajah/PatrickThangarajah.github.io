@@ -975,6 +975,12 @@ figure img{background:transparent!important}
 /* Keep videos visually stable before their lazy source is attached. */
 .viewport-video{display:block;width:100%;background:var(--surface);aspect-ratio:16/9;object-fit:contain}
 
+/* Prevent hero media from retaining intrinsic grid width on narrow screens. */
+@media(max-width:760px){
+  .thor-hero-media,.thor-hero-media figure,
+  .doe-hero-media,.doe-hero-media figure{min-width:0;width:100%;max-width:100%}
+}
+
 @media(max-width:900px){
   .validation-phase-grid,.compact-difference-list{grid-template-columns:1fr}
   .ls-page .document-grid,.ls-page main,.ls-page .site-header,.ls-page footer,

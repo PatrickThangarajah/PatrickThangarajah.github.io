@@ -944,9 +944,9 @@ figure img{background:transparent!important}
 .tool-line{font:400 1rem/1.55 var(--ui);color:var(--secondary)}
 
 /* Design / applied research index: editorial rows, no card chrome. */
-.design-index-page .document-grid{grid-template-columns:minmax(0,76rem) 14rem;max-width:93rem;gap:3rem}
+.design-index-page .document-grid{grid-template-columns:minmax(0,76rem);max-width:76rem}
 .design-index-page main{max-width:76rem;width:100%}
-.design-index-page .site-header,.design-index-page footer{max-width:93rem}
+.design-index-page .site-header,.design-index-page footer{max-width:76rem}
 .design-index-list{border-top:1px solid var(--rule)}
 .design-index-row{display:grid;grid-template-columns:minmax(15rem,.8fr) minmax(0,1.2fr);gap:2.5rem;padding:2rem 0;border-bottom:1px solid var(--rule);color:inherit;text-decoration:none;align-items:center}
 .design-index-row figure{margin:0;background:transparent}

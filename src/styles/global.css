@@ -50,6 +50,7 @@ code{font:400 1rem/1.5rem ui-monospace,monospace;overflow-wrap:anywhere}pre code
 .download{padding:1.5rem 0;border-block:1px solid var(--rule);margin:1.5rem 0 2rem;font:400 1rem/1.5rem var(--ui)}.download>a{font-size:1.1875rem;font-weight:600;display:inline-block;padding:.25rem 0}.download p{margin:.5rem 0 0}.format{font-size:1rem;font-weight:400;margin-left:.5rem;color:var(--secondary)}
 footer{display:flex;gap:1.5rem;flex-wrap:wrap;max-width:calc(70ch + 18rem);margin:0 auto;padding:1.5rem 0 3rem;border-top:1px solid var(--rule)}footer a{padding:.5rem 0;min-height:44px}
 @media(max-width:1250px){body{padding-inline:1.5rem}}
+@media screen and (min-width:1251px){body:not(.homepage):not(.design-index-page){padding-inline:1.5rem}}
 @media(max-width:1100px){.document-grid{display:flex;flex-direction:column;max-width:70ch;gap:2rem}.contents{position:static;max-height:none;width:100%;border-bottom:1px solid var(--rule);padding-bottom:1rem}main{width:100%}.site-header,footer{max-width:70ch}.contents nav{max-height:40vh;overflow:auto;padding:.5rem}.site-header{flex-wrap:wrap;gap:1rem}.identity{flex:1 0 50%}}
 @media(max-width:639px){body{padding-inline:1rem}.document-grid{margin-top:2rem;margin-bottom:3rem}h1{font-size:2rem;line-height:2.375rem}h2{font-size:1.75rem;line-height:2.25rem;margin-top:3rem}.site-header nav{order:3;width:100%;gap:1.5rem}.theme-toggle{margin-left:auto}.site-header{padding-block:1rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}

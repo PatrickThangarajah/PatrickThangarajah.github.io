@@ -56,7 +56,7 @@
       },
       {
         "type": "markdown",
-        "text": "- [GitHub profile](https://github.com/PatrickThangarajah)\n- [HLI binary classification source and documentation](https://github.com/CompBio-Lab/geomx2rna/tree/main/dkd_prediction_using_images)\n- [LS-PrePost Automation for Simulation Setup](/projects/ls-prepost-automation/) includes a sanitized LS-PrePost `.cfile` command structure.\n- [Soft Distensible Bladder Test Platform - UBC Capstone](/projects/bladder-test-platform/) includes a sanitized MATLAB control and data acquisition excerpt.\n---"
+        "text": "- [GitHub profile](https://github.com/PatrickThangarajah)\n- [HLI binary classification source and documentation](https://github.com/CompBio-Lab/geomx2rna/tree/main/dkd_prediction_using_images)\n- [LS-PrePost Automation for Simulation Setup](/projects/ls-prepost-automation/) includes a sanitized LS-PrePost `.cfile` command structure.\n---"
       },
       {
         "type": "heading",
@@ -66,23 +66,6 @@
       {
         "type": "markdown",
         "text": "### 1. Understand the physics\nStart with load paths, boundary conditions, material response, contacts, and the expected physical behavior.\n\n### 2. Validate quantitatively\nUse physical data and objective correlation metrics rather than relying only on visual agreement.\n\n### 3. Turn results into decisions\nUse DOE, scripting, and clear post-processing to convert simulation output into actionable engineering insight.\n\n---"
-      },
-      {
-        "type": "heading",
-        "title": "Downloadable Portfolio",
-        "id": "downloadable-portfolio"
-      },
-      {
-        "type": "markdown",
-        "text": "This eight-page PDF is the concise master version of the portfolio, covering CAE, validation, biomechanics, design, and prototyping. For applications, I use shorter role-focused versions matched to the position."
-      },
-      {
-        "type": "download",
-        "id": "portfolio"
-      },
-      {
-        "type": "markdown",
-        "text": "---"
       },
       {
         "type": "heading",
@@ -109,7 +92,7 @@
       },
       {
         "type": "markdown",
-        "text": "My primary resume is tailored toward **CAE, crash simulation, occupant safety, FEA, and model validation roles**. It summarizes my graduate research, engineering experience, course projects, education, and technical skills.\n- **Location:** Calgary, Alberta, Canada\n- **U.S. work eligibility:** Canadian citizen eligible to work in the United States under TN status\n- **Target areas:** CAE, occupant safety, injury biomechanics, simulation validation, and mechanical product development"
+        "text": "My current resume summarizes my simulation, validation, design, testing, and engineering experience.\n- **Location:** Calgary, Alberta, Canada\n- **U.S. work eligibility:** Canadian citizen eligible to work in the United States under TN status"
       },
       {
         "type": "download",

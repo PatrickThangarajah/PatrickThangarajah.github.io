@@ -4,17 +4,18 @@
     "slug": "fe-validation",
     "section": "Physical Benchmarks",
     "file": "thor5f-positioning-workflow.png",
-    "width": 6421,
-    "height": 3801,
+    "width": 2400,
+    "height": 1420,
     "caption": "Positioning both bench models: measured landmarks for the Rigid Bench, reported test values for the Semi-Rigid Bench.",
     "alt": "Two-row workflow. The Rigid Bench row runs through four stages: a FaroArm wireframe of head, chin, shoulder, wrist, elbow, H-point, knee and heel landmarks; the THOR-5F finite element model matched to that wireframe; a settling pre-simulation; and a check comparing node distances against the wireframe and 3D scans. The Semi-Rigid Bench row aligns the model to reported tilt sensor, lap belt edge and H-point measurements as a single stage, then runs the settling pre-simulation, then compares positioned values with the reported values.",
     "type": "image",
-    "path": "/figures/fe-validation/thor5f-positioning-workflow.png",
+    "path": "/figures/fe-validation/thor5f-positioning-workflow-web.png",
     "route": "/projects/fe-validation/",
     "sourcePage": "Quantitative FE Model Validation | ISO 18571",
     "sourceUrl": "https://app.notion.com/p/3d0604be85e88192a134dbd032049682",
     "provisional": false,
-    "figureNumber": 1
+    "figureNumber": 1,
+    "fullPath": "/figures/fe-validation/thor5f-positioning-workflow.png"
   },
   "G02": {
     "id": "G02",

@@ -6,7 +6,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: portfolio-final-cleanup
+  group: portfolio-final-cleanup-v2
   cancel-in-progress: true
 jobs:
   verify:

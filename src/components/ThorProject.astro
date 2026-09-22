@@ -5,17 +5,18 @@ import Figure from './Figure.astro';
 const {page} = Astro.props;
 const asset = (id:string) => (assets as any)[id];
 ---
+
 <article class="thor-case-study">
   <header class="thor-hero">
     <div class="thor-hero-copy">
-      <p class="eyebrow">Graduate Research</p>
+      <p class="eyebrow">Graduate research</p>
       <h1>{page.title}</h1>
       <p class="thor-lede"><strong>Validated THOR-5F simulation → quantified restraint-geometry effects</strong></p>
       <dl class="thor-metrics" aria-label="Study scope">
         <div><dd>104</dd><dt>LS-DYNA simulations</dt></div>
         <div><dd>4</dd><dt>full-factorial studies</dt></div>
         <div><dd>2</dd><dt>bench configurations</dt></div>
-        <div><dd>0.71</dd><dt>average ISO 18571</dt></div>
+        <div><dd>0.71</dd><dt>average ISO 18571 in each bench</dt></div>
       </dl>
     </div>
     <div class="thor-hero-media"><Figure asset={asset('A01')} number={1} /></div>
@@ -23,8 +24,7 @@ const asset = (id:string) => (assets as any)[id];
 
   <section class="thor-section" id="key-results">
     <div class="thor-section-heading">
-      <p class="eyebrow">Key results</p>
-      <h2>Results at a glance</h2>
+      <h2>Key results</h2>
     </div>
 
     <div class="thor-result-grid">
@@ -36,7 +36,7 @@ const asset = (id:string) => (assets as any)[id];
       <article class="thor-result-card">
         <span class="eyebrow">Validation</span>
         <strong>0.71</strong>
-        <p>average ISO 18571 rating in each bench.</p>
+        <p>average ISO 18571 rating in each benchmark configuration.</p>
       </article>
       <article class="thor-result-card">
         <span class="eyebrow">Pelvis response</span>
@@ -50,9 +50,8 @@ const asset = (id:string) => (assets as any)[id];
       </article>
     </div>
 
-    <div class="thor-result-visuals">
+    <div class="thor-result-visuals thor-result-visuals-single">
       <Figure asset={asset('A05')} number={5} />
-      <Figure asset={asset('A02')} number={2} />
     </div>
 
     <div class="thor-link-row">
@@ -61,55 +60,43 @@ const asset = (id:string) => (assets as any)[id];
     </div>
   </section>
 
-
   <section class="thor-section" id="research-workflow">
     <div class="thor-section-heading">
-      <p class="eyebrow">Research workflow</p>
-      <h2>Physical test → FE validation → anchor-position DOE</h2>
+      <h2>Research workflow</h2>
+      <p>Physical test → FE validation → anchor-position DOE</p>
     </div>
 
     <div class="thor-video-grid thor-video-grid-two">
       <figure class="thor-video-card">
-        <video autoplay muted loop playsinline preload="auto" aria-label="Rigid Bench THOR-5F simulation">
-          <source src="/videos/thorrigidbenchgeneralsim.mp4" type="video/mp4" />
-        </video>
+        <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/thorrigidbenchgeneralsim.mp4" aria-label="Rigid Bench THOR-5F simulation"></video>
         <figcaption><strong>Rigid Bench</strong> · THOR-5F simulation</figcaption>
       </figure>
       <figure class="thor-video-card">
-        <video autoplay muted loop playsinline preload="auto" aria-label="Semi-Rigid Bench THOR-5F simulation">
-          <source src="/videos/THORsemiRIGIDBENCHgeneralsim.mp4" type="video/mp4" />
-        </video>
+        <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THORsemiRIGIDBENCHgeneralsim.mp4" aria-label="Semi-Rigid Bench THOR-5F simulation"></video>
         <figcaption><strong>Semi-Rigid Bench</strong> · THOR-5F simulation</figcaption>
       </figure>
     </div>
 
     <figure class="thor-video-card thor-anchor-video">
-      <video autoplay muted loop playsinline preload="auto" aria-label="THOR-5F anchor location DOE animation">
-        <source src="/videos/THOR_ANCHOR_DOE.mp4" type="video/mp4" />
-      </video>
+      <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THOR_ANCHOR_DOE.mp4" aria-label="THOR-5F anchor location DOE animation"></video>
       <figcaption><strong>Anchor-position DOE</strong> · 104 physically feasible simulations</figcaption>
     </figure>
   </section>
 
   <section class="thor-section" id="anchor-response">
     <div class="thor-section-heading">
-      <p class="eyebrow">Anchor response</p>
-      <h2>See the restraint-geometry effects</h2>
+      <h2>Anchor response</h2>
     </div>
 
     <div class="comparison-group">
       <h3>Shoulder anchor · fore/aft</h3>
       <div class="comparison-video-grid">
         <figure>
-          <video autoplay muted loop playsinline preload="auto" aria-label="Rigid Bench shoulder anchor fore-aft comparison">
-            <source src="/videos/THOR_RIGID_BENCH_SHOULDER_FOREAFTCOMPARISON.mp4" type="video/mp4" />
-          </video>
+          <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THOR_RIGID_BENCH_SHOULDER_FOREAFTCOMPARISON.mp4" aria-label="Rigid Bench shoulder anchor fore-aft comparison"></video>
           <figcaption>Rigid Bench</figcaption>
         </figure>
         <figure>
-          <video autoplay muted loop playsinline preload="auto" aria-label="Semi-Rigid Bench shoulder anchor fore-aft comparison">
-            <source src="/videos/THOR_SEMIRIGID_BENCH_SHOULDER_FOREAFTCOMPARISON.mp4" type="video/mp4" />
-          </video>
+          <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THOR_SEMIRIGID_BENCH_SHOULDER_FOREAFTCOMPARISON.mp4" aria-label="Semi-Rigid Bench shoulder anchor fore-aft comparison"></video>
           <figcaption>Semi-Rigid Bench</figcaption>
         </figure>
       </div>
@@ -119,15 +106,11 @@ const asset = (id:string) => (assets as any)[id];
       <h3>Shoulder anchor · inboard/outboard</h3>
       <div class="comparison-video-grid">
         <figure>
-          <video autoplay muted loop playsinline preload="auto" aria-label="Rigid Bench shoulder anchor inboard-outboard comparison">
-            <source src="/videos/THOR_RIGID_BENCH_SHOULDER_INBOARDOUTBOARDCOMPARISON.mp4" type="video/mp4" />
-          </video>
+          <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THOR_RIGID_BENCH_SHOULDER_INBOARDOUTBOARDCOMPARISON.mp4" aria-label="Rigid Bench shoulder anchor inboard-outboard comparison"></video>
           <figcaption>Rigid Bench</figcaption>
         </figure>
         <figure>
-          <video autoplay muted loop playsinline preload="auto" aria-label="Semi-Rigid Bench shoulder anchor inboard-outboard comparison">
-            <source src="/videos/THOR_SEMIRIGID_BENCH_SHOULDER_INBOARDOUTBOARDCOMPARISON.mp4" type="video/mp4" />
-          </video>
+          <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THOR_SEMIRIGID_BENCH_SHOULDER_INBOARDOUTBOARDCOMPARISON.mp4" aria-label="Semi-Rigid Bench shoulder anchor inboard-outboard comparison"></video>
           <figcaption>Semi-Rigid Bench</figcaption>
         </figure>
       </div>
@@ -136,8 +119,7 @@ const asset = (id:string) => (assets as any)[id];
 
   <section class="thor-section" id="engineering-interpretation">
     <div class="thor-section-heading">
-      <p class="eyebrow">Engineering interpretation</p>
-      <h2>What changed and why</h2>
+      <h2>Engineering interpretation</h2>
     </div>
     <div class="interpretation-grid thor-interpretation-compact">
       <article><span>01</span><h3>Rearward shoulder anchor</h3><p>Earlier torso engagement and more gradual load transfer.</p></article>
@@ -154,57 +136,42 @@ const asset = (id:string) => (assets as any)[id];
 
 <script is:inline>
   (() => {
-    const videos = Array.from(document.querySelectorAll('.thor-case-study video'));
-
+    const videos = Array.from(document.querySelectorAll('.thor-case-study .viewport-video'));
     const prepare = (video) => {
+      if (!video.querySelector('source')) {
+        const source = document.createElement('source');
+        source.src = video.dataset.src;
+        source.type = 'video/mp4';
+        video.appendChild(source);
+        video.load();
+      }
       video.muted = true;
       video.defaultMuted = true;
       video.loop = true;
       video.playsInline = true;
-      video.setAttribute('muted', '');
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
+      video.setAttribute('muted','');
+      video.setAttribute('playsinline','');
     };
-
     const play = (video) => {
       prepare(video);
       const attempt = video.play();
       if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
     };
-
-    videos.forEach((video) => {
-      prepare(video);
-      if (video.readyState >= 2) play(video);
-      else {
-        video.addEventListener('loadeddata', () => play(video), { once: true });
-        video.addEventListener('canplay', () => play(video), { once: true });
-      }
-    });
-
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target;
-          if (entry.isIntersecting) play(video);
-          else video.pause();
-        });
-      }, { rootMargin: '200px 0px', threshold: 0.01 });
-
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) play(video);
+        else video.pause();
+      }), {rootMargin:'300px 0px', threshold:0.01});
       videos.forEach((video) => observer.observe(video));
+    } else {
+      videos.forEach(play);
     }
-
-    const replayVisible = () => {
-      videos.forEach((video) => {
-        const rect = video.getBoundingClientRect();
-        if (rect.bottom >= -200 && rect.top <= window.innerHeight + 200) play(video);
-      });
-    };
-
     document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) replayVisible();
+      if (!document.hidden) videos.forEach((video) => {
+        const rect = video.getBoundingClientRect();
+        if (rect.bottom >= -300 && rect.top <= innerHeight + 300) play(video);
+      });
     });
-    window.addEventListener('pageshow', replayVisible);
-    document.addEventListener('touchstart', replayVisible, { once: true, passive: true });
-    document.addEventListener('pointerdown', replayVisible, { once: true, passive: true });
   })();
 </script>

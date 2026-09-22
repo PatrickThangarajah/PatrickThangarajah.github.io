@@ -599,24 +599,6 @@
     "relationship": "Existing Notion figure.",
     "figureNumber": 3
   },
-  "A33": {
-    "id": "A33",
-    "type": "image",
-    "slug": "kidney-tissue-classification",
-    "file": "HLI_neural_network_performance_crop.png",
-    "path": "/figures/kidney-tissue-classification/HLI_neural_network_performance_crop.png",
-    "caption": "Neural network performance: GeoMx and H&E comparison, cropped from the team project's methods and results figure.",
-    "alt": "Bar chart comparing neural network performance (AUC, TPR, FPR, and accuracy) between GeoMx and H&E data, cropped from the team poster results.",
-    "width": 272,
-    "height": 207,
-    "route": "/projects/kidney-tissue-classification/",
-    "sourcePage": "Kidney Tissue Classification Using Deep Learning - HLI Summer Research",
-    "sourceUrl": "https://app.notion.com/p/3d8604be85e881a29df8db3493c528d9",
-    "section": "Homepage index figure",
-    "provisional": false,
-    "relationship": "Mechanical crop of A28 (HLI_methods_results.png), isolating the Neural Network Performance chart for homepage presentation. Used on the homepage only; the project detail page continues to use A28.",
-    "figureNumber": null
-  },
   "A34": {
     "id": "A34",
     "type": "image",

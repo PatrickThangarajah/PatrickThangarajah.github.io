@@ -30,7 +30,7 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
     </div>
     <aside class="hero-feature" aria-labelledby="flagship-title">
       <div class="hero-feature-media">
-        <a href="/projects/thor-5f/" aria-label="Open THOR-5F rear-seat occupant safety case study">
+        <a href="/projects/thor-5f/">
           <img src={(assets as any).A01.path} alt={(assets as any).A01.alt} width={(assets as any).A01.width} height={(assets as any).A01.height} decoding="async" />
         </a>
       </div>
@@ -50,7 +50,7 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
 <section id="selected-work" class="home-section" aria-labelledby="work-title">
   <div class="section-heading"><p class="eyebrow">01 / Work</p><h2 id="work-title">Selected work</h2><span class="fringe-rule" aria-hidden="true"></span></div>
   <p class="work-meta">CAE / FEA · Design / Test · Biomechanics</p>
-  <div class="gallery-grid">{secondary.map((c,i)=>{const a=(assets as any)[c.asset];const n=String(i+1).padStart(2,'0');return <a class:list={["gallery-item",{"placeholder-media":isPlaceholder(a.path)}]} href={`/projects/${c.slug}/`} aria-label={`${isPlaceholder(a.path)?'Figure pending. ':''}Explore ${c.title}`} style={`--stagger:${i%3*60}ms`}>
+  <div class="gallery-grid">{secondary.map((c,i)=>{const a=(assets as any)[c.asset];const n=String(i+1).padStart(2,'0');return <a class:list={["gallery-item",{"placeholder-media":isPlaceholder(a.path)}]} href={`/projects/${c.slug}/`} style={`--stagger:${i%3*60}ms`}>
     <figure class="gallery-figure"><span class="gallery-frame"><img src={a.path} alt={isPlaceholder(a.path)?'Placeholder for: '+a.alt:a.alt} width={a.width} height={a.height} loading="lazy" decoding="async" />{isPlaceholder(a.path)&&<span class="media-label">Figure pending</span>}</span><figcaption class="fig-caption"><span class="fig-tag">FIG. {n}</span></figcaption></figure>
     <div class="gallery-copy"><p class="eyebrow">{c.tags}</p><h3>{c.title}</h3><p>{c.copy}</p>{c.metrics.length>0&&<p class="gallery-metric"><strong>{c.metrics[0][0]}</strong> {c.metrics[0][1]}</p>}</div>
   </a>;})}</div>

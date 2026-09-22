@@ -8,10 +8,15 @@ const pcbFullPath = '/figures/bladder-test-platform/echoscope-simba-pcb-v4-1.png
 
 <article class="case-study bladder-case">
   <header class="case-hero">
-    <p class="case-eyebrow">MECH 45X capstone · September 2022 to April 2023</p>
-    <h1>Soft distensible bladder test platform</h1>
-    <p class="case-lede">We designed and built a benchtop platform that reproduced bladder filling, ureteric jetting, external pressurisation, and voiding so the client could test an ultrasound-based bladder-monitoring device.</p>
-    <p class="case-role">Four-person UBC Mechanical Engineering capstone for Echoscope. <strong>My main responsibility was sensing, control, and data acquisition.</strong></p>
+    <div class="bladder-hero-content">
+      <div class="bladder-hero-copy">
+        <p class="case-eyebrow">MECH 45X capstone · September 2022 to April 2023</p>
+        <h1>Soft distensible bladder test platform</h1>
+        <p class="case-lede">We designed and built a benchtop platform that reproduced bladder filling, ureteric jetting, external pressurisation, and voiding so the client could test an ultrasound-based bladder-monitoring device.</p>
+        <p class="case-role">Four-person UBC Mechanical Engineering capstone for Echoscope. My main responsibility was sensing, control, and data acquisition.</p>
+      </div>
+      <div class="case-hero-figure"><Figure asset={(assets as any).A34} number={1} /></div>
+    </div>
 
     <div class="case-metrics bladder-metrics">
       <div><strong class="validation-metric-value">4 of 4</strong><span class="validation-metric-label">Requirements met</span><p>Flow rate, curve error, voiding pressure, chamber size</p></div>
@@ -19,8 +24,6 @@ const pcbFullPath = '/figures/bladder-test-platform/echoscope-simba-pcb-v4-1.png
       <div><strong class="validation-metric-value">24.3%</strong><span class="validation-metric-label">Pressure-volume curve error</span><p>Maximum allowed: 60%</p></div>
       <div><strong class="validation-metric-value">5 / 5</strong><span class="validation-metric-label">Overall function</span><p>Client rating</p></div>
     </div>
-
-    <div class="case-hero-figure"><Figure asset={(assets as any).A34} number={1} /></div>
   </header>
 
   <section class="case-section" id="platform-functions">
@@ -138,3 +141,12 @@ const pcbFullPath = '/figures/bladder-test-platform/echoscope-simba-pcb-v4-1.png
     <p class="sharing-boundary">Only non-confidential project material is shown. Detailed design files, source code, and client-confidential information are omitted.</p>
   </section>
 </article>
+
+<style>
+  .bladder-hero-content { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:2.5rem; align-items:center; }
+  .bladder-hero-copy { min-width:0; }
+  .bladder-hero-content .case-hero-figure { margin:0; min-width:0; }
+  @media (max-width: 800px) {
+    .bladder-hero-content { grid-template-columns:1fr; gap:1.5rem; }
+  }
+</style>

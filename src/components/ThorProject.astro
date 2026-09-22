@@ -11,7 +11,7 @@ const asset = (id:string) => (assets as any)[id];
     <div class="thor-hero-copy">
       <p class="eyebrow">Graduate research</p>
       <h1>{page.title}</h1>
-      <p class="thor-lede"><strong>Validated THOR-5F simulation → quantified restraint-geometry effects</strong></p>
+      <p class="thor-lede">Validated THOR-5F simulation → quantified restraint-geometry effects</p>
       <dl class="thor-metrics" aria-label="Study scope">
         <div><dd>104</dd><dt>LS-DYNA simulations</dt></div>
         <div><dd>4</dd><dt>full-factorial studies</dt></div>
@@ -29,9 +29,9 @@ const asset = (id:string) => (assets as any)[id];
 
     <div class="thor-result-grid">
       <article class="thor-result-card">
-        <span class="eyebrow">Chest response</span>
+        <span class="eyebrow">Shoulder-anchor chest response</span>
         <strong>17% / 16%</strong>
-        <p>below the Rigid / Semi-Rigid Bench study averages.</p>
+        <p>The lowest observed rearward/inboard shoulder-anchor configurations produced peak chest deflection 17% and 16% below the Rigid and Semi-Rigid Bench study averages, respectively.</p>
       </article>
       <article class="thor-result-card">
         <span class="eyebrow">Validation</span>
@@ -90,6 +90,11 @@ const asset = (id:string) => (assets as any)[id];
 
     <div class="comparison-group">
       <h3>Shoulder anchor · fore/aft</h3>
+      <ul class="anchor-legend" aria-label="fore/aft video colors">
+        <li><span class="anchor-swatch" style="--swatch:#000000" aria-hidden="true"></span>Forward</li>
+        <li><span class="anchor-swatch" style="--swatch:#9f9f9f" aria-hidden="true"></span>Midpoint</li>
+        <li><span class="anchor-swatch" style="--swatch:#92a1af" aria-hidden="true"></span>Rearward</li>
+      </ul>
       <div class="comparison-video-grid">
         <figure>
           <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THOR_RIGID_BENCH_SHOULDER_FOREAFTCOMPARISON.mp4" aria-label="Rigid Bench shoulder anchor fore-aft comparison"></video>
@@ -104,6 +109,11 @@ const asset = (id:string) => (assets as any)[id];
 
     <div class="comparison-group">
       <h3>Shoulder anchor · inboard/outboard</h3>
+      <ul class="anchor-legend" aria-label="inboard/outboard video colors">
+        <li><span class="anchor-swatch" style="--swatch:#adaa07" aria-hidden="true"></span>Inboard</li>
+        <li><span class="anchor-swatch" style="--swatch:#9f9f9f" aria-hidden="true"></span>Midpoint</li>
+        <li><span class="anchor-swatch" style="--swatch:#ba9cab" aria-hidden="true"></span>Outboard</li>
+      </ul>
       <div class="comparison-video-grid">
         <figure>
           <video class="viewport-video" muted loop playsinline preload="none" data-src="/videos/THOR_RIGID_BENCH_SHOULDER_INBOARDOUTBOARDCOMPARISON.mp4" aria-label="Rigid Bench shoulder anchor inboard-outboard comparison"></video>
@@ -175,3 +185,9 @@ const asset = (id:string) => (assets as any)[id];
     });
   })();
 </script>
+
+<style>
+  .anchor-legend { display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; list-style:none; padding:0; margin:0 0 1rem; font:400 1rem/1.4 var(--ui); color:var(--ink); }
+  .anchor-legend li { display:flex; align-items:center; gap:.45rem; margin:0; }
+  .anchor-swatch { width:.75rem; height:.75rem; flex:none; background:var(--swatch); border:1px solid var(--secondary); }
+</style>

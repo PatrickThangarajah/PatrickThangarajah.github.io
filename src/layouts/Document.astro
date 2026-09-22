@@ -106,7 +106,7 @@ const excerpt=(text:string,max=180)=>{
 const description=home ? 'MASc graduate in Mechanical and Mechatronics Engineering with experience in LS-DYNA, FE model validation, and occupant safety.' : excerpt(firstMarkdown);
 const firstAssetBlock=page.blocks.find((b:any)=>b.type==='asset');
 const socialAsset:any=home ? (assets as any).A01 : firstAssetBlock ? (assets as any)[firstAssetBlock.id] : (assets as any).A01;
-const socialImage=socialAsset?.path ? new URL(socialAsset.path,Astro.site) : undefined;
+const socialImage=home ? new URL('/social/portfolio-preview.png',Astro.site) : socialAsset?.path ? new URL(socialAsset.path,Astro.site) : undefined;
 const groupProjectSlugs=[];
 const contributionIndex=groupProjectSlugs.includes(page.slug) ? page.blocks.findIndex((b:any)=>b.type==='heading'&&(b.title==='My Individual Contribution'||b.title==='My Contribution')) : -1;
 const contributionHeading=contributionIndex>=0 ? page.blocks[contributionIndex] : null;
@@ -125,6 +125,7 @@ const displayTitle=page.slug==='kidney-tissue-classification' ? 'Kidney Tissue C
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     {socialImage && <meta property="og:image" content={socialImage} />}
+    {home && <><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:type" content="image/png" /></>}
     {socialAsset?.alt && <meta property="og:image:alt" content={socialAsset.alt} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={page.title} />

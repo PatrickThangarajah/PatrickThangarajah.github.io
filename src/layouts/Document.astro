@@ -21,7 +21,9 @@ import DesignResearchIndex from '../components/DesignResearchIndex.astro';
 const {page} = Astro.props;
 const home=!page.slug;
 const headings = page.slug==='thor-5f' ? [
+  {id:'executive-summary',title:'Executive Summary'},
   {id:'key-results',title:'Key Results'},
+  {id:'challenges',title:'Challenges'},
   {id:'research-workflow',title:'Research Workflow'},
   {id:'anchor-response',title:'Anchor Response'},
   {id:'engineering-interpretation',title:'Engineering Interpretation'}

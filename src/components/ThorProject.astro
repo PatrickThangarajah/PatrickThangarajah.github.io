@@ -11,7 +11,7 @@ const asset = (id:string) => (assets as any)[id];
     <div class="thor-hero-copy">
       <p class="eyebrow">Graduate research</p>
       <h1>{page.title}</h1>
-      <p class="thor-lede">Validated THOR-5F simulation → quantified restraint-geometry effects</p>
+      <p class="thor-lede">How seat belt attachment points affect rear-seat passenger safety</p>
       <dl class="thor-metrics" aria-label="Study scope">
         <div><dd>104</dd><dt>LS-DYNA simulations</dt></div>
         <div><dd>4</dd><dt>full-factorial studies</dt></div>
@@ -21,6 +21,16 @@ const asset = (id:string) => (assets as any)[id];
     </div>
     <div class="thor-hero-media"><Figure asset={asset('A01')} number={1} /></div>
   </header>
+
+  <section class="thor-section thor-summary" id="executive-summary" aria-labelledby="executive-summary-heading">
+    <div class="thor-section-heading">
+      <h2 id="executive-summary-heading">Executive summary</h2>
+    </div>
+    <div class="thor-summary-copy">
+      <p>My master's research looked at how seat belt attachment points affect the way a smaller passenger moves and is loaded in a frontal crash. I used a computer model of THOR-5F, a crash-test dummy representing a small adult woman, and compared its response with physical crash tests before studying changes to the belt layout.</p>
+      <p>Across 104 simulations, I found that moving the shoulder belt attachment rearward and toward the centre of the seat reduced peak chest compression by about 16–17% compared with the study averages. This showed how belt geometry can help guide safer restraint design, while also showing that anchor position alone was not enough to address the high predicted injury risks.</p>
+    </div>
+  </section>
 
   <section class="thor-section" id="key-results">
     <div class="thor-section-heading">
@@ -58,6 +68,17 @@ const asset = (id:string) => (assets as any)[id];
       <a class="text-link" href="/projects/fe-validation/">FE model validation →</a>
       <a class="text-link" href="/projects/ls-prepost-automation/">LS-PrePost automation →</a>
     </div>
+  </section>
+
+  <section class="thor-section thor-challenges" id="challenges" aria-labelledby="challenges-heading">
+    <div class="thor-section-heading">
+      <h2 id="challenges-heading">Challenges and how I addressed them</h2>
+    </div>
+    <ul class="thor-challenge-list">
+      <li><strong>Matching the physical tests.</strong> I matched the initial posture and belt setup, then compared forces, accelerations, chest compression and body motion. I documented where the model differed so the overall agreement did not hide local limitations.</li>
+      <li><strong>Repeating belt setup across the study.</strong> Each anchor position required a new belt fit. I used an LS-PrePost command file to handle repetitive cleanup and saving, reducing the manual workflow from seven steps to four.</li>
+      <li><strong>Understanding why the results changed.</strong> Moving an anchor in one direction could change the effect of another. I used statistical analysis alongside the simulated body motion and belt paths to explain these interactions.</li>
+    </ul>
   </section>
 
   <section class="thor-section" id="research-workflow">
@@ -187,6 +208,10 @@ const asset = (id:string) => (assets as any)[id];
 </script>
 
 <style>
+  .thor-summary-copy, .thor-challenge-list { max-width:72ch; font:400 1.0625rem/1.7 var(--ui); }
+  .thor-summary-copy p + p { margin-top:1rem; }
+  .thor-challenge-list { padding-left:1.25rem; margin:0; }
+  .thor-challenge-list li + li { margin-top:1rem; }
   .anchor-legend { display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; list-style:none; padding:0; margin:0 0 1rem; font:400 1rem/1.4 var(--ui); color:var(--ink); }
   .anchor-legend li { display:flex; align-items:center; gap:.45rem; margin:0; }
   .anchor-swatch { width:.75rem; height:.75rem; flex:none; background:var(--swatch); border:1px solid var(--secondary); }

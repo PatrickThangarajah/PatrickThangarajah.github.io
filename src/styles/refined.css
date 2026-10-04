@@ -274,7 +274,8 @@
 
 
 /* Final homepage cleanup. */
-.home-hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(24rem,.95fr);gap:3rem}
+/* Equal desktop columns let the research card align with the full hero copy. */
+.home-hero-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:3rem;align-items:stretch}
 .hero-feature{display:grid;grid-template-columns:minmax(8rem,.78fr) minmax(0,1.22fr);gap:1.5rem;align-items:center}
 .hero-feature-media{min-width:0}
 .hero-feature-media a{display:block}

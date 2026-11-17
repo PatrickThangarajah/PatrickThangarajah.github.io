@@ -1,8 +1,8 @@
 /* Presentation polish layer. Loaded last. Styling only: no wording, figures, links or data change here.
-   Scope: the homepage (body.homepage), plus focus, selection and text-wrapping rules that are safe everywhere.
-   Project pages are deliberately untouched in this pass because they could not be checked visually.
-   Goals: a quieter header, one consistent figure plate, clearer project cards, aligned toolkit rows,
-   visible focus states, clear open and close affordances. Screen only, so print is untouched. */
+   Scope: site chrome (header, footer, focus, selection) on every page, the homepage (body.homepage),
+   and every project page (body:not(.homepage)). Screen only, so print is untouched.
+   Goals: one header and footer, one figure plate, one contents rail, one table style, one callout style,
+   visible focus states, and the same light and dark tokens everywhere. */
 
 @media screen{
 
@@ -21,21 +21,21 @@ html :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-ra
 html .homepage main a:not(.button-link):not(.gallery-item):not(.figure-link){text-underline-offset:.2em;text-decoration-thickness:1px}
 
 /* ---------- Header ---------- */
-html .homepage .site-header{padding-block:.875rem;align-items:center;gap:1rem}
-html .homepage .site-header .identity{font:600 1.0625rem/1.5rem var(--ui)!important;letter-spacing:0}
-html .homepage .site-header .role-line{display:block;margin-top:.0625rem;font:400 .8125rem/1.125rem var(--ui);font-style:normal;letter-spacing:.01em;color:var(--secondary)}
-html .homepage .site-header nav{gap:1.75rem}
-html .homepage .site-header nav a{font:500 .9375rem/1.5rem var(--ui);color:var(--secondary);text-decoration:none;transition:color 140ms var(--ease)}
-html .homepage .site-header nav a:hover{color:var(--ink);text-decoration:none}
-html .homepage .site-header nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -2px var(--accent)}
-html .homepage .site-header .theme-toggle,
-html .homepage .site-header .menu-toggle{
+html .site-header{padding-block:.875rem;align-items:center;gap:1rem}
+html .site-header .identity{font:600 1.0625rem/1.5rem var(--ui)!important;letter-spacing:0}
+html .site-header .role-line{display:block;margin-top:.0625rem;font:400 .8125rem/1.125rem var(--ui);font-style:normal;letter-spacing:.01em;color:var(--secondary)}
+html .site-header nav{gap:1.75rem}
+html .site-header nav a{font:500 .9375rem/1.5rem var(--ui);color:var(--secondary);text-decoration:none;transition:color 140ms var(--ease)}
+html .site-header nav a:hover{color:var(--ink);text-decoration:none}
+html .site-header nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -2px var(--accent)}
+html .site-header .theme-toggle,
+html .site-header .menu-toggle{
   min-height:44px;padding:.375rem .875rem;border:1px solid var(--rule);border-radius:999px;background:transparent;
   font:500 .875rem/1.25rem var(--ui);color:var(--secondary);cursor:pointer;
   transition:color 140ms var(--ease),border-color 140ms var(--ease);
 }
-html .homepage .site-header .theme-toggle:hover,
-html .homepage .site-header .menu-toggle:hover{color:var(--ink);border-color:var(--secondary)}
+html .site-header .theme-toggle:hover,
+html .site-header .menu-toggle:hover{color:var(--ink);border-color:var(--secondary)}
 
 /* ---------- Type rhythm ---------- */
 html .homepage h1,html .homepage h2,html .homepage h3{text-wrap:balance}
@@ -111,22 +111,126 @@ html .homepage .download-grid>*{border-radius:var(--radius-lg);transition:border
 html .homepage .download-grid>*:hover{border-color:var(--secondary)}
 
 /* ---------- Footer ---------- */
-html .homepage footer{align-items:center;gap:1.5rem}
-html .homepage footer a{font:400 .875rem/1.25rem var(--ui);color:var(--secondary);text-decoration:none}
-html .homepage footer a:hover{color:var(--ink);text-decoration:underline}
-html .homepage footer a:last-child{margin-left:auto}
+html body>footer{align-items:center;gap:1.5rem}
+html body>footer a{font:400 .875rem/1.25rem var(--ui);color:var(--secondary);text-decoration:none}
+html body>footer a:hover{color:var(--ink);text-decoration:underline}
+html body>footer a:last-child{margin-left:auto}
 
 /* ---------- Small screens ---------- */
 @media(max-width:639px){
-  html .homepage .site-header{padding-block:.625rem;gap:.5rem}
-  html .homepage .site-header .identity{font-size:1rem!important}
-  html .homepage .site-header .role-line{font-size:.75rem;line-height:1rem;white-space:nowrap}
-  html .homepage .site-header .theme-toggle,html .homepage .site-header .menu-toggle{padding:.375rem .75rem;font-size:.8125rem}
+  html .site-header{padding-block:.625rem;gap:.5rem}
+  html .site-header .identity{font-size:1rem!important}
+  html .site-header .role-line{font-size:.75rem;line-height:1rem;white-space:nowrap}
+  html .site-header .theme-toggle,html .site-header .menu-toggle{padding:.375rem .75rem;font-size:.8125rem}
   html .homepage .hero-feature{padding:1rem}
   html .homepage .gallery-grid{gap:1rem}
   html .homepage .gallery-item{padding:.875rem .875rem 1.125rem}
   html .homepage .toolkit-tags>div{grid-template-columns:1fr;gap:.25rem}
-  html .homepage footer{flex-wrap:wrap;gap:.75rem 1.25rem}
+  html body>footer{flex-wrap:wrap;gap:.75rem 1.25rem}
+}
+
+/* =====================================================================================
+   Project pages. Everything below is scoped to body:not(.homepage).
+   ===================================================================================== */
+
+/* ---------- Type ---------- */
+html body:not(.homepage) h1,html body:not(.homepage) h2,html body:not(.homepage) h3{text-wrap:balance}
+html body:not(.homepage) main p,html body:not(.homepage) main li,html body:not(.homepage) figcaption{text-wrap:pretty}
+html body:not(.homepage) main h1{letter-spacing:-.02em}
+html body:not(.homepage) main h2{letter-spacing:-.012em}
+html body:not(.homepage) main :is(dd,strong,td,th,.finding-value,.validation-metric-value,.procedure-stat){font-variant-numeric:tabular-nums lining-nums}
+html body:not(.homepage) main :is(.eyebrow,.case-eyebrow,.figure-kicker){
+  font:500 .75rem/1.25rem ui-monospace,'SF Mono','Cascadia Code',Consolas,monospace;letter-spacing:.04em;color:var(--accent);
+}
+html body:not(.homepage) main a:not(.figure-link):not(.back-link):not(.design-index-row):not(.text-link){text-underline-offset:.2em;text-decoration-thickness:1px}
+html body:not(.homepage) main code{padding:.1em .35em;border:1px solid var(--rule);border-radius:.25rem;background:var(--surface);font-size:.875em}
+html body:not(.homepage) main pre code{padding:0;border:0;background:none;font-size:inherit}
+html body:not(.homepage) main pre{border-radius:var(--radius)}
+
+/* ---------- Back link ---------- */
+html body:not(.homepage) .back-link{
+  display:inline-flex;align-items:center;gap:.5rem;min-height:44px;margin-bottom:1rem;padding:.25rem 0;
+  font:500 .9375rem/1.5rem var(--ui);color:var(--secondary);text-decoration:none;transition:color 140ms var(--ease);
+}
+html body:not(.homepage) .back-link::before{content:'\2190';display:inline-block;transition:transform 160ms var(--ease)}
+html body:not(.homepage) .back-link:hover{color:var(--accent)}
+@media(prefers-reduced-motion:no-preference){html body:not(.homepage) .back-link:hover::before{transform:translateX(-3px)}}
+
+/* ---------- Contents rail ---------- */
+html body:not(.homepage) .contents{font:400 .9375rem/1.375rem var(--ui)}
+html body:not(.homepage) .contents summary{
+  list-style:none;padding:0 0 .75rem;font:500 .75rem/1.25rem ui-monospace,'SF Mono','Cascadia Code',Consolas,monospace;
+  letter-spacing:.04em;color:var(--secondary);
+}
+html body:not(.homepage) .contents summary::-webkit-details-marker{display:none}
+html body:not(.homepage) .contents ol{border-left:1px solid var(--rule)}
+html body:not(.homepage) .contents a{
+  margin-left:-1px;padding:.4375rem 0 .4375rem .875rem;border-left:2px solid transparent;
+  transition:color 140ms var(--ease),border-color 140ms var(--ease);
+}
+html body:not(.homepage) .contents a:hover{color:var(--ink);text-decoration:none;border-left-color:var(--secondary)}
+html body:not(.homepage) .contents a[aria-current]{color:var(--accent);border-left-color:var(--accent);font-weight:600}
+@media(max-width:1100px){
+  html body:not(.homepage) .contents{padding:0;border:1px solid var(--rule);border-radius:var(--radius);background:var(--surface)}
+  html body:not(.homepage) .contents summary{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:.625rem 1rem;cursor:pointer}
+  html body:not(.homepage) .contents summary::after{content:'';width:.5rem;height:.5rem;border-right:1.5px solid var(--secondary);border-bottom:1.5px solid var(--secondary);transform:rotate(45deg) translateY(-25%);transition:transform 160ms var(--ease)}
+  html body:not(.homepage) .contents details[open] summary::after{transform:rotate(-135deg) translateY(-25%)}
+  html body:not(.homepage) .contents nav{padding:0 1rem 1rem}
+  html body:not(.homepage) .contents a{min-height:44px;display:flex;align-items:center}
+}
+
+/* ---------- Figures: one plate everywhere ---------- */
+html body:not(.homepage) figure .figure-link{
+  display:block;padding:.75rem;background:var(--plate)!important;border:1px solid var(--plate-edge)!important;border-radius:var(--radius);
+  overflow:hidden;cursor:zoom-in;transition:border-color 160ms var(--ease),box-shadow 160ms var(--ease);
+}
+html body:not(.homepage) figure .figure-link img{display:block;border:0!important;background:transparent;border-radius:calc(var(--radius) - .25rem)}
+html body:not(.homepage) figure .figure-link:hover{border-color:var(--accent)!important;box-shadow:var(--lift)}
+html body:not(.homepage) figcaption{font:400 .9375rem/1.45rem var(--ui);color:var(--secondary)}
+html body:not(.homepage) .figure-number{color:var(--accent);font-weight:600;letter-spacing:.01em}
+html body:not(.homepage) :is(.thor-video-card,.comparison-video-grid>figure,.doe-animation,.local-video){border-radius:var(--radius);overflow:hidden}
+html body:not(.homepage) .design-index-row figure{border-radius:var(--radius);overflow:hidden;border:1px solid var(--plate-edge);background:var(--plate)}
+
+/* ---------- Section headings that have a strapline but no eyebrow: stack, so the two never collide ---------- */
+html body:not(.homepage) .thor-section-heading:not(:has(.eyebrow)){grid-template-columns:1fr;gap:.5rem}
+html body:not(.homepage) .thor-section-heading:not(:has(.eyebrow))>p:last-child{grid-column:1;margin:0}
+
+/* ---------- Three-up difference list: each item stacks its label over its text instead of splitting a narrow column ---------- */
+html body:not(.homepage) .compact-difference-list article{display:block;padding-bottom:0;border-bottom:0}
+
+/* ---------- Tables ---------- */
+html body:not(.homepage) main table{font-size:1rem;line-height:1.5rem}
+html body:not(.homepage) main thead th{
+  font:600 .875rem/1.25rem var(--ui);letter-spacing:.02em;color:var(--secondary);
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--ink);
+}
+html body:not(.homepage) main tbody tr{transition:background-color 120ms var(--ease)}
+html body:not(.homepage) main tbody tr:hover{background:var(--surface)}
+html body:not(.homepage) main :is(.wide-content,.table-wrap):focus-visible{outline-offset:2px}
+
+/* ---------- Callouts and boundaries ---------- */
+html body:not(.homepage) main :is(.boundary-callout,.limitation-note,.measurement-note,.validation-question-note,.result-interpretation){
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+html body:not(.homepage) main .sharing-boundary{color:var(--secondary)}
+
+/* ---------- Links with arrows, and the design index rows ---------- */
+html body:not(.homepage) .text-link{text-decoration:none;font-weight:600;transition:color 140ms var(--ease)}
+html body:not(.homepage) a.text-link:hover{text-decoration:underline;text-underline-offset:.2em}
+html body:not(.homepage) .design-index-row{transition:background-color 160ms var(--ease)}
+html body:not(.homepage) .design-index-row:hover{background:var(--surface)}
+html body:not(.homepage) .design-index-row:hover h3{color:var(--accent)}
+html body:not(.homepage) .design-index-row h3{transition:color 140ms var(--ease)}
+
+/* ---------- Disclosures ---------- */
+html body:not(.homepage) main details:not(.contents details)>summary{cursor:pointer;min-height:44px;transition:color 140ms var(--ease)}
+html body:not(.homepage) main details:not(.contents details)>summary:hover{color:var(--accent)}
+
+/* ---------- Small screens ---------- */
+@media(max-width:639px){
+  html body:not(.homepage) figure .figure-link{padding:.5rem}
+  html body:not(.homepage) figcaption{font-size:.875rem;line-height:1.375rem}
+  html body:not(.homepage) main table{font-size:.9375rem}
 }
 
 }

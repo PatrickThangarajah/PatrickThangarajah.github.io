@@ -47,11 +47,12 @@ html .button-link{border-radius:var(--radius);font-weight:600;transition:opacity
 html .secondary-button:hover{opacity:1;border-color:var(--secondary)}
 
 /* ---------- Figure plates: every engineering figure sits on the same light plate ---------- */
+/* Earlier passes cleared frames with !important, so the plate has to answer in kind. */
 html main figure .figure-link{
-  display:block;background:var(--plate);border:1px solid var(--plate-edge);border-radius:var(--radius);overflow:hidden;
+  display:block;background:var(--plate)!important;border:1px solid var(--plate-edge)!important;border-radius:var(--radius)!important;overflow:hidden;
   transition:border-color 140ms var(--ease);
 }
-html main figure .figure-link:hover{border-color:var(--secondary)}
+html main figure .figure-link:hover{border-color:var(--secondary)!important}
 html main figure .figure-link img{display:block;width:100%;height:auto;background:var(--plate)}
 html main figure figcaption{margin-top:.75rem;font:400 .9375rem/1.45rem var(--ui);color:var(--secondary)}
 html main figure figcaption .figure-number{font-weight:600;color:var(--ink)}
@@ -62,7 +63,7 @@ html .hero-feature{
   padding:1.25rem;border:1px solid var(--rule);border-radius:var(--radius-lg);background:var(--surface);
   align-items:center;
 }
-html .hero-feature-media{background:var(--plate);border:1px solid var(--plate-edge);border-radius:var(--radius);overflow:hidden}
+html .hero-feature-media{background:var(--plate)!important;border:1px solid var(--plate-edge)!important;border-radius:var(--radius)!important;overflow:hidden}
 html .hero-feature-media img{display:block;width:100%;height:auto}
 html .hero-feature-copy h2 a{text-decoration:none;color:var(--ink)}
 html .hero-feature-copy h2 a:hover{color:var(--accent)}
@@ -79,13 +80,14 @@ html .gallery-item:hover{border-color:var(--accent);box-shadow:var(--lift)}
 html .gallery-item:hover h3{color:var(--accent)}
 html .gallery-figure{margin:0;width:100%}
 html .gallery-frame{
-  display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:16/10;padding:.75rem;
-  background:var(--plate);border:1px solid var(--plate-edge);border-radius:var(--radius);overflow:hidden;
+  display:flex;align-items:center;justify-content:center;width:100%;height:auto;aspect-ratio:16/10;padding:.75rem!important;
+  background:var(--plate)!important;border:1px solid var(--plate-edge)!important;border-radius:var(--radius)!important;overflow:hidden;
 }
 html .gallery-frame img{display:block;width:100%;height:100%;object-fit:contain}
 html .gallery-figure .fig-caption{margin-top:.75rem}
 html .gallery-copy h3{transition:color 140ms var(--ease)}
 html .gallery-metric{margin-top:auto}
+html .index-more{margin-top:1.75rem}
 @media(prefers-reduced-motion:no-preference){html .gallery-item:hover{transform:translateY(-2px)}}
 
 /* ---------- Toolkit: labels share one column so values line up ---------- */

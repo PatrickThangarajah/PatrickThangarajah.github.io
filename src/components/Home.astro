@@ -24,8 +24,9 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
     <div class="hero-copy"><p class="print-identity">Patrick Thangarajah</p>
       <p class="eyebrow hero-enter">Calgary, Alberta, Canada</p>
       <h1 id="intro-title" class="hero-enter">Mechanical Engineering Graduate</h1>
+      <p class="hero-positioning hero-enter">CAE, explicit dynamics and model validation</p>
       <div class="hero-enter"><ul class="focus-areas"><li>Occupant Safety</li><li>Explicit Dynamics</li><li>FEA / Model Validation</li><li>Engineering Design</li></ul><p class="hero-support">{intro}</p></div>
-      <div class="hero-actions hero-enter"><a class="button-link" href="#selected-work">My work <span aria-hidden="true">↓</span></a><a class="button-link secondary-button" href="#resume">Resume</a></div>
+      <div class="hero-actions hero-enter"><a class="button-link" href="#selected-work">View projects <span aria-hidden="true">↓</span></a><a class="button-link secondary-button" href="/downloads/Patrick-Thangarajah-Resume.pdf" download aria-label="Download Patrick Thangarajah resume as PDF">Download resume (PDF)</a></div>
       <p class="eligibility hero-enter">Canadian citizen eligible to work in the United States under TN status</p>
     </div>
     <aside class="hero-feature" aria-labelledby="flagship-title">
@@ -50,6 +51,14 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
 <section id="selected-work" class="home-section" aria-labelledby="work-title">
   <div class="section-heading"><p class="eyebrow">01 / Work</p><h2 id="work-title">Selected work</h2><span class="fringe-rule" aria-hidden="true"></span></div>
   <p class="work-meta">CAE / FEA · Design / Test · Biomechanics</p>
+  <nav class="analysis-links" aria-label="Detailed THOR-5F research methods">
+    <h3>Explore the engineering behind the THOR-5F study</h3>
+    <ul>
+      <li><a href="/projects/fe-validation/">FE validation and ISO 18571</a></li>
+      <li><a href="/projects/seat-belt-doe/">Seat belt anchor DOE and statistical analysis</a></li>
+      <li><a href="/projects/ls-prepost-automation/">LS-PrePost workflow automation</a></li>
+    </ul>
+  </nav>
   <div class="gallery-grid">{secondary.map((c,i)=>{const a=(assets as any)[c.asset];const n=String(i+1).padStart(2,'0');return <a class:list={["gallery-item",{"placeholder-media":isPlaceholder(a.path)}]} href={`/projects/${c.slug}/`} style={`--stagger:${i%3*60}ms`}>
     <figure class="gallery-figure"><span class="gallery-frame"><img src={a.path} alt={isPlaceholder(a.path)?'Placeholder for: '+a.alt:a.alt} width={a.width} height={a.height} loading="lazy" decoding="async" />{isPlaceholder(a.path)&&<span class="media-label">Figure pending</span>}</span><figcaption class="fig-caption"><span class="fig-tag">FIG. {n}</span></figcaption></figure>
     <div class="gallery-copy"><p class="eyebrow">{c.tags}</p><h3>{c.title}</h3><p>{c.copy}</p>{c.metrics.length>0&&<p class="gallery-metric"><strong>{c.metrics[0][0]}</strong> {c.metrics[0][1]}</p>}</div>
@@ -57,10 +66,14 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
   <p class="index-more"><a href="/projects/design-and-applied-research/">Design & applied research index</a></p>
 </section>
 <section id="technical-toolkit" class="home-section" aria-labelledby="toolkit-title"><div class="section-heading"><h2 id="toolkit-title">Technical toolkit</h2><span class="fringe-rule" aria-hidden="true"></span></div><div class="toolkit-tags">{rows.map(([label,tools])=><div><h3>{label}</h3><p>{tools}</p></div>)}</div></section>
-<section id="experience" class="home-section background-section" aria-labelledby="background-title"><div class="section-heading"><p class="eyebrow">02 / Experience</p><h2 id="background-title">Experience & education</h2><span class="fringe-rule" aria-hidden="true"></span></div>
+<section id="publications-presentations" class="home-section research-section" aria-labelledby="research-title">
+  <div class="section-heading"><p class="eyebrow">02 / Research</p><h2 id="research-title">Research and publications</h2><span class="fringe-rule" aria-hidden="true"></span></div>
+  <div class="research-list reading-column" set:html={render(section('publications-presentations'),hub.title)}/>
+  <p class="research-followup">For the simulation workflow, results and limitations, see the <a href="/projects/thor-5f/">THOR-5F case study</a>.</p>
+</section>
+<section id="experience" class="home-section background-section" aria-labelledby="background-title"><div class="section-heading"><p class="eyebrow">03 / Experience</p><h2 id="background-title">Experience & education</h2><span class="fringe-rule" aria-hidden="true"></span></div>
   <div id="education"><h3>Education</h3><div class="timeline">{history('education').map(([period,degree,org])=><div><p class="timeline-date">{period}</p><div><h3>{org}</h3><p>{degree}</p></div></div>)}</div></div>
   <h3>Engineering experience</h3><div class="timeline">{history('experience').map(([period,role,org])=><div><p class="timeline-date">{period}</p><div><h3>{role.split('<br>')[0].replaceAll('**','')}</h3><p class="organization">{org}</p><div set:html={render(role.split('<br>').slice(1).join('<br>'),'Experience')}/></div></div>)}</div>
-  <details id="publications-presentations" class="disclosure"><summary>Publications & presentations</summary><div class="reading-column" set:html={render(section('publications-presentations'),hub.title)}/></details>
   <details id="public-code-and-workflow-artifacts" class="disclosure"><summary>Public code & workflow artifacts</summary><div class="reading-column" set:html={render(section('public-code-and-workflow-artifacts'),hub.title)}/></details>
 </section>
 <section id="about-me" class="home-section about-me" aria-labelledby="about-title">
@@ -72,7 +85,7 @@ const intro=(hub.blocks[0] as any).text.split('\n')[1];
     <details id="at-a-glance" class="disclosure"><summary>Background at a glance</summary><div class="reading-column" set:html={render(section('at-a-glance'),hub.title)}/></details>
   </div>
 </section>
-<section id="contact" class="home-section" aria-labelledby="contact-title"><div class="section-heading"><p class="eyebrow">03 / Contact</p><h2 id="contact-title">Get in touch</h2><span class="fringe-rule" aria-hidden="true"></span></div><div class="contact-links"><a href="mailto:ptemmanual@gmail.com">ptemmanual@gmail.com</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a></div>
+<section id="contact" class="home-section" aria-labelledby="contact-title"><div class="section-heading"><p class="eyebrow">04 / Contact</p><h2 id="contact-title">Get in touch</h2><span class="fringe-rule" aria-hidden="true"></span></div><div class="contact-links"><a href="mailto:ptemmanual@gmail.com">ptemmanual@gmail.com</a><a href="https://www.linkedin.com/in/patrickthangarajah/">LinkedIn</a><a href="https://github.com/PatrickThangarajah">GitHub</a></div>
 <div id="resume"><h3>Resume</h3><div class="download-grid resume-download-grid"><Download id="resume"/></div><details class="disclosure"><summary>Document details & work eligibility</summary><div class="reading-column" set:html={render(section('resume'),hub.title)}/></details></div></section>
 
 <style>

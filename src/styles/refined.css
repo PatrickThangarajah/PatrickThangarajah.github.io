@@ -293,3 +293,22 @@
   .hero-feature{grid-template-columns:1fr;gap:1rem}
   .hero-feature-media{max-width:20rem}
 }
+
+/* Recruiter-facing clarity: specialty, technical paths, and research links. */
+.hero-positioning{font:600 1.125rem/1.55rem var(--ui);color:var(--ink);margin:-.5rem 0 1.25rem}
+.analysis-links{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:1.5rem 0;margin:0 0 2.5rem}
+.analysis-links h3{font:600 1.0625rem/1.5rem var(--ui);margin:0 0 1rem}
+.analysis-links ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem 1.5rem}
+.analysis-links li{margin:0;padding:0}
+.analysis-links a{display:inline-block;font:600 .975rem/1.5rem var(--ui);color:var(--accent)}
+.research-list{max-width:68rem;font:400 1.0625rem/1.7rem var(--ui)}
+.research-list ul{padding-left:1.5rem}
+.research-list li{margin:0 0 1.25rem}
+.research-list li:last-child{margin-bottom:0}
+.research-list a{color:var(--accent)}
+.research-followup{font:400 1rem/1.6rem var(--ui);color:var(--secondary);margin:1.5rem 0 0}
+@media(max-width:639px){
+  .hero-positioning{font-size:1rem;line-height:1.45rem;margin:-.4rem 0 1rem}
+  .analysis-links ul{grid-template-columns:1fr;gap:.75rem}
+  .research-list{font-size:1rem;line-height:1.6rem}
+}

@@ -105,7 +105,7 @@ const excerpt=(text:string,max=180)=>{
   const end=boundary>Math.floor(max*.7) ? boundary : max-1;
   return candidate.slice(0,end).trimEnd()+'…';
 };
-const description=home ? 'MASc graduate in Mechanical and Mechatronics Engineering with experience in LS-DYNA, FE model validation, and occupant safety.' : excerpt(firstMarkdown);
+const description=home ? 'MASc mechanical engineering graduate focused on LS-DYNA, occupant safety, physical-test correlation, model validation, and mechanical design.' : excerpt(firstMarkdown);
 const firstAssetBlock=page.blocks.find((b:any)=>b.type==='asset');
 const socialAsset:any=home ? (assets as any).A01 : firstAssetBlock ? (assets as any)[firstAssetBlock.id] : (assets as any).A01;
 const socialImage=socialAsset?.path ? new URL(socialAsset.path,Astro.site) : undefined;
